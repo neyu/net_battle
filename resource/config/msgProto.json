@@ -1,0 +1,30 @@
+{
+	"//game": "proto",
+	"1001": "msgProto.ContentReq",
+	"1002": "msgProto.ContentAck",
+
+	"//login": "proto",
+	"1003": "msgProto.PingAck", 
+	"1004": "msgProto.LoginReq", 
+	"1005": "msgProto.LoginAck",
+	"1006": "msgProto.VerifyReq",
+	"1007": "msgProto.VerifyAck",
+
+	"//chat": "proto",
+	"1008": "msgProto.ChatReq",
+	"1009": "msgProto.ChatAck",
+	"1010": "msgProto.TestAck",
+
+	"//iface": "proto",
+	"2000": "msgProto.AccountLogin",
+	"2001": "msgProto.AccountRegister",
+	"2002": "msgProto.LoginResponse",
+	"2003": "msgProto.SvrListGet",
+	"2004": "msgProto.UserSvrsGet",
+	"2005": "msgProto.SvrListResponse",
+
+	"2010": "msgProto.GameEnter",
+	"2011": "msgProto.UserCreate",
+	"2012": "msgProto.GameEnterResponse",
+	"2013": "msgProto.UserCreateResponse"
+}

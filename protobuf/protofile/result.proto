@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package msgProto;
+
+enum ResultCode
+{
+	NoError = 0;
+	GateNotFound = 1;
+	GateAddressError = 2;
+	GameNotFound = 3;
+}
