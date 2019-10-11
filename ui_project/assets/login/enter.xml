@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="480,800">
+  <displayList>
+    <component id="n0_uezu" name="n0" src="uezuc" fileName="Button4.xml" xy="94,391">
+      <Button title="(二区)  圣战" titleColor="#ff0000" titleFontSize="26"/>
+    </component>
+    <component id="n1_uezu" name="n1" src="uezud" fileName="Button5.xml" xy="181,462">
+      <Button title="进入游戏" titleColor="#000000" titleFontSize="28"/>
+    </component>
+  </displayList>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="dvqrdjrz" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="jmnw0" name="login.xml" path="/" exported="true"/>
+    <component id="jmnw3" name="Button1.xml" path="/"/>
+    <component id="uezu5" name="register.xml" path="/" exported="true"/>
+    <component id="uezu7" name="server.xml" path="/" exported="true"/>
+    <component id="uezu9" name="Button2.xml" path="/"/>
+    <component id="uezua" name="Button3.xml" path="/"/>
+    <component id="uezub" name="enter.xml" path="/" exported="true"/>
+    <component id="uezuc" name="Button4.xml" path="/"/>
+    <component id="uezud" name="Button5.xml" path="/"/>
+  </resources>
+  <publish name="login"/>
+</packageDescription>
