@@ -1,2 +1,2 @@
 # net_battle
-client project for battle with net  base on websocket
+client project for battle with network based on websocket
