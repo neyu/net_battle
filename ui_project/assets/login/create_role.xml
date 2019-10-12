@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="480,800">
+  <displayList>
+    <graph id="n16_vcob" name="n16" xy="60,131" size="366,466" type="rect" fillColor="#ffffffcc"/>
+    <graph id="n1_vcob" name="n1" xy="155,440" size="215,32" type="rect"/>
+    <text id="n0_vcob" name="n0" xy="155,440" size="215,32" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="18" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <component id="n2_vcob" name="n2" src="vcobf" fileName="Button6.xml" xy="161,492">
+      <Button title="创建角色" titleColor="#990000" titleFontSize="18"/>
+    </component>
+    <text id="n3_vcob" name="n3" xy="76,444" size="79,27" fontSize="18" color="#990066" align="center" vAlign="middle" autoSize="none" text="角色名称"/>
+    <image id="n4_vcob" name="n4" src="vcobg" fileName="avatar_10000.png" xy="107,191" pivot="0.5,0.5" size="50,50"/>
+    <image id="n5_vcob" name="n5" src="vcobh" fileName="avatar_10001.png" xy="176,191" pivot="0.5,0.5" size="50,50"/>
+    <image id="n6_vcob" name="n6" src="vcobi" fileName="avatar_10002.png" xy="251,191" pivot="0.5,0.5" size="50,50"/>
+    <image id="n7_vcob" name="n7" src="vcobj" fileName="avatar_10003.png" xy="325,191" pivot="0.5,0.5" size="50,50"/>
+    <image id="n8_vcob" name="n8" src="vcobk" fileName="avatar_10004.png" xy="107,259" pivot="0.5,0.5" size="50,50"/>
+    <image id="n9_vcob" name="n9" src="vcobl" fileName="avatar_10005.png" xy="176,258" pivot="0.5,0.5" size="50,50"/>
+    <image id="n10_vcob" name="n10" src="vcobm" fileName="avatar_10006.png" xy="251,259" pivot="0.5,0.5" size="50,50"/>
+    <image id="n11_vcob" name="n11" src="vcobn" fileName="avatar_10007.png" xy="325,259" pivot="0.5,0.5" size="50,50"/>
+    <image id="n12_vcob" name="n12" src="vcobo" fileName="avatar_10008.png" xy="107,333" pivot="0.5,0.5" size="50,50"/>
+    <image id="n13_vcob" name="n13" src="vcobp" fileName="avatar_10009.png" xy="176,332" pivot="0.5,0.5" size="50,50"/>
+    <image id="n14_vcob" name="n14" src="vcobq" fileName="avatar_10010.png" xy="251,333" pivot="0.5,0.5" size="50,50"/>
+    <text id="n15_vcob" name="n15" xy="107,165" size="69,22" fontSize="16" color="#990000" align="center" vAlign="middle" text="选择头像"/>
+  </displayList>
+</component>

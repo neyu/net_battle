@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="480,800">
   <displayList>
-    <component id="n0_uezu" name="n0" src="uezuc" fileName="Button4.xml" xy="94,391">
+    <component id="n0_uezu" name="n0" src="uezuc" fileName="Button4.xml" xy="94,379" size="300,50">
       <Button title="(二区)  圣战" titleColor="#ff0000" titleFontSize="26"/>
     </component>
-    <component id="n1_uezu" name="n1" src="uezud" fileName="Button5.xml" xy="181,462">
-      <Button title="进入游戏" titleColor="#000000" titleFontSize="28"/>
+    <component id="n1_uezu" name="n1" src="uezud" fileName="Button5.xml" xy="181,462" size="125,38">
+      <Button title="进入游戏" titleColor="#ff9900" titleFontSize="24"/>
+    </component>
+    <component id="n3_vcob" name="n3" src="vcobt" fileName="Button7.xml" xy="29,88">
+      <Button title="切换账号" titleColor="#000000" titleFontSize="12"/>
     </component>
   </displayList>
 </component>

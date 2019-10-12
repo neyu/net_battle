@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="480,800" designImageAlpha="0" bgColorEnabled="true" bgColor="#ffffee">
+  <displayList>
+    <graph id="n10_glcc" name="n10" xy="0,0" size="480,800" alpha="0.9" type="rect" fillColor="#ffffffee"/>
+    <component id="n1_uezu" name="n1" src="uezu9" fileName="Button2.xml" xy="93,289">
+      <Button title="最近登录 >>" titleColor="#ffffcc" titleFontSize="13"/>
+    </component>
+    <component id="n2_uezu" name="n2" src="uezu9" fileName="Button2.xml" xy="93,336">
+      <Button title="1~5服 >>" titleColor="#ffffcc" titleFontSize="13"/>
+    </component>
+    <component id="n3_uezu" name="n3" src="uezu9" fileName="Button2.xml" xy="93,380">
+      <Button title="6~10服 >>" titleColor="#ffffcc" titleFontSize="13"/>
+    </component>
+    <component id="n4_uezu" name="n4" src="uezu9" fileName="Button2.xml" xy="93,427">
+      <Button title="11~15服 >>" titleColor="#ffffcc" titleFontSize="13"/>
+    </component>
+    <component id="n5_uezu" name="n5" src="uezua" fileName="Button3.xml" xy="214,260">
+      <Button title="(一区)  火树银花" titleColor="#000000" titleFontSize="12"/>
+    </component>
+    <component id="n6_uezu" name="n6" src="uezua" fileName="Button3.xml" xy="214,307">
+      <Button title="(二区)  圣战之颠" titleColor="#000000" titleFontSize="12"/>
+    </component>
+    <component id="n7_uezu" name="n7" src="uezua" fileName="Button3.xml" xy="214,354">
+      <Button title="(三区)  冲锋" titleColor="#000000" titleFontSize="12"/>
+    </component>
+    <component id="n8_uezu" name="n8" src="uezua" fileName="Button3.xml" xy="214,401">
+      <Button title="(四区)  万象更新" titleColor="#000000" titleFontSize="12"/>
+    </component>
+    <component id="n9_uezu" name="n9" src="uezua" fileName="Button3.xml" xy="214,448">
+      <Button title="(五区)  神殿" titleColor="#000000" titleFontSize="12"/>
+    </component>
+  </displayList>
+</component>

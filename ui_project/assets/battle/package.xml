@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="dt75loay" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="vcob0" name="main.xml" path="/" exported="true"/>
+    <image id="vcob1" name="avatar_10000.png" path="/"/>
+    <image id="vcob2" name="avatar_10001.png" path="/"/>
+    <image id="vcob3" name="avatar_10002.png" path="/"/>
+    <image id="vcob4" name="avatar_10003.png" path="/"/>
+    <image id="vcob5" name="avatar_10004.png" path="/"/>
+    <image id="vcob6" name="avatar_10005.png" path="/"/>
+    <image id="vcob7" name="avatar_10006.png" path="/"/>
+    <image id="vcob8" name="avatar_10007.png" path="/"/>
+    <image id="vcob9" name="avatar_10008.png" path="/"/>
+    <image id="vcoba" name="avatar_10009.png" path="/"/>
+  </resources>
+  <publish name="battle"/>
+</packageDescription>

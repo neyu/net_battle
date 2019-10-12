@@ -18,7 +18,7 @@ namespace net {
         //Socket.inst.initServer(ServerConfig.Server_pub, ServerConfig.Port_pub, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer(app.versionData.socket_server, app.versionData.socket_port, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer("ws://www.xxh5.net", "7800/ws", new MsgJson())
-        Socket.inst.initServer("ws://127.0.0.1", "8400/ws", new MsgProto())
+        Socket.inst.initServer("ws://www.xxh5.net", "18400/ws", new MsgProto())
 
         _connType = 1 // connecto to login
         addNetworkEvents();

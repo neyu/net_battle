@@ -12,21 +12,26 @@
 		"protobuf/bundles/protobuf-bundles.js"
 	],
 	"game": [
-		"bin-debug/net/msgCenter.js",
-		"bin-debug/bullet.js",
+		"bin-debug/login/loginScene.js",
 		"bin-debug/LoadingUI.js",
-		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
-		"bin-debug/sandTable.js",
-		"bin-debug/testEgretApi.js",
+		"bin-debug/battle/btScene.js",
+		"bin-debug/battle/bullet.js",
+		"bin-debug/battle/ctrlPanel.js",
+		"bin-debug/battle/sandTable.js",
+		"bin-debug/lobby/lobby.js",
+		"bin-debug/lobby/lobbyScene.js",
+		"bin-debug/login/login.js",
+		"bin-debug/Main.js",
 		"bin-debug/net/msgBase.js",
-		"bin-debug/ctrlPanel.js",
+		"bin-debug/net/msgCenter.js",
 		"bin-debug/net/msgJson.js",
 		"bin-debug/net/msgProto.js",
 		"bin-debug/net/net.js",
 		"bin-debug/net/objPool.js",
 		"bin-debug/net/sock.js",
 		"bin-debug/net/sockConst.js",
-		"bin-debug/net/timerMgr.js"
+		"bin-debug/net/timerMgr.js",
+		"bin-debug/test/testEgretApi.js"
 	]
 }

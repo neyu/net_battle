@@ -4,12 +4,27 @@
     <component id="jmnw0" name="login.xml" path="/" exported="true"/>
     <component id="jmnw3" name="Button1.xml" path="/"/>
     <component id="uezu5" name="register.xml" path="/" exported="true"/>
-    <component id="uezu7" name="server.xml" path="/" exported="true"/>
+    <component id="uezu7" name="servers.xml" path="/" exported="true"/>
     <component id="uezu9" name="Button2.xml" path="/"/>
     <component id="uezua" name="Button3.xml" path="/"/>
     <component id="uezub" name="enter.xml" path="/" exported="true"/>
     <component id="uezuc" name="Button4.xml" path="/"/>
     <component id="uezud" name="Button5.xml" path="/"/>
+    <component id="vcobe" name="create_role.xml" path="/" exported="true"/>
+    <component id="vcobf" name="Button6.xml" path="/"/>
+    <image id="vcobg" name="avatar_10000.png" path="/"/>
+    <image id="vcobh" name="avatar_10001.png" path="/"/>
+    <image id="vcobi" name="avatar_10002.png" path="/"/>
+    <image id="vcobj" name="avatar_10003.png" path="/"/>
+    <image id="vcobk" name="avatar_10004.png" path="/"/>
+    <image id="vcobl" name="avatar_10005.png" path="/"/>
+    <image id="vcobm" name="avatar_10006.png" path="/"/>
+    <image id="vcobn" name="avatar_10007.png" path="/"/>
+    <image id="vcobo" name="avatar_10008.png" path="/"/>
+    <image id="vcobp" name="avatar_10009.png" path="/"/>
+    <image id="vcobq" name="avatar_10010.png" path="/"/>
+    <image id="vcobr" name="frame_20000.png" path="/"/>
+    <component id="vcobt" name="Button7.xml" path="/"/>
   </resources>
   <publish name="login"/>
 </packageDescription>

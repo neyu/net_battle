@@ -35,7 +35,7 @@ class Bullet extends egret.Shape {
         this.y = this._radius
     }
 
-    private speed: number = 0.005;
+    private speed: number = 0.01;
     private time: number = 0;
     private startMove() {
         this.time = egret.getTimer();

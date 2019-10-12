@@ -1,155 +1,173 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,border_png,star_png,avatar_10000_png,avatar_10001_png,avatar_10002_png,avatar_10003_png,avatar_10004_png,avatar_10005_png,avatar_10006_png,avatar_10007_png,avatar_10008_png,avatar_10009_png,avatar_10010_png,frame_20000_png,frame_20001_png,frame_20002_png,frame_20003_png,frame_20004_png,frame_20005_png,frame_20006_png,frame_20007_png,frame_20008_png,frame_20009_png,frame_20010_png,msgProto_json,c_msgCode_json",
+			"keys": "description_json,msgProto_json,c_msgCode_json",
 			"name": "preload"
+		},
+		{
+			"keys": "login,login_atlas0,lobby,lobby_atlas0,battle,battle_atlas0",
+			"name": "ui"
+		},
+		{
+			"keys": "frame_20010_png,frame_20009_png,frame_20008_png,frame_20007_png,frame_20006_png,frame_20005_png,frame_20004_png,frame_20003_png,frame_20002_png,frame_20001_png,frame_20000_png,avatar_10010_png,avatar_10009_png,avatar_10008_png,avatar_10007_png,avatar_10006_png,avatar_10005_png,avatar_10004_png,avatar_10003_png,avatar_10002_png,avatar_10001_png,avatar_10000_png",
+			"name": "icon"
 		}
 	],
 	"resources": [
 		{
-			"name": "bg_jpg",
-			"type": "image",
-			"url": "assets/bg.jpg"
-		},
-		{
-			"name": "egret_icon_png",
-			"type": "image",
-			"url": "assets/egret_icon.png"
-		},
-		{
-			"name": "description_json",
+			"url": "config/description.json",
 			"type": "json",
-			"url": "config/description.json"
+			"name": "description_json"
 		},
 		{
-			"name": "border_png",
-			"type": "image",
-			"url": "assets/border.png"
-		},
-		{
-			"name": "star_png",
-			"type": "image",
-			"url": "assets/star.png"
-		},
-		{
-			"name": "avatar_10000_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10000.png"
-		},
-		{
-			"name": "avatar_10001_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10001.png"
-		},
-		{
-			"name": "avatar_10002_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10002.png"
-		},
-		{
-			"name": "avatar_10003_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10003.png"
-		},
-		{
-			"name": "avatar_10004_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10004.png"
-		},
-		{
-			"name": "avatar_10005_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10005.png"
-		},
-		{
-			"name": "avatar_10006_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10006.png"
-		},
-		{
-			"name": "avatar_10007_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10007.png"
-		},
-		{
-			"name": "avatar_10008_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10008.png"
-		},
-		{
-			"name": "avatar_10009_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10009.png"
-		},
-		{
-			"name": "avatar_10010_png",
-			"type": "image",
-			"url": "assets/icon/avatar_10010.png"
-		},
-		{
-			"name": "frame_20000_png",
-			"type": "image",
-			"url": "assets/icon/frame_20000.png"
-		},
-		{
-			"name": "frame_20001_png",
-			"type": "image",
-			"url": "assets/icon/frame_20001.png"
-		},
-		{
-			"name": "frame_20002_png",
-			"type": "image",
-			"url": "assets/icon/frame_20002.png"
-		},
-		{
-			"name": "frame_20003_png",
-			"type": "image",
-			"url": "assets/icon/frame_20003.png"
-		},
-		{
-			"name": "frame_20004_png",
-			"type": "image",
-			"url": "assets/icon/frame_20004.png"
-		},
-		{
-			"name": "frame_20005_png",
-			"type": "image",
-			"url": "assets/icon/frame_20005.png"
-		},
-		{
-			"name": "frame_20006_png",
-			"type": "image",
-			"url": "assets/icon/frame_20006.png"
-		},
-		{
-			"name": "frame_20007_png",
-			"type": "image",
-			"url": "assets/icon/frame_20007.png"
-		},
-		{
-			"name": "frame_20008_png",
-			"type": "image",
-			"url": "assets/icon/frame_20008.png"
-		},
-		{
-			"name": "frame_20009_png",
-			"type": "image",
-			"url": "assets/icon/frame_20009.png"
-		},
-		{
-			"name": "frame_20010_png",
-			"type": "image",
-			"url": "assets/icon/frame_20010.png"
-		},
-		{
-			"name": "msgProto_json",
+			"url": "config/msgProto.json",
 			"type": "json",
-			"url": "config/msgProto.json"
+			"name": "msgProto_json"
 		},
 		{
-			"name": "c_msgCode_json",
+			"url": "config/c_msgCode.json",
 			"type": "json",
-			"url": "config/c_msgCode.json"
+			"name": "c_msgCode_json"
+		},
+		{
+			"url": "icon/avatar_10000.png",
+			"type": "image",
+			"name": "avatar_10000_png"
+		},
+		{
+			"url": "icon/avatar_10001.png",
+			"type": "image",
+			"name": "avatar_10001_png"
+		},
+		{
+			"url": "icon/avatar_10002.png",
+			"type": "image",
+			"name": "avatar_10002_png"
+		},
+		{
+			"url": "icon/avatar_10003.png",
+			"type": "image",
+			"name": "avatar_10003_png"
+		},
+		{
+			"url": "icon/avatar_10004.png",
+			"type": "image",
+			"name": "avatar_10004_png"
+		},
+		{
+			"url": "icon/avatar_10005.png",
+			"type": "image",
+			"name": "avatar_10005_png"
+		},
+		{
+			"url": "icon/avatar_10006.png",
+			"type": "image",
+			"name": "avatar_10006_png"
+		},
+		{
+			"url": "icon/avatar_10007.png",
+			"type": "image",
+			"name": "avatar_10007_png"
+		},
+		{
+			"url": "icon/avatar_10008.png",
+			"type": "image",
+			"name": "avatar_10008_png"
+		},
+		{
+			"url": "icon/avatar_10009.png",
+			"type": "image",
+			"name": "avatar_10009_png"
+		},
+		{
+			"url": "icon/avatar_10010.png",
+			"type": "image",
+			"name": "avatar_10010_png"
+		},
+		{
+			"url": "icon/frame_20000.png",
+			"type": "image",
+			"name": "frame_20000_png"
+		},
+		{
+			"url": "icon/frame_20001.png",
+			"type": "image",
+			"name": "frame_20001_png"
+		},
+		{
+			"url": "icon/frame_20002.png",
+			"type": "image",
+			"name": "frame_20002_png"
+		},
+		{
+			"url": "icon/frame_20003.png",
+			"type": "image",
+			"name": "frame_20003_png"
+		},
+		{
+			"url": "icon/frame_20004.png",
+			"type": "image",
+			"name": "frame_20004_png"
+		},
+		{
+			"url": "icon/frame_20005.png",
+			"type": "image",
+			"name": "frame_20005_png"
+		},
+		{
+			"url": "icon/frame_20006.png",
+			"type": "image",
+			"name": "frame_20006_png"
+		},
+		{
+			"url": "icon/frame_20007.png",
+			"type": "image",
+			"name": "frame_20007_png"
+		},
+		{
+			"url": "icon/frame_20008.png",
+			"type": "image",
+			"name": "frame_20008_png"
+		},
+		{
+			"url": "icon/frame_20009.png",
+			"type": "image",
+			"name": "frame_20009_png"
+		},
+		{
+			"url": "icon/frame_20010.png",
+			"type": "image",
+			"name": "frame_20010_png"
+		},
+		{
+			"url": "ui/battle.zip",
+			"type": "bin",
+			"name": "battle"
+		},
+		{
+			"url": "ui/battle_atlas0.png",
+			"type": "image",
+			"name": "battle_atlas0"
+		},
+		{
+			"url": "ui/lobby.zip",
+			"type": "bin",
+			"name": "lobby"
+		},
+		{
+			"url": "ui/lobby_atlas0.png",
+			"type": "image",
+			"name": "lobby_atlas0"
+		},
+		{
+			"url": "ui/login.zip",
+			"type": "bin",
+			"name": "login"
+		},
+		{
+			"url": "ui/login_atlas0.png",
+			"type": "image",
+			"name": "login_atlas0"
 		}
 	]
 }

@@ -56,7 +56,7 @@ class Main extends egret.DisplayObjectContainer {
 
     private async runGame() {
         await this.loadResource()
-        this.createGameScene();
+        this.loadMyResource();
 
         const result = await RES.getResAsync("description_json")
         // this.startAnimation(result);
@@ -70,6 +70,7 @@ class Main extends egret.DisplayObjectContainer {
         try {
             const loadingView = new LoadingUI();
             this.stage.addChild(loadingView);
+            
             await RES.loadConfig("resource/default.res.json", "resource/");
             await RES.loadGroup("preload", 0, loadingView);
             this.stage.removeChild(loadingView);
@@ -79,15 +80,55 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
 
-    private textfield: egret.TextField;
+    private resMap: any = []
+    private loadMyResource() {
+        var uiLoading:RES.PromiseTaskReporter = {
+            onProgress(current: number, total: number){
+                if (current >= total) {
+                    console.log("ui load finished:", current+"/"+total);
+                }
+            }
+        };
+        var iconLoading:RES.PromiseTaskReporter = {
+            onProgress(current: number, total: number){
+                if (current >= total) {
+                    console.log("icon load finished:", current+"/"+total);
+                }
+            }
+        };
+        RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onGroupComplete, this);
+        RES.loadGroup("ui", 0, uiLoading);
+        this.resMap["ui"] = false
+        RES.loadGroup("icon", 0, iconLoading);
+        this.resMap["icon"] = false
+    }
+    private onGroupComplete(evt:RES.ResourceEvent) {
+        console.log("res group finish: ", evt.groupName)
+        this.resMap[evt.groupName] = true
 
+        for (let key in this.resMap) {
+            if (!this.resMap[key]) {
+                return
+            }
+        }
+        console.log("onGroupComplete !!!!!!!!!!!!!!!!")
+        this.loadGameScene();
+    }
+
+    private textfield: egret.TextField;
     /**
      * 创建游戏场景
      * Create a game scene
      */
-    private createGameScene() {
+    private loadGameScene() {
         // this.testPanel()
-        this.showSandTable()
+        // this.showSandTable()
+
+        // 尝试连接网络
+        net.init()
+
+        // 进入登录场景
+        this.switchLogin()
     }
 
     private testPanel() {
@@ -192,5 +233,8 @@ class Main extends egret.DisplayObjectContainer {
 
         let ctrlPanel = new CtrlPanel(table);
         this.addChild(ctrlPanel)
+    }
+    private switchLogin() {
+        this.addChild(Login.inst.createScene());
     }
 }
