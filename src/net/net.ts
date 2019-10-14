@@ -18,10 +18,8 @@ namespace net {
         //Socket.inst.initServer(ServerConfig.Server_pub, ServerConfig.Port_pub, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer(app.versionData.socket_server, app.versionData.socket_port, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer("ws://www.xxh5.net", "7800/ws", new MsgJson())
-        Socket.inst.initServer("ws://www.xxh5.net", "18400/ws", new MsgProto())
-
-        _connType = 1 // connecto to login
         addNetworkEvents();
+        ConnToLogin();
     }
 
     function loadMsgCode() {
@@ -37,6 +35,9 @@ namespace net {
 
     export function regMsgProc(msgName:string, selector:Function, target:any) {
         MsgCenter.inst.addListener(msgName, selector, target);
+    }
+    export function delMsgProc(msgName:string, selector:Function, target:any) {
+        MsgCenter.inst.removeListener(msgName, selector, target);
     }
     export function msgDispatch(key:string, param:any) {
         MsgCenter.inst.dispatch(key, param)
@@ -62,9 +63,16 @@ namespace net {
         Socket.inst.close()
         Socket.Destroy()
     }
+    export function ConnToLogin() {
+        _connType = 1 // connecto to login
+
+        Socket.inst.initServer("ws://www.xxh5.net", "18400/ws", new MsgProto())
+        Socket.inst.connect();
+    }
 
     export function ResetToGame(host:string, port:string, accId:number) {
-        _connType = 2;
+        _connType = 2 // connecto to game
+
         _gameToken = "app_1.0.0#res_1.0.0";
         _accountId = accId;
         Socket.inst.initServer("ws://" + host,  port + "/ws", new MsgProto())
@@ -72,8 +80,6 @@ namespace net {
     }
 
     function addNetworkEvents() {
-        Socket.inst.connect();
-
         MsgCenter.inst.addListener(SocketConst.SOCKET_CONNECT, () => {
             console.log("[Debug]:与服务器连接上");
             if (_connType == 1) {

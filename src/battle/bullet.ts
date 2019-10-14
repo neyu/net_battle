@@ -53,7 +53,7 @@ class Bullet extends egret.Shape {
         if (moveOffset > this._radius) {
             egret.stopTick(this.move, this);
             this.parent.removeChild(this);
-            return
+            return false;
         }
 
         this.time = now;

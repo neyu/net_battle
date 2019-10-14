@@ -124,6 +124,9 @@ class Main extends egret.DisplayObjectContainer {
         // this.testPanel()
         // this.showSandTable()
 
+        // 初始化提示
+        TipMgr.inst.init(this.stage);
+
         // 尝试连接网络
         net.init()
 

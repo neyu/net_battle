@@ -7,13 +7,13 @@
     <component id="n1_e3d4" name="n1" src="e3d41" fileName="Button1.xml" xy="259,339">
       <Button title="跨服战" titleColor="#ff0000" titleFontSize="24"/>
     </component>
-    <text id="n2_e3d4" name="n2" xy="149,27" size="99,25" fontSize="18" color="#ffffcc" vAlign="middle" strokeColor="#000000" text="百慕大杀手"/>
+    <text id="n2_e3d4" name="n2" xy="149,27" size="95,25" fontSize="18" color="#ffffcc" vAlign="middle" strokeColor="#000000" text="百慕大杀手"/>
     <image id="n8_vcob" name="n8" src="vcob4" fileName="avatar_10009.png" xy="24,26" pivot="0.5,0.5"/>
     <image id="n9_vcob" name="n9" src="vcob6" fileName="frame_20010.png" xy="15,17" pivot="0.5,0.5"/>
-    <text id="n10_vcob" name="n10" xy="148,68" size="61,25" fontSize="18" color="#ff00ff" vAlign="middle" strokeColor="#000000" text="积分："/>
-    <text id="n11_vcob" name="n11" xy="203,70" size="59,25" fontSize="18" color="#ff00ff" vAlign="middle" strokeColor="#000000" text="99999"/>
-    <text id="n12_vcob" name="n12" xy="87,495" size="49,19" fontSize="12" color="#cccccc" vAlign="middle" strokeColor="#000000" text="(x1.0倍)"/>
-    <text id="n13_vcob" name="n13" xy="259,495" size="49,19" fontSize="12" color="#cccccc" vAlign="middle" strokeColor="#000000" text="(x1.5倍)"/>
+    <text id="n10_vcob" name="n10" xy="148,68" size="59,25" fontSize="18" color="#ff00ff" vAlign="middle" strokeColor="#000000" text="积分："/>
+    <text id="n11_vcob" name="n11" xy="203,70" size="55,25" fontSize="18" color="#ff00ff" vAlign="middle" strokeColor="#000000" text="99999"/>
+    <text id="n12_vcob" name="n12" xy="92,495" size="77,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.0倍积分)"/>
+    <text id="n13_vcob" name="n13" xy="264,493" size="77,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.5倍积分)"/>
     <graph id="n26_vcob" name="n26" xy="11,554" size="462,210" type="rect" fillColor="#ffcccccc"/>
     <text id="n14_vcob" name="n14" xy="46,558" size="73,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 1 名："/>
     <text id="n15_vcob" name="n15" xy="119,558" size="219,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="西门吹雪"/>
@@ -25,9 +25,12 @@
     <text id="n23_vcob" name="n23" xy="119,645" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="为了你我取个长名跟全世界作对"/>
     <text id="n24_vcob" name="n24" xy="38,675" size="82,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" singleLine="true" text="第 999 名："/>
     <text id="n25_vcob" name="n25" xy="120,674" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="bingo boy !!"/>
-    <text id="n27_vcob" name="n27" xy="11,533" size="45,20" fontSize="14" color="#ffccff" vAlign="middle" strokeColor="#000000" text="积分榜"/>
-    <text id="n28_vcob" name="n28" xy="410,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
-    <text id="n29_vcob" name="n29" xy="116,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
-    <text id="n30_vcob" name="n30" xy="290,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
+    <text id="n27_vcob" name="n27" xy="11,533" size="47,20" fontSize="14" color="#ffccff" vAlign="middle" strokeColor="#000000" text="积分榜"/>
+    <text id="n28_vcob" name="n28" xy="371,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
+    <text id="n29_vcob" name="n29" xy="116,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
+    <text id="n30_vcob" name="n30" xy="290,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
+    <component id="n31_glcc" name="n31" src="glcc7" fileName="Button2.xml" xy="438,6">
+      <Button title="退出" titleColor="#996600" titleFontSize="12"/>
+    </component>
   </displayList>
 </component>

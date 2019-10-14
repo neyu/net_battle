@@ -8,6 +8,7 @@
     <image id="vcob4" name="avatar_10009.png" path="/"/>
     <image id="vcob5" name="frame_20005.png" path="/"/>
     <image id="vcob6" name="frame_20010.png" path="/"/>
+    <component id="glcc7" name="Button2.xml" path="/"/>
   </resources>
-  <publish name=""/>
+  <publish name="lobby"/>
 </packageDescription>

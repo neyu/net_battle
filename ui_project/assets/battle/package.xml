@@ -12,6 +12,7 @@
     <image id="vcob8" name="avatar_10007.png" path="/"/>
     <image id="vcob9" name="avatar_10008.png" path="/"/>
     <image id="vcoba" name="avatar_10009.png" path="/"/>
+    <component id="glccb" name="Button1.xml" path="/"/>
   </resources>
   <publish name="battle"/>
 </packageDescription>

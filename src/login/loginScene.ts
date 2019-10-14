@@ -26,9 +26,20 @@ class LoginScene extends egret.DisplayObjectContainer {
 
         this.openLoginPanel();
     }
+    public onExit() {
+        net.delMsgProc("msgProto.LoginResponse", this.loginResponse, this)
+        net.delMsgProc("msgProto.SvrListResponse", this.svrListGetResponse, this)
 
-    openLoginPanel() {
+        net.delMsgProc("msgProto.GameEnterResponse", this.gameEnterResponse, this)
+        net.delMsgProc("msgProto.UserCreateResponse", this.userCreateResponse, this)
 
+        this.removeChild(fairygui.GRoot.inst.displayObject);
+        // fairygui.UIPackage.removePackage("login");
+
+        this.parent.removeChild(this);
+    }
+
+    private openLoginPanel() {
         this._loginPanel = fairygui.UIPackage.createObject("login", "login").asCom;
         fairygui.GRoot.inst.addChild(this._loginPanel);
 
@@ -39,13 +50,13 @@ class LoginScene extends egret.DisplayObjectContainer {
         btnToReg.addClickListener(this.__toRegister, this);
 
     }
-    closeLoginPanel() {
+    private closeLoginPanel() {
         fairygui.GRoot.inst.removeChild(this._loginPanel);
 
         this._loginPanel = null;
     }
 
-    openRegisterPanel() {
+    private openRegisterPanel() {
         this._regPanel = fairygui.UIPackage.createObject("login", "register").asCom;
         fairygui.GRoot.inst.addChild(this._regPanel);
 
@@ -56,13 +67,13 @@ class LoginScene extends egret.DisplayObjectContainer {
         btnRegister.addClickListener(this.__clickRegister, this);
         
     }
-    closeRegisterPanel() {
+    private closeRegisterPanel() {
         fairygui.GRoot.inst.removeChild(this._regPanel);
 
         this._regPanel = null;
     }
 
-    openEnterPanel() {
+    private openEnterPanel() {
         this._enterPanel = fairygui.UIPackage.createObject("login","enter").asCom;
         fairygui.GRoot.inst.addChild(this._enterPanel);
 
@@ -74,106 +85,55 @@ class LoginScene extends egret.DisplayObjectContainer {
 
         var btnChangeAcc = this._enterPanel.getChild("n3").asButton;
         btnChangeAcc.addClickListener(this.__clickChangeAcc, this);
-
-        this.checkServersShow();
-
     }
-    closeEnterPanel() {
+    private closeEnterPanel() {
         fairygui.GRoot.inst.removeChild(this._enterPanel);
 
         this._enterPanel = null;
     }
 
-    openCreatePanel() {
+    private openCreatePanel() {
         this._createPanel = fairygui.UIPackage.createObject("login", "create_role").asCom;
         fairygui.GRoot.inst.addChild(this._createPanel);
 
         var btnCreate = this._createPanel.getChild("n2").asButton;
         btnCreate.addClickListener(this.__clickCreate, this);
     }
-    closeCreatePanel() {
+    private closeCreatePanel() {
         fairygui.GRoot.inst.removeChild(this._createPanel);
 
         this._createPanel = null;
     }
 
-    openSvrListPanel() {
+    private openSvrListPanel() {
         this._svrListPanel = fairygui.UIPackage.createObject("login", "servers").asCom;
         fairygui.GRoot.inst.addChild(this._svrListPanel);
 
         var btnChoose = this._svrListPanel.getChild("n5").asButton;
         btnChoose.addClickListener(this.__clickSvrChoose, this);
     }
-    closeSvrListPanel() {
+    private closeSvrListPanel() {
         fairygui.GRoot.inst.removeChild(this._svrListPanel);
 
         this._svrListPanel = null;
     }
 
-    checkServersShow(){
-        var self = this;
-    }
-    _selectServer(item){
-        //
-    }
-
-    selectServer(){
-        var self = this;
-        // self.indexServer = IndexServer.create().show().onClose(function(){
-        //     self.showCurServer(self.indexServer.selectData);
-        //     self.checkServersShow();
-        // });
-    }
-
-    showCurServer(data,lock?:boolean){
-        // 
-    }
-
-    _afterIndexBg(){
-        //
-    }
-    onExit(){
-        //
-    }
-
-    on_login_succ(){
-        // var self = this;
-        // this.closeLoginPanel();
-
-        console.log("on_login_succ.........")
-    }
-    on_login_fail() {
-        var self = this;
-        console.log("on_login_fail.........")
-        //重试
-        // IndexRetry.create().show();
-    }    
-
     private __clickLogin(evt: Event):void {
-        if (1) {
-            this.closeLoginPanel()
-            this.openEnterPanel()
-            return
-        }
-
-        var lbAcc = this._loginPanel.getChild("n7").asTextInput;
-        var lbPwd = this._loginPanel.getChild("n8").asTextInput;
-        console.log("登录游戏 get acc/pass:", lbAcc.text, lbPwd.text);
+        var lbAcc = this._loginPanel.getChild("n2").asTextInput;
+        var lbPwd = this._loginPanel.getChild("n13").asTextInput;
+        Util.info("点击登录游戏 acc/pass:", lbAcc.text, lbPwd.text);
 
         var acc = lbAcc.text.trim();
         var pwd = lbPwd.text.trim();
+        if (acc == null || acc == "" || pwd == null || pwd == "") {
+            console.log(net.strCode["loginNotNull"].text);
 
-        // g_index.localSdk.loginLocal(acc, pwd, function(){
-        //     // self.close();
-        //     console.log("关闭登录界面。。")
-        // });
+            TipMgr.showTip(net.strCode["loginNotNull"].text);
+            return
+        }
+        Login.inst.setAccAndPwd(acc, pwd);
 
-        // net.Send("msgProto.AccountLogin", {
-        //     name: acc,
-        //     pwd: pwd,
-        //     channelId: egret.project.channelId
-        // });
-        Login.inst.login(acc, pwd)
+        Login.inst.login()
     }
 
     private __toRegister(evt:Event):void {
@@ -187,31 +147,25 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private __clickRegister(evt:Event):void {
-        if (1) {
-            this.closeRegisterPanel()
-            this.openEnterPanel()
-            return
-        }
-
-        var lbAcc = this._regPanel.getChild("n10").asTextInput;
-        var lbPwd1 = this._regPanel.getChild("n11").asTextInput;
-        var lbPwd2 = this._regPanel.getChild("n12").asTextInput;
+        var lbAcc = this._regPanel.getChild("n3").asTextInput;
+        var lbPwd1 = this._regPanel.getChild("n4").asTextInput;
+        var lbPwd2 = this._regPanel.getChild("n5").asTextInput;
 
         var acc = lbAcc.text.trim();
         var pwd1 = lbPwd1.text.trim();
         var pwd2 = lbPwd2.text.trim();
         if (acc == null || pwd1 == null || pwd2 == null || acc == "" || pwd1 == "" || pwd2 == "") {
-            // mo.showMsg(gc.id_c_msgCode.loginNotNull);
-            console.log(net.strCode["loginNotNull"]);
+            TipMgr.showTip(net.strCode["loginNotNull"])
+            return
         // } else if (acc.length < 6 || acc.length >12){
-        //     // mo.showMsg(gc.id_c_msgCode.accountLengthNotCorrect);
-        //     console.log(net.strCode["accountLengthNotCorrect"]);
+        //     TipMgr.showTip(net.strCode["accountLengthNotCorrect"])
+        //     return
         // } else if (pwd1.length < 6 || pwd1.length >12){
-        //     // mo.showMsg(gc.id_c_msgCode.pwdLengthNotCorrect);
-        //     console.log(net.strCode["pwdLengthNotCorrect"]);
-        } else if (pwd1 !== pwd2) {
-            // mo.showMsg(gc.id_c_msgCode.pwdNotSame);
-            console.log(net.strCode["pwdNotSame"]);
+        //     TipMgr.showTip(net.strCode["pwdLengthNotCorrect"])
+        //     return
+        // } else if (pwd1 !== pwd2) {
+        //     TipMgr.showTip(net.strCode["pwdNotSame"])
+        //     return
         } else {
             net.Send("msgProto.AccountRegister", {
                 account: acc,
@@ -223,18 +177,10 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private __clickEnter(evt:Event):void {
-        if (1) {
-            this.closeEnterPanel()
-            this.openCreatePanel()
-            return
-        }
-
-        var self = this;
-        this.closeEnterPanel();
-        console.log("开始进入游戏。。。。")
+        Util.info("点击进入游戏。。。。")
 
         if (Login.inst.gameEntered()) {
-            // 开始游戏
+            return
         }
 
         let testSvr: msgProto.PbSvrInfo = null;
@@ -243,37 +189,41 @@ class LoginScene extends egret.DisplayObjectContainer {
         } else if (this._svrList.length > 0) {
             testSvr = this._svrList[0];
         } else {
-            console.log(net.strCode["svrMiss"])
+            Util.log(net.strCode["svrMiss"])
+
+            TipMgr.showTip(net.strCode["svrMiss"])
             return
         }
-        Login.inst.connToGame(testSvr.Host, testSvr.Port)
+        Login.inst.connToGame(testSvr.host, testSvr.port)
     }
 
     private __clickSvr(evt:Event):void {
-        var self = this;
-        console.log("选择服务器。。。");
+        Util.info("点击选择服务器。。。");
+
         this.openSvrListPanel();
     }
     private __clickChangeAcc(evt:Event) {
         this.closeEnterPanel();
-        console.log("关闭enter界面。。")
+        Util.info("关闭enter界面。。")
 
+        Login.inst.setAccAndPwd("", "");
         this.openLoginPanel();
     }
 
     private __clickRetry(evt:Event) {
         var self = this;
         // self.close();
-        console.log("关闭retry界面。。")
+        Util.info("关闭retry界面。。")
     }
 
     private __clickCreate(evt:Event) {
-        if (1) {
-            this.closeCreatePanel()
-            this.openLoginPanel()
-            return;
+        let lbName = this._createPanel.getChild("n0").asTextInput;
+        let name = lbName.text.trim();
+        if (name == null || name == "") {
+            TipMgr.showTip(net.strCode["inputRoleName"].text);
+            return
         }
-        Login.inst.createRole(1);
+        Login.inst.createRole(1, name);
     }
 
     private __clickSvrChoose(evt:Event) {
@@ -281,28 +231,29 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     enterBattleScene() {
-        console.log("进入游戏场景。。。。")
+        Util.info("进入游戏场景。。。。")
     }
 
     private loginResponse(msg:any) {
-        console.log('login response:', net.iCode[msg.retCode].text)  
+        Util.log("login response:",  net.iCode[msg.retCode].text)
 
         if (msg.retCode != 0) {
             Login.inst.setLoginState(false)
 
+            TipMgr.showTip(net.iCode[msg.retCode].text);
             return
         }
         Login.inst.setLoginState(true)
         Login.inst.setAccountData(msg.accId, msg.LoginKey)
-        // this.on_login_succ()
+
         Login.inst.getServerInfo()
     }
 
     private svrListGetResponse(msg:any) {
         if (msg.retType == 0) {
-            console.log('svr list get response:', net.iCode[msg.retCode].text)
+            Util.log('svr list get response:', net.iCode[msg.retCode].text)
             for (let i=0; i < msg.infos.length; i++) {
-                console.log("server info:", i, msg.infos[i]);
+                // Util.log("server info:", i, msg.infos[i]);
             }
             this._svrList = msg.infos;
 
@@ -313,7 +264,7 @@ class LoginScene extends egret.DisplayObjectContainer {
 
             Login.inst.getUserServers()
         } else if (msg.retType == 1) {
-            console.log('svr users get response:', net.iCode[msg.retCode].text)
+            Util.log('svr users get response:', net.iCode[msg.retCode].text)
             for (let i=0; i < msg.infos.length; i++) {
                 console.log("server info:", i, msg.infos[i]);
             }
@@ -322,23 +273,32 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private gameEnterResponse(msg:any) {
-        console.log('game enter response:', net.iCode[msg.retCode].text)
+        Util.log('game enter response:', net.iCode[msg.retCode].text)
         if (msg.retCode != 0) {
+            TipMgr.showTip(net.iCode[msg.retCode].text);
             return
         }
+        this.closeEnterPanel();
+
         if (msg.nickName == "") {
             this.openCreatePanel();
         } else {
             this.closeCreatePanel();
             Login.inst.saveUserData(msg.nickName, msg.userId)
+
+            // 开始游戏，进入游戏大厅
+            Login.inst.gotoLobby();
         }
     }
 
     private userCreateResponse(msg:any) {
-        console.log('user create response:', net.iCode[msg.retCode].text)
+        Util.log('user create response:', net.iCode[msg.retCode].text)
         if (msg.retCode != 0) {
+            TipMgr.showTip(net.iCode[msg.retCode].text);
             return
         }
+        this.closeCreatePanel();
+        Login.inst.enterGame();
     }
 }
 
