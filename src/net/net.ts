@@ -1,6 +1,6 @@
 namespace net {
-    export var ProtoConfig: any = null;
-    export var ServerConfig: any = null;
+    export var ProtoConf: any = null;
+    export var ServerConf: any = null;
     export var strCode: any = null;
     export var iCode: any = null;
     var _this: any = null;
@@ -11,11 +11,11 @@ namespace net {
     export function init() : void {
         _this = this;
 
-        ProtoConfig = RES.getRes("msgProto_json");
-        // ServerConfig = RES.getRes("server_json");
+        ProtoConf = RES.getRes("msgProto_json");
+        ServerConf = RES.getRes("server_json");
         loadMsgCode();
 
-        //Socket.inst.initServer(ServerConfig.Server_pub, ServerConfig.Port_pub, new ByteArrayMsgByProtobuf());
+        //Socket.inst.initServer(ServerConf.Server_pub, ServerConf.Port_pub, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer(app.versionData.socket_server, app.versionData.socket_port, new ByteArrayMsgByProtobuf());
         // Socket.inst.initServer("ws://www.xxh5.net", "7800/ws", new MsgJson())
         addNetworkEvents();
@@ -38,6 +38,9 @@ namespace net {
     }
     export function delMsgProc(msgName:string, selector:Function, target:any) {
         MsgCenter.inst.removeListener(msgName, selector, target);
+    }
+    export function delMsgTarget(target:any) {
+        MsgCenter.inst.removeAll(target)
     }
     export function msgDispatch(key:string, param:any) {
         MsgCenter.inst.dispatch(key, param)
@@ -66,7 +69,7 @@ namespace net {
     export function ConnToLogin() {
         _connType = 1 // connecto to login
 
-        Socket.inst.initServer("ws://www.xxh5.net", "18400/ws", new MsgProto())
+        Socket.inst.initServer(ServerConf.server_test, ServerConf.port_test, new MsgProto())
         Socket.inst.connect();
     }
 

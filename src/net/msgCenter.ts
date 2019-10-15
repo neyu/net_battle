@@ -51,7 +51,7 @@ class MsgCenter {
         var i: number = 0;
         var len: number = arr.length;
         for (i; i < len; i++) {
-            if (arr[i][0] == listener && arr[i][1] == listenerObj) {
+            if (arr[i][1] == listenerObj && arr[i][0] == listener) {
                 return;
             }
         }

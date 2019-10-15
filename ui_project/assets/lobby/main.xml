@@ -15,21 +15,21 @@
     <text id="n12_vcob" name="n12" xy="92,495" size="77,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.0倍积分)"/>
     <text id="n13_vcob" name="n13" xy="264,493" size="77,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.5倍积分)"/>
     <graph id="n26_vcob" name="n26" xy="11,554" size="462,210" type="rect" fillColor="#ffcccccc"/>
-    <text id="n14_vcob" name="n14" xy="46,558" size="73,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 1 名："/>
+    <text id="n14_vcob" name="n14" xy="38,558" size="79,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 1 名："/>
     <text id="n15_vcob" name="n15" xy="119,558" size="219,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="西门吹雪"/>
-    <text id="n18_vcob" name="n18" xy="46,588" size="73,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 2 名："/>
+    <text id="n18_vcob" name="n18" xy="38,588" size="80,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 2 名："/>
     <text id="n19_vcob" name="n19" xy="119,588" size="220,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="王"/>
-    <text id="n20_vcob" name="n20" xy="46,617" size="72,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 3 名："/>
+    <text id="n20_vcob" name="n20" xy="38,617" size="79,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 3 名："/>
     <text id="n21_vcob" name="n21" xy="119,617" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="果子狸"/>
-    <text id="n22_vcob" name="n22" xy="47,646" size="71,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 10 名："/>
+    <text id="n22_vcob" name="n22" xy="38,646" size="79,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 10 名："/>
     <text id="n23_vcob" name="n23" xy="119,645" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="为了你我取个长名跟全世界作对"/>
     <text id="n24_vcob" name="n24" xy="38,675" size="82,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" singleLine="true" text="第 999 名："/>
     <text id="n25_vcob" name="n25" xy="120,674" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="bingo boy !!"/>
     <text id="n27_vcob" name="n27" xy="11,533" size="47,20" fontSize="14" color="#ffccff" vAlign="middle" strokeColor="#000000" text="积分榜"/>
-    <text id="n28_vcob" name="n28" xy="371,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
+    <text id="n28_vcob" name="n28" xy="416,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
     <text id="n29_vcob" name="n29" xy="116,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
     <text id="n30_vcob" name="n30" xy="290,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
-    <component id="n31_glcc" name="n31" src="glcc7" fileName="Button2.xml" xy="438,6">
+    <component id="n31_glcc" name="n31" src="glcc7" fileName="Button2.xml" xy="16,145">
       <Button title="退出" titleColor="#996600" titleFontSize="12"/>
     </component>
   </displayList>

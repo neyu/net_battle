@@ -17,7 +17,7 @@ class MsgProto implements MsgBase {
     public constructor() {
         this._msgBuffer = new egret.ByteArray();
         this.msgClass = {};
-        this.protoConfig = net.ProtoConfig;
+        this.protoConfig = net.ProtoConf;
         this.protoConfigSymmetry = {};
         var keys = Object.keys(this.protoConfig);
         for (var i: number = 0, len = keys.length; i < len; i++) {

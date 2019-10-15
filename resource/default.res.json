@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,msgProto_json,c_msgCode_json",
+			"keys": "description_json,msgProto_json,c_msgCode_json,server_json",
 			"name": "preload"
 		},
 		{
@@ -168,6 +168,11 @@
 			"url": "ui/login_atlas0.png",
 			"type": "image",
 			"name": "login_atlas0"
+		},
+		{
+			"name": "server_json",
+			"type": "json",
+			"url": "config/server.json"
 		}
 	]
 }

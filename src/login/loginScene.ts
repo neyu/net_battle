@@ -27,11 +27,7 @@ class LoginScene extends egret.DisplayObjectContainer {
         this.openLoginPanel();
     }
     public onExit() {
-        net.delMsgProc("msgProto.LoginResponse", this.loginResponse, this)
-        net.delMsgProc("msgProto.SvrListResponse", this.svrListGetResponse, this)
-
-        net.delMsgProc("msgProto.GameEnterResponse", this.gameEnterResponse, this)
-        net.delMsgProc("msgProto.UserCreateResponse", this.userCreateResponse, this)
+        net.delMsgTarget(this);
 
         this.removeChild(fairygui.GRoot.inst.displayObject);
         // fairygui.UIPackage.removePackage("login");
@@ -155,7 +151,7 @@ class LoginScene extends egret.DisplayObjectContainer {
         var pwd1 = lbPwd1.text.trim();
         var pwd2 = lbPwd2.text.trim();
         if (acc == null || pwd1 == null || pwd2 == null || acc == "" || pwd1 == "" || pwd2 == "") {
-            TipMgr.showTip(net.strCode["loginNotNull"])
+            TipMgr.showTip(net.strCode["loginNotNull"].text)
             return
         // } else if (acc.length < 6 || acc.length >12){
         //     TipMgr.showTip(net.strCode["accountLengthNotCorrect"])
@@ -163,9 +159,9 @@ class LoginScene extends egret.DisplayObjectContainer {
         // } else if (pwd1.length < 6 || pwd1.length >12){
         //     TipMgr.showTip(net.strCode["pwdLengthNotCorrect"])
         //     return
-        // } else if (pwd1 !== pwd2) {
-        //     TipMgr.showTip(net.strCode["pwdNotSame"])
-        //     return
+        } else if (pwd1 !== pwd2) {
+            TipMgr.showTip(net.strCode["pwdNotSame"].text)
+            return
         } else {
             net.Send("msgProto.AccountRegister", {
                 account: acc,

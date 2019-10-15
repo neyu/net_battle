@@ -16,8 +16,8 @@
     <text id="n15_vcob" name="n15" xy="259,73" size="161,31" fontSize="16" color="#ffffcc" align="right" vAlign="bottom" autoSize="none" text="总教练"/>
     <image id="n16_vcob" name="n16" src="vcoba" fileName="avatar_10009.png" xy="424,114" pivot="0.5,0.5" size="40,40"/>
     <text id="n17_vcob" name="n17" xy="253,123" size="167,31" fontSize="16" color="#ffffcc" align="right" vAlign="bottom" autoSize="none" text="佩洛西。风景线奶奶"/>
-    <text id="n18_vcob" name="n18" xy="358,1" size="70,22" fontSize="14" color="#00ff00" align="right" vAlign="middle" autoSize="none" text="15ms"/>
-    <component id="n19_glcc" name="n19" src="glccb" fileName="Button1.xml" xy="438,2">
+    <text id="n18_vcob" name="n18" xy="405,1" size="70,22" fontSize="14" color="#00ff00" align="right" vAlign="middle" autoSize="none" text="15ms"/>
+    <component id="n19_glcc" name="n19" src="glccb" fileName="Button1.xml" xy="6,3">
       <Button title="退出" titleColor="#cc6600" titleFontSize="12"/>
     </component>
   </displayList>
