@@ -9,6 +9,9 @@
     <image id="vcob5" name="frame_20005.png" path="/"/>
     <image id="vcob6" name="frame_20010.png" path="/"/>
     <component id="glcc7" name="Button2.xml" path="/"/>
+    <component id="h36i8" name="chat_room.xml" path="/" exported="true"/>
+    <component id="h36i9" name="Button3.xml" path="/"/>
+    <component id="h36ic" name="Button4.xml" path="/"/>
   </resources>
   <publish name="lobby"/>
 </packageDescription>

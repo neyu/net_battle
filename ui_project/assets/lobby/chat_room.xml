@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="460,570">
+  <displayList>
+    <graph id="n8_h36i" name="n8" xy="0,0" size="460,570" type="rect" fillColor="#ffcc6600"/>
+    <graph id="n9_h36i" name="n9" xy="6,38" size="123,471" type="rect" fillColor="#ffcccccc"/>
+    <graph id="n10_h36i" name="n10" xy="135,38" size="320,470" type="rect" fillColor="#ffcccccc"/>
+    <graph id="n11_h36i" name="n11" xy="17,514" size="358,52" type="rect"/>
+    <text id="n0_h36i" name="n0" xy="17,45" size="106,19" fontSize="12" autoSize="none" text="玩家一"/>
+    <text id="n1_h36i" name="n1" xy="16,69" size="108,19" fontSize="12" autoSize="none" text="玩家二个"/>
+    <text id="n2_h36i" name="n2" xy="15,96" size="108,19" fontSize="12" autoSize="none" text="玩家三八个字名称"/>
+    <text id="n3_h36i" name="n3" xy="15,128" size="108,19" fontSize="12" autoSize="none" text="四"/>
+    <text id="n4_h36i" name="n4" xy="15,156" size="108,19" fontSize="12" autoSize="none" text="玩家五，怎么排"/>
+    <richtext id="n5_h36i" name="n5" xy="139,45" size="310,460" fontSize="12" autoSize="none" text=""/>
+    <text id="n6_h36i" name="n6" xy="19,518" size="352,44" input="true" prompt="[i][color=#999999]打个招呼...[/color][/i]" fontSize="16" autoSize="none" bold="true" text=""/>
+    <component id="n7_h36i" name="n7" src="h36i9" fileName="Button3.xml" xy="379,516">
+      <Button title="发送" titleColor="#ff0000" titleFontSize="22"/>
+    </component>
+    <component id="n14_h36i" name="n14" src="h36ic" fileName="Button4.xml" xy="409,9">
+      <Button title="退出"/>
+    </component>
+  </displayList>
+</component>
