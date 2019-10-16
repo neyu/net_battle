@@ -14,7 +14,7 @@
     <text id="n11_vcob" name="n11" xy="203,70" size="55,25" fontSize="18" color="#ff00ff" vAlign="middle" strokeColor="#000000" text="99999"/>
     <text id="n12_vcob" name="n12" xy="92,495" size="71,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.0倍积分)"/>
     <text id="n13_vcob" name="n13" xy="264,493" size="71,19" fontSize="12" color="#cccccc" vAlign="middle" text="(x1.5倍积分)"/>
-    <graph id="n26_vcob" name="n26" xy="11,554" size="462,210" type="rect" fillColor="#ffcccccc"/>
+    <graph id="n26_vcob" name="n26" xy="10,554" size="460,210" type="rect" fillColor="#ffcccccc"/>
     <text id="n14_vcob" name="n14" xy="38,558" size="79,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 1 名："/>
     <text id="n15_vcob" name="n15" xy="119,558" size="219,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="西门吹雪"/>
     <text id="n18_vcob" name="n18" xy="38,588" size="80,30" fontSize="14" color="#ffffee" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="第 2 名："/>
@@ -27,12 +27,12 @@
     <text id="n25_vcob" name="n25" xy="120,674" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="bingo boy !!"/>
     <text id="n27_vcob" name="n27" xy="11,533" size="47,20" fontSize="14" color="#ffccff" vAlign="middle" strokeColor="#000000" text="积分榜"/>
     <text id="n28_vcob" name="n28" xy="416,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
-    <text id="n29_vcob" name="n29" xy="116,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
-    <text id="n30_vcob" name="n30" xy="290,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
+    <text id="n29_vcob" name="n29" xy="116,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
+    <text id="n30_vcob" name="n30" xy="290,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
     <component id="n31_glcc" name="n31" src="glcc7" fileName="Button2.xml" xy="16,145">
       <Button title="退出" titleColor="#996600" titleFontSize="12"/>
     </component>
-    <component id="n32_h36i" name="n32" src="glcc7" fileName="Button2.xml" xy="61,145">
+    <component id="n32_h36i" name="n32" src="glcc7" fileName="Button2.xml" xy="64,145">
       <Button title="聊天" titleColor="#996600" titleFontSize="12"/>
     </component>
   </displayList>
