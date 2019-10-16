@@ -1,3 +1,12 @@
+interface IOptData {
+    roleId: number,
+    type: string,
+    dirX: number,
+    dirY: number,
+    color: number,
+    angle: number
+}
+
 class Battle {
     private static _inst: Battle = null;
 

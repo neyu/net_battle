@@ -5,6 +5,8 @@ class LobbyScene extends egret.DisplayObjectContainer {
     constructor() {
         super()
 
+        net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
+
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
@@ -13,8 +15,12 @@ class LobbyScene extends egret.DisplayObjectContainer {
         this.addChild(fairygui.GRoot.inst.displayObject);
 
         this.openLobbyView();
+
+        Lobby.inst.testNetLatency()
     }
     public onExit() {
+        net.delMsgTarget(this);
+
         fairygui.GRoot.inst.removeChild(this._lobbyView);
 
         this.removeChild(fairygui.GRoot.inst.displayObject);
@@ -55,5 +61,10 @@ class LobbyScene extends egret.DisplayObjectContainer {
         Chat.inst.showChatView()
     }
 
+    private netLatencyResponse(data:{lag:number}) {
+        // Util.log("test net latency:", data.lag)
 
+        let lbLag = this._lobbyView.getChild("n28").asTextField
+        lbLag.text = data.lag.toString() + "ms";
+    }
 }

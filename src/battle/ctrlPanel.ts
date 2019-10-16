@@ -98,7 +98,7 @@ class CtrlPanel extends egret.Sprite {
         // console.log("onTouchEnd:", evt.target.width, evt.target.height, evt.type, evt.stageX, evt.stageY);
         let drawX = evt.stageX - this.stickNode.x;
         let drawY = evt.stageY - this.stickNode.y;
-        this._sandTb.Shoot(drawX, drawY);
+        this._sandTb.tryShoot(drawX, drawY);
 
         this.resetPosition();
     }

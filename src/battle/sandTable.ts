@@ -111,7 +111,7 @@ class SandTable extends egret.DisplayObjectContainer {
         }
     }
 
-    public ScaleToEdge() {
+    public scaleToEdge() {
         // this._circleTb.scaleX = Math.sqrt(2)
         // this._circleTb.scaleY = Math.sqrt(2)
         
@@ -122,11 +122,27 @@ class SandTable extends egret.DisplayObjectContainer {
         // this.scaleY = Math.sqrt(2)
     }
 
-    public Shoot(dirX: number, dirY:number) {
-        let bullet = new Bullet(dirX, dirY, this._ballColors[4])
+    public shoot(opt:IOptData) {
+        let bullet = new Bullet(opt.dirX, opt.dirY, opt.color)
         this.addChild(bullet)
         bullet.setBorder(this._radius);
 
-        this.resetBallColor();
+        if (Login.inst._userData.userId == opt.roleId) {
+            this.resetBallColor();
+        }
     }
+    public tryShoot(dirX: number, dirY:number) {
+        let data:IOptData = {
+            roleId: Login.inst._userData.userId,
+            type: "shoot",
+            dirX: dirX,
+            dirY: dirY,
+            color: this._ballColors[4],
+            angle: 90
+        }
+        net.Send("msgProto.ExchangeOptData", {
+            optData: JSON.stringify(data)
+        })
+    }
+
 }

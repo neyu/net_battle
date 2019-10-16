@@ -129,3 +129,12 @@ message AccountSvrsGet {
     string appId = 2; //wanba
     bool isTest = 3; //1
 }
+
+// 测试网络延迟
+message TestNetLatency {
+	int64 time = 1; // 标记时间
+}
+// 同步操作信息
+message ExchangeOptData {
+	string optData = 1; // json data
+}

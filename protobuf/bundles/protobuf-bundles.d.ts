@@ -1524,6 +1524,124 @@ declare namespace msgProto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a TestNetLatency. */
+    interface ITestNetLatency {
+
+        /** TestNetLatency time */
+        time?: (number|Long|null);
+    }
+
+    /** Represents a TestNetLatency. */
+    class TestNetLatency implements ITestNetLatency {
+
+        /**
+         * Constructs a new TestNetLatency.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.ITestNetLatency);
+
+        /** TestNetLatency time. */
+        public time: (number|Long);
+
+        /**
+         * Encodes the specified TestNetLatency message. Does not implicitly {@link msgProto.TestNetLatency.verify|verify} messages.
+         * @param message TestNetLatency message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.ITestNetLatency, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a TestNetLatency message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TestNetLatency
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.TestNetLatency;
+
+        /**
+         * Creates a TestNetLatency message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns TestNetLatency
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.TestNetLatency;
+
+        /**
+         * Creates a plain object from a TestNetLatency message. Also converts values to other types if specified.
+         * @param message TestNetLatency
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.TestNetLatency, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this TestNetLatency to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ExchangeOptData. */
+    interface IExchangeOptData {
+
+        /** ExchangeOptData optData */
+        optData?: (string|null);
+    }
+
+    /** Represents an ExchangeOptData. */
+    class ExchangeOptData implements IExchangeOptData {
+
+        /**
+         * Constructs a new ExchangeOptData.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IExchangeOptData);
+
+        /** ExchangeOptData optData. */
+        public optData: string;
+
+        /**
+         * Encodes the specified ExchangeOptData message. Does not implicitly {@link msgProto.ExchangeOptData.verify|verify} messages.
+         * @param message ExchangeOptData message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IExchangeOptData, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an ExchangeOptData message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ExchangeOptData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExchangeOptData;
+
+        /**
+         * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ExchangeOptData
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.ExchangeOptData;
+
+        /**
+         * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
+         * @param message ExchangeOptData
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.ExchangeOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ExchangeOptData to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a ServerInfo. */
     interface IServerInfo {
 

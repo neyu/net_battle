@@ -3719,6 +3719,278 @@ $root.msgProto = (function() {
         return AccountSvrsGet;
     })();
 
+    msgProto.TestNetLatency = (function() {
+
+        /**
+         * Properties of a TestNetLatency.
+         * @memberof msgProto
+         * @interface ITestNetLatency
+         * @property {number|Long|null} [time] TestNetLatency time
+         */
+
+        /**
+         * Constructs a new TestNetLatency.
+         * @memberof msgProto
+         * @classdesc Represents a TestNetLatency.
+         * @implements ITestNetLatency
+         * @constructor
+         * @param {msgProto.ITestNetLatency=} [properties] Properties to set
+         */
+        function TestNetLatency(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * TestNetLatency time.
+         * @member {number|Long} time
+         * @memberof msgProto.TestNetLatency
+         * @instance
+         */
+        TestNetLatency.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified TestNetLatency message. Does not implicitly {@link msgProto.TestNetLatency.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.TestNetLatency
+         * @static
+         * @param {msgProto.ITestNetLatency} message TestNetLatency message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        TestNetLatency.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.time != null && message.hasOwnProperty("time"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.time);
+            return writer;
+        };
+
+        /**
+         * Decodes a TestNetLatency message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.TestNetLatency
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.TestNetLatency} TestNetLatency
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        TestNetLatency.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.TestNetLatency();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.time = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a TestNetLatency message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.TestNetLatency
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.TestNetLatency} TestNetLatency
+         */
+        TestNetLatency.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.TestNetLatency)
+                return object;
+            var message = new $root.msgProto.TestNetLatency();
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = false;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a TestNetLatency message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.TestNetLatency
+         * @static
+         * @param {msgProto.TestNetLatency} message TestNetLatency
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        TestNetLatency.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber() : message.time;
+            return object;
+        };
+
+        /**
+         * Converts this TestNetLatency to JSON.
+         * @function toJSON
+         * @memberof msgProto.TestNetLatency
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        TestNetLatency.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return TestNetLatency;
+    })();
+
+    msgProto.ExchangeOptData = (function() {
+
+        /**
+         * Properties of an ExchangeOptData.
+         * @memberof msgProto
+         * @interface IExchangeOptData
+         * @property {string|null} [optData] ExchangeOptData optData
+         */
+
+        /**
+         * Constructs a new ExchangeOptData.
+         * @memberof msgProto
+         * @classdesc Represents an ExchangeOptData.
+         * @implements IExchangeOptData
+         * @constructor
+         * @param {msgProto.IExchangeOptData=} [properties] Properties to set
+         */
+        function ExchangeOptData(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ExchangeOptData optData.
+         * @member {string} optData
+         * @memberof msgProto.ExchangeOptData
+         * @instance
+         */
+        ExchangeOptData.prototype.optData = "";
+
+        /**
+         * Encodes the specified ExchangeOptData message. Does not implicitly {@link msgProto.ExchangeOptData.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.ExchangeOptData
+         * @static
+         * @param {msgProto.IExchangeOptData} message ExchangeOptData message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExchangeOptData.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.optData);
+            return writer;
+        };
+
+        /**
+         * Decodes an ExchangeOptData message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.ExchangeOptData
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.ExchangeOptData} ExchangeOptData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExchangeOptData.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExchangeOptData();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.optData = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.ExchangeOptData
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.ExchangeOptData} ExchangeOptData
+         */
+        ExchangeOptData.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.ExchangeOptData)
+                return object;
+            var message = new $root.msgProto.ExchangeOptData();
+            if (object.optData != null)
+                message.optData = String(object.optData);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.ExchangeOptData
+         * @static
+         * @param {msgProto.ExchangeOptData} message ExchangeOptData
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExchangeOptData.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.optData = "";
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                object.optData = message.optData;
+            return object;
+        };
+
+        /**
+         * Converts this ExchangeOptData to JSON.
+         * @function toJSON
+         * @memberof msgProto.ExchangeOptData
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExchangeOptData.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ExchangeOptData;
+    })();
+
     msgProto.ServerInfo = (function() {
 
         /**

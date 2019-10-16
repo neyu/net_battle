@@ -237,7 +237,7 @@ class Main extends egret.Sprite {
         table.y = stageH / 2
         // table.scaleX = 0.65 //1.5 //0.5
         // table.scaleY = 0.65 //1.5 //0.5
-        table.ScaleToEdge()
+        table.scaleToEdge()
 
         let ctrlPanel = new CtrlPanel(table);
         this.addChild(ctrlPanel)

@@ -15,7 +15,7 @@
 	"1009": "msgProto.ChatAck",
 	"1010": "msgProto.TestAck",
 
-	"//iface": "proto",
+	"//iface0": "proto",
 	"2000": "msgProto.AccountLogin",
 	"2001": "msgProto.AccountRegister",
 	"2002": "msgProto.LoginResponse",
@@ -26,5 +26,9 @@
 	"2010": "msgProto.GameEnter",
 	"2011": "msgProto.UserCreate",
 	"2012": "msgProto.GameEnterResponse",
-	"2013": "msgProto.UserCreateResponse"
+	"2013": "msgProto.UserCreateResponse",
+
+	"//iface20": "同步操作数据",
+	"2020": "msgProto.TestNetLatency",
+	"2021": "msgProto.ExchangeOptData"
 }
