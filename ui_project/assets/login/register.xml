@@ -6,11 +6,11 @@
     <text id="n1_uezu" name="n1" xy="83,305" size="65,40" fontSize="30" vAlign="bottom" autoSize="none" text="密码"/>
     <text id="n2_uezu" name="n2" xy="43,371" size="105,31" fontSize="24" align="right" vAlign="bottom" autoSize="none" text="确认密码"/>
     <graph id="n6_uezu" name="n6" xy="153,247" size="270,40" type="rect" fillColor="#ffffffcc"/>
-    <text id="n3_uezu" name="n3" xy="153,247" size="270,40" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n3_uezu" name="n3" xy="157,249" size="262,36" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
     <graph id="n7_uezu" name="n7" xy="153,307" size="270,40" type="rect" fillColor="#ffffffcc"/>
-    <text id="n4_uezu" name="n4" xy="153,307" size="270,40" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n4_uezu" name="n4" xy="157,309" size="262,35" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
     <graph id="n8_uezu" name="n8" xy="153,367" size="270,40" type="rect" fillColor="#ffffffcc"/>
-    <text id="n5_uezu" name="n5" xy="153,367" size="270,40" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n5_uezu" name="n5" xy="157,369" size="262,35" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" vAlign="middle" autoSize="none" bold="true" text=""/>
     <component id="n9_uezu" name="n9" src="jmnw3" fileName="Button1.xml" xy="100,430">
       <Button title="取消" titleColor="#0000ff" titleFontSize="30"/>
     </component>

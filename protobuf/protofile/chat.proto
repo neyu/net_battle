@@ -4,15 +4,15 @@ package msgProto;
 
 message ChatReq 
 {
-	string Content = 1;
+	string content = 1;
 }
 
 message ChatAck
 {
-	string Content = 1;
+	string content = 1;
 }
 
 message TestAck
 {
-	string Dummy = 1;
+	string dummy = 1;
 }

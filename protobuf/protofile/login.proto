@@ -6,8 +6,8 @@ package msgProto;
 
 message ServerInfo
 {
-    string Ip = 1;
-    int32 Port = 2;
+    string ip = 1;
+    int32 port = 2;
 }
 
 message PingAck 
@@ -17,27 +17,27 @@ message PingAck
 
 message LoginReq 
 {
-    string Version = 1;
-	string Platform = 2;
-	string Uid = 3;
+    string version = 1;
+	string platform = 2;
+	string uid = 3;
 }
 
 message LoginAck 
 {
-	ResultCode Result = 1;
-	ServerInfo Server = 2;
-	string GameToken = 3;
-	string GameSvcId = 4; // 选中的一台game服务器Id
+	ResultCode result = 1;
+	ServerInfo server = 2;
+	string gameToken = 3;
+	string gameSvcId = 4; // 选中的一台game服务器Id
 }
 
 message VerifyReq 
 {
-	string GameToken = 1;
-	string GameSvcId = 2;
-	int64 AccountId = 3;
+	string gameToken = 1;
+	string gameSvcId = 2;
+	int64 accountId = 3;
 }
 
 message VerifyAck 
 {
-	ResultCode Result = 1;
+	ResultCode result = 1;
 }

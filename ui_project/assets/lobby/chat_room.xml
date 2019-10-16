@@ -11,7 +11,7 @@
     <text id="n3_h36i" name="n3" xy="15,128" size="108,19" fontSize="12" autoSize="none" text="四"/>
     <text id="n4_h36i" name="n4" xy="15,156" size="108,19" fontSize="12" autoSize="none" text="玩家五，怎么排"/>
     <richtext id="n5_h36i" name="n5" xy="139,45" size="310,460" fontSize="12" autoSize="none" text=""/>
-    <text id="n6_h36i" name="n6" xy="19,518" size="352,43" input="true" prompt="[i][color=#999999](不超38字)打个招呼...[/color][/i]" maxLength="38" fontSize="16" autoSize="none" bold="true" text=""/>
+    <text id="n6_h36i" name="n6" xy="21,520" size="350,40" input="true" prompt="[i][color=#999999](不超38字)打个招呼...[/color][/i]" maxLength="38" fontSize="16" autoSize="none" bold="true" text=""/>
     <component id="n7_h36i" name="n7" src="h36i9" fileName="Button3.xml" xy="379,516">
       <Button title="发送" titleColor="#ff0000" titleFontSize="22"/>
     </component>

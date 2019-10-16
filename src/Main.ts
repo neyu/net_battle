@@ -27,9 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Main extends egret.DisplayObjectContainer {
+class Main extends egret.Sprite {
     public constructor() {
         super();
+
+        this.graphics.beginFill(0xffffee, 0.7);
+        this.graphics.drawRect(0, 0, 640, 1636);
+        this.graphics.endFill();
+
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 

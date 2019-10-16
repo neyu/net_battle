@@ -21,7 +21,7 @@ $root.msgProto = (function() {
          * Properties of a ChatReq.
          * @memberof msgProto
          * @interface IChatReq
-         * @property {string|null} [Content] ChatReq Content
+         * @property {string|null} [content] ChatReq content
          */
 
         /**
@@ -40,12 +40,12 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ChatReq Content.
-         * @member {string} Content
+         * ChatReq content.
+         * @member {string} content
          * @memberof msgProto.ChatReq
          * @instance
          */
-        ChatReq.prototype.Content = "";
+        ChatReq.prototype.content = "";
 
         /**
          * Encodes the specified ChatReq message. Does not implicitly {@link msgProto.ChatReq.verify|verify} messages.
@@ -59,8 +59,8 @@ $root.msgProto = (function() {
         ChatReq.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Content != null && message.hasOwnProperty("Content"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Content);
+            if (message.content != null && message.hasOwnProperty("content"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.content);
             return writer;
         };
 
@@ -83,7 +83,7 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Content = reader.string();
+                    message.content = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -105,8 +105,8 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.ChatReq)
                 return object;
             var message = new $root.msgProto.ChatReq();
-            if (object.Content != null)
-                message.Content = String(object.Content);
+            if (object.content != null)
+                message.content = String(object.content);
             return message;
         };
 
@@ -124,9 +124,9 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults)
-                object.Content = "";
-            if (message.Content != null && message.hasOwnProperty("Content"))
-                object.Content = message.Content;
+                object.content = "";
+            if (message.content != null && message.hasOwnProperty("content"))
+                object.content = message.content;
             return object;
         };
 
@@ -150,7 +150,7 @@ $root.msgProto = (function() {
          * Properties of a ChatAck.
          * @memberof msgProto
          * @interface IChatAck
-         * @property {string|null} [Content] ChatAck Content
+         * @property {string|null} [content] ChatAck content
          */
 
         /**
@@ -169,12 +169,12 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ChatAck Content.
-         * @member {string} Content
+         * ChatAck content.
+         * @member {string} content
          * @memberof msgProto.ChatAck
          * @instance
          */
-        ChatAck.prototype.Content = "";
+        ChatAck.prototype.content = "";
 
         /**
          * Encodes the specified ChatAck message. Does not implicitly {@link msgProto.ChatAck.verify|verify} messages.
@@ -188,8 +188,8 @@ $root.msgProto = (function() {
         ChatAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Content != null && message.hasOwnProperty("Content"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Content);
+            if (message.content != null && message.hasOwnProperty("content"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.content);
             return writer;
         };
 
@@ -212,7 +212,7 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Content = reader.string();
+                    message.content = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -234,8 +234,8 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.ChatAck)
                 return object;
             var message = new $root.msgProto.ChatAck();
-            if (object.Content != null)
-                message.Content = String(object.Content);
+            if (object.content != null)
+                message.content = String(object.content);
             return message;
         };
 
@@ -253,9 +253,9 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults)
-                object.Content = "";
-            if (message.Content != null && message.hasOwnProperty("Content"))
-                object.Content = message.Content;
+                object.content = "";
+            if (message.content != null && message.hasOwnProperty("content"))
+                object.content = message.content;
             return object;
         };
 
@@ -279,7 +279,7 @@ $root.msgProto = (function() {
          * Properties of a TestAck.
          * @memberof msgProto
          * @interface ITestAck
-         * @property {string|null} [Dummy] TestAck Dummy
+         * @property {string|null} [dummy] TestAck dummy
          */
 
         /**
@@ -298,12 +298,12 @@ $root.msgProto = (function() {
         }
 
         /**
-         * TestAck Dummy.
-         * @member {string} Dummy
+         * TestAck dummy.
+         * @member {string} dummy
          * @memberof msgProto.TestAck
          * @instance
          */
-        TestAck.prototype.Dummy = "";
+        TestAck.prototype.dummy = "";
 
         /**
          * Encodes the specified TestAck message. Does not implicitly {@link msgProto.TestAck.verify|verify} messages.
@@ -317,8 +317,8 @@ $root.msgProto = (function() {
         TestAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Dummy != null && message.hasOwnProperty("Dummy"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Dummy);
+            if (message.dummy != null && message.hasOwnProperty("dummy"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.dummy);
             return writer;
         };
 
@@ -341,7 +341,7 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Dummy = reader.string();
+                    message.dummy = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -363,8 +363,8 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.TestAck)
                 return object;
             var message = new $root.msgProto.TestAck();
-            if (object.Dummy != null)
-                message.Dummy = String(object.Dummy);
+            if (object.dummy != null)
+                message.dummy = String(object.dummy);
             return message;
         };
 
@@ -382,9 +382,9 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults)
-                object.Dummy = "";
-            if (message.Dummy != null && message.hasOwnProperty("Dummy"))
-                object.Dummy = message.Dummy;
+                object.dummy = "";
+            if (message.dummy != null && message.hasOwnProperty("dummy"))
+                object.dummy = message.dummy;
             return object;
         };
 
@@ -408,8 +408,8 @@ $root.msgProto = (function() {
          * Properties of a ContentReq.
          * @memberof msgProto
          * @interface IContentReq
-         * @property {string|null} [Msg] ContentReq Msg
-         * @property {number|null} [Value] ContentReq Value
+         * @property {string|null} [msg] ContentReq msg
+         * @property {number|null} [value] ContentReq value
          */
 
         /**
@@ -428,20 +428,20 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ContentReq Msg.
-         * @member {string} Msg
+         * ContentReq msg.
+         * @member {string} msg
          * @memberof msgProto.ContentReq
          * @instance
          */
-        ContentReq.prototype.Msg = "";
+        ContentReq.prototype.msg = "";
 
         /**
-         * ContentReq Value.
-         * @member {number} Value
+         * ContentReq value.
+         * @member {number} value
          * @memberof msgProto.ContentReq
          * @instance
          */
-        ContentReq.prototype.Value = 0;
+        ContentReq.prototype.value = 0;
 
         /**
          * Encodes the specified ContentReq message. Does not implicitly {@link msgProto.ContentReq.verify|verify} messages.
@@ -455,10 +455,10 @@ $root.msgProto = (function() {
         ContentReq.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Msg != null && message.hasOwnProperty("Msg"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Msg);
-            if (message.Value != null && message.hasOwnProperty("Value"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.Value);
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.msg);
+            if (message.value != null && message.hasOwnProperty("value"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.value);
             return writer;
         };
 
@@ -481,10 +481,10 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Msg = reader.string();
+                    message.msg = reader.string();
                     break;
                 case 2:
-                    message.Value = reader.int32();
+                    message.value = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -506,10 +506,10 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.ContentReq)
                 return object;
             var message = new $root.msgProto.ContentReq();
-            if (object.Msg != null)
-                message.Msg = String(object.Msg);
-            if (object.Value != null)
-                message.Value = object.Value | 0;
+            if (object.msg != null)
+                message.msg = String(object.msg);
+            if (object.value != null)
+                message.value = object.value | 0;
             return message;
         };
 
@@ -527,13 +527,13 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.Msg = "";
-                object.Value = 0;
+                object.msg = "";
+                object.value = 0;
             }
-            if (message.Msg != null && message.hasOwnProperty("Msg"))
-                object.Msg = message.Msg;
-            if (message.Value != null && message.hasOwnProperty("Value"))
-                object.Value = message.Value;
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                object.msg = message.msg;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
             return object;
         };
 
@@ -557,8 +557,8 @@ $root.msgProto = (function() {
          * Properties of a ContentAck.
          * @memberof msgProto
          * @interface IContentAck
-         * @property {string|null} [Msg] ContentAck Msg
-         * @property {number|null} [Value] ContentAck Value
+         * @property {string|null} [msg] ContentAck msg
+         * @property {number|null} [value] ContentAck value
          */
 
         /**
@@ -577,20 +577,20 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ContentAck Msg.
-         * @member {string} Msg
+         * ContentAck msg.
+         * @member {string} msg
          * @memberof msgProto.ContentAck
          * @instance
          */
-        ContentAck.prototype.Msg = "";
+        ContentAck.prototype.msg = "";
 
         /**
-         * ContentAck Value.
-         * @member {number} Value
+         * ContentAck value.
+         * @member {number} value
          * @memberof msgProto.ContentAck
          * @instance
          */
-        ContentAck.prototype.Value = 0;
+        ContentAck.prototype.value = 0;
 
         /**
          * Encodes the specified ContentAck message. Does not implicitly {@link msgProto.ContentAck.verify|verify} messages.
@@ -604,10 +604,10 @@ $root.msgProto = (function() {
         ContentAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Msg != null && message.hasOwnProperty("Msg"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Msg);
-            if (message.Value != null && message.hasOwnProperty("Value"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.Value);
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.msg);
+            if (message.value != null && message.hasOwnProperty("value"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.value);
             return writer;
         };
 
@@ -630,10 +630,10 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Msg = reader.string();
+                    message.msg = reader.string();
                     break;
                 case 2:
-                    message.Value = reader.int32();
+                    message.value = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -655,10 +655,10 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.ContentAck)
                 return object;
             var message = new $root.msgProto.ContentAck();
-            if (object.Msg != null)
-                message.Msg = String(object.Msg);
-            if (object.Value != null)
-                message.Value = object.Value | 0;
+            if (object.msg != null)
+                message.msg = String(object.msg);
+            if (object.value != null)
+                message.value = object.value | 0;
             return message;
         };
 
@@ -676,13 +676,13 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.Msg = "";
-                object.Value = 0;
+                object.msg = "";
+                object.value = 0;
             }
-            if (message.Msg != null && message.hasOwnProperty("Msg"))
-                object.Msg = message.Msg;
-            if (message.Value != null && message.hasOwnProperty("Value"))
-                object.Value = message.Value;
+            if (message.msg != null && message.hasOwnProperty("msg"))
+                object.msg = message.msg;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
             return object;
         };
 
@@ -3725,8 +3725,8 @@ $root.msgProto = (function() {
          * Properties of a ServerInfo.
          * @memberof msgProto
          * @interface IServerInfo
-         * @property {string|null} [Ip] ServerInfo Ip
-         * @property {number|null} [Port] ServerInfo Port
+         * @property {string|null} [ip] ServerInfo ip
+         * @property {number|null} [port] ServerInfo port
          */
 
         /**
@@ -3745,20 +3745,20 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ServerInfo Ip.
-         * @member {string} Ip
+         * ServerInfo ip.
+         * @member {string} ip
          * @memberof msgProto.ServerInfo
          * @instance
          */
-        ServerInfo.prototype.Ip = "";
+        ServerInfo.prototype.ip = "";
 
         /**
-         * ServerInfo Port.
-         * @member {number} Port
+         * ServerInfo port.
+         * @member {number} port
          * @memberof msgProto.ServerInfo
          * @instance
          */
-        ServerInfo.prototype.Port = 0;
+        ServerInfo.prototype.port = 0;
 
         /**
          * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
@@ -3772,10 +3772,10 @@ $root.msgProto = (function() {
         ServerInfo.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Ip != null && message.hasOwnProperty("Ip"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Ip);
-            if (message.Port != null && message.hasOwnProperty("Port"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.Port);
+            if (message.ip != null && message.hasOwnProperty("ip"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.ip);
+            if (message.port != null && message.hasOwnProperty("port"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.port);
             return writer;
         };
 
@@ -3798,10 +3798,10 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Ip = reader.string();
+                    message.ip = reader.string();
                     break;
                 case 2:
-                    message.Port = reader.int32();
+                    message.port = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3823,10 +3823,10 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.ServerInfo)
                 return object;
             var message = new $root.msgProto.ServerInfo();
-            if (object.Ip != null)
-                message.Ip = String(object.Ip);
-            if (object.Port != null)
-                message.Port = object.Port | 0;
+            if (object.ip != null)
+                message.ip = String(object.ip);
+            if (object.port != null)
+                message.port = object.port | 0;
             return message;
         };
 
@@ -3844,13 +3844,13 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.Ip = "";
-                object.Port = 0;
+                object.ip = "";
+                object.port = 0;
             }
-            if (message.Ip != null && message.hasOwnProperty("Ip"))
-                object.Ip = message.Ip;
-            if (message.Port != null && message.hasOwnProperty("Port"))
-                object.Port = message.Port;
+            if (message.ip != null && message.hasOwnProperty("ip"))
+                object.ip = message.ip;
+            if (message.port != null && message.hasOwnProperty("port"))
+                object.port = message.port;
             return object;
         };
 
@@ -3979,9 +3979,9 @@ $root.msgProto = (function() {
          * Properties of a LoginReq.
          * @memberof msgProto
          * @interface ILoginReq
-         * @property {string|null} [Version] LoginReq Version
-         * @property {string|null} [Platform] LoginReq Platform
-         * @property {string|null} [Uid] LoginReq Uid
+         * @property {string|null} [version] LoginReq version
+         * @property {string|null} [platform] LoginReq platform
+         * @property {string|null} [uid] LoginReq uid
          */
 
         /**
@@ -4000,28 +4000,28 @@ $root.msgProto = (function() {
         }
 
         /**
-         * LoginReq Version.
-         * @member {string} Version
+         * LoginReq version.
+         * @member {string} version
          * @memberof msgProto.LoginReq
          * @instance
          */
-        LoginReq.prototype.Version = "";
+        LoginReq.prototype.version = "";
 
         /**
-         * LoginReq Platform.
-         * @member {string} Platform
+         * LoginReq platform.
+         * @member {string} platform
          * @memberof msgProto.LoginReq
          * @instance
          */
-        LoginReq.prototype.Platform = "";
+        LoginReq.prototype.platform = "";
 
         /**
-         * LoginReq Uid.
-         * @member {string} Uid
+         * LoginReq uid.
+         * @member {string} uid
          * @memberof msgProto.LoginReq
          * @instance
          */
-        LoginReq.prototype.Uid = "";
+        LoginReq.prototype.uid = "";
 
         /**
          * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
@@ -4035,12 +4035,12 @@ $root.msgProto = (function() {
         LoginReq.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Version != null && message.hasOwnProperty("Version"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.Version);
-            if (message.Platform != null && message.hasOwnProperty("Platform"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.Platform);
-            if (message.Uid != null && message.hasOwnProperty("Uid"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.Uid);
+            if (message.version != null && message.hasOwnProperty("version"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.uid);
             return writer;
         };
 
@@ -4063,13 +4063,13 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Version = reader.string();
+                    message.version = reader.string();
                     break;
                 case 2:
-                    message.Platform = reader.string();
+                    message.platform = reader.string();
                     break;
                 case 3:
-                    message.Uid = reader.string();
+                    message.uid = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4091,12 +4091,12 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.LoginReq)
                 return object;
             var message = new $root.msgProto.LoginReq();
-            if (object.Version != null)
-                message.Version = String(object.Version);
-            if (object.Platform != null)
-                message.Platform = String(object.Platform);
-            if (object.Uid != null)
-                message.Uid = String(object.Uid);
+            if (object.version != null)
+                message.version = String(object.version);
+            if (object.platform != null)
+                message.platform = String(object.platform);
+            if (object.uid != null)
+                message.uid = String(object.uid);
             return message;
         };
 
@@ -4114,16 +4114,16 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.Version = "";
-                object.Platform = "";
-                object.Uid = "";
+                object.version = "";
+                object.platform = "";
+                object.uid = "";
             }
-            if (message.Version != null && message.hasOwnProperty("Version"))
-                object.Version = message.Version;
-            if (message.Platform != null && message.hasOwnProperty("Platform"))
-                object.Platform = message.Platform;
-            if (message.Uid != null && message.hasOwnProperty("Uid"))
-                object.Uid = message.Uid;
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                object.platform = message.platform;
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                object.uid = message.uid;
             return object;
         };
 
@@ -4147,10 +4147,10 @@ $root.msgProto = (function() {
          * Properties of a LoginAck.
          * @memberof msgProto
          * @interface ILoginAck
-         * @property {msgProto.ResultCode|null} [Result] LoginAck Result
-         * @property {msgProto.IServerInfo|null} [Server] LoginAck Server
-         * @property {string|null} [GameToken] LoginAck GameToken
-         * @property {string|null} [GameSvcId] LoginAck GameSvcId
+         * @property {msgProto.ResultCode|null} [result] LoginAck result
+         * @property {msgProto.IServerInfo|null} [server] LoginAck server
+         * @property {string|null} [gameToken] LoginAck gameToken
+         * @property {string|null} [gameSvcId] LoginAck gameSvcId
          */
 
         /**
@@ -4169,36 +4169,36 @@ $root.msgProto = (function() {
         }
 
         /**
-         * LoginAck Result.
-         * @member {msgProto.ResultCode} Result
+         * LoginAck result.
+         * @member {msgProto.ResultCode} result
          * @memberof msgProto.LoginAck
          * @instance
          */
-        LoginAck.prototype.Result = 0;
+        LoginAck.prototype.result = 0;
 
         /**
-         * LoginAck Server.
-         * @member {msgProto.IServerInfo|null|undefined} Server
+         * LoginAck server.
+         * @member {msgProto.IServerInfo|null|undefined} server
          * @memberof msgProto.LoginAck
          * @instance
          */
-        LoginAck.prototype.Server = null;
+        LoginAck.prototype.server = null;
 
         /**
-         * LoginAck GameToken.
-         * @member {string} GameToken
+         * LoginAck gameToken.
+         * @member {string} gameToken
          * @memberof msgProto.LoginAck
          * @instance
          */
-        LoginAck.prototype.GameToken = "";
+        LoginAck.prototype.gameToken = "";
 
         /**
-         * LoginAck GameSvcId.
-         * @member {string} GameSvcId
+         * LoginAck gameSvcId.
+         * @member {string} gameSvcId
          * @memberof msgProto.LoginAck
          * @instance
          */
-        LoginAck.prototype.GameSvcId = "";
+        LoginAck.prototype.gameSvcId = "";
 
         /**
          * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
@@ -4212,14 +4212,14 @@ $root.msgProto = (function() {
         LoginAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Result != null && message.hasOwnProperty("Result"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.Result);
-            if (message.Server != null && message.hasOwnProperty("Server"))
-                $root.msgProto.ServerInfo.encode(message.Server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            if (message.GameToken != null && message.hasOwnProperty("GameToken"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.GameToken);
-            if (message.GameSvcId != null && message.hasOwnProperty("GameSvcId"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.GameSvcId);
+            if (message.result != null && message.hasOwnProperty("result"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
+            if (message.server != null && message.hasOwnProperty("server"))
+                $root.msgProto.ServerInfo.encode(message.server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.gameToken);
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.gameSvcId);
             return writer;
         };
 
@@ -4242,16 +4242,16 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Result = reader.int32();
+                    message.result = reader.int32();
                     break;
                 case 2:
-                    message.Server = $root.msgProto.ServerInfo.decode(reader, reader.uint32());
+                    message.server = $root.msgProto.ServerInfo.decode(reader, reader.uint32());
                     break;
                 case 3:
-                    message.GameToken = reader.string();
+                    message.gameToken = reader.string();
                     break;
                 case 4:
-                    message.GameSvcId = reader.string();
+                    message.gameSvcId = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4273,33 +4273,33 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.LoginAck)
                 return object;
             var message = new $root.msgProto.LoginAck();
-            switch (object.Result) {
-            case "NoError":
+            switch (object.result) {
+            case "noError":
             case 0:
-                message.Result = 0;
+                message.result = 0;
                 break;
-            case "GateNotFound":
+            case "gateNotFound":
             case 1:
-                message.Result = 1;
+                message.result = 1;
                 break;
-            case "GateAddressError":
+            case "gateAddressError":
             case 2:
-                message.Result = 2;
+                message.result = 2;
                 break;
-            case "GameNotFound":
+            case "gameNotFound":
             case 3:
-                message.Result = 3;
+                message.result = 3;
                 break;
             }
-            if (object.Server != null) {
-                if (typeof object.Server !== "object")
-                    throw TypeError(".msgProto.LoginAck.Server: object expected");
-                message.Server = $root.msgProto.ServerInfo.fromObject(object.Server);
+            if (object.server != null) {
+                if (typeof object.server !== "object")
+                    throw TypeError(".msgProto.LoginAck.server: object expected");
+                message.server = $root.msgProto.ServerInfo.fromObject(object.server);
             }
-            if (object.GameToken != null)
-                message.GameToken = String(object.GameToken);
-            if (object.GameSvcId != null)
-                message.GameSvcId = String(object.GameSvcId);
+            if (object.gameToken != null)
+                message.gameToken = String(object.gameToken);
+            if (object.gameSvcId != null)
+                message.gameSvcId = String(object.gameSvcId);
             return message;
         };
 
@@ -4317,19 +4317,19 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.Result = options.enums === String ? "NoError" : 0;
-                object.Server = null;
-                object.GameToken = "";
-                object.GameSvcId = "";
+                object.result = options.enums === String ? "noError" : 0;
+                object.server = null;
+                object.gameToken = "";
+                object.gameSvcId = "";
             }
-            if (message.Result != null && message.hasOwnProperty("Result"))
-                object.Result = options.enums === String ? $root.msgProto.ResultCode[message.Result] : message.Result;
-            if (message.Server != null && message.hasOwnProperty("Server"))
-                object.Server = $root.msgProto.ServerInfo.toObject(message.Server, options);
-            if (message.GameToken != null && message.hasOwnProperty("GameToken"))
-                object.GameToken = message.GameToken;
-            if (message.GameSvcId != null && message.hasOwnProperty("GameSvcId"))
-                object.GameSvcId = message.GameSvcId;
+            if (message.result != null && message.hasOwnProperty("result"))
+                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+            if (message.server != null && message.hasOwnProperty("server"))
+                object.server = $root.msgProto.ServerInfo.toObject(message.server, options);
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                object.gameToken = message.gameToken;
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                object.gameSvcId = message.gameSvcId;
             return object;
         };
 
@@ -4353,9 +4353,9 @@ $root.msgProto = (function() {
          * Properties of a VerifyReq.
          * @memberof msgProto
          * @interface IVerifyReq
-         * @property {string|null} [GameToken] VerifyReq GameToken
-         * @property {string|null} [GameSvcId] VerifyReq GameSvcId
-         * @property {number|Long|null} [AccountId] VerifyReq AccountId
+         * @property {string|null} [gameToken] VerifyReq gameToken
+         * @property {string|null} [gameSvcId] VerifyReq gameSvcId
+         * @property {number|Long|null} [accountId] VerifyReq accountId
          */
 
         /**
@@ -4374,28 +4374,28 @@ $root.msgProto = (function() {
         }
 
         /**
-         * VerifyReq GameToken.
-         * @member {string} GameToken
+         * VerifyReq gameToken.
+         * @member {string} gameToken
          * @memberof msgProto.VerifyReq
          * @instance
          */
-        VerifyReq.prototype.GameToken = "";
+        VerifyReq.prototype.gameToken = "";
 
         /**
-         * VerifyReq GameSvcId.
-         * @member {string} GameSvcId
+         * VerifyReq gameSvcId.
+         * @member {string} gameSvcId
          * @memberof msgProto.VerifyReq
          * @instance
          */
-        VerifyReq.prototype.GameSvcId = "";
+        VerifyReq.prototype.gameSvcId = "";
 
         /**
-         * VerifyReq AccountId.
-         * @member {number|Long} AccountId
+         * VerifyReq accountId.
+         * @member {number|Long} accountId
          * @memberof msgProto.VerifyReq
          * @instance
          */
-        VerifyReq.prototype.AccountId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        VerifyReq.prototype.accountId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
@@ -4409,12 +4409,12 @@ $root.msgProto = (function() {
         VerifyReq.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.GameToken != null && message.hasOwnProperty("GameToken"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.GameToken);
-            if (message.GameSvcId != null && message.hasOwnProperty("GameSvcId"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.GameSvcId);
-            if (message.AccountId != null && message.hasOwnProperty("AccountId"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.AccountId);
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.gameToken);
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.gameSvcId);
+            if (message.accountId != null && message.hasOwnProperty("accountId"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.accountId);
             return writer;
         };
 
@@ -4437,13 +4437,13 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.GameToken = reader.string();
+                    message.gameToken = reader.string();
                     break;
                 case 2:
-                    message.GameSvcId = reader.string();
+                    message.gameSvcId = reader.string();
                     break;
                 case 3:
-                    message.AccountId = reader.int64();
+                    message.accountId = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4465,19 +4465,19 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.VerifyReq)
                 return object;
             var message = new $root.msgProto.VerifyReq();
-            if (object.GameToken != null)
-                message.GameToken = String(object.GameToken);
-            if (object.GameSvcId != null)
-                message.GameSvcId = String(object.GameSvcId);
-            if (object.AccountId != null)
+            if (object.gameToken != null)
+                message.gameToken = String(object.gameToken);
+            if (object.gameSvcId != null)
+                message.gameSvcId = String(object.gameSvcId);
+            if (object.accountId != null)
                 if ($util.Long)
-                    (message.AccountId = $util.Long.fromValue(object.AccountId)).unsigned = false;
-                else if (typeof object.AccountId === "string")
-                    message.AccountId = parseInt(object.AccountId, 10);
-                else if (typeof object.AccountId === "number")
-                    message.AccountId = object.AccountId;
-                else if (typeof object.AccountId === "object")
-                    message.AccountId = new $util.LongBits(object.AccountId.low >>> 0, object.AccountId.high >>> 0).toNumber();
+                    (message.accountId = $util.Long.fromValue(object.accountId)).unsigned = false;
+                else if (typeof object.accountId === "string")
+                    message.accountId = parseInt(object.accountId, 10);
+                else if (typeof object.accountId === "number")
+                    message.accountId = object.accountId;
+                else if (typeof object.accountId === "object")
+                    message.accountId = new $util.LongBits(object.accountId.low >>> 0, object.accountId.high >>> 0).toNumber();
             return message;
         };
 
@@ -4495,23 +4495,23 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.GameToken = "";
-                object.GameSvcId = "";
+                object.gameToken = "";
+                object.gameSvcId = "";
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, false);
-                    object.AccountId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.accountId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.AccountId = options.longs === String ? "0" : 0;
+                    object.accountId = options.longs === String ? "0" : 0;
             }
-            if (message.GameToken != null && message.hasOwnProperty("GameToken"))
-                object.GameToken = message.GameToken;
-            if (message.GameSvcId != null && message.hasOwnProperty("GameSvcId"))
-                object.GameSvcId = message.GameSvcId;
-            if (message.AccountId != null && message.hasOwnProperty("AccountId"))
-                if (typeof message.AccountId === "number")
-                    object.AccountId = options.longs === String ? String(message.AccountId) : message.AccountId;
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                object.gameToken = message.gameToken;
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                object.gameSvcId = message.gameSvcId;
+            if (message.accountId != null && message.hasOwnProperty("accountId"))
+                if (typeof message.accountId === "number")
+                    object.accountId = options.longs === String ? String(message.accountId) : message.accountId;
                 else
-                    object.AccountId = options.longs === String ? $util.Long.prototype.toString.call(message.AccountId) : options.longs === Number ? new $util.LongBits(message.AccountId.low >>> 0, message.AccountId.high >>> 0).toNumber() : message.AccountId;
+                    object.accountId = options.longs === String ? $util.Long.prototype.toString.call(message.accountId) : options.longs === Number ? new $util.LongBits(message.accountId.low >>> 0, message.accountId.high >>> 0).toNumber() : message.accountId;
             return object;
         };
 
@@ -4535,7 +4535,7 @@ $root.msgProto = (function() {
          * Properties of a VerifyAck.
          * @memberof msgProto
          * @interface IVerifyAck
-         * @property {msgProto.ResultCode|null} [Result] VerifyAck Result
+         * @property {msgProto.ResultCode|null} [result] VerifyAck result
          */
 
         /**
@@ -4554,12 +4554,12 @@ $root.msgProto = (function() {
         }
 
         /**
-         * VerifyAck Result.
-         * @member {msgProto.ResultCode} Result
+         * VerifyAck result.
+         * @member {msgProto.ResultCode} result
          * @memberof msgProto.VerifyAck
          * @instance
          */
-        VerifyAck.prototype.Result = 0;
+        VerifyAck.prototype.result = 0;
 
         /**
          * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
@@ -4573,8 +4573,8 @@ $root.msgProto = (function() {
         VerifyAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.Result != null && message.hasOwnProperty("Result"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.Result);
+            if (message.result != null && message.hasOwnProperty("result"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             return writer;
         };
 
@@ -4597,7 +4597,7 @@ $root.msgProto = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.Result = reader.int32();
+                    message.result = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4619,22 +4619,22 @@ $root.msgProto = (function() {
             if (object instanceof $root.msgProto.VerifyAck)
                 return object;
             var message = new $root.msgProto.VerifyAck();
-            switch (object.Result) {
-            case "NoError":
+            switch (object.result) {
+            case "noError":
             case 0:
-                message.Result = 0;
+                message.result = 0;
                 break;
-            case "GateNotFound":
+            case "gateNotFound":
             case 1:
-                message.Result = 1;
+                message.result = 1;
                 break;
-            case "GateAddressError":
+            case "gateAddressError":
             case 2:
-                message.Result = 2;
+                message.result = 2;
                 break;
-            case "GameNotFound":
+            case "gameNotFound":
             case 3:
-                message.Result = 3;
+                message.result = 3;
                 break;
             }
             return message;
@@ -4654,9 +4654,9 @@ $root.msgProto = (function() {
                 options = {};
             var object = {};
             if (options.defaults)
-                object.Result = options.enums === String ? "NoError" : 0;
-            if (message.Result != null && message.hasOwnProperty("Result"))
-                object.Result = options.enums === String ? $root.msgProto.ResultCode[message.Result] : message.Result;
+                object.result = options.enums === String ? "noError" : 0;
+            if (message.result != null && message.hasOwnProperty("result"))
+                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
             return object;
         };
 
@@ -4678,17 +4678,17 @@ $root.msgProto = (function() {
      * ResultCode enum.
      * @name msgProto.ResultCode
      * @enum {string}
-     * @property {number} NoError=0 NoError value
-     * @property {number} GateNotFound=1 GateNotFound value
-     * @property {number} GateAddressError=2 GateAddressError value
-     * @property {number} GameNotFound=3 GameNotFound value
+     * @property {number} noError=0 noError value
+     * @property {number} gateNotFound=1 gateNotFound value
+     * @property {number} gateAddressError=2 gateAddressError value
+     * @property {number} gameNotFound=3 gameNotFound value
      */
     msgProto.ResultCode = (function() {
         var valuesById = {}, values = Object.create(valuesById);
-        values[valuesById[0] = "NoError"] = 0;
-        values[valuesById[1] = "GateNotFound"] = 1;
-        values[valuesById[2] = "GateAddressError"] = 2;
-        values[valuesById[3] = "GameNotFound"] = 3;
+        values[valuesById[0] = "noError"] = 0;
+        values[valuesById[1] = "gateNotFound"] = 1;
+        values[valuesById[2] = "gateAddressError"] = 2;
+        values[valuesById[3] = "gameNotFound"] = 3;
         return values;
     })();
 

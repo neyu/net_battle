@@ -123,9 +123,9 @@ namespace net {
 
     function verifyGameToken() {
         net.Send("msgProto.VerifyReq", {
-            GameToken: _gameToken,
-            GameSvcId: "game_1",
-            AccountId: _accountId
+            gameToken: _gameToken,
+            gameSvcId: "game_1",
+            accountId: _accountId
         })
     }  
     function verifyAck(msg:any) {

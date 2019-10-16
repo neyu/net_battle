@@ -6,8 +6,8 @@ declare namespace msgProto {
     /** Properties of a ChatReq. */
     interface IChatReq {
 
-        /** ChatReq Content */
-        Content?: (string|null);
+        /** ChatReq content */
+        content?: (string|null);
     }
 
     /** Represents a ChatReq. */
@@ -19,8 +19,8 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IChatReq);
 
-        /** ChatReq Content. */
-        public Content: string;
+        /** ChatReq content. */
+        public content: string;
 
         /**
          * Encodes the specified ChatReq message. Does not implicitly {@link msgProto.ChatReq.verify|verify} messages.
@@ -65,8 +65,8 @@ declare namespace msgProto {
     /** Properties of a ChatAck. */
     interface IChatAck {
 
-        /** ChatAck Content */
-        Content?: (string|null);
+        /** ChatAck content */
+        content?: (string|null);
     }
 
     /** Represents a ChatAck. */
@@ -78,8 +78,8 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IChatAck);
 
-        /** ChatAck Content. */
-        public Content: string;
+        /** ChatAck content. */
+        public content: string;
 
         /**
          * Encodes the specified ChatAck message. Does not implicitly {@link msgProto.ChatAck.verify|verify} messages.
@@ -124,8 +124,8 @@ declare namespace msgProto {
     /** Properties of a TestAck. */
     interface ITestAck {
 
-        /** TestAck Dummy */
-        Dummy?: (string|null);
+        /** TestAck dummy */
+        dummy?: (string|null);
     }
 
     /** Represents a TestAck. */
@@ -137,8 +137,8 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.ITestAck);
 
-        /** TestAck Dummy. */
-        public Dummy: string;
+        /** TestAck dummy. */
+        public dummy: string;
 
         /**
          * Encodes the specified TestAck message. Does not implicitly {@link msgProto.TestAck.verify|verify} messages.
@@ -183,11 +183,11 @@ declare namespace msgProto {
     /** Properties of a ContentReq. */
     interface IContentReq {
 
-        /** ContentReq Msg */
-        Msg?: (string|null);
+        /** ContentReq msg */
+        msg?: (string|null);
 
-        /** ContentReq Value */
-        Value?: (number|null);
+        /** ContentReq value */
+        value?: (number|null);
     }
 
     /** Represents a ContentReq. */
@@ -199,11 +199,11 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IContentReq);
 
-        /** ContentReq Msg. */
-        public Msg: string;
+        /** ContentReq msg. */
+        public msg: string;
 
-        /** ContentReq Value. */
-        public Value: number;
+        /** ContentReq value. */
+        public value: number;
 
         /**
          * Encodes the specified ContentReq message. Does not implicitly {@link msgProto.ContentReq.verify|verify} messages.
@@ -248,11 +248,11 @@ declare namespace msgProto {
     /** Properties of a ContentAck. */
     interface IContentAck {
 
-        /** ContentAck Msg */
-        Msg?: (string|null);
+        /** ContentAck msg */
+        msg?: (string|null);
 
-        /** ContentAck Value */
-        Value?: (number|null);
+        /** ContentAck value */
+        value?: (number|null);
     }
 
     /** Represents a ContentAck. */
@@ -264,11 +264,11 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IContentAck);
 
-        /** ContentAck Msg. */
-        public Msg: string;
+        /** ContentAck msg. */
+        public msg: string;
 
-        /** ContentAck Value. */
-        public Value: number;
+        /** ContentAck value. */
+        public value: number;
 
         /**
          * Encodes the specified ContentAck message. Does not implicitly {@link msgProto.ContentAck.verify|verify} messages.
@@ -1527,11 +1527,11 @@ declare namespace msgProto {
     /** Properties of a ServerInfo. */
     interface IServerInfo {
 
-        /** ServerInfo Ip */
-        Ip?: (string|null);
+        /** ServerInfo ip */
+        ip?: (string|null);
 
-        /** ServerInfo Port */
-        Port?: (number|null);
+        /** ServerInfo port */
+        port?: (number|null);
     }
 
     /** Represents a ServerInfo. */
@@ -1543,11 +1543,11 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IServerInfo);
 
-        /** ServerInfo Ip. */
-        public Ip: string;
+        /** ServerInfo ip. */
+        public ip: string;
 
-        /** ServerInfo Port. */
-        public Port: number;
+        /** ServerInfo port. */
+        public port: number;
 
         /**
          * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
@@ -1645,14 +1645,14 @@ declare namespace msgProto {
     /** Properties of a LoginReq. */
     interface ILoginReq {
 
-        /** LoginReq Version */
-        Version?: (string|null);
+        /** LoginReq version */
+        version?: (string|null);
 
-        /** LoginReq Platform */
-        Platform?: (string|null);
+        /** LoginReq platform */
+        platform?: (string|null);
 
-        /** LoginReq Uid */
-        Uid?: (string|null);
+        /** LoginReq uid */
+        uid?: (string|null);
     }
 
     /** Represents a LoginReq. */
@@ -1664,14 +1664,14 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.ILoginReq);
 
-        /** LoginReq Version. */
-        public Version: string;
+        /** LoginReq version. */
+        public version: string;
 
-        /** LoginReq Platform. */
-        public Platform: string;
+        /** LoginReq platform. */
+        public platform: string;
 
-        /** LoginReq Uid. */
-        public Uid: string;
+        /** LoginReq uid. */
+        public uid: string;
 
         /**
          * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
@@ -1716,17 +1716,17 @@ declare namespace msgProto {
     /** Properties of a LoginAck. */
     interface ILoginAck {
 
-        /** LoginAck Result */
-        Result?: (msgProto.ResultCode|null);
+        /** LoginAck result */
+        result?: (msgProto.ResultCode|null);
 
-        /** LoginAck Server */
-        Server?: (msgProto.IServerInfo|null);
+        /** LoginAck server */
+        server?: (msgProto.IServerInfo|null);
 
-        /** LoginAck GameToken */
-        GameToken?: (string|null);
+        /** LoginAck gameToken */
+        gameToken?: (string|null);
 
-        /** LoginAck GameSvcId */
-        GameSvcId?: (string|null);
+        /** LoginAck gameSvcId */
+        gameSvcId?: (string|null);
     }
 
     /** Represents a LoginAck. */
@@ -1738,17 +1738,17 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.ILoginAck);
 
-        /** LoginAck Result. */
-        public Result: msgProto.ResultCode;
+        /** LoginAck result. */
+        public result: msgProto.ResultCode;
 
-        /** LoginAck Server. */
-        public Server?: (msgProto.IServerInfo|null);
+        /** LoginAck server. */
+        public server?: (msgProto.IServerInfo|null);
 
-        /** LoginAck GameToken. */
-        public GameToken: string;
+        /** LoginAck gameToken. */
+        public gameToken: string;
 
-        /** LoginAck GameSvcId. */
-        public GameSvcId: string;
+        /** LoginAck gameSvcId. */
+        public gameSvcId: string;
 
         /**
          * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
@@ -1793,14 +1793,14 @@ declare namespace msgProto {
     /** Properties of a VerifyReq. */
     interface IVerifyReq {
 
-        /** VerifyReq GameToken */
-        GameToken?: (string|null);
+        /** VerifyReq gameToken */
+        gameToken?: (string|null);
 
-        /** VerifyReq GameSvcId */
-        GameSvcId?: (string|null);
+        /** VerifyReq gameSvcId */
+        gameSvcId?: (string|null);
 
-        /** VerifyReq AccountId */
-        AccountId?: (number|Long|null);
+        /** VerifyReq accountId */
+        accountId?: (number|Long|null);
     }
 
     /** Represents a VerifyReq. */
@@ -1812,14 +1812,14 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IVerifyReq);
 
-        /** VerifyReq GameToken. */
-        public GameToken: string;
+        /** VerifyReq gameToken. */
+        public gameToken: string;
 
-        /** VerifyReq GameSvcId. */
-        public GameSvcId: string;
+        /** VerifyReq gameSvcId. */
+        public gameSvcId: string;
 
-        /** VerifyReq AccountId. */
-        public AccountId: (number|Long);
+        /** VerifyReq accountId. */
+        public accountId: (number|Long);
 
         /**
          * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
@@ -1864,8 +1864,8 @@ declare namespace msgProto {
     /** Properties of a VerifyAck. */
     interface IVerifyAck {
 
-        /** VerifyAck Result */
-        Result?: (msgProto.ResultCode|null);
+        /** VerifyAck result */
+        result?: (msgProto.ResultCode|null);
     }
 
     /** Represents a VerifyAck. */
@@ -1877,8 +1877,8 @@ declare namespace msgProto {
          */
         constructor(properties?: msgProto.IVerifyAck);
 
-        /** VerifyAck Result. */
-        public Result: msgProto.ResultCode;
+        /** VerifyAck result. */
+        public result: msgProto.ResultCode;
 
         /**
          * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
@@ -1922,9 +1922,9 @@ declare namespace msgProto {
 
     /** ResultCode enum. */
     enum ResultCode {
-        NoError = 0,
-        GateNotFound = 1,
-        GateAddressError = 2,
-        GameNotFound = 3
+        noError = 0,
+        gateNotFound = 1,
+        gateAddressError = 2,
+        gameNotFound = 3
     }
 }

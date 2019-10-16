@@ -3,7 +3,7 @@
   <displayList>
     <graph id="n16_vcob" name="n16" xy="60,131" size="366,466" type="rect" fillColor="#ffffffcc"/>
     <graph id="n1_vcob" name="n1" xy="155,440" size="215,32" type="rect"/>
-    <text id="n0_vcob" name="n0" xy="155,440" size="215,32" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="18" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n0_vcob" name="n0" xy="157,442" size="211,28" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="18" vAlign="middle" autoSize="none" bold="true" text=""/>
     <component id="n2_vcob" name="n2" src="vcobf" fileName="Button6.xml" xy="161,492">
       <Button title="创建角色" titleColor="#990000" titleFontSize="18"/>
     </component>

@@ -3,9 +3,9 @@
   <displayList>
     <graph id="n1_jmnw" name="n1" xy="40,220" size="400,320" type="rect"/>
     <graph id="n12_jmnw" name="n12" xy="161,283" size="254,39" type="rect" fillColor="#ffffffcc"/>
-    <text id="n2_jmnw" name="n2" xy="161,283" size="255,39" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" color="#33ccff" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n2_jmnw" name="n2" xy="165,285" size="246,35" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" color="#33ccff" vAlign="middle" autoSize="none" bold="true" text=""/>
     <graph id="n14_jmnw" name="n14" xy="161,339" size="254,39" type="rect" fillColor="#ffffffcc"/>
-    <text id="n13_jmnw" name="n13" xy="161,339" size="253,39" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" color="#33ccff" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n13_jmnw" name="n13" xy="165,341" size="246,35" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="8" fontSize="20" color="#33ccff" vAlign="middle" autoSize="none" bold="true" text=""/>
     <text id="n3_jmnw" name="n3" xy="78,283" size="69,40" fontSize="32" align="right" vAlign="middle" text="账号"/>
     <text id="n4_jmnw" name="n4" xy="78,339" size="69,40" fontSize="32" align="right" vAlign="middle" text="密码"/>
     <component id="n10_jmnw" name="n10" src="jmnw3" fileName="Button1.xml" xy="100,430">
