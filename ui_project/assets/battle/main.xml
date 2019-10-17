@@ -20,5 +20,6 @@
     <component id="n19_glcc" name="n19" src="glccb" fileName="Button1.xml" xy="6,3">
       <Button title="退出" titleColor="#cc6600" titleFontSize="12"/>
     </component>
+    <text id="n20_pb7w" name="n20" xy="21,210" size="443,19" fontSize="12" autoSize="none" text="这是一行调试信息"/>
   </displayList>
 </component>

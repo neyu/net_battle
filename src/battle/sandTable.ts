@@ -7,6 +7,7 @@ class SandTable extends egret.DisplayObjectContainer {
     private _h: number = 0;
     private _scale: number = 1.0
     private _bulletR: number = 10;
+    private _origRadian: number = 0;
 
     private _circleTb: egret.Shape;
     private _rectTb: egret.Shape;
@@ -28,9 +29,23 @@ class SandTable extends egret.DisplayObjectContainer {
         this._w = this._radius * Math.sqrt(2)
         this._h = this._w;
 
+        // let angleList = [0, 90, 180, 270];
+        this._origRadian = this.getRandRadian();
+
         this.drawSandTable()
     }
-
+    private getRandRadian(): number {
+        let rand = Math.random() * 360;
+        if (rand < 90) {
+            return 0;
+        } else if (rand < 180) {
+            return parseFloat((Math.PI/2).toFixed(5));
+        } else if (rand < 270) {
+            return parseFloat((Math.PI).toFixed(5));
+        } else {
+            return parseFloat((Math.PI*3/2).toFixed(5));
+        }
+    }
     private drawSandTable() {
         this._circleTb = new egret.Shape();
         this._circleTb.graphics.lineStyle(1, 0xff0000);
@@ -51,7 +66,6 @@ class SandTable extends egret.DisplayObjectContainer {
         this._rectTb.anchorOffsetY = 0.5
         this.addChild(this._rectTb)
         this._rectTb.alpha = 0.1
-
 
         this.showBallPool()
     }
@@ -122,24 +136,47 @@ class SandTable extends egret.DisplayObjectContainer {
         // this.scaleY = Math.sqrt(2)
     }
 
-    public shoot(opt:IOptData) {
-        let bullet = new Bullet(opt.dirX, opt.dirY, opt.color)
+    public testShoot(radian:number) {
+        this._origRadian = Math.PI / 4;
+
+        Util.log("test shoot orig/rad:", this._origRadian, radian);
+        let shtRad = radian + this._origRadian;
+
+        let bullet = new Bullet(shtRad, this._ballColors[4],)
         this.addChild(bullet)
         bullet.setBorder(this._radius);
+        bullet.x = this._radius * Math.sin(this._origRadian);
+        bullet.y = this._radius * Math.cos(this._origRadian);
+
+        this.resetBallColor();
+    }
+
+    public shoot(opt:IOptData) {
+        Util.log("shoot orig/rad:", opt.origRad, opt.radian);
+        let debug = "orig/rad:" + opt.origRad.toString() + "/" + opt.radian.toString();
+        Battle.inst.getScene().showDebug(debug);
+
+        let shtRad = opt.radian + opt.origRad - this._origRadian;
+        let bullet = new Bullet(shtRad, opt.color)
+        this.addChild(bullet)
+        bullet.setBorder(this._radius);
+        bullet.x = this._radius * Math.sin(opt.origRad - this._origRadian);
+        bullet.y = this._radius * Math.cos(opt.origRad - this._origRadian);
 
         if (Login.inst._userData.userId == opt.roleId) {
             this.resetBallColor();
         }
     }
-    public tryShoot(dirX: number, dirY:number) {
+    public tryShoot(radian:number) {
         let data:IOptData = {
             roleId: Login.inst._userData.userId,
             type: "shoot",
-            dirX: dirX,
-            dirY: dirY,
             color: this._ballColors[4],
-            angle: 90
+            origRad: this._origRadian,
+            radian: radian
         }
+        Util.log("try shoot orig/rad:", this._origRadian, radian);
+
         net.Send("msgProto.ExchangeOptData", {
             optData: JSON.stringify(data)
         })

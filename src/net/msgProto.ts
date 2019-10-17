@@ -90,7 +90,7 @@ class MsgProto implements MsgBase {
             obj.body = this.getMsgClass(obj.key).decode(btArr.bytes, dataLen);
             //App.DebugUtils.stop("Protobuf Decode");
         }
-        console.log("[Debug]:收到数据：", this.totalRecv + "/" + msg.length,  " [" + msgId + " " + obj.key + "]", obj.body);
+        // console.log("[Debug]:收到数据：", this.totalRecv + "/" + msg.length,  " [" + msgId + " " + obj.key + "]", obj.body);
         return obj;
     }
 
@@ -116,7 +116,7 @@ class MsgProto implements MsgBase {
         // console.log("msg bytes send:", sendMsg.bytes)
 
         this.totalSend += sendMsg.length
-        console.log("[Debug]:发送数据：", this.totalSend + "/" + sendMsg.length, " [" + msgID + " " + msg.key + "]", msg.body);
+        // console.log("[Debug]:发送数据：", this.totalSend + "/" + sendMsg.length, " [" + msgID + " " + msg.key + "]", msg.body);
         return sendMsg;
     }
 

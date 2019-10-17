@@ -73,4 +73,8 @@ class BtScene extends egret.DisplayObjectContainer {
 
         this._sandTable.shoot(opt);
     }
+    public showDebug(debug:string) {
+        let lbDebug = this._btUI.getChild("n20").asTextField;
+        lbDebug.text = debug;
+    }
 }

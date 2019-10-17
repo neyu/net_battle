@@ -1,10 +1,9 @@
 interface IOptData {
     roleId: number,
     type: string,
-    dirX: number,
-    dirY: number,
     color: number,
-    angle: number
+    origRad: number,
+    radian: number
 }
 
 class Battle {

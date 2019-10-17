@@ -52,7 +52,9 @@ class Socket {
     /**
      * 服务器连接成功
      */
-    private onSocketOpen(): void {
+    private onSocketOpen(evt:egret.Event): void {
+        // console.log("[Debug]:onSocketOpen:", evt);
+
         this._reconnectCount = 0;
         this._isConnecting = true;
 
@@ -68,7 +70,9 @@ class Socket {
     /**
      * 服务器断开连接
      */
-    private onSocketClose(): void {
+    private onSocketClose(evt:egret.Event): void {
+        // console.log("[Debug]:onSocketClose:", evt);
+
         this._isConnecting = false;
 
         if (this._needReconnect) {
@@ -82,7 +86,9 @@ class Socket {
     /**
      * 服务器连接错误
      */
-    private onSocketError(): void {
+    private onSocketError(evt:egret.Event): void {
+        // console.log("[Debug]:onSocketError evt:", evt);
+
         if (this._needReconnect) {
             this.reconnect();
         } else {
@@ -95,7 +101,9 @@ class Socket {
      * 收到服务器消息
      * @param e
      */
-    private onReceiveMessage(e: egret.Event): void {
+    private onReceiveMessage(evt: egret.Event): void {
+        // console.log("[Debug]:onReceiveMessage:", evt);
+
         this._msg.receive(this._socket);
     }
 

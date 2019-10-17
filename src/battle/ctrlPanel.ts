@@ -98,7 +98,10 @@ class CtrlPanel extends egret.Sprite {
         // console.log("onTouchEnd:", evt.target.width, evt.target.height, evt.type, evt.stageX, evt.stageY);
         let drawX = evt.stageX - this.stickNode.x;
         let drawY = evt.stageY - this.stickNode.y;
-        this._sandTb.tryShoot(drawX, drawY);
+        // 坐标系，Y是反的
+        let radian = Util.calcRadian(drawX, -drawY);
+        this._sandTb.tryShoot(radian);
+        // this._sandTb.testShoot(radian);
 
         this.resetPosition();
     }
@@ -106,14 +109,17 @@ class CtrlPanel extends egret.Sprite {
         // console.log("onTouchMove:", evt.target.width, evt.target.height, evt.type, evt.stageX, evt.stageY);
         let drawX = evt.stageX - this.stickNode.x;
         let drawY = evt.stageY - this.stickNode.y;
-        let drawOffset = Math.sqrt(drawX * drawX + drawY * drawY)
+        // 坐标系，Y是反的
+        let radian = Util.calcRadian(drawX, -drawY);
 
+        let drawOffset = Math.sqrt(drawX * drawX + drawY * drawY)
         if (drawOffset > this.bgRadius) {
-            this.drawBall.x = drawX * this.bgRadius / drawOffset
-            this.drawBall.y = drawY * this.bgRadius / drawOffset
+            this.drawBall.x = this.bgRadius * Math.cos(radian)
+            this.drawBall.y = -this.bgRadius * Math.sin(radian)
         } else {
             this.drawBall.x = drawX;
             this.drawBall.y = drawY;
         }
     }
+
 }

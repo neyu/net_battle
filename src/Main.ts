@@ -57,6 +57,8 @@ class Main extends egret.Sprite {
         this.runGame().catch(e => {
             console.log(e);
         })
+
+        this.testSomething();
     }
 
     private async runGame() {
@@ -244,5 +246,33 @@ class Main extends egret.Sprite {
     }
     private switchLogin() {
         this.addChild(Login.inst.createScene());
+    }
+    private testSomething() {
+        // console.log("PI:", Math.PI)
+        // console.log("PI/2:", Math.PI/2)
+        // console.log("PI/3:", Math.PI/3)
+        // console.log("PI/4:", Math.PI/4)
+        // console.log("PI/6:", Math.PI/6)
+
+        // console.log("tan PI/4:", Math.tan(Math.PI/4))
+        // console.log("tan PI/6:", Math.tan(Math.PI/6))
+
+        // console.log("tan:", Math.atan(1))
+        // console.log("tan1:", Math.atan2(1, 1))
+
+        // console.log("tan2:", Math.atan(Math.sqrt(3)/3))
+        // console.log("tan3:", Math.atan2(Math.sqrt(3), 3))
+
+        // console.log("tan4:", Math.atan(3/Math.sqrt(3)))
+        // console.log("tan5:", Math.atan2(3, Math.sqrt(3)))
+
+        let a = 2 / 3;
+        let b = this.getFixedNumber(a);
+        console.log("a:", a);
+        console.log("b:", b);
+    }
+    private getFixedNumber(a:number): number {
+        let b = parseFloat(a.toFixed(5))
+        return b;
     }
 }
