@@ -69,7 +69,7 @@ namespace net {
     export function ConnToLogin() {
         _connType = 1 // connecto to login
 
-        Socket.inst.initServer(ServerConf.server_test, ServerConf.port_test, new MsgProto())
+        Socket.inst.initServer(ServerConf.server_pub, ServerConf.port_pub, new MsgProto())
         Socket.inst.connect();
     }
 

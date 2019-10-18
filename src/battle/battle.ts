@@ -1,7 +1,7 @@
 interface IOptData {
     roleId: number,
     type: string,
-    color: number,
+    ballInfo: IBallInfo,
     origRad: number,
     radian: number
 }
