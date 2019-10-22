@@ -55,12 +55,46 @@ class BtScene extends egret.DisplayObjectContainer {
 
         let exitBtn = this._btUI.getChild("n19").asButton
         exitBtn.addClickListener(this.__clickExit, this)
+
+        let lbNick = this._btUI.getChild("n21").asTextField
+        lbNick.text = Login.inst._userData.nickName;
+
+        let lbMode = this._btUI.getChild("n36").asTextField
+        lbMode.text = "当前模式：经典模式"
+
+        let btnDealer = this._btUI.getChild("n24").asButton;
+        btnDealer.addClickListener(this.__clickDealer, this);
+        
+        let btnReset = this._btUI.getChild("n29").asButton;
+        btnReset.addClickListener(this.__clickReset, this);
+        
+        let btnBet = this._btUI.getChild("n26").asButton;
+        btnBet.addClickListener(this.__clickBet, this);
+
+        let ctrlDice = this._btUI.getController("dice")
+        ctrlDice.addEventListener(fairygui.StateChangeEvent.CHANGED, this.__clickDiceMode, this)
     }
 
-    private __clickExit(evt:Event):void {
+    private __clickExit(evt:Event): void {
         Battle.inst.gotoLobby()
     }
-    
+    private __clickDealer(evt:Event): void {
+        Battle.inst.mode = 1;
+        this._sandTable.clear()
+    }
+    private __clickReset(evt:Event): void {
+        Battle.inst.mode = 0;
+        this._sandTable.clear()
+    }
+    private __clickBet(evt:Event): void {
+        let lbBet = this._btUI.getChild("n35").asTextField;
+        lbBet.text = "+1"
+    }
+    private __clickDiceMode(evt:Event): void {
+        let ctrlDice = this._btUI.getController("dice")
+        Util.log("dice mode set:", ctrlDice.selectedIndex)
+        Battle.inst._diceType = ctrlDice.selectedIndex;
+    }
     private netLatencyResponse(data:{lag:number}) {
         // Util.log("test net latency:", data.lag)
 

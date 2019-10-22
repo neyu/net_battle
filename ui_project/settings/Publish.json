@@ -12,5 +12,5 @@
 	"compressDesc":false,
 	"fileExtension":"zip",
 	"packageCount":2,
-	"path":"..\\resource\\ui"
+	"path":"../resource/ui"
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="480,800">
+  <controller name="dice" pages="0,,1,,3," selected="0"/>
   <displayList>
     <text id="n3_vcob" name="n3" xy="6,24" size="99,34" fontSize="24" color="#ff0000" align="center" autoSize="none" text="对抗席"/>
     <image id="n0_vcob" name="n0" src="vcob1" fileName="avatar_10000.png" xy="19,63" pivot="0.5,0.5" size="40,40"/>
@@ -21,5 +22,27 @@
       <Button title="退出" titleColor="#cc6600" titleFontSize="12"/>
     </component>
     <text id="n20_pb7w" name="n20" xy="21,210" size="443,19" fontSize="12" autoSize="none" text="这是一行调试信息"/>
+    <text id="n21_98bu" name="n21" xy="113,36" size="153,25" fontSize="16" color="#ffffcc" autoSize="none" text="我的名字"/>
+    <text id="n22_98bu" name="n22" xy="195,36" size="50,30" fontSize="18" color="#ff0000" autoSize="none" text="+23"/>
+    <component id="n24_98bu" name="n24" src="98bud" fileName="Button2.xml" xy="386,705">
+      <Button title="抢庄"/>
+    </component>
+    <component id="n26_98bu" name="n26" src="98bud" fileName="Button2.xml" xy="433,738">
+      <Button title="加注"/>
+    </component>
+    <component id="n29_98bu" name="n29" src="98bud" fileName="Button2.xml" xy="433,705">
+      <Button title="重开"/>
+    </component>
+    <component id="n32_rrg7" name="n32" src="rrg7v" fileName="radioButton.xml" xy="397,774">
+      <Button title="置换" controller="dice" page="1"/>
+    </component>
+    <component id="n33_rrg7" name="n33" src="rrg7v" fileName="radioButton.xml" xy="437,774">
+      <Button title="同色" controller="dice" page="3"/>
+    </component>
+    <component id="n34_rrg7" name="n34" src="rrg7v" fileName="radioButton.xml" xy="356,774">
+      <Button checked="true" title="随机" controller="dice" page="0"/>
+    </component>
+    <text id="n35_rrg7" name="n35" xy="393,739" size="36,27" fontSize="18" color="#ff0000" align="right" vAlign="middle" autoSize="none" text="+55&#xA;"/>
+    <text id="n36_rrg7" name="n36" xy="326,691" size="147,15" fontSize="10" color="#ffffcc" align="right" vAlign="middle" autoSize="none" text="等待进入骰子模式"/>
   </displayList>
 </component>

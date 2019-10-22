@@ -13,6 +13,17 @@
     <image id="vcob9" name="avatar_10008.png" path="/"/>
     <image id="vcoba" name="avatar_10009.png" path="/"/>
     <component id="glccb" name="Button1.xml" path="/"/>
+    <component id="98bud" name="Button2.xml" path="/"/>
+    <image id="rrg7f" name="a1_png.png" path="/"/>
+    <image id="rrg7g" name="a2_png.png" path="/"/>
+    <image id="rrg7h" name="a3_png.png" path="/"/>
+    <image id="rrg7i" name="a4_png.png" path="/"/>
+    <image id="rrg7p" name="b1.png.jpg" path="/"/>
+    <image id="rrg7q" name="b2.png.jpg" path="/"/>
+    <image id="rrg7r" name="b3.png.jpg" path="/"/>
+    <image id="rrg7s" name="b4.png.jpg" path="/"/>
+    <component id="rrg7u" name="checkBox.xml" path="/"/>
+    <component id="rrg7v" name="radioButton.xml" path="/"/>
   </resources>
   <publish name="battle"/>
 </packageDescription>
