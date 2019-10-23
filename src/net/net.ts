@@ -111,7 +111,7 @@ class Net {
         // utils.log("errorNotice:");
     }
 
-    private static interval = 10 * 1000;
+    private static interval = 45 * 1000;
     private static ping() {
         TimerMgr.inst.doTimer(this.interval, 0, this.pingAck, this);    
     }
