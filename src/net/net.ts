@@ -17,7 +17,7 @@ class Net {
         this.ConnToLogin();
     }
 
-    public static loadMsgCode() {
+    private static loadMsgCode() {
         this.strCode = RES.getRes("c_msgCode_json")
         this.iCode = {}
 
