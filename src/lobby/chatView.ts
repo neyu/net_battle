@@ -41,7 +41,7 @@ class ChatView extends egret.DisplayObjectContainer {
         let chatBox = this._chatRoom.getChild("n6").asTextInput
         let chatBoard = this._chatRoom.getChild("n5").asTextField
 
-        net.Send("msgProto.ChatReq", {
+        Net.Send("msgProto.ChatReq", {
             content: chatBox.text
         })
     }

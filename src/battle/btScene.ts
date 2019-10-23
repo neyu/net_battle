@@ -5,8 +5,8 @@ class BtScene extends egret.DisplayObjectContainer {
     constructor() {
         super()
 
-        net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
-        net.regMsgProc("msgProto.ExchangeOptData", this.syncOptData, this)
+        Net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
+        Net.regMsgProc("msgProto.ExchangeOptData", this.syncOptData, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -20,7 +20,7 @@ class BtScene extends egret.DisplayObjectContainer {
         this.openLobbyView();
     }
     public onExit() {
-        net.delMsgTarget(this);
+        Net.delMsgTarget(this);
 
         fairygui.GRoot.inst.removeChild(this._btUI);
 

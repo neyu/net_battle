@@ -32,7 +32,7 @@ class Login {
     private init() {
         this._accountData["loginKey"] = "";
 
-        net.regMsgProc("game_verified", this.gameVerifyed, this)
+        Net.regMsgProc("game_verified", this.gameVerifyed, this)
         // this.checkNetwork();
     }
     public createScene() {
@@ -56,12 +56,12 @@ class Login {
     }
 
     public checkNetwork() {
-        if (!net.isOnConn()) {
+        if (!Net.isOnConn()) {
             TimerMgr.inst.doFrame(1, 0, this.networkTest, this);
         }
     }
     public networkTest() {
-        if (net.isOnConn()) {
+        if (Net.isOnConn()) {
             TimerMgr.inst.remove(this.networkTest, this)
             this.checkLoginState2()
         }
@@ -70,17 +70,17 @@ class Login {
     public login() {
         if (this._account == null || this._account == "" 
         || this._password == null || this._password == "") {
-            Util.log(net.strCode["loginNotNull"].text);
+            Util.log(Net.strCode["loginNotNull"].text);
             
-            TipMgr.showTip(net.strCode["loginNotNull"].text);
+            TipMgr.showTip(Net.strCode["loginNotNull"].text);
             return
         } else {
             this._logined = false;
 
-            if (!net.isOnConn()) {
+            if (!Net.isOnConn()) {
                 return   
             }
-            net.Send("msgProto.AccountLogin", {
+            Net.Send("msgProto.AccountLogin", {
                 account: this._account,
                 pwd: this._password,
                 channelId: 99999
@@ -88,8 +88,8 @@ class Login {
         }
     }
     public resetEnterState() {
-        net.Close();
-        net.ConnToLogin()
+        Net.Close();
+        Net.ConnToLogin()
 
         this._userData = {};
         this._entered = false;
@@ -128,27 +128,27 @@ class Login {
     }
 
     public getServerInfo() {
-        net.Send("msgProto.SvrListGet", {
+        Net.Send("msgProto.SvrListGet", {
             isTest: 1
         })
     }
 
     public getUserServers() {
-        net.Send("msgProto.UserSvrsGet", {
+        Net.Send("msgProto.UserSvrsGet", {
             accId: this._accountId
         })
     }
 
     public connToGame(host:string, port:string) {
-        net.Close()
-        net.ResetToGame(host, port, this._accountId);
+        Net.Close()
+        Net.ResetToGame(host, port, this._accountId);
     }
     public gameVerifyed() {
         this.enterGame()
     }
 
     public enterGame() {
-        net.Send("msgProto.GameEnter", {
+        Net.Send("msgProto.GameEnter", {
             accId: this._accountId,
             loginKey: this._loginKey,
             serverIndexId: 1
@@ -156,7 +156,7 @@ class Login {
     }
 
     public createRole(idx:number, name:string) {
-        net.Send("msgProto.UserCreate", {
+        Net.Send("msgProto.UserCreate", {
             name: name, //"测试" + Math.round(Math.random() * 100).toString(),
             heroTempId: idx,
             serverIndexId: 1,

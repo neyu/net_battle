@@ -5,7 +5,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
     constructor() {
         super()
 
-        net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
+        Net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -19,7 +19,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
         Lobby.inst.testNetLatency()
     }
     public onExit() {
-        net.delMsgTarget(this);
+        Net.delMsgTarget(this);
 
         fairygui.GRoot.inst.removeChild(this._lobbyView);
 

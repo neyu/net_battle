@@ -135,7 +135,7 @@ class Main extends egret.Sprite {
         TipMgr.inst.init(this.stage);
 
         // 尝试连接网络
-        net.init()
+        Net.init()
 
         // 进入登录场景
         this.switchLogin()

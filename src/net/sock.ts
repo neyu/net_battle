@@ -10,7 +10,7 @@ class Socket {
     private _port: any;
     private _socket: egret.WebSocket;
     private _msg: MsgBase;
-    private _isConnecting: boolean;
+    private _isConnect: boolean;
 
     public static get inst(): Socket {
         if (Socket._inst == null) {
@@ -53,10 +53,12 @@ class Socket {
      * 服务器连接成功
      */
     private onSocketOpen(evt:egret.Event): void {
-        // console.log("[Debug]:onSocketOpen:", evt);
-
+        console.log("[Debug]:onSocketOpen:", evt);
+        // if (this._socket.readyState != 1) {
+        //     return
+        // }
         this._reconnectCount = 0;
-        this._isConnecting = true;
+        this._isConnect = true;
 
         if (this._connectFlag && this._needReconnect) {
             MsgCenter.inst.dispatch(SocketConst.SOCKET_RECONNECT);
@@ -71,9 +73,9 @@ class Socket {
      * 服务器断开连接
      */
     private onSocketClose(evt:egret.Event): void {
-        // console.log("[Debug]:onSocketClose:", evt);
+        console.log("[Debug]:onSocketClose:", evt);
 
-        this._isConnecting = false;
+        this._isConnect = false;
 
         if (this._needReconnect) {
             MsgCenter.inst.dispatch(SocketConst.SOCKET_START_RECONNECT);
@@ -87,14 +89,14 @@ class Socket {
      * 服务器连接错误
      */
     private onSocketError(evt:egret.Event): void {
-        // console.log("[Debug]:onSocketError evt:", evt);
+        console.log("[Debug]:onSocketError evt:", evt);
 
         if (this._needReconnect) {
             this.reconnect();
         } else {
             MsgCenter.inst.dispatch(SocketConst.SOCKET_NOCONNECT);
         }
-        this._isConnecting = false;
+        this._isConnect = false;
     }
 
     /**
@@ -102,7 +104,7 @@ class Socket {
      * @param e
      */
     private onReceiveMessage(evt: egret.Event): void {
-        // console.log("[Debug]:onReceiveMessage:", evt);
+        console.log("[Debug]:onReceiveMessage:", evt);
 
         this._msg.receive(this._socket);
     }
@@ -175,7 +177,7 @@ class Socket {
      * @param msg
      */
     public send(msg: any, fail?:Function): boolean {
-        if (this._socket != null && this._isConnecting) {
+        if (this._socket != null && this._isConnect) {
             this._msg.send(this._socket, msg);
             return true;
         } else {
@@ -204,15 +206,15 @@ class Socket {
         this.removeEvents();
         this._socket.close();
         this._socket = null;
-        this._isConnecting = false;
+        this._isConnect = false;
     }
 
     /**
      * Socket是否在连接中
      * @returns {boolean}
      */
-    public isConnecting(): boolean {
-        return this._isConnecting;
+    public isConnect(): boolean {
+        return this._isConnect;
     }
 
     /**

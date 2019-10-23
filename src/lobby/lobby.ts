@@ -11,7 +11,7 @@ class Lobby {
         return Lobby._inst;
     }
     private init() {
-        net.regMsgProc("msgProto.TestNetLatency", this.testLatencyResponse, this)
+        Net.regMsgProc("msgProto.TestNetLatency", this.testLatencyResponse, this)
     }
     public createScene() {
         this._lobbyScene = new LobbyScene()
@@ -44,7 +44,7 @@ class Lobby {
     private testLatencyResponse(msg:{time:number}) {
         // Util.log("test net latency response:", msg);
         let diff = new Date().getTime() - msg.time;
-        net.msgDispatch("net_latency_res", {lag: diff})
+        Net.msgDispatch("net_latency_res", {lag: diff})
     }
     private _interval = 5 * 1000;
     public testNetLatency() {
@@ -54,7 +54,7 @@ class Lobby {
         TimerMgr.inst.doTimer(this._interval, 0, this.doTest, this);    
     }
     private doTest() {
-        net.Send("msgProto.TestNetLatency", {
+        Net.Send("msgProto.TestNetLatency", {
             time: new Date().getTime()
         });
     }

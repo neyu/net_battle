@@ -11,11 +11,11 @@ class LoginScene extends egret.DisplayObjectContainer {
     constructor() {
         super()
 
-        net.regMsgProc("msgProto.LoginResponse", this.loginResponse, this)
-        net.regMsgProc("msgProto.SvrListResponse", this.svrListGetResponse, this)
+        Net.regMsgProc("msgProto.LoginResponse", this.loginResponse, this)
+        Net.regMsgProc("msgProto.SvrListResponse", this.svrListGetResponse, this)
 
-        net.regMsgProc("msgProto.GameEnterResponse", this.gameEnterResponse, this)
-        net.regMsgProc("msgProto.UserCreateResponse", this.userCreateResponse, this)
+        Net.regMsgProc("msgProto.GameEnterResponse", this.gameEnterResponse, this)
+        Net.regMsgProc("msgProto.UserCreateResponse", this.userCreateResponse, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -27,7 +27,7 @@ class LoginScene extends egret.DisplayObjectContainer {
         this.openLoginPanel();
     }
     public onExit() {
-        net.delMsgTarget(this);
+        Net.delMsgTarget(this);
 
         this.removeChild(fairygui.GRoot.inst.displayObject);
         // fairygui.UIPackage.removePackage("login");
@@ -122,9 +122,9 @@ class LoginScene extends egret.DisplayObjectContainer {
         var acc = lbAcc.text.trim();
         var pwd = lbPwd.text.trim();
         if (acc == null || acc == "" || pwd == null || pwd == "") {
-            console.log(net.strCode["loginNotNull"].text);
+            console.log(Net.strCode["loginNotNull"].text);
 
-            TipMgr.showTip(net.strCode["loginNotNull"].text);
+            TipMgr.showTip(Net.strCode["loginNotNull"].text);
             return
         }
         Login.inst.setAccAndPwd(acc, pwd);
@@ -151,7 +151,7 @@ class LoginScene extends egret.DisplayObjectContainer {
         var pwd1 = lbPwd1.text.trim();
         var pwd2 = lbPwd2.text.trim();
         if (acc == null || pwd1 == null || pwd2 == null || acc == "" || pwd1 == "" || pwd2 == "") {
-            TipMgr.showTip(net.strCode["loginNotNull"].text)
+            TipMgr.showTip(Net.strCode["loginNotNull"].text)
             return
         // } else if (acc.length < 6 || acc.length >12){
         //     TipMgr.showTip(net.strCode["accountLengthNotCorrect"])
@@ -160,10 +160,10 @@ class LoginScene extends egret.DisplayObjectContainer {
         //     TipMgr.showTip(net.strCode["pwdLengthNotCorrect"])
         //     return
         } else if (pwd1 !== pwd2) {
-            TipMgr.showTip(net.strCode["pwdNotSame"].text)
+            TipMgr.showTip(Net.strCode["pwdNotSame"].text)
             return
         } else {
-            net.Send("msgProto.AccountRegister", {
+            Net.Send("msgProto.AccountRegister", {
                 account: acc,
                 pwd: pwd1,
                 channelId: 99999,
@@ -185,9 +185,9 @@ class LoginScene extends egret.DisplayObjectContainer {
         } else if (this._svrList.length > 0) {
             testSvr = this._svrList[0];
         } else {
-            Util.log(net.strCode["svrMiss"])
+            Util.log(Net.strCode["svrMiss"])
 
-            TipMgr.showTip(net.strCode["svrMiss"])
+            TipMgr.showTip(Net.strCode["svrMiss"])
             return
         }
         Login.inst.connToGame(testSvr.host, testSvr.port)
@@ -216,7 +216,7 @@ class LoginScene extends egret.DisplayObjectContainer {
         let lbName = this._createPanel.getChild("n0").asTextInput;
         let name = lbName.text.trim();
         if (name == null || name == "") {
-            TipMgr.showTip(net.strCode["inputRoleName"].text);
+            TipMgr.showTip(Net.strCode["inputRoleName"].text);
             return
         }
         Login.inst.createRole(1, name);
@@ -231,12 +231,12 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private loginResponse(msg:any) {
-        Util.log("login response:",  net.iCode[msg.retCode].text)
+        Util.log("login response:",  Net.iCode[msg.retCode].text)
 
         if (msg.retCode != 0) {
             Login.inst.setLoginState(false)
 
-            TipMgr.showTip(net.iCode[msg.retCode].text);
+            TipMgr.showTip(Net.iCode[msg.retCode].text);
             return
         }
         Login.inst.setLoginState(true)
@@ -247,7 +247,7 @@ class LoginScene extends egret.DisplayObjectContainer {
 
     private svrListGetResponse(msg:any) {
         if (msg.retType == 0) {
-            Util.log('svr list get response:', net.iCode[msg.retCode].text)
+            Util.log('svr list get response:', Net.iCode[msg.retCode].text)
             for (let i=0; i < msg.infos.length; i++) {
                 // Util.log("server info:", i, msg.infos[i]);
             }
@@ -260,7 +260,7 @@ class LoginScene extends egret.DisplayObjectContainer {
 
             Login.inst.getUserServers()
         } else if (msg.retType == 1) {
-            Util.log('svr users get response:', net.iCode[msg.retCode].text)
+            Util.log('svr users get response:', Net.iCode[msg.retCode].text)
             for (let i=0; i < msg.infos.length; i++) {
                 console.log("server info:", i, msg.infos[i]);
             }
@@ -269,9 +269,9 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private gameEnterResponse(msg:any) {
-        Util.log('game enter response:', net.iCode[msg.retCode].text)
+        Util.log('game enter response:', Net.iCode[msg.retCode].text)
         if (msg.retCode != 0) {
-            TipMgr.showTip(net.iCode[msg.retCode].text);
+            TipMgr.showTip(Net.iCode[msg.retCode].text);
             return
         }
         this.closeEnterPanel();
@@ -288,9 +288,9 @@ class LoginScene extends egret.DisplayObjectContainer {
     }
 
     private userCreateResponse(msg:any) {
-        Util.log('user create response:', net.iCode[msg.retCode].text)
+        Util.log('user create response:', Net.iCode[msg.retCode].text)
         if (msg.retCode != 0) {
-            TipMgr.showTip(net.iCode[msg.retCode].text);
+            TipMgr.showTip(Net.iCode[msg.retCode].text);
             return
         }
         this.closeCreatePanel();
