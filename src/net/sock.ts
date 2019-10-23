@@ -53,10 +53,8 @@ class Socket {
      * 服务器连接成功
      */
     private onSocketOpen(evt:egret.Event): void {
-        console.log("[Debug]:onSocketOpen:", evt);
-        // if (this._socket.readyState != 1) {
-        //     return
-        // }
+        // console.log("[Debug]:onSocketOpen:", evt);
+
         this._reconnectCount = 0;
         this._isConnect = true;
 
@@ -73,7 +71,7 @@ class Socket {
      * 服务器断开连接
      */
     private onSocketClose(evt:egret.Event): void {
-        console.log("[Debug]:onSocketClose:", evt);
+        // console.log("[Debug]:onSocketClose:", evt);
 
         this._isConnect = false;
 
@@ -81,6 +79,7 @@ class Socket {
             MsgCenter.inst.dispatch(SocketConst.SOCKET_START_RECONNECT);
             this.reconnect();
         } else {
+            console.log("[Debug]:onSocketClose:", "this never done!")
             MsgCenter.inst.dispatch(SocketConst.SOCKET_CLOSE);
         }
     }
@@ -89,7 +88,7 @@ class Socket {
      * 服务器连接错误
      */
     private onSocketError(evt:egret.Event): void {
-        console.log("[Debug]:onSocketError evt:", evt);
+        // console.log("[Debug]:onSocketError evt:", evt);
 
         if (this._needReconnect) {
             this.reconnect();
@@ -104,9 +103,13 @@ class Socket {
      * @param e
      */
     private onReceiveMessage(evt: egret.Event): void {
-        console.log("[Debug]:onReceiveMessage:", evt);
+        // console.log("[Debug]:onReceiveMessage:", evt);
 
-        this._msg.receive(this._socket);
+        if (evt.target !== this._socket) {
+            console.log("old socket interface not clean......")
+        }
+        // this._msg.receive(this._socket);
+        this._msg.receive(evt.target);
     }
 
     /**
@@ -158,7 +161,7 @@ class Socket {
         this.closeCurrentSocket();
         this._reconnectCount++;
         console.log("尝试与服务器重连:", this._reconnectCount)
-        egret.setTimeout(this.connect.bind(this), this, 3000);
+        egret.setTimeout(this.connect, this, 3000);
 
         // if (this._reconnectCount < this._maxReconnectCount) {
         //     egret.setTimeout(this.connect.bind(this), this, 3000);
@@ -203,9 +206,11 @@ class Socket {
      * 清理当前的Socket连接
      */
     private closeCurrentSocket() {
-        this.removeEvents();
-        this._socket.close();
-        this._socket = null;
+        if (this._socket) {
+            this.removeEvents();
+            this._socket.close();
+            this._socket = null;
+        }
         this._isConnect = false;
     }
 

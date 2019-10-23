@@ -13,10 +13,7 @@ class Net {
         this.ServerConf = RES.getRes("server_json");
         this.loadMsgCode();
 
-        //Socket.inst.initServer(ServerConf.Server_pub, ServerConf.Port_pub, new ByteArrayMsgByProtobuf());
-        // Socket.inst.initServer(app.versionData.socket_server, app.versionData.socket_port, new ByteArrayMsgByProtobuf());
-        // Socket.inst.initServer("ws://www.xxh5.net", "7800/ws", new MsgJson())
-        // addNetworkEvents();
+        this.addNetworkEvents();
         this.ConnToLogin();
     }
 
@@ -44,11 +41,11 @@ class Net {
         MsgCenter.inst.dispatch(key, param)
     }
 
-    public static Send(key:string, body:any) {
+    public static Send(key:string, body:any): boolean {
         var msg: any = {}
         msg.key = key
         msg.body = body
-        Socket.inst.send(msg);
+        return Socket.inst.send(msg);
     }
 
     public static isOnConn() {
@@ -59,14 +56,13 @@ class Net {
     }
 
     public static Close() {
-        this.delMsgTarget(this)
+        // this.delMsgTarget(this)
         TimerMgr.inst.remove(this.pingAck, this);    
 
         Socket.inst.close()
         Socket.Destroy()
     }
     public static ConnToLogin() {
-        this.addNetworkEvents();
         this._connType = 1 // connecto to login
 
         Socket.inst.initServer(this.ServerConf.server_pub, this.ServerConf.port_pub, new MsgProto())
@@ -74,7 +70,6 @@ class Net {
     }
 
     public static ResetToGame(host:string, port:string, accId:number) {
-        this.addNetworkEvents();
         this._connType = 2 // connecto to game
 
         this._gameToken = "app_1.0.0#res_1.0.0";
@@ -94,6 +89,9 @@ class Net {
         }, this);
         MsgCenter.inst.addListener(SocketConst.SOCKET_RECONNECT, () => {
             console.log("[Debug]:与服务器重新连接上");
+            if (this._connType == 2) {
+                this.verifyGameToken()
+            }
         }, this);
         MsgCenter.inst.addListener(SocketConst.SOCKET_START_RECONNECT, () => {
             console.log("[Debug]:开始与服务器重新连接");
@@ -113,13 +111,17 @@ class Net {
         // utils.log("errorNotice:");
     }
 
-    private static interval = 45 * 1000;
+    private static interval = 10 * 1000;
     private static ping() {
         TimerMgr.inst.doTimer(this.interval, 0, this.pingAck, this);    
     }
     private static pingAck() {
-        this.Send("msgProto.PingAck", {});
-        console.log("心跳一次", this.interval)
+        let succ = this.Send("msgProto.PingAck", {});
+        if (succ) {
+            console.log("心跳一次", this.interval)
+        } else {
+            console.log("心跳失败", this.interval)
+        }
     }
 
     private static verifyGameToken() {

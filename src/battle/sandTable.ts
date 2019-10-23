@@ -240,7 +240,7 @@ class SandTable extends egret.DisplayObjectContainer {
     public testShoot(radian:number) {
         this._origRadian = Math.PI / 4;
 
-        Util.log("test shoot orig/rad:", this._origRadian, radian);
+        // Util.log("test shoot orig/rad:", this._origRadian, radian);
         let shtRad = radian + this._origRadian;
 
         let bullet = new Bullet(shtRad, this._ballInfos[4])
@@ -276,14 +276,14 @@ class SandTable extends egret.DisplayObjectContainer {
                 radian: radian
             }
         }
-        Util.log("try shoot orig/rad:", this._origRadian, radian);
+        // Util.log("try shoot orig/rad:", this._origRadian, radian);
 
         Net.Send("msgProto.ExchangeOptData", {
             optData: JSON.stringify(data)
         })
     }
     public shoot(opt:IOptData) {
-        Util.log("shoot orig/rad:", opt.origRad, opt.radian);
+        // Util.log("shoot orig/rad:", opt.origRad, opt.radian);
         let debug = "orig/rad:" + opt.origRad.toString() + "/" + opt.radian.toString();
         Battle.inst.getScene().showDebug(debug);
 
