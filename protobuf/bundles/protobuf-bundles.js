@@ -707,9 +707,8 @@ $root.msgProto = (function() {
          * @memberof msgProto
          * @interface IUserCreate
          * @property {string|null} [name] UserCreate name
-         * @property {number|null} [heroTempId] UserCreate heroTempId
-         * @property {number|null} [sex] UserCreate sex
-         * @property {number|null} [serverIndexId] UserCreate serverIndexId
+         * @property {number|null} [tempId] UserCreate tempId
+         * @property {number|null} [serverId] UserCreate serverId
          * @property {string|null} [shareKey] UserCreate shareKey
          */
 
@@ -737,28 +736,20 @@ $root.msgProto = (function() {
         UserCreate.prototype.name = "";
 
         /**
-         * UserCreate heroTempId.
-         * @member {number} heroTempId
+         * UserCreate tempId.
+         * @member {number} tempId
          * @memberof msgProto.UserCreate
          * @instance
          */
-        UserCreate.prototype.heroTempId = 0;
+        UserCreate.prototype.tempId = 0;
 
         /**
-         * UserCreate sex.
-         * @member {number} sex
+         * UserCreate serverId.
+         * @member {number} serverId
          * @memberof msgProto.UserCreate
          * @instance
          */
-        UserCreate.prototype.sex = 0;
-
-        /**
-         * UserCreate serverIndexId.
-         * @member {number} serverIndexId
-         * @memberof msgProto.UserCreate
-         * @instance
-         */
-        UserCreate.prototype.serverIndexId = 0;
+        UserCreate.prototype.serverId = 0;
 
         /**
          * UserCreate shareKey.
@@ -782,12 +773,10 @@ $root.msgProto = (function() {
                 writer = $Writer.create();
             if (message.name != null && message.hasOwnProperty("name"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-            if (message.heroTempId != null && message.hasOwnProperty("heroTempId"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.heroTempId);
-            if (message.sex != null && message.hasOwnProperty("sex"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.sex);
-            if (message.serverIndexId != null && message.hasOwnProperty("serverIndexId"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.serverIndexId);
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.tempId);
+            if (message.serverId != null && message.hasOwnProperty("serverId"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.serverId);
             if (message.shareKey != null && message.hasOwnProperty("shareKey"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.shareKey);
             return writer;
@@ -815,13 +804,10 @@ $root.msgProto = (function() {
                     message.name = reader.string();
                     break;
                 case 2:
-                    message.heroTempId = reader.int32();
-                    break;
-                case 3:
-                    message.sex = reader.int32();
+                    message.tempId = reader.int32();
                     break;
                 case 4:
-                    message.serverIndexId = reader.int32();
+                    message.serverId = reader.int32();
                     break;
                 case 5:
                     message.shareKey = reader.string();
@@ -848,12 +834,10 @@ $root.msgProto = (function() {
             var message = new $root.msgProto.UserCreate();
             if (object.name != null)
                 message.name = String(object.name);
-            if (object.heroTempId != null)
-                message.heroTempId = object.heroTempId | 0;
-            if (object.sex != null)
-                message.sex = object.sex | 0;
-            if (object.serverIndexId != null)
-                message.serverIndexId = object.serverIndexId | 0;
+            if (object.tempId != null)
+                message.tempId = object.tempId | 0;
+            if (object.serverId != null)
+                message.serverId = object.serverId | 0;
             if (object.shareKey != null)
                 message.shareKey = String(object.shareKey);
             return message;
@@ -874,19 +858,16 @@ $root.msgProto = (function() {
             var object = {};
             if (options.defaults) {
                 object.name = "";
-                object.heroTempId = 0;
-                object.sex = 0;
-                object.serverIndexId = 0;
+                object.tempId = 0;
+                object.serverId = 0;
                 object.shareKey = "";
             }
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
-            if (message.heroTempId != null && message.hasOwnProperty("heroTempId"))
-                object.heroTempId = message.heroTempId;
-            if (message.sex != null && message.hasOwnProperty("sex"))
-                object.sex = message.sex;
-            if (message.serverIndexId != null && message.hasOwnProperty("serverIndexId"))
-                object.serverIndexId = message.serverIndexId;
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                object.tempId = message.tempId;
+            if (message.serverId != null && message.hasOwnProperty("serverId"))
+                object.serverId = message.serverId;
             if (message.shareKey != null && message.hasOwnProperty("shareKey"))
                 object.shareKey = message.shareKey;
             return object;
@@ -1043,7 +1024,7 @@ $root.msgProto = (function() {
          * @interface IGameEnter
          * @property {number|Long|null} [accId] GameEnter accId
          * @property {string|null} [loginKey] GameEnter loginKey
-         * @property {number|null} [serverIndexId] GameEnter serverIndexId
+         * @property {number|null} [serverId] GameEnter serverId
          */
 
         /**
@@ -1078,12 +1059,12 @@ $root.msgProto = (function() {
         GameEnter.prototype.loginKey = "";
 
         /**
-         * GameEnter serverIndexId.
-         * @member {number} serverIndexId
+         * GameEnter serverId.
+         * @member {number} serverId
          * @memberof msgProto.GameEnter
          * @instance
          */
-        GameEnter.prototype.serverIndexId = 0;
+        GameEnter.prototype.serverId = 0;
 
         /**
          * Encodes the specified GameEnter message. Does not implicitly {@link msgProto.GameEnter.verify|verify} messages.
@@ -1101,8 +1082,8 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 1, wireType 0 =*/8).int64(message.accId);
             if (message.loginKey != null && message.hasOwnProperty("loginKey"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.loginKey);
-            if (message.serverIndexId != null && message.hasOwnProperty("serverIndexId"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.serverIndexId);
+            if (message.serverId != null && message.hasOwnProperty("serverId"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.serverId);
             return writer;
         };
 
@@ -1131,7 +1112,7 @@ $root.msgProto = (function() {
                     message.loginKey = reader.string();
                     break;
                 case 3:
-                    message.serverIndexId = reader.int32();
+                    message.serverId = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1164,8 +1145,8 @@ $root.msgProto = (function() {
                     message.accId = new $util.LongBits(object.accId.low >>> 0, object.accId.high >>> 0).toNumber();
             if (object.loginKey != null)
                 message.loginKey = String(object.loginKey);
-            if (object.serverIndexId != null)
-                message.serverIndexId = object.serverIndexId | 0;
+            if (object.serverId != null)
+                message.serverId = object.serverId | 0;
             return message;
         };
 
@@ -1189,7 +1170,7 @@ $root.msgProto = (function() {
                 } else
                     object.accId = options.longs === String ? "0" : 0;
                 object.loginKey = "";
-                object.serverIndexId = 0;
+                object.serverId = 0;
             }
             if (message.accId != null && message.hasOwnProperty("accId"))
                 if (typeof message.accId === "number")
@@ -1198,8 +1179,8 @@ $root.msgProto = (function() {
                     object.accId = options.longs === String ? $util.Long.prototype.toString.call(message.accId) : options.longs === Number ? new $util.LongBits(message.accId.low >>> 0, message.accId.high >>> 0).toNumber() : message.accId;
             if (message.loginKey != null && message.hasOwnProperty("loginKey"))
                 object.loginKey = message.loginKey;
-            if (message.serverIndexId != null && message.hasOwnProperty("serverIndexId"))
-                object.serverIndexId = message.serverIndexId;
+            if (message.serverId != null && message.hasOwnProperty("serverId"))
+                object.serverId = message.serverId;
             return object;
         };
 
@@ -1224,8 +1205,19 @@ $root.msgProto = (function() {
          * @memberof msgProto
          * @interface IGameEnterResponse
          * @property {number|null} [retCode] GameEnterResponse retCode
-         * @property {string|null} [nickName] GameEnterResponse nickName
          * @property {number|Long|null} [userId] GameEnterResponse userId
+         * @property {string|null} [nickName] GameEnterResponse nickName
+         * @property {number|null} [tempId] GameEnterResponse tempId
+         * @property {number|Long|null} [gold] GameEnterResponse gold
+         * @property {number|Long|null} [diamond] GameEnterResponse diamond
+         * @property {number|null} [vip] GameEnterResponse vip
+         * @property {number|null} [vipScore] GameEnterResponse vipScore
+         * @property {number|null} [ticket] GameEnterResponse ticket
+         * @property {number|Long|null} [ticketReTime] GameEnterResponse ticketReTime
+         * @property {string|null} [signName] GameEnterResponse signName
+         * @property {number|null} [honor] GameEnterResponse honor
+         * @property {string|null} [sign] GameEnterResponse sign
+         * @property {number|Long|null} [lastExitTime] GameEnterResponse lastExitTime
          */
 
         /**
@@ -1252,6 +1244,14 @@ $root.msgProto = (function() {
         GameEnterResponse.prototype.retCode = 0;
 
         /**
+         * GameEnterResponse userId.
+         * @member {number|Long} userId
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.userId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
          * GameEnterResponse nickName.
          * @member {string} nickName
          * @memberof msgProto.GameEnterResponse
@@ -1260,12 +1260,92 @@ $root.msgProto = (function() {
         GameEnterResponse.prototype.nickName = "";
 
         /**
-         * GameEnterResponse userId.
-         * @member {number|Long} userId
+         * GameEnterResponse tempId.
+         * @member {number} tempId
          * @memberof msgProto.GameEnterResponse
          * @instance
          */
-        GameEnterResponse.prototype.userId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        GameEnterResponse.prototype.tempId = 0;
+
+        /**
+         * GameEnterResponse gold.
+         * @member {number|Long} gold
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.gold = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * GameEnterResponse diamond.
+         * @member {number|Long} diamond
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.diamond = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * GameEnterResponse vip.
+         * @member {number} vip
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.vip = 0;
+
+        /**
+         * GameEnterResponse vipScore.
+         * @member {number} vipScore
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.vipScore = 0;
+
+        /**
+         * GameEnterResponse ticket.
+         * @member {number} ticket
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.ticket = 0;
+
+        /**
+         * GameEnterResponse ticketReTime.
+         * @member {number|Long} ticketReTime
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.ticketReTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * GameEnterResponse signName.
+         * @member {string} signName
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.signName = "";
+
+        /**
+         * GameEnterResponse honor.
+         * @member {number} honor
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.honor = 0;
+
+        /**
+         * GameEnterResponse sign.
+         * @member {string} sign
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.sign = "";
+
+        /**
+         * GameEnterResponse lastExitTime.
+         * @member {number|Long} lastExitTime
+         * @memberof msgProto.GameEnterResponse
+         * @instance
+         */
+        GameEnterResponse.prototype.lastExitTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * Encodes the specified GameEnterResponse message. Does not implicitly {@link msgProto.GameEnterResponse.verify|verify} messages.
@@ -1281,10 +1361,32 @@ $root.msgProto = (function() {
                 writer = $Writer.create();
             if (message.retCode != null && message.hasOwnProperty("retCode"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.retCode);
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nickName);
             if (message.userId != null && message.hasOwnProperty("userId"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.userId);
+                writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
+            if (message.nickName != null && message.hasOwnProperty("nickName"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.nickName);
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.tempId);
+            if (message.gold != null && message.hasOwnProperty("gold"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int64(message.gold);
+            if (message.diamond != null && message.hasOwnProperty("diamond"))
+                writer.uint32(/* id 6, wireType 0 =*/48).int64(message.diamond);
+            if (message.vip != null && message.hasOwnProperty("vip"))
+                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.vip);
+            if (message.vipScore != null && message.hasOwnProperty("vipScore"))
+                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.vipScore);
+            if (message.ticket != null && message.hasOwnProperty("ticket"))
+                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.ticket);
+            if (message.ticketReTime != null && message.hasOwnProperty("ticketReTime"))
+                writer.uint32(/* id 10, wireType 0 =*/80).int64(message.ticketReTime);
+            if (message.signName != null && message.hasOwnProperty("signName"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.signName);
+            if (message.honor != null && message.hasOwnProperty("honor"))
+                writer.uint32(/* id 12, wireType 0 =*/96).int32(message.honor);
+            if (message.sign != null && message.hasOwnProperty("sign"))
+                writer.uint32(/* id 13, wireType 2 =*/106).string(message.sign);
+            if (message.lastExitTime != null && message.hasOwnProperty("lastExitTime"))
+                writer.uint32(/* id 14, wireType 0 =*/112).int64(message.lastExitTime);
             return writer;
         };
 
@@ -1310,10 +1412,43 @@ $root.msgProto = (function() {
                     message.retCode = reader.int32();
                     break;
                 case 2:
-                    message.nickName = reader.string();
+                    message.userId = reader.int64();
                     break;
                 case 3:
-                    message.userId = reader.int64();
+                    message.nickName = reader.string();
+                    break;
+                case 4:
+                    message.tempId = reader.int32();
+                    break;
+                case 5:
+                    message.gold = reader.int64();
+                    break;
+                case 6:
+                    message.diamond = reader.int64();
+                    break;
+                case 7:
+                    message.vip = reader.int32();
+                    break;
+                case 8:
+                    message.vipScore = reader.int32();
+                    break;
+                case 9:
+                    message.ticket = reader.int32();
+                    break;
+                case 10:
+                    message.ticketReTime = reader.int64();
+                    break;
+                case 11:
+                    message.signName = reader.string();
+                    break;
+                case 12:
+                    message.honor = reader.int32();
+                    break;
+                case 13:
+                    message.sign = reader.string();
+                    break;
+                case 14:
+                    message.lastExitTime = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1337,8 +1472,6 @@ $root.msgProto = (function() {
             var message = new $root.msgProto.GameEnterResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
-            if (object.nickName != null)
-                message.nickName = String(object.nickName);
             if (object.userId != null)
                 if ($util.Long)
                     (message.userId = $util.Long.fromValue(object.userId)).unsigned = false;
@@ -1348,6 +1481,58 @@ $root.msgProto = (function() {
                     message.userId = object.userId;
                 else if (typeof object.userId === "object")
                     message.userId = new $util.LongBits(object.userId.low >>> 0, object.userId.high >>> 0).toNumber();
+            if (object.nickName != null)
+                message.nickName = String(object.nickName);
+            if (object.tempId != null)
+                message.tempId = object.tempId | 0;
+            if (object.gold != null)
+                if ($util.Long)
+                    (message.gold = $util.Long.fromValue(object.gold)).unsigned = false;
+                else if (typeof object.gold === "string")
+                    message.gold = parseInt(object.gold, 10);
+                else if (typeof object.gold === "number")
+                    message.gold = object.gold;
+                else if (typeof object.gold === "object")
+                    message.gold = new $util.LongBits(object.gold.low >>> 0, object.gold.high >>> 0).toNumber();
+            if (object.diamond != null)
+                if ($util.Long)
+                    (message.diamond = $util.Long.fromValue(object.diamond)).unsigned = false;
+                else if (typeof object.diamond === "string")
+                    message.diamond = parseInt(object.diamond, 10);
+                else if (typeof object.diamond === "number")
+                    message.diamond = object.diamond;
+                else if (typeof object.diamond === "object")
+                    message.diamond = new $util.LongBits(object.diamond.low >>> 0, object.diamond.high >>> 0).toNumber();
+            if (object.vip != null)
+                message.vip = object.vip | 0;
+            if (object.vipScore != null)
+                message.vipScore = object.vipScore | 0;
+            if (object.ticket != null)
+                message.ticket = object.ticket | 0;
+            if (object.ticketReTime != null)
+                if ($util.Long)
+                    (message.ticketReTime = $util.Long.fromValue(object.ticketReTime)).unsigned = false;
+                else if (typeof object.ticketReTime === "string")
+                    message.ticketReTime = parseInt(object.ticketReTime, 10);
+                else if (typeof object.ticketReTime === "number")
+                    message.ticketReTime = object.ticketReTime;
+                else if (typeof object.ticketReTime === "object")
+                    message.ticketReTime = new $util.LongBits(object.ticketReTime.low >>> 0, object.ticketReTime.high >>> 0).toNumber();
+            if (object.signName != null)
+                message.signName = String(object.signName);
+            if (object.honor != null)
+                message.honor = object.honor | 0;
+            if (object.sign != null)
+                message.sign = String(object.sign);
+            if (object.lastExitTime != null)
+                if ($util.Long)
+                    (message.lastExitTime = $util.Long.fromValue(object.lastExitTime)).unsigned = false;
+                else if (typeof object.lastExitTime === "string")
+                    message.lastExitTime = parseInt(object.lastExitTime, 10);
+                else if (typeof object.lastExitTime === "number")
+                    message.lastExitTime = object.lastExitTime;
+                else if (typeof object.lastExitTime === "object")
+                    message.lastExitTime = new $util.LongBits(object.lastExitTime.low >>> 0, object.lastExitTime.high >>> 0).toNumber();
             return message;
         };
 
@@ -1366,22 +1551,83 @@ $root.msgProto = (function() {
             var object = {};
             if (options.defaults) {
                 object.retCode = 0;
-                object.nickName = "";
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, false);
                     object.userId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.userId = options.longs === String ? "0" : 0;
+                object.nickName = "";
+                object.tempId = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.gold = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.gold = options.longs === String ? "0" : 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.diamond = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.diamond = options.longs === String ? "0" : 0;
+                object.vip = 0;
+                object.vipScore = 0;
+                object.ticket = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.ticketReTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.ticketReTime = options.longs === String ? "0" : 0;
+                object.signName = "";
+                object.honor = 0;
+                object.sign = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.lastExitTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.lastExitTime = options.longs === String ? "0" : 0;
             }
             if (message.retCode != null && message.hasOwnProperty("retCode"))
                 object.retCode = message.retCode;
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
-                object.nickName = message.nickName;
             if (message.userId != null && message.hasOwnProperty("userId"))
                 if (typeof message.userId === "number")
                     object.userId = options.longs === String ? String(message.userId) : message.userId;
                 else
                     object.userId = options.longs === String ? $util.Long.prototype.toString.call(message.userId) : options.longs === Number ? new $util.LongBits(message.userId.low >>> 0, message.userId.high >>> 0).toNumber() : message.userId;
+            if (message.nickName != null && message.hasOwnProperty("nickName"))
+                object.nickName = message.nickName;
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                object.tempId = message.tempId;
+            if (message.gold != null && message.hasOwnProperty("gold"))
+                if (typeof message.gold === "number")
+                    object.gold = options.longs === String ? String(message.gold) : message.gold;
+                else
+                    object.gold = options.longs === String ? $util.Long.prototype.toString.call(message.gold) : options.longs === Number ? new $util.LongBits(message.gold.low >>> 0, message.gold.high >>> 0).toNumber() : message.gold;
+            if (message.diamond != null && message.hasOwnProperty("diamond"))
+                if (typeof message.diamond === "number")
+                    object.diamond = options.longs === String ? String(message.diamond) : message.diamond;
+                else
+                    object.diamond = options.longs === String ? $util.Long.prototype.toString.call(message.diamond) : options.longs === Number ? new $util.LongBits(message.diamond.low >>> 0, message.diamond.high >>> 0).toNumber() : message.diamond;
+            if (message.vip != null && message.hasOwnProperty("vip"))
+                object.vip = message.vip;
+            if (message.vipScore != null && message.hasOwnProperty("vipScore"))
+                object.vipScore = message.vipScore;
+            if (message.ticket != null && message.hasOwnProperty("ticket"))
+                object.ticket = message.ticket;
+            if (message.ticketReTime != null && message.hasOwnProperty("ticketReTime"))
+                if (typeof message.ticketReTime === "number")
+                    object.ticketReTime = options.longs === String ? String(message.ticketReTime) : message.ticketReTime;
+                else
+                    object.ticketReTime = options.longs === String ? $util.Long.prototype.toString.call(message.ticketReTime) : options.longs === Number ? new $util.LongBits(message.ticketReTime.low >>> 0, message.ticketReTime.high >>> 0).toNumber() : message.ticketReTime;
+            if (message.signName != null && message.hasOwnProperty("signName"))
+                object.signName = message.signName;
+            if (message.honor != null && message.hasOwnProperty("honor"))
+                object.honor = message.honor;
+            if (message.sign != null && message.hasOwnProperty("sign"))
+                object.sign = message.sign;
+            if (message.lastExitTime != null && message.hasOwnProperty("lastExitTime"))
+                if (typeof message.lastExitTime === "number")
+                    object.lastExitTime = options.longs === String ? String(message.lastExitTime) : message.lastExitTime;
+                else
+                    object.lastExitTime = options.longs === String ? $util.Long.prototype.toString.call(message.lastExitTime) : options.longs === Number ? new $util.LongBits(message.lastExitTime.low >>> 0, message.lastExitTime.high >>> 0).toNumber() : message.lastExitTime;
             return object;
         };
 
@@ -1681,18 +1927,14 @@ $root.msgProto = (function() {
          * @property {number|null} [retCode] LoginResponse retCode
          * @property {number|Long|null} [accId] LoginResponse accId
          * @property {string|null} [account] LoginResponse account
-         * @property {string|null} [email] LoginResponse email
          * @property {string|null} [deviceId] LoginResponse deviceId
-         * @property {number|null} [status] LoginResponse status
-         * @property {string|null} [sdkData] LoginResponse sdkData
-         * @property {string|null} [exData] LoginResponse exData
-         * @property {number|null} [loginCount] LoginResponse loginCount
+         * @property {number|null} [loginTimes] LoginResponse loginTimes
          * @property {string|null} [loginKey] LoginResponse loginKey
          * @property {string|null} [userServers] LoginResponse userServers
-         * @property {string|null} [rechargeCom] LoginResponse rechargeCom
-         * @property {string|null} [sdkChannelId] LoginResponse sdkChannelId
-         * @property {number|Long|null} [bendExpireAt] LoginResponse bendExpireAt
-         * @property {number|null} [bendType] LoginResponse bendType
+         * @property {string|null} [sdkData] LoginResponse sdkData
+         * @property {string|null} [exData] LoginResponse exData
+         * @property {string|null} [nickName] LoginResponse nickName
+         * @property {string|null} [icon] LoginResponse icon
          */
 
         /**
@@ -1735,14 +1977,6 @@ $root.msgProto = (function() {
         LoginResponse.prototype.account = "";
 
         /**
-         * LoginResponse email.
-         * @member {string} email
-         * @memberof msgProto.LoginResponse
-         * @instance
-         */
-        LoginResponse.prototype.email = "";
-
-        /**
          * LoginResponse deviceId.
          * @member {string} deviceId
          * @memberof msgProto.LoginResponse
@@ -1751,36 +1985,12 @@ $root.msgProto = (function() {
         LoginResponse.prototype.deviceId = "";
 
         /**
-         * LoginResponse status.
-         * @member {number} status
+         * LoginResponse loginTimes.
+         * @member {number} loginTimes
          * @memberof msgProto.LoginResponse
          * @instance
          */
-        LoginResponse.prototype.status = 0;
-
-        /**
-         * LoginResponse sdkData.
-         * @member {string} sdkData
-         * @memberof msgProto.LoginResponse
-         * @instance
-         */
-        LoginResponse.prototype.sdkData = "";
-
-        /**
-         * LoginResponse exData.
-         * @member {string} exData
-         * @memberof msgProto.LoginResponse
-         * @instance
-         */
-        LoginResponse.prototype.exData = "";
-
-        /**
-         * LoginResponse loginCount.
-         * @member {number} loginCount
-         * @memberof msgProto.LoginResponse
-         * @instance
-         */
-        LoginResponse.prototype.loginCount = 0;
+        LoginResponse.prototype.loginTimes = 0;
 
         /**
          * LoginResponse loginKey.
@@ -1799,36 +2009,36 @@ $root.msgProto = (function() {
         LoginResponse.prototype.userServers = "";
 
         /**
-         * LoginResponse rechargeCom.
-         * @member {string} rechargeCom
+         * LoginResponse sdkData.
+         * @member {string} sdkData
          * @memberof msgProto.LoginResponse
          * @instance
          */
-        LoginResponse.prototype.rechargeCom = "";
+        LoginResponse.prototype.sdkData = "";
 
         /**
-         * LoginResponse sdkChannelId.
-         * @member {string} sdkChannelId
+         * LoginResponse exData.
+         * @member {string} exData
          * @memberof msgProto.LoginResponse
          * @instance
          */
-        LoginResponse.prototype.sdkChannelId = "";
+        LoginResponse.prototype.exData = "";
 
         /**
-         * LoginResponse bendExpireAt.
-         * @member {number|Long} bendExpireAt
+         * LoginResponse nickName.
+         * @member {string} nickName
          * @memberof msgProto.LoginResponse
          * @instance
          */
-        LoginResponse.prototype.bendExpireAt = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        LoginResponse.prototype.nickName = "";
 
         /**
-         * LoginResponse bendType.
-         * @member {number} bendType
+         * LoginResponse icon.
+         * @member {string} icon
          * @memberof msgProto.LoginResponse
          * @instance
          */
-        LoginResponse.prototype.bendType = 0;
+        LoginResponse.prototype.icon = "";
 
         /**
          * Encodes the specified LoginResponse message. Does not implicitly {@link msgProto.LoginResponse.verify|verify} messages.
@@ -1848,30 +2058,22 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.accId);
             if (message.account != null && message.hasOwnProperty("account"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.account);
-            if (message.email != null && message.hasOwnProperty("email"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.email);
             if (message.deviceId != null && message.hasOwnProperty("deviceId"))
-                writer.uint32(/* id 5, wireType 2 =*/42).string(message.deviceId);
-            if (message.status != null && message.hasOwnProperty("status"))
-                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.status);
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.deviceId);
+            if (message.loginTimes != null && message.hasOwnProperty("loginTimes"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.loginTimes);
+            if (message.loginKey != null && message.hasOwnProperty("loginKey"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.loginKey);
+            if (message.userServers != null && message.hasOwnProperty("userServers"))
+                writer.uint32(/* id 7, wireType 2 =*/58).string(message.userServers);
             if (message.sdkData != null && message.hasOwnProperty("sdkData"))
                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.sdkData);
             if (message.exData != null && message.hasOwnProperty("exData"))
                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.exData);
-            if (message.loginCount != null && message.hasOwnProperty("loginCount"))
-                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.loginCount);
-            if (message.loginKey != null && message.hasOwnProperty("loginKey"))
-                writer.uint32(/* id 11, wireType 2 =*/90).string(message.loginKey);
-            if (message.userServers != null && message.hasOwnProperty("userServers"))
-                writer.uint32(/* id 12, wireType 2 =*/98).string(message.userServers);
-            if (message.rechargeCom != null && message.hasOwnProperty("rechargeCom"))
-                writer.uint32(/* id 13, wireType 2 =*/106).string(message.rechargeCom);
-            if (message.sdkChannelId != null && message.hasOwnProperty("sdkChannelId"))
-                writer.uint32(/* id 14, wireType 2 =*/114).string(message.sdkChannelId);
-            if (message.bendExpireAt != null && message.hasOwnProperty("bendExpireAt"))
-                writer.uint32(/* id 15, wireType 0 =*/120).int64(message.bendExpireAt);
-            if (message.bendType != null && message.hasOwnProperty("bendType"))
-                writer.uint32(/* id 16, wireType 0 =*/128).int32(message.bendType);
+            if (message.nickName != null && message.hasOwnProperty("nickName"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.nickName);
+            if (message.icon != null && message.hasOwnProperty("icon"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.icon);
             return writer;
         };
 
@@ -1903,13 +2105,16 @@ $root.msgProto = (function() {
                     message.account = reader.string();
                     break;
                 case 4:
-                    message.email = reader.string();
-                    break;
-                case 5:
                     message.deviceId = reader.string();
                     break;
+                case 5:
+                    message.loginTimes = reader.int32();
+                    break;
                 case 6:
-                    message.status = reader.int32();
+                    message.loginKey = reader.string();
+                    break;
+                case 7:
+                    message.userServers = reader.string();
                     break;
                 case 8:
                     message.sdkData = reader.string();
@@ -1918,25 +2123,10 @@ $root.msgProto = (function() {
                     message.exData = reader.string();
                     break;
                 case 10:
-                    message.loginCount = reader.int32();
+                    message.nickName = reader.string();
                     break;
                 case 11:
-                    message.loginKey = reader.string();
-                    break;
-                case 12:
-                    message.userServers = reader.string();
-                    break;
-                case 13:
-                    message.rechargeCom = reader.string();
-                    break;
-                case 14:
-                    message.sdkChannelId = reader.string();
-                    break;
-                case 15:
-                    message.bendExpireAt = reader.int64();
-                    break;
-                case 16:
-                    message.bendType = reader.int32();
+                    message.icon = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1971,37 +2161,22 @@ $root.msgProto = (function() {
                     message.accId = new $util.LongBits(object.accId.low >>> 0, object.accId.high >>> 0).toNumber();
             if (object.account != null)
                 message.account = String(object.account);
-            if (object.email != null)
-                message.email = String(object.email);
             if (object.deviceId != null)
                 message.deviceId = String(object.deviceId);
-            if (object.status != null)
-                message.status = object.status | 0;
-            if (object.sdkData != null)
-                message.sdkData = String(object.sdkData);
-            if (object.exData != null)
-                message.exData = String(object.exData);
-            if (object.loginCount != null)
-                message.loginCount = object.loginCount | 0;
+            if (object.loginTimes != null)
+                message.loginTimes = object.loginTimes | 0;
             if (object.loginKey != null)
                 message.loginKey = String(object.loginKey);
             if (object.userServers != null)
                 message.userServers = String(object.userServers);
-            if (object.rechargeCom != null)
-                message.rechargeCom = String(object.rechargeCom);
-            if (object.sdkChannelId != null)
-                message.sdkChannelId = String(object.sdkChannelId);
-            if (object.bendExpireAt != null)
-                if ($util.Long)
-                    (message.bendExpireAt = $util.Long.fromValue(object.bendExpireAt)).unsigned = false;
-                else if (typeof object.bendExpireAt === "string")
-                    message.bendExpireAt = parseInt(object.bendExpireAt, 10);
-                else if (typeof object.bendExpireAt === "number")
-                    message.bendExpireAt = object.bendExpireAt;
-                else if (typeof object.bendExpireAt === "object")
-                    message.bendExpireAt = new $util.LongBits(object.bendExpireAt.low >>> 0, object.bendExpireAt.high >>> 0).toNumber();
-            if (object.bendType != null)
-                message.bendType = object.bendType | 0;
+            if (object.sdkData != null)
+                message.sdkData = String(object.sdkData);
+            if (object.exData != null)
+                message.exData = String(object.exData);
+            if (object.nickName != null)
+                message.nickName = String(object.nickName);
+            if (object.icon != null)
+                message.icon = String(object.icon);
             return message;
         };
 
@@ -2026,22 +2201,14 @@ $root.msgProto = (function() {
                 } else
                     object.accId = options.longs === String ? "0" : 0;
                 object.account = "";
-                object.email = "";
                 object.deviceId = "";
-                object.status = 0;
-                object.sdkData = "";
-                object.exData = "";
-                object.loginCount = 0;
+                object.loginTimes = 0;
                 object.loginKey = "";
                 object.userServers = "";
-                object.rechargeCom = "";
-                object.sdkChannelId = "";
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.bendExpireAt = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.bendExpireAt = options.longs === String ? "0" : 0;
-                object.bendType = 0;
+                object.sdkData = "";
+                object.exData = "";
+                object.nickName = "";
+                object.icon = "";
             }
             if (message.retCode != null && message.hasOwnProperty("retCode"))
                 object.retCode = message.retCode;
@@ -2052,33 +2219,22 @@ $root.msgProto = (function() {
                     object.accId = options.longs === String ? $util.Long.prototype.toString.call(message.accId) : options.longs === Number ? new $util.LongBits(message.accId.low >>> 0, message.accId.high >>> 0).toNumber() : message.accId;
             if (message.account != null && message.hasOwnProperty("account"))
                 object.account = message.account;
-            if (message.email != null && message.hasOwnProperty("email"))
-                object.email = message.email;
             if (message.deviceId != null && message.hasOwnProperty("deviceId"))
                 object.deviceId = message.deviceId;
-            if (message.status != null && message.hasOwnProperty("status"))
-                object.status = message.status;
-            if (message.sdkData != null && message.hasOwnProperty("sdkData"))
-                object.sdkData = message.sdkData;
-            if (message.exData != null && message.hasOwnProperty("exData"))
-                object.exData = message.exData;
-            if (message.loginCount != null && message.hasOwnProperty("loginCount"))
-                object.loginCount = message.loginCount;
+            if (message.loginTimes != null && message.hasOwnProperty("loginTimes"))
+                object.loginTimes = message.loginTimes;
             if (message.loginKey != null && message.hasOwnProperty("loginKey"))
                 object.loginKey = message.loginKey;
             if (message.userServers != null && message.hasOwnProperty("userServers"))
                 object.userServers = message.userServers;
-            if (message.rechargeCom != null && message.hasOwnProperty("rechargeCom"))
-                object.rechargeCom = message.rechargeCom;
-            if (message.sdkChannelId != null && message.hasOwnProperty("sdkChannelId"))
-                object.sdkChannelId = message.sdkChannelId;
-            if (message.bendExpireAt != null && message.hasOwnProperty("bendExpireAt"))
-                if (typeof message.bendExpireAt === "number")
-                    object.bendExpireAt = options.longs === String ? String(message.bendExpireAt) : message.bendExpireAt;
-                else
-                    object.bendExpireAt = options.longs === String ? $util.Long.prototype.toString.call(message.bendExpireAt) : options.longs === Number ? new $util.LongBits(message.bendExpireAt.low >>> 0, message.bendExpireAt.high >>> 0).toNumber() : message.bendExpireAt;
-            if (message.bendType != null && message.hasOwnProperty("bendType"))
-                object.bendType = message.bendType;
+            if (message.sdkData != null && message.hasOwnProperty("sdkData"))
+                object.sdkData = message.sdkData;
+            if (message.exData != null && message.hasOwnProperty("exData"))
+                object.exData = message.exData;
+            if (message.nickName != null && message.hasOwnProperty("nickName"))
+                object.nickName = message.nickName;
+            if (message.icon != null && message.hasOwnProperty("icon"))
+                object.icon = message.icon;
             return object;
         };
 
@@ -2272,8 +2428,9 @@ $root.msgProto = (function() {
          * @interface IAccountRegister
          * @property {string|null} [account] AccountRegister account
          * @property {string|null} [pwd] AccountRegister pwd
-         * @property {number|null} [channelId] AccountRegister channelId
          * @property {string|null} [deviceId] AccountRegister deviceId
+         * @property {number|null} [channelId] AccountRegister channelId
+         * @property {string|null} [platform] AccountRegister platform
          */
 
         /**
@@ -2308,6 +2465,14 @@ $root.msgProto = (function() {
         AccountRegister.prototype.pwd = "";
 
         /**
+         * AccountRegister deviceId.
+         * @member {string} deviceId
+         * @memberof msgProto.AccountRegister
+         * @instance
+         */
+        AccountRegister.prototype.deviceId = "";
+
+        /**
          * AccountRegister channelId.
          * @member {number} channelId
          * @memberof msgProto.AccountRegister
@@ -2316,12 +2481,12 @@ $root.msgProto = (function() {
         AccountRegister.prototype.channelId = 0;
 
         /**
-         * AccountRegister deviceId.
-         * @member {string} deviceId
+         * AccountRegister platform.
+         * @member {string} platform
          * @memberof msgProto.AccountRegister
          * @instance
          */
-        AccountRegister.prototype.deviceId = "";
+        AccountRegister.prototype.platform = "";
 
         /**
          * Encodes the specified AccountRegister message. Does not implicitly {@link msgProto.AccountRegister.verify|verify} messages.
@@ -2339,10 +2504,12 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.account);
             if (message.pwd != null && message.hasOwnProperty("pwd"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.pwd);
-            if (message.channelId != null && message.hasOwnProperty("channelId"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.channelId);
             if (message.deviceId != null && message.hasOwnProperty("deviceId"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.deviceId);
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.deviceId);
+            if (message.channelId != null && message.hasOwnProperty("channelId"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.channelId);
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.platform);
             return writer;
         };
 
@@ -2371,10 +2538,13 @@ $root.msgProto = (function() {
                     message.pwd = reader.string();
                     break;
                 case 3:
-                    message.channelId = reader.int32();
+                    message.deviceId = reader.string();
                     break;
                 case 4:
-                    message.deviceId = reader.string();
+                    message.channelId = reader.int32();
+                    break;
+                case 5:
+                    message.platform = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2400,10 +2570,12 @@ $root.msgProto = (function() {
                 message.account = String(object.account);
             if (object.pwd != null)
                 message.pwd = String(object.pwd);
-            if (object.channelId != null)
-                message.channelId = object.channelId | 0;
             if (object.deviceId != null)
                 message.deviceId = String(object.deviceId);
+            if (object.channelId != null)
+                message.channelId = object.channelId | 0;
+            if (object.platform != null)
+                message.platform = String(object.platform);
             return message;
         };
 
@@ -2423,17 +2595,20 @@ $root.msgProto = (function() {
             if (options.defaults) {
                 object.account = "";
                 object.pwd = "";
-                object.channelId = 0;
                 object.deviceId = "";
+                object.channelId = 0;
+                object.platform = "";
             }
             if (message.account != null && message.hasOwnProperty("account"))
                 object.account = message.account;
             if (message.pwd != null && message.hasOwnProperty("pwd"))
                 object.pwd = message.pwd;
-            if (message.channelId != null && message.hasOwnProperty("channelId"))
-                object.channelId = message.channelId;
             if (message.deviceId != null && message.hasOwnProperty("deviceId"))
                 object.deviceId = message.deviceId;
+            if (message.channelId != null && message.hasOwnProperty("channelId"))
+                object.channelId = message.channelId;
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                object.platform = message.platform;
             return object;
         };
 
@@ -2717,19 +2892,13 @@ $root.msgProto = (function() {
          * @interface IPbSvrInfo
          * @property {number|null} [id] PbSvrInfo id
          * @property {string|null} [name] PbSvrInfo name
-         * @property {string|null} [mergerName] 服务器名称 *
          * @property {string|null} [area] PbSvrInfo area
          * @property {string|null} [host] PbSvrInfo host
          * @property {string|null} [port] PbSvrInfo port
          * @property {number|null} [isNew] PbSvrInfo isNew
          * @property {number|null} [status] PbSvrInfo status
-         * @property {number|null} [sort] PbSvrInfo sort
-         * @property {string|null} [appId] PbSvrInfo appId
-         * @property {number|null} [serverId] PbSvrInfo serverId
-         * @property {number|null} [indexId] PbSvrInfo indexId
          * @property {number|null} [isClose] PbSvrInfo isClose
-         * @property {string|null} [closeExplain] 是否维护 *
-         * @property {number|Long|null} [serverDate] 维护说明 *
+         * @property {string|null} [closeExplain] PbSvrInfo closeExplain
          */
 
         /**
@@ -2762,14 +2931,6 @@ $root.msgProto = (function() {
          * @instance
          */
         PbSvrInfo.prototype.name = "";
-
-        /**
-         * 服务器名称 *
-         * @member {string} mergerName
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.mergerName = "";
 
         /**
          * PbSvrInfo area.
@@ -2812,38 +2973,6 @@ $root.msgProto = (function() {
         PbSvrInfo.prototype.status = 0;
 
         /**
-         * PbSvrInfo sort.
-         * @member {number} sort
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.sort = 0;
-
-        /**
-         * PbSvrInfo appId.
-         * @member {string} appId
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.appId = "";
-
-        /**
-         * PbSvrInfo serverId.
-         * @member {number} serverId
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.serverId = 0;
-
-        /**
-         * PbSvrInfo indexId.
-         * @member {number} indexId
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.indexId = 0;
-
-        /**
          * PbSvrInfo isClose.
          * @member {number} isClose
          * @memberof msgProto.PbSvrInfo
@@ -2852,20 +2981,12 @@ $root.msgProto = (function() {
         PbSvrInfo.prototype.isClose = 0;
 
         /**
-         * 是否维护 *
+         * PbSvrInfo closeExplain.
          * @member {string} closeExplain
          * @memberof msgProto.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.closeExplain = "";
-
-        /**
-         * 维护说明 *
-         * @member {number|Long} serverDate
-         * @memberof msgProto.PbSvrInfo
-         * @instance
-         */
-        PbSvrInfo.prototype.serverDate = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * Encodes the specified PbSvrInfo message. Does not implicitly {@link msgProto.PbSvrInfo.verify|verify} messages.
@@ -2883,8 +3004,6 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.id);
             if (message.name != null && message.hasOwnProperty("name"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.name);
-            if (message.mergerName != null && message.hasOwnProperty("mergerName"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.mergerName);
             if (message.area != null && message.hasOwnProperty("area"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.area);
             if (message.host != null && message.hasOwnProperty("host"))
@@ -2895,20 +3014,10 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 8, wireType 0 =*/64).int32(message.isNew);
             if (message.status != null && message.hasOwnProperty("status"))
                 writer.uint32(/* id 9, wireType 0 =*/72).int32(message.status);
-            if (message.sort != null && message.hasOwnProperty("sort"))
-                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.sort);
-            if (message.appId != null && message.hasOwnProperty("appId"))
-                writer.uint32(/* id 11, wireType 2 =*/90).string(message.appId);
-            if (message.serverId != null && message.hasOwnProperty("serverId"))
-                writer.uint32(/* id 12, wireType 0 =*/96).int32(message.serverId);
-            if (message.indexId != null && message.hasOwnProperty("indexId"))
-                writer.uint32(/* id 13, wireType 0 =*/104).int32(message.indexId);
             if (message.isClose != null && message.hasOwnProperty("isClose"))
                 writer.uint32(/* id 14, wireType 0 =*/112).int32(message.isClose);
             if (message.closeExplain != null && message.hasOwnProperty("closeExplain"))
                 writer.uint32(/* id 15, wireType 2 =*/122).string(message.closeExplain);
-            if (message.serverDate != null && message.hasOwnProperty("serverDate"))
-                writer.uint32(/* id 16, wireType 0 =*/128).int64(message.serverDate);
             return writer;
         };
 
@@ -2936,9 +3045,6 @@ $root.msgProto = (function() {
                 case 3:
                     message.name = reader.string();
                     break;
-                case 4:
-                    message.mergerName = reader.string();
-                    break;
                 case 5:
                     message.area = reader.string();
                     break;
@@ -2954,26 +3060,11 @@ $root.msgProto = (function() {
                 case 9:
                     message.status = reader.int32();
                     break;
-                case 10:
-                    message.sort = reader.int32();
-                    break;
-                case 11:
-                    message.appId = reader.string();
-                    break;
-                case 12:
-                    message.serverId = reader.int32();
-                    break;
-                case 13:
-                    message.indexId = reader.int32();
-                    break;
                 case 14:
                     message.isClose = reader.int32();
                     break;
                 case 15:
                     message.closeExplain = reader.string();
-                    break;
-                case 16:
-                    message.serverDate = reader.int64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2999,8 +3090,6 @@ $root.msgProto = (function() {
                 message.id = object.id | 0;
             if (object.name != null)
                 message.name = String(object.name);
-            if (object.mergerName != null)
-                message.mergerName = String(object.mergerName);
             if (object.area != null)
                 message.area = String(object.area);
             if (object.host != null)
@@ -3011,27 +3100,10 @@ $root.msgProto = (function() {
                 message.isNew = object.isNew | 0;
             if (object.status != null)
                 message.status = object.status | 0;
-            if (object.sort != null)
-                message.sort = object.sort | 0;
-            if (object.appId != null)
-                message.appId = String(object.appId);
-            if (object.serverId != null)
-                message.serverId = object.serverId | 0;
-            if (object.indexId != null)
-                message.indexId = object.indexId | 0;
             if (object.isClose != null)
                 message.isClose = object.isClose | 0;
             if (object.closeExplain != null)
                 message.closeExplain = String(object.closeExplain);
-            if (object.serverDate != null)
-                if ($util.Long)
-                    (message.serverDate = $util.Long.fromValue(object.serverDate)).unsigned = false;
-                else if (typeof object.serverDate === "string")
-                    message.serverDate = parseInt(object.serverDate, 10);
-                else if (typeof object.serverDate === "number")
-                    message.serverDate = object.serverDate;
-                else if (typeof object.serverDate === "object")
-                    message.serverDate = new $util.LongBits(object.serverDate.low >>> 0, object.serverDate.high >>> 0).toNumber();
             return message;
         };
 
@@ -3051,30 +3123,18 @@ $root.msgProto = (function() {
             if (options.defaults) {
                 object.id = 0;
                 object.name = "";
-                object.mergerName = "";
                 object.area = "";
                 object.host = "";
                 object.port = "";
                 object.isNew = 0;
                 object.status = 0;
-                object.sort = 0;
-                object.appId = "";
-                object.serverId = 0;
-                object.indexId = 0;
                 object.isClose = 0;
                 object.closeExplain = "";
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.serverDate = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.serverDate = options.longs === String ? "0" : 0;
             }
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
-            if (message.mergerName != null && message.hasOwnProperty("mergerName"))
-                object.mergerName = message.mergerName;
             if (message.area != null && message.hasOwnProperty("area"))
                 object.area = message.area;
             if (message.host != null && message.hasOwnProperty("host"))
@@ -3085,23 +3145,10 @@ $root.msgProto = (function() {
                 object.isNew = message.isNew;
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = message.status;
-            if (message.sort != null && message.hasOwnProperty("sort"))
-                object.sort = message.sort;
-            if (message.appId != null && message.hasOwnProperty("appId"))
-                object.appId = message.appId;
-            if (message.serverId != null && message.hasOwnProperty("serverId"))
-                object.serverId = message.serverId;
-            if (message.indexId != null && message.hasOwnProperty("indexId"))
-                object.indexId = message.indexId;
             if (message.isClose != null && message.hasOwnProperty("isClose"))
                 object.isClose = message.isClose;
             if (message.closeExplain != null && message.hasOwnProperty("closeExplain"))
                 object.closeExplain = message.closeExplain;
-            if (message.serverDate != null && message.hasOwnProperty("serverDate"))
-                if (typeof message.serverDate === "number")
-                    object.serverDate = options.longs === String ? String(message.serverDate) : message.serverDate;
-                else
-                    object.serverDate = options.longs === String ? $util.Long.prototype.toString.call(message.serverDate) : options.longs === Number ? new $util.LongBits(message.serverDate.low >>> 0, message.serverDate.high >>> 0).toNumber() : message.serverDate;
             return object;
         };
 
@@ -3989,6 +4036,446 @@ $root.msgProto = (function() {
         };
 
         return ExchangeOptData;
+    })();
+
+    msgProto.PbHeroInfo = (function() {
+
+        /**
+         * Properties of a PbHeroInfo.
+         * @memberof msgProto
+         * @interface IPbHeroInfo
+         * @property {number|Long|null} [id] PbHeroInfo id
+         * @property {number|null} [tempId] PbHeroInfo tempId
+         * @property {number|null} [level] PbHeroInfo level
+         * @property {number|null} [exp] PbHeroInfo exp
+         * @property {number|null} [atk] PbHeroInfo atk
+         * @property {number|null} [def] PbHeroInfo def
+         * @property {number|null} [hp] PbHeroInfo hp
+         * @property {number|null} [mp] PbHeroInfo mp
+         * @property {number|null} [ap] PbHeroInfo ap
+         */
+
+        /**
+         * Constructs a new PbHeroInfo.
+         * @memberof msgProto
+         * @classdesc Represents a PbHeroInfo.
+         * @implements IPbHeroInfo
+         * @constructor
+         * @param {msgProto.IPbHeroInfo=} [properties] Properties to set
+         */
+        function PbHeroInfo(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * PbHeroInfo id.
+         * @member {number|Long} id
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.id = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * PbHeroInfo tempId.
+         * @member {number} tempId
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.tempId = 0;
+
+        /**
+         * PbHeroInfo level.
+         * @member {number} level
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.level = 0;
+
+        /**
+         * PbHeroInfo exp.
+         * @member {number} exp
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.exp = 0;
+
+        /**
+         * PbHeroInfo atk.
+         * @member {number} atk
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.atk = 0;
+
+        /**
+         * PbHeroInfo def.
+         * @member {number} def
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.def = 0;
+
+        /**
+         * PbHeroInfo hp.
+         * @member {number} hp
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.hp = 0;
+
+        /**
+         * PbHeroInfo mp.
+         * @member {number} mp
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.mp = 0;
+
+        /**
+         * PbHeroInfo ap.
+         * @member {number} ap
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         */
+        PbHeroInfo.prototype.ap = 0;
+
+        /**
+         * Encodes the specified PbHeroInfo message. Does not implicitly {@link msgProto.PbHeroInfo.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.PbHeroInfo
+         * @static
+         * @param {msgProto.IPbHeroInfo} message PbHeroInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PbHeroInfo.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && message.hasOwnProperty("id"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.id);
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.tempId);
+            if (message.level != null && message.hasOwnProperty("level"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.level);
+            if (message.exp != null && message.hasOwnProperty("exp"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.exp);
+            if (message.ap != null && message.hasOwnProperty("ap"))
+                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.ap);
+            if (message.atk != null && message.hasOwnProperty("atk"))
+                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.atk);
+            if (message.def != null && message.hasOwnProperty("def"))
+                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.def);
+            if (message.hp != null && message.hasOwnProperty("hp"))
+                writer.uint32(/* id 11, wireType 0 =*/88).int32(message.hp);
+            if (message.mp != null && message.hasOwnProperty("mp"))
+                writer.uint32(/* id 12, wireType 0 =*/96).int32(message.mp);
+            return writer;
+        };
+
+        /**
+         * Decodes a PbHeroInfo message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.PbHeroInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.PbHeroInfo} PbHeroInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PbHeroInfo.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PbHeroInfo();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.int64();
+                    break;
+                case 2:
+                    message.tempId = reader.int32();
+                    break;
+                case 4:
+                    message.level = reader.int32();
+                    break;
+                case 5:
+                    message.exp = reader.int32();
+                    break;
+                case 9:
+                    message.atk = reader.int32();
+                    break;
+                case 10:
+                    message.def = reader.int32();
+                    break;
+                case 11:
+                    message.hp = reader.int32();
+                    break;
+                case 12:
+                    message.mp = reader.int32();
+                    break;
+                case 8:
+                    message.ap = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a PbHeroInfo message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.PbHeroInfo
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.PbHeroInfo} PbHeroInfo
+         */
+        PbHeroInfo.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.PbHeroInfo)
+                return object;
+            var message = new $root.msgProto.PbHeroInfo();
+            if (object.id != null)
+                if ($util.Long)
+                    (message.id = $util.Long.fromValue(object.id)).unsigned = false;
+                else if (typeof object.id === "string")
+                    message.id = parseInt(object.id, 10);
+                else if (typeof object.id === "number")
+                    message.id = object.id;
+                else if (typeof object.id === "object")
+                    message.id = new $util.LongBits(object.id.low >>> 0, object.id.high >>> 0).toNumber();
+            if (object.tempId != null)
+                message.tempId = object.tempId | 0;
+            if (object.level != null)
+                message.level = object.level | 0;
+            if (object.exp != null)
+                message.exp = object.exp | 0;
+            if (object.atk != null)
+                message.atk = object.atk | 0;
+            if (object.def != null)
+                message.def = object.def | 0;
+            if (object.hp != null)
+                message.hp = object.hp | 0;
+            if (object.mp != null)
+                message.mp = object.mp | 0;
+            if (object.ap != null)
+                message.ap = object.ap | 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a PbHeroInfo message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.PbHeroInfo
+         * @static
+         * @param {msgProto.PbHeroInfo} message PbHeroInfo
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PbHeroInfo.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.id = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.id = options.longs === String ? "0" : 0;
+                object.tempId = 0;
+                object.level = 0;
+                object.exp = 0;
+                object.ap = 0;
+                object.atk = 0;
+                object.def = 0;
+                object.hp = 0;
+                object.mp = 0;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (typeof message.id === "number")
+                    object.id = options.longs === String ? String(message.id) : message.id;
+                else
+                    object.id = options.longs === String ? $util.Long.prototype.toString.call(message.id) : options.longs === Number ? new $util.LongBits(message.id.low >>> 0, message.id.high >>> 0).toNumber() : message.id;
+            if (message.tempId != null && message.hasOwnProperty("tempId"))
+                object.tempId = message.tempId;
+            if (message.level != null && message.hasOwnProperty("level"))
+                object.level = message.level;
+            if (message.exp != null && message.hasOwnProperty("exp"))
+                object.exp = message.exp;
+            if (message.ap != null && message.hasOwnProperty("ap"))
+                object.ap = message.ap;
+            if (message.atk != null && message.hasOwnProperty("atk"))
+                object.atk = message.atk;
+            if (message.def != null && message.hasOwnProperty("def"))
+                object.def = message.def;
+            if (message.hp != null && message.hasOwnProperty("hp"))
+                object.hp = message.hp;
+            if (message.mp != null && message.hasOwnProperty("mp"))
+                object.mp = message.mp;
+            return object;
+        };
+
+        /**
+         * Converts this PbHeroInfo to JSON.
+         * @function toJSON
+         * @memberof msgProto.PbHeroInfo
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PbHeroInfo.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return PbHeroInfo;
+    })();
+
+    msgProto.HeroInfo = (function() {
+
+        /**
+         * Properties of a HeroInfo.
+         * @memberof msgProto
+         * @interface IHeroInfo
+         * @property {Array.<msgProto.IPbHeroInfo>|null} [infos] HeroInfo infos
+         */
+
+        /**
+         * Constructs a new HeroInfo.
+         * @memberof msgProto
+         * @classdesc Represents a HeroInfo.
+         * @implements IHeroInfo
+         * @constructor
+         * @param {msgProto.IHeroInfo=} [properties] Properties to set
+         */
+        function HeroInfo(properties) {
+            this.infos = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * HeroInfo infos.
+         * @member {Array.<msgProto.IPbHeroInfo>} infos
+         * @memberof msgProto.HeroInfo
+         * @instance
+         */
+        HeroInfo.prototype.infos = $util.emptyArray;
+
+        /**
+         * Encodes the specified HeroInfo message. Does not implicitly {@link msgProto.HeroInfo.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.HeroInfo
+         * @static
+         * @param {msgProto.IHeroInfo} message HeroInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        HeroInfo.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.infos != null && message.infos.length)
+                for (var i = 0; i < message.infos.length; ++i)
+                    $root.msgProto.PbHeroInfo.encode(message.infos[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Decodes a HeroInfo message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.HeroInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.HeroInfo} HeroInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        HeroInfo.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.HeroInfo();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.infos && message.infos.length))
+                        message.infos = [];
+                    message.infos.push($root.msgProto.PbHeroInfo.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a HeroInfo message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.HeroInfo
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.HeroInfo} HeroInfo
+         */
+        HeroInfo.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.HeroInfo)
+                return object;
+            var message = new $root.msgProto.HeroInfo();
+            if (object.infos) {
+                if (!Array.isArray(object.infos))
+                    throw TypeError(".msgProto.HeroInfo.infos: array expected");
+                message.infos = [];
+                for (var i = 0; i < object.infos.length; ++i) {
+                    if (typeof object.infos[i] !== "object")
+                        throw TypeError(".msgProto.HeroInfo.infos: object expected");
+                    message.infos[i] = $root.msgProto.PbHeroInfo.fromObject(object.infos[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a HeroInfo message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.HeroInfo
+         * @static
+         * @param {msgProto.HeroInfo} message HeroInfo
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        HeroInfo.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.infos = [];
+            if (message.infos && message.infos.length) {
+                object.infos = [];
+                for (var j = 0; j < message.infos.length; ++j)
+                    object.infos[j] = $root.msgProto.PbHeroInfo.toObject(message.infos[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this HeroInfo to JSON.
+         * @function toJSON
+         * @memberof msgProto.HeroInfo
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        HeroInfo.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return HeroInfo;
     })();
 
     msgProto.ServerInfo = (function() {

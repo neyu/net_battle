@@ -30,5 +30,8 @@
 
 	"//iface20": "同步操作数据",
 	"2020": "msgProto.TestNetLatency",
-	"2021": "msgProto.ExchangeOptData"
+	"2021": "msgProto.ExchangeOptData",
+
+	"2030": "msgProto.HeroInfo"
+
 }

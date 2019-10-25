@@ -151,15 +151,15 @@ class Login {
         Net.Send("msgProto.GameEnter", {
             accId: this._accountId,
             loginKey: this._loginKey,
-            serverIndexId: 1
+            serverId: 1
         })
     }
 
     public createRole(idx:number, name:string) {
         Net.Send("msgProto.UserCreate", {
             name: name, //"测试" + Math.round(Math.random() * 100).toString(),
-            heroTempId: idx,
-            serverIndexId: 1,
+            tempId: idx,
+            serverId: 1,
             shareKey: ""
         })
     }

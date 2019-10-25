@@ -166,8 +166,9 @@ class LoginScene extends egret.DisplayObjectContainer {
             Net.Send("msgProto.AccountRegister", {
                 account: acc,
                 pwd: pwd1,
+                deviceId: "device" + new Date().getTime().toString(),
                 channelId: 99999,
-                deviceId: "device" + new Date().getTime().toString()
+                platform: ""
             })
         }
     }

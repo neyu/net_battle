@@ -316,14 +316,11 @@ declare namespace msgProto {
         /** UserCreate name */
         name?: (string|null);
 
-        /** UserCreate heroTempId */
-        heroTempId?: (number|null);
+        /** UserCreate tempId */
+        tempId?: (number|null);
 
-        /** UserCreate sex */
-        sex?: (number|null);
-
-        /** UserCreate serverIndexId */
-        serverIndexId?: (number|null);
+        /** UserCreate serverId */
+        serverId?: (number|null);
 
         /** UserCreate shareKey */
         shareKey?: (string|null);
@@ -341,14 +338,11 @@ declare namespace msgProto {
         /** UserCreate name. */
         public name: string;
 
-        /** UserCreate heroTempId. */
-        public heroTempId: number;
+        /** UserCreate tempId. */
+        public tempId: number;
 
-        /** UserCreate sex. */
-        public sex: number;
-
-        /** UserCreate serverIndexId. */
-        public serverIndexId: number;
+        /** UserCreate serverId. */
+        public serverId: number;
 
         /** UserCreate shareKey. */
         public shareKey: string;
@@ -461,8 +455,8 @@ declare namespace msgProto {
         /** GameEnter loginKey */
         loginKey?: (string|null);
 
-        /** GameEnter serverIndexId */
-        serverIndexId?: (number|null);
+        /** GameEnter serverId */
+        serverId?: (number|null);
     }
 
     /** Represents a GameEnter. */
@@ -480,8 +474,8 @@ declare namespace msgProto {
         /** GameEnter loginKey. */
         public loginKey: string;
 
-        /** GameEnter serverIndexId. */
-        public serverIndexId: number;
+        /** GameEnter serverId. */
+        public serverId: number;
 
         /**
          * Encodes the specified GameEnter message. Does not implicitly {@link msgProto.GameEnter.verify|verify} messages.
@@ -529,11 +523,44 @@ declare namespace msgProto {
         /** GameEnterResponse retCode */
         retCode?: (number|null);
 
+        /** GameEnterResponse userId */
+        userId?: (number|Long|null);
+
         /** GameEnterResponse nickName */
         nickName?: (string|null);
 
-        /** GameEnterResponse userId */
-        userId?: (number|Long|null);
+        /** GameEnterResponse tempId */
+        tempId?: (number|null);
+
+        /** GameEnterResponse gold */
+        gold?: (number|Long|null);
+
+        /** GameEnterResponse diamond */
+        diamond?: (number|Long|null);
+
+        /** GameEnterResponse vip */
+        vip?: (number|null);
+
+        /** GameEnterResponse vipScore */
+        vipScore?: (number|null);
+
+        /** GameEnterResponse ticket */
+        ticket?: (number|null);
+
+        /** GameEnterResponse ticketReTime */
+        ticketReTime?: (number|Long|null);
+
+        /** GameEnterResponse signName */
+        signName?: (string|null);
+
+        /** GameEnterResponse honor */
+        honor?: (number|null);
+
+        /** GameEnterResponse sign */
+        sign?: (string|null);
+
+        /** GameEnterResponse lastExitTime */
+        lastExitTime?: (number|Long|null);
     }
 
     /** Represents a GameEnterResponse. */
@@ -548,11 +575,44 @@ declare namespace msgProto {
         /** GameEnterResponse retCode. */
         public retCode: number;
 
+        /** GameEnterResponse userId. */
+        public userId: (number|Long);
+
         /** GameEnterResponse nickName. */
         public nickName: string;
 
-        /** GameEnterResponse userId. */
-        public userId: (number|Long);
+        /** GameEnterResponse tempId. */
+        public tempId: number;
+
+        /** GameEnterResponse gold. */
+        public gold: (number|Long);
+
+        /** GameEnterResponse diamond. */
+        public diamond: (number|Long);
+
+        /** GameEnterResponse vip. */
+        public vip: number;
+
+        /** GameEnterResponse vipScore. */
+        public vipScore: number;
+
+        /** GameEnterResponse ticket. */
+        public ticket: number;
+
+        /** GameEnterResponse ticketReTime. */
+        public ticketReTime: (number|Long);
+
+        /** GameEnterResponse signName. */
+        public signName: string;
+
+        /** GameEnterResponse honor. */
+        public honor: number;
+
+        /** GameEnterResponse sign. */
+        public sign: string;
+
+        /** GameEnterResponse lastExitTime. */
+        public lastExitTime: (number|Long);
 
         /**
          * Encodes the specified GameEnterResponse message. Does not implicitly {@link msgProto.GameEnterResponse.verify|verify} messages.
@@ -730,23 +790,11 @@ declare namespace msgProto {
         /** LoginResponse account */
         account?: (string|null);
 
-        /** LoginResponse email */
-        email?: (string|null);
-
         /** LoginResponse deviceId */
         deviceId?: (string|null);
 
-        /** LoginResponse status */
-        status?: (number|null);
-
-        /** LoginResponse sdkData */
-        sdkData?: (string|null);
-
-        /** LoginResponse exData */
-        exData?: (string|null);
-
-        /** LoginResponse loginCount */
-        loginCount?: (number|null);
+        /** LoginResponse loginTimes */
+        loginTimes?: (number|null);
 
         /** LoginResponse loginKey */
         loginKey?: (string|null);
@@ -754,17 +802,17 @@ declare namespace msgProto {
         /** LoginResponse userServers */
         userServers?: (string|null);
 
-        /** LoginResponse rechargeCom */
-        rechargeCom?: (string|null);
+        /** LoginResponse sdkData */
+        sdkData?: (string|null);
 
-        /** LoginResponse sdkChannelId */
-        sdkChannelId?: (string|null);
+        /** LoginResponse exData */
+        exData?: (string|null);
 
-        /** LoginResponse bendExpireAt */
-        bendExpireAt?: (number|Long|null);
+        /** LoginResponse nickName */
+        nickName?: (string|null);
 
-        /** LoginResponse bendType */
-        bendType?: (number|null);
+        /** LoginResponse icon */
+        icon?: (string|null);
     }
 
     /** Represents a LoginResponse. */
@@ -785,23 +833,11 @@ declare namespace msgProto {
         /** LoginResponse account. */
         public account: string;
 
-        /** LoginResponse email. */
-        public email: string;
-
         /** LoginResponse deviceId. */
         public deviceId: string;
 
-        /** LoginResponse status. */
-        public status: number;
-
-        /** LoginResponse sdkData. */
-        public sdkData: string;
-
-        /** LoginResponse exData. */
-        public exData: string;
-
-        /** LoginResponse loginCount. */
-        public loginCount: number;
+        /** LoginResponse loginTimes. */
+        public loginTimes: number;
 
         /** LoginResponse loginKey. */
         public loginKey: string;
@@ -809,17 +845,17 @@ declare namespace msgProto {
         /** LoginResponse userServers. */
         public userServers: string;
 
-        /** LoginResponse rechargeCom. */
-        public rechargeCom: string;
+        /** LoginResponse sdkData. */
+        public sdkData: string;
 
-        /** LoginResponse sdkChannelId. */
-        public sdkChannelId: string;
+        /** LoginResponse exData. */
+        public exData: string;
 
-        /** LoginResponse bendExpireAt. */
-        public bendExpireAt: (number|Long);
+        /** LoginResponse nickName. */
+        public nickName: string;
 
-        /** LoginResponse bendType. */
-        public bendType: number;
+        /** LoginResponse icon. */
+        public icon: string;
 
         /**
          * Encodes the specified LoginResponse message. Does not implicitly {@link msgProto.LoginResponse.verify|verify} messages.
@@ -941,11 +977,14 @@ declare namespace msgProto {
         /** AccountRegister pwd */
         pwd?: (string|null);
 
+        /** AccountRegister deviceId */
+        deviceId?: (string|null);
+
         /** AccountRegister channelId */
         channelId?: (number|null);
 
-        /** AccountRegister deviceId */
-        deviceId?: (string|null);
+        /** AccountRegister platform */
+        platform?: (string|null);
     }
 
     /** Represents an AccountRegister. */
@@ -963,11 +1002,14 @@ declare namespace msgProto {
         /** AccountRegister pwd. */
         public pwd: string;
 
+        /** AccountRegister deviceId. */
+        public deviceId: string;
+
         /** AccountRegister channelId. */
         public channelId: number;
 
-        /** AccountRegister deviceId. */
-        public deviceId: string;
+        /** AccountRegister platform. */
+        public platform: string;
 
         /**
          * Encodes the specified AccountRegister message. Does not implicitly {@link msgProto.AccountRegister.verify|verify} messages.
@@ -1136,9 +1178,6 @@ declare namespace msgProto {
         /** PbSvrInfo name */
         name?: (string|null);
 
-        /** 服务器名称 * */
-        mergerName?: (string|null);
-
         /** PbSvrInfo area */
         area?: (string|null);
 
@@ -1154,26 +1193,11 @@ declare namespace msgProto {
         /** PbSvrInfo status */
         status?: (number|null);
 
-        /** PbSvrInfo sort */
-        sort?: (number|null);
-
-        /** PbSvrInfo appId */
-        appId?: (string|null);
-
-        /** PbSvrInfo serverId */
-        serverId?: (number|null);
-
-        /** PbSvrInfo indexId */
-        indexId?: (number|null);
-
         /** PbSvrInfo isClose */
         isClose?: (number|null);
 
-        /** 是否维护 * */
+        /** PbSvrInfo closeExplain */
         closeExplain?: (string|null);
-
-        /** 维护说明 * */
-        serverDate?: (number|Long|null);
     }
 
     /** Represents a PbSvrInfo. */
@@ -1191,9 +1215,6 @@ declare namespace msgProto {
         /** PbSvrInfo name. */
         public name: string;
 
-        /** 服务器名称 * */
-        public mergerName: string;
-
         /** PbSvrInfo area. */
         public area: string;
 
@@ -1209,26 +1230,11 @@ declare namespace msgProto {
         /** PbSvrInfo status. */
         public status: number;
 
-        /** PbSvrInfo sort. */
-        public sort: number;
-
-        /** PbSvrInfo appId. */
-        public appId: string;
-
-        /** PbSvrInfo serverId. */
-        public serverId: number;
-
-        /** PbSvrInfo indexId. */
-        public indexId: number;
-
         /** PbSvrInfo isClose. */
         public isClose: number;
 
-        /** 是否维护 * */
+        /** PbSvrInfo closeExplain. */
         public closeExplain: string;
-
-        /** 维护说明 * */
-        public serverDate: (number|Long);
 
         /**
          * Encodes the specified PbSvrInfo message. Does not implicitly {@link msgProto.PbSvrInfo.verify|verify} messages.
@@ -1637,6 +1643,172 @@ declare namespace msgProto {
 
         /**
          * Converts this ExchangeOptData to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PbHeroInfo. */
+    interface IPbHeroInfo {
+
+        /** PbHeroInfo id */
+        id?: (number|Long|null);
+
+        /** PbHeroInfo tempId */
+        tempId?: (number|null);
+
+        /** PbHeroInfo level */
+        level?: (number|null);
+
+        /** PbHeroInfo exp */
+        exp?: (number|null);
+
+        /** PbHeroInfo atk */
+        atk?: (number|null);
+
+        /** PbHeroInfo def */
+        def?: (number|null);
+
+        /** PbHeroInfo hp */
+        hp?: (number|null);
+
+        /** PbHeroInfo mp */
+        mp?: (number|null);
+
+        /** PbHeroInfo ap */
+        ap?: (number|null);
+    }
+
+    /** Represents a PbHeroInfo. */
+    class PbHeroInfo implements IPbHeroInfo {
+
+        /**
+         * Constructs a new PbHeroInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IPbHeroInfo);
+
+        /** PbHeroInfo id. */
+        public id: (number|Long);
+
+        /** PbHeroInfo tempId. */
+        public tempId: number;
+
+        /** PbHeroInfo level. */
+        public level: number;
+
+        /** PbHeroInfo exp. */
+        public exp: number;
+
+        /** PbHeroInfo atk. */
+        public atk: number;
+
+        /** PbHeroInfo def. */
+        public def: number;
+
+        /** PbHeroInfo hp. */
+        public hp: number;
+
+        /** PbHeroInfo mp. */
+        public mp: number;
+
+        /** PbHeroInfo ap. */
+        public ap: number;
+
+        /**
+         * Encodes the specified PbHeroInfo message. Does not implicitly {@link msgProto.PbHeroInfo.verify|verify} messages.
+         * @param message PbHeroInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IPbHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a PbHeroInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PbHeroInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PbHeroInfo;
+
+        /**
+         * Creates a PbHeroInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PbHeroInfo
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.PbHeroInfo;
+
+        /**
+         * Creates a plain object from a PbHeroInfo message. Also converts values to other types if specified.
+         * @param message PbHeroInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.PbHeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PbHeroInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a HeroInfo. */
+    interface IHeroInfo {
+
+        /** HeroInfo infos */
+        infos?: (msgProto.IPbHeroInfo[]|null);
+    }
+
+    /** Represents a HeroInfo. */
+    class HeroInfo implements IHeroInfo {
+
+        /**
+         * Constructs a new HeroInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IHeroInfo);
+
+        /** HeroInfo infos. */
+        public infos: msgProto.IPbHeroInfo[];
+
+        /**
+         * Encodes the specified HeroInfo message. Does not implicitly {@link msgProto.HeroInfo.verify|verify} messages.
+         * @param message HeroInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a HeroInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HeroInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.HeroInfo;
+
+        /**
+         * Creates a HeroInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns HeroInfo
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.HeroInfo;
+
+        /**
+         * Creates a plain object from a HeroInfo message. Also converts values to other types if specified.
+         * @param message HeroInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.HeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this HeroInfo to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
