@@ -2,10 +2,10 @@
 <component size="480,800">
   <displayList>
     <component id="n0_e3d4" name="n0" src="e3d41" fileName="Button1.xml" xy="87,339">
-      <Button title="友谊赛" titleColor="#ff0000" titleFontSize="24"/>
+      <Button title="沙盘模式" titleColor="#ff0000" titleFontSize="24"/>
     </component>
     <component id="n1_e3d4" name="n1" src="e3d41" fileName="Button1.xml" xy="259,339">
-      <Button title="跨服战" titleColor="#ff0000" titleFontSize="24"/>
+      <Button title="骰子模式" titleColor="#ff0000" titleFontSize="24"/>
     </component>
     <text id="n2_e3d4" name="n2" xy="149,27" size="95,25" fontSize="18" color="#ffffcc" vAlign="middle" strokeColor="#000000" text="百慕大杀手"/>
     <image id="n8_vcob" name="n8" src="vcob4" fileName="avatar_10009.png" xy="24,26" pivot="0.5,0.5"/>
@@ -27,8 +27,8 @@
     <text id="n25_vcob" name="n25" xy="120,674" size="218,31" fontSize="14" color="#ffffcc" vAlign="middle" autoSize="none" strokeColor="#000000" text="bingo boy !!"/>
     <text id="n27_vcob" name="n27" xy="11,533" size="47,20" fontSize="14" color="#ffccff" vAlign="middle" strokeColor="#000000" text="积分榜"/>
     <text id="n28_vcob" name="n28" xy="416,5" size="60,20" fontSize="14" color="#33ff00" align="right" vAlign="middle" autoSize="none" strokeColor="#000000" text="15ms"/>
-    <text id="n29_vcob" name="n29" xy="116,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
-    <text id="n30_vcob" name="n30" xy="290,425" size="46,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
+    <text id="n29_vcob" name="n29" xy="116,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(133人)"/>
+    <text id="n30_vcob" name="n30" xy="290,425" size="45,19" fontSize="12" color="#33ff00" align="right" vAlign="middle" strokeColor="#000000" text="(652人)"/>
     <component id="n31_glcc" name="n31" src="glcc7" fileName="Button2.xml" xy="16,145">
       <Button title="退出" titleColor="#996600" titleFontSize="12"/>
     </component>

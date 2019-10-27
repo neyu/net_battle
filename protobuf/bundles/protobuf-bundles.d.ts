@@ -3,6 +3,34 @@ type Long = protobuf.Long;
 /** Namespace msgProto. */
 declare namespace msgProto {
 
+    /** ResultCode enum. */
+    enum ResultCode {
+        NoError = 0,
+        GateNotFound = 1,
+        GateAddressError = 2,
+        GameNotFound = 3
+    }
+
+    /** Prop enum. */
+    enum Prop {
+        Gold = 0,
+        Diamond = 1,
+        Vip = 2,
+        Level = 10,
+        Exp = 11,
+        Atk = 12,
+        Def = 13,
+        Hp = 14,
+        Mp = 15,
+        Ap = 16
+    }
+
+    /** Opt enum. */
+    enum Opt {
+        Buy = 0,
+        Sale = 1
+    }
+
     /** Properties of a ChatReq. */
     interface IChatReq {
 
@@ -310,6 +338,402 @@ declare namespace msgProto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a ServerInfo. */
+    interface IServerInfo {
+
+        /** ServerInfo ip */
+        ip?: (string|null);
+
+        /** ServerInfo port */
+        port?: (number|null);
+    }
+
+    /** Represents a ServerInfo. */
+    class ServerInfo implements IServerInfo {
+
+        /**
+         * Constructs a new ServerInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IServerInfo);
+
+        /** ServerInfo ip. */
+        public ip: string;
+
+        /** ServerInfo port. */
+        public port: number;
+
+        /**
+         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
+         * @param message ServerInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IServerInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a ServerInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ServerInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ServerInfo;
+
+        /**
+         * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ServerInfo
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.ServerInfo;
+
+        /**
+         * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
+         * @param message ServerInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.ServerInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ServerInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PingAck. */
+    interface IPingAck {
+    }
+
+    /** Represents a PingAck. */
+    class PingAck implements IPingAck {
+
+        /**
+         * Constructs a new PingAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IPingAck);
+
+        /**
+         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
+         * @param message PingAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IPingAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a PingAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PingAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PingAck;
+
+        /**
+         * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PingAck
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.PingAck;
+
+        /**
+         * Creates a plain object from a PingAck message. Also converts values to other types if specified.
+         * @param message PingAck
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.PingAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PingAck to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LoginReq. */
+    interface ILoginReq {
+
+        /** LoginReq version */
+        version?: (string|null);
+
+        /** LoginReq platform */
+        platform?: (string|null);
+
+        /** LoginReq uid */
+        uid?: (string|null);
+    }
+
+    /** Represents a LoginReq. */
+    class LoginReq implements ILoginReq {
+
+        /**
+         * Constructs a new LoginReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.ILoginReq);
+
+        /** LoginReq version. */
+        public version: string;
+
+        /** LoginReq platform. */
+        public platform: string;
+
+        /** LoginReq uid. */
+        public uid: string;
+
+        /**
+         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
+         * @param message LoginReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.ILoginReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a LoginReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LoginReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginReq;
+
+        /**
+         * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LoginReq
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.LoginReq;
+
+        /**
+         * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
+         * @param message LoginReq
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.LoginReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LoginReq to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a LoginAck. */
+    interface ILoginAck {
+
+        /** LoginAck result */
+        result?: (msgProto.ResultCode|null);
+
+        /** LoginAck server */
+        server?: (msgProto.IServerInfo|null);
+
+        /** LoginAck gameToken */
+        gameToken?: (string|null);
+
+        /** LoginAck gameSvcId */
+        gameSvcId?: (string|null);
+    }
+
+    /** Represents a LoginAck. */
+    class LoginAck implements ILoginAck {
+
+        /**
+         * Constructs a new LoginAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.ILoginAck);
+
+        /** LoginAck result. */
+        public result: msgProto.ResultCode;
+
+        /** LoginAck server. */
+        public server?: (msgProto.IServerInfo|null);
+
+        /** LoginAck gameToken. */
+        public gameToken: string;
+
+        /** LoginAck gameSvcId. */
+        public gameSvcId: string;
+
+        /**
+         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
+         * @param message LoginAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.ILoginAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a LoginAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns LoginAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginAck;
+
+        /**
+         * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns LoginAck
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.LoginAck;
+
+        /**
+         * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
+         * @param message LoginAck
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.LoginAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this LoginAck to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a VerifyReq. */
+    interface IVerifyReq {
+
+        /** VerifyReq gameToken */
+        gameToken?: (string|null);
+
+        /** VerifyReq gameSvcId */
+        gameSvcId?: (string|null);
+
+        /** VerifyReq accountId */
+        accountId?: (number|Long|null);
+    }
+
+    /** Represents a VerifyReq. */
+    class VerifyReq implements IVerifyReq {
+
+        /**
+         * Constructs a new VerifyReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IVerifyReq);
+
+        /** VerifyReq gameToken. */
+        public gameToken: string;
+
+        /** VerifyReq gameSvcId. */
+        public gameSvcId: string;
+
+        /** VerifyReq accountId. */
+        public accountId: (number|Long);
+
+        /**
+         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
+         * @param message VerifyReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IVerifyReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VerifyReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VerifyReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyReq;
+
+        /**
+         * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns VerifyReq
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.VerifyReq;
+
+        /**
+         * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
+         * @param message VerifyReq
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.VerifyReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this VerifyReq to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a VerifyAck. */
+    interface IVerifyAck {
+
+        /** VerifyAck result */
+        result?: (msgProto.ResultCode|null);
+    }
+
+    /** Represents a VerifyAck. */
+    class VerifyAck implements IVerifyAck {
+
+        /**
+         * Constructs a new VerifyAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IVerifyAck);
+
+        /** VerifyAck result. */
+        public result: msgProto.ResultCode;
+
+        /**
+         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
+         * @param message VerifyAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IVerifyAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VerifyAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VerifyAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyAck;
+
+        /**
+         * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns VerifyAck
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.VerifyAck;
+
+        /**
+         * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
+         * @param message VerifyAck
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.VerifyAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this VerifyAck to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a UserCreate. */
     interface IUserCreate {
 
@@ -532,8 +956,8 @@ declare namespace msgProto {
         /** GameEnterResponse tempId */
         tempId?: (number|null);
 
-        /** GameEnterResponse gold */
-        gold?: (number|Long|null);
+        /** GameEnterResponse coin */
+        coin?: (number|Long|null);
 
         /** GameEnterResponse diamond */
         diamond?: (number|Long|null);
@@ -584,8 +1008,8 @@ declare namespace msgProto {
         /** GameEnterResponse tempId. */
         public tempId: number;
 
-        /** GameEnterResponse gold. */
-        public gold: (number|Long);
+        /** GameEnterResponse coin. */
+        public coin: (number|Long);
 
         /** GameEnterResponse diamond. */
         public diamond: (number|Long);
@@ -1814,407 +2238,204 @@ declare namespace msgProto {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a ServerInfo. */
-    interface IServerInfo {
+    /** Properties of a SyncPropData. */
+    interface ISyncPropData {
 
-        /** ServerInfo ip */
-        ip?: (string|null);
+        /** SyncPropData type */
+        type?: (msgProto.Prop[]|null);
 
-        /** ServerInfo port */
-        port?: (number|null);
+        /** SyncPropData val */
+        val?: ((number|Long)[]|null);
     }
 
-    /** Represents a ServerInfo. */
-    class ServerInfo implements IServerInfo {
+    /** Represents a SyncPropData. */
+    class SyncPropData implements ISyncPropData {
 
         /**
-         * Constructs a new ServerInfo.
+         * Constructs a new SyncPropData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IServerInfo);
+        constructor(properties?: msgProto.ISyncPropData);
 
-        /** ServerInfo ip. */
-        public ip: string;
+        /** SyncPropData type. */
+        public type: msgProto.Prop[];
 
-        /** ServerInfo port. */
-        public port: number;
+        /** SyncPropData val. */
+        public val: (number|Long)[];
 
         /**
-         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
-         * @param message ServerInfo message or plain object to encode
+         * Encodes the specified SyncPropData message. Does not implicitly {@link msgProto.SyncPropData.verify|verify} messages.
+         * @param message SyncPropData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IServerInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: msgProto.ISyncPropData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ServerInfo message from the specified reader or buffer.
+         * Decodes a SyncPropData message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ServerInfo
+         * @returns SyncPropData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ServerInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncPropData;
 
         /**
-         * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncPropData message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns ServerInfo
+         * @returns SyncPropData
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ServerInfo;
+        public static fromObject(object: { [k: string]: any }): msgProto.SyncPropData;
 
         /**
-         * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
-         * @param message ServerInfo
+         * Creates a plain object from a SyncPropData message. Also converts values to other types if specified.
+         * @param message SyncPropData
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ServerInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: msgProto.SyncPropData, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this ServerInfo to JSON.
+         * Converts this SyncPropData to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a PingAck. */
-    interface IPingAck {
+    /** Properties of a SyncPropData2. */
+    interface ISyncPropData2 {
+
+        /** SyncPropData2 type */
+        type?: (msgProto.Prop[]|null);
+
+        /** SyncPropData2 val */
+        val?: (string[]|null);
     }
 
-    /** Represents a PingAck. */
-    class PingAck implements IPingAck {
+    /** Represents a SyncPropData2. */
+    class SyncPropData2 implements ISyncPropData2 {
 
         /**
-         * Constructs a new PingAck.
+         * Constructs a new SyncPropData2.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IPingAck);
+        constructor(properties?: msgProto.ISyncPropData2);
+
+        /** SyncPropData2 type. */
+        public type: msgProto.Prop[];
+
+        /** SyncPropData2 val. */
+        public val: string[];
 
         /**
-         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
-         * @param message PingAck message or plain object to encode
+         * Encodes the specified SyncPropData2 message. Does not implicitly {@link msgProto.SyncPropData2.verify|verify} messages.
+         * @param message SyncPropData2 message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IPingAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: msgProto.ISyncPropData2, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a PingAck message from the specified reader or buffer.
+         * Decodes a SyncPropData2 message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns PingAck
+         * @returns SyncPropData2
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PingAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncPropData2;
 
         /**
-         * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncPropData2 message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns PingAck
+         * @returns SyncPropData2
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.PingAck;
+        public static fromObject(object: { [k: string]: any }): msgProto.SyncPropData2;
 
         /**
-         * Creates a plain object from a PingAck message. Also converts values to other types if specified.
-         * @param message PingAck
+         * Creates a plain object from a SyncPropData2 message. Also converts values to other types if specified.
+         * @param message SyncPropData2
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.PingAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: msgProto.SyncPropData2, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this PingAck to JSON.
+         * Converts this SyncPropData2 to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a LoginReq. */
-    interface ILoginReq {
+    /** Properties of a SyncOptData. */
+    interface ISyncOptData {
 
-        /** LoginReq version */
-        version?: (string|null);
+        /** SyncOptData type */
+        type?: (msgProto.Opt|null);
 
-        /** LoginReq platform */
-        platform?: (string|null);
+        /** SyncOptData iVal */
+        iVal?: ((number|Long)[]|null);
 
-        /** LoginReq uid */
-        uid?: (string|null);
+        /** SyncOptData strVal */
+        strVal?: (string[]|null);
     }
 
-    /** Represents a LoginReq. */
-    class LoginReq implements ILoginReq {
+    /** Represents a SyncOptData. */
+    class SyncOptData implements ISyncOptData {
 
         /**
-         * Constructs a new LoginReq.
+         * Constructs a new SyncOptData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ILoginReq);
+        constructor(properties?: msgProto.ISyncOptData);
 
-        /** LoginReq version. */
-        public version: string;
+        /** SyncOptData type. */
+        public type: msgProto.Opt;
 
-        /** LoginReq platform. */
-        public platform: string;
+        /** SyncOptData iVal. */
+        public iVal: (number|Long)[];
 
-        /** LoginReq uid. */
-        public uid: string;
+        /** SyncOptData strVal. */
+        public strVal: string[];
 
         /**
-         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
-         * @param message LoginReq message or plain object to encode
+         * Encodes the specified SyncOptData message. Does not implicitly {@link msgProto.SyncOptData.verify|verify} messages.
+         * @param message SyncOptData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ILoginReq, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: msgProto.ISyncOptData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a LoginReq message from the specified reader or buffer.
+         * Decodes a SyncOptData message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns LoginReq
+         * @returns SyncOptData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginReq;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncOptData;
 
         /**
-         * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncOptData message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns LoginReq
+         * @returns SyncOptData
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.LoginReq;
+        public static fromObject(object: { [k: string]: any }): msgProto.SyncOptData;
 
         /**
-         * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
-         * @param message LoginReq
+         * Creates a plain object from a SyncOptData message. Also converts values to other types if specified.
+         * @param message SyncOptData
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.LoginReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: msgProto.SyncOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this LoginReq to JSON.
+         * Converts this SyncOptData to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a LoginAck. */
-    interface ILoginAck {
-
-        /** LoginAck result */
-        result?: (msgProto.ResultCode|null);
-
-        /** LoginAck server */
-        server?: (msgProto.IServerInfo|null);
-
-        /** LoginAck gameToken */
-        gameToken?: (string|null);
-
-        /** LoginAck gameSvcId */
-        gameSvcId?: (string|null);
-    }
-
-    /** Represents a LoginAck. */
-    class LoginAck implements ILoginAck {
-
-        /**
-         * Constructs a new LoginAck.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: msgProto.ILoginAck);
-
-        /** LoginAck result. */
-        public result: msgProto.ResultCode;
-
-        /** LoginAck server. */
-        public server?: (msgProto.IServerInfo|null);
-
-        /** LoginAck gameToken. */
-        public gameToken: string;
-
-        /** LoginAck gameSvcId. */
-        public gameSvcId: string;
-
-        /**
-         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
-         * @param message LoginAck message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: msgProto.ILoginAck, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a LoginAck message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns LoginAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginAck;
-
-        /**
-         * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns LoginAck
-         */
-        public static fromObject(object: { [k: string]: any }): msgProto.LoginAck;
-
-        /**
-         * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
-         * @param message LoginAck
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: msgProto.LoginAck, options?: protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this LoginAck to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a VerifyReq. */
-    interface IVerifyReq {
-
-        /** VerifyReq gameToken */
-        gameToken?: (string|null);
-
-        /** VerifyReq gameSvcId */
-        gameSvcId?: (string|null);
-
-        /** VerifyReq accountId */
-        accountId?: (number|Long|null);
-    }
-
-    /** Represents a VerifyReq. */
-    class VerifyReq implements IVerifyReq {
-
-        /**
-         * Constructs a new VerifyReq.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: msgProto.IVerifyReq);
-
-        /** VerifyReq gameToken. */
-        public gameToken: string;
-
-        /** VerifyReq gameSvcId. */
-        public gameSvcId: string;
-
-        /** VerifyReq accountId. */
-        public accountId: (number|Long);
-
-        /**
-         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
-         * @param message VerifyReq message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: msgProto.IVerifyReq, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a VerifyReq message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns VerifyReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyReq;
-
-        /**
-         * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns VerifyReq
-         */
-        public static fromObject(object: { [k: string]: any }): msgProto.VerifyReq;
-
-        /**
-         * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
-         * @param message VerifyReq
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: msgProto.VerifyReq, options?: protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this VerifyReq to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** Properties of a VerifyAck. */
-    interface IVerifyAck {
-
-        /** VerifyAck result */
-        result?: (msgProto.ResultCode|null);
-    }
-
-    /** Represents a VerifyAck. */
-    class VerifyAck implements IVerifyAck {
-
-        /**
-         * Constructs a new VerifyAck.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: msgProto.IVerifyAck);
-
-        /** VerifyAck result. */
-        public result: msgProto.ResultCode;
-
-        /**
-         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
-         * @param message VerifyAck message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: msgProto.IVerifyAck, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a VerifyAck message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns VerifyAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyAck;
-
-        /**
-         * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns VerifyAck
-         */
-        public static fromObject(object: { [k: string]: any }): msgProto.VerifyAck;
-
-        /**
-         * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
-         * @param message VerifyAck
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: msgProto.VerifyAck, options?: protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this VerifyAck to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
-    /** ResultCode enum. */
-    enum ResultCode {
-        noError = 0,
-        gateNotFound = 1,
-        gateAddressError = 2,
-        gameNotFound = 3
     }
 }

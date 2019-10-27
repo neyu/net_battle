@@ -23,8 +23,8 @@ class Battle {
     private init() {
         //
     }
-    public createScene() {
-        this._btScene = new BtScene()
+    public createScene(type:number) {
+        this._btScene = new BtScene(type)
         return this._btScene;
     }
     public getScene() {

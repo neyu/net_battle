@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="dt75loay" jpegQuality="80" compressPNG="true">
   <resources>
-    <component id="vcob0" name="main.xml" path="/" exported="true"/>
+    <component id="vcob0" name="classic.xml" path="/" exported="true"/>
     <image id="vcob1" name="avatar_10000.png" path="/"/>
     <image id="vcob2" name="avatar_10001.png" path="/"/>
     <image id="vcob3" name="avatar_10002.png" path="/"/>
@@ -24,6 +24,7 @@
     <image id="rrg7s" name="b4.png.jpg" path="/"/>
     <component id="rrg7u" name="checkBox.xml" path="/"/>
     <component id="rrg7v" name="radioButton.xml" path="/"/>
+    <component id="neszw" name="dice.xml" path="/" exported="true"/>
   </resources>
   <publish name="battle"/>
 </packageDescription>

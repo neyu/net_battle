@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package msgProto;
+
+enum ResultCode
+{
+	NoError = 0;
+	GateNotFound = 1;
+	GateAddressError = 2;
+	GameNotFound = 3;
+}
+
+enum Prop {
+	Gold = 0;
+	Diamond = 1;
+	Vip = 2;
+	
+	Level = 10;
+	Exp = 11;
+	Atk = 12;
+	Def = 13;
+	Hp = 14;		// 血
+	Mp = 15;		// 蓝
+	Ap = 16;		// 体力
+}
+
+enum Opt {
+	Buy = 0;
+	Sale = 1;
+}

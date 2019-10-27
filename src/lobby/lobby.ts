@@ -20,13 +20,13 @@ class Lobby {
     public getScene() {
         return this._lobbyScene;
     }
-    public gotoBattle() {
+    public gotoBattle(type:number) {
         let mainStage = this._lobbyScene.parent
 
         this._lobbyScene.onExit();
         this._lobbyScene = null;
 
-        mainStage.addChild(Battle.inst.createScene())
+        mainStage.addChild(Battle.inst.createScene(type))
     }
     public gotoLogin() {
         let mainStage = this._lobbyScene.parent
@@ -37,8 +37,11 @@ class Lobby {
         Login.inst.resetEnterState();
         mainStage.addChild(Login.inst.createScene())
     }
-    public tryFriendBt() {
-        this.gotoBattle();
+    public tryClassicBt() {
+        this.gotoBattle(0);
+    }
+    public tryDiceBt() {
+        this.gotoBattle(1);
     }
 
     private testLatencyResponse(msg:{time:number}) {

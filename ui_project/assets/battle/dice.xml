@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="480,800">
+  <controller name="func" pages="0,,1,,3," selected="2"/>
+  <displayList>
+    <text id="n3_vcob" name="n3" xy="6,24" size="99,34" fontSize="24" color="#ff0000" align="center" autoSize="none" text="对抗席"/>
+    <image id="n0_vcob" name="n0" src="vcob1" fileName="avatar_10000.png" xy="19,63" pivot="0.5,0.5" size="40,40"/>
+    <image id="n1_vcob" name="n1" src="vcob2" fileName="avatar_10001.png" xy="21,113" pivot="0.5,0.5" size="40,40"/>
+    <image id="n2_vcob" name="n2" src="vcob3" fileName="avatar_10002.png" xy="21,163" pivot="0.5,0.5" size="40,40"/>
+    <text id="n5_vcob" name="n5" xy="369,24" size="98,35" fontSize="24" color="#ff00ff" align="center" autoSize="none" text="观战席"/>
+    <image id="n6_vcob" name="n6" src="vcob4" fileName="avatar_10003.png" xy="423,63" pivot="0.5,0.5" size="40,40"/>
+    <text id="n7_vcob" name="n7" xy="69,78" size="153,25" fontSize="16" color="#ffffcc" vAlign="bottom" autoSize="none" text="迎风飞舞"/>
+    <text id="n8_vcob" name="n8" xy="69,126" size="157,27" fontSize="16" color="#ffffcc" vAlign="bottom" autoSize="none" text="啊叼"/>
+    <text id="n9_vcob" name="n9" xy="69,177" size="159,25" fontSize="16" color="#ffffcc" vAlign="bottom" autoSize="none" text="hooluhoolume"/>
+    <text id="n11_vcob" name="n11" xy="143,78" size="53,29" fontSize="18" color="#ff0000" autoSize="none" text="+66"/>
+    <text id="n12_vcob" name="n12" xy="111,130" size="53,27" fontSize="18" color="#ff0000" autoSize="none" text="+32"/>
+    <text id="n13_vcob" name="n13" xy="180,180" size="50,25" fontSize="18" color="#ff0000" autoSize="none" text="+10"/>
+    <text id="n15_vcob" name="n15" xy="259,73" size="161,31" fontSize="16" color="#ffffcc" align="right" vAlign="bottom" autoSize="none" text="总教练"/>
+    <image id="n16_vcob" name="n16" src="vcoba" fileName="avatar_10009.png" xy="424,114" pivot="0.5,0.5" size="40,40"/>
+    <text id="n17_vcob" name="n17" xy="253,123" size="167,31" fontSize="16" color="#ffffcc" align="right" vAlign="bottom" autoSize="none" text="佩洛西。风景线奶奶"/>
+    <text id="n18_vcob" name="n18" xy="405,1" size="70,22" fontSize="14" color="#00ff00" align="right" vAlign="middle" autoSize="none" text="15ms"/>
+    <component id="n19_glcc" name="n19" src="glccb" fileName="Button1.xml" xy="6,3">
+      <Button title="退出" titleColor="#cc6600" titleFontSize="12"/>
+    </component>
+    <text id="n20_pb7w" name="n20" xy="21,210" size="443,19" fontSize="12" autoSize="none" text="这是一行调试信息"/>
+    <text id="n21_98bu" name="n21" xy="113,36" size="153,25" fontSize="16" color="#ffffcc" autoSize="none" text="我的名字"/>
+    <text id="n22_98bu" name="n22" xy="195,36" size="50,30" fontSize="18" color="#ff0000" autoSize="none" text="+23"/>
+    <component id="n24_98bu" name="n24" src="98bud" fileName="Button2.xml" xy="63,748">
+      <Button title="抢庄"/>
+    </component>
+    <component id="n26_98bu" name="n26" src="98bud" fileName="Button2.xml" xy="12,711">
+      <Button title="加注"/>
+    </component>
+    <component id="n29_98bu" name="n29" src="98bud" fileName="Button2.xml" xy="11,748">
+      <Button title="重开"/>
+    </component>
+    <component id="n32_rrg7" name="n32" src="rrg7v" fileName="radioButton.xml" xy="52,688">
+      <Button title="置换" titleColor="#ff0000" controller="func" page="1"/>
+    </component>
+    <component id="n33_rrg7" name="n33" src="rrg7v" fileName="radioButton.xml" xy="92,688">
+      <Button checked="true" title="同色" titleColor="#00ff00" controller="func" page="3"/>
+    </component>
+    <component id="n34_rrg7" name="n34" src="rrg7v" fileName="radioButton.xml" xy="11,688">
+      <Button title="随机" titleColor="#0000ff" controller="func" page="0"/>
+    </component>
+    <text id="n35_rrg7" name="n35" xy="59,713" size="48,27" fontSize="18" color="#ff0000" vAlign="bottom" autoSize="none" text="+5&#xA;"/>
+  </displayList>
+</component>

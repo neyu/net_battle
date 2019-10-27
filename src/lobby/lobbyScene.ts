@@ -36,10 +36,10 @@ class LobbyScene extends egret.DisplayObjectContainer {
         lbName.text = Login.inst._userData.nickName;
 
         let friendBt = this._lobbyView.getChild("n0").asButton;
-        friendBt.addClickListener(this._clickFriendBt, this)
+        friendBt.addClickListener(this.__clickClassicBt, this)
 
         let worldBt = this._lobbyView.getChild("n1").asButton;
-        worldBt.addClickListener(this.__clickWorldBt, this);
+        worldBt.addClickListener(this.__clickDiceBt, this);
 
         let exitBtn = this._lobbyView.getChild("n31").asButton;
         exitBtn.addClickListener(this.__clickExit, this);
@@ -48,11 +48,11 @@ class LobbyScene extends egret.DisplayObjectContainer {
         chatBtn.addClickListener(this.__clickChat, this);
     }
 
-    private _clickFriendBt(evt:Event):void {
-        Lobby.inst.tryFriendBt();
+    private __clickClassicBt(evt:Event):void {
+        Lobby.inst.tryClassicBt();
     }
-    private __clickWorldBt(evt:Event):void {
-        Lobby.inst.tryFriendBt();
+    private __clickDiceBt(evt:Event):void {
+        Lobby.inst.tryDiceBt();
     }
     private __clickExit(evt:Event):void {
         Lobby.inst.gotoLogin();

@@ -15,6 +15,68 @@ $root.msgProto = (function() {
      */
     var msgProto = {};
 
+    /**
+     * ResultCode enum.
+     * @name msgProto.ResultCode
+     * @enum {string}
+     * @property {number} NoError=0 NoError value
+     * @property {number} GateNotFound=1 GateNotFound value
+     * @property {number} GateAddressError=2 GateAddressError value
+     * @property {number} GameNotFound=3 GameNotFound value
+     */
+    msgProto.ResultCode = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "NoError"] = 0;
+        values[valuesById[1] = "GateNotFound"] = 1;
+        values[valuesById[2] = "GateAddressError"] = 2;
+        values[valuesById[3] = "GameNotFound"] = 3;
+        return values;
+    })();
+
+    /**
+     * Prop enum.
+     * @name msgProto.Prop
+     * @enum {string}
+     * @property {number} Gold=0 Gold value
+     * @property {number} Diamond=1 Diamond value
+     * @property {number} Vip=2 Vip value
+     * @property {number} Level=10 Level value
+     * @property {number} Exp=11 Exp value
+     * @property {number} Atk=12 Atk value
+     * @property {number} Def=13 Def value
+     * @property {number} Hp=14 Hp value
+     * @property {number} Mp=15 Mp value
+     * @property {number} Ap=16 Ap value
+     */
+    msgProto.Prop = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "Gold"] = 0;
+        values[valuesById[1] = "Diamond"] = 1;
+        values[valuesById[2] = "Vip"] = 2;
+        values[valuesById[10] = "Level"] = 10;
+        values[valuesById[11] = "Exp"] = 11;
+        values[valuesById[12] = "Atk"] = 12;
+        values[valuesById[13] = "Def"] = 13;
+        values[valuesById[14] = "Hp"] = 14;
+        values[valuesById[15] = "Mp"] = 15;
+        values[valuesById[16] = "Ap"] = 16;
+        return values;
+    })();
+
+    /**
+     * Opt enum.
+     * @name msgProto.Opt
+     * @enum {string}
+     * @property {number} Buy=0 Buy value
+     * @property {number} Sale=1 Sale value
+     */
+    msgProto.Opt = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "Buy"] = 0;
+        values[valuesById[1] = "Sale"] = 1;
+        return values;
+    })();
+
     msgProto.ChatReq = (function() {
 
         /**
@@ -700,6 +762,961 @@ $root.msgProto = (function() {
         return ContentAck;
     })();
 
+    msgProto.ServerInfo = (function() {
+
+        /**
+         * Properties of a ServerInfo.
+         * @memberof msgProto
+         * @interface IServerInfo
+         * @property {string|null} [ip] ServerInfo ip
+         * @property {number|null} [port] ServerInfo port
+         */
+
+        /**
+         * Constructs a new ServerInfo.
+         * @memberof msgProto
+         * @classdesc Represents a ServerInfo.
+         * @implements IServerInfo
+         * @constructor
+         * @param {msgProto.IServerInfo=} [properties] Properties to set
+         */
+        function ServerInfo(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ServerInfo ip.
+         * @member {string} ip
+         * @memberof msgProto.ServerInfo
+         * @instance
+         */
+        ServerInfo.prototype.ip = "";
+
+        /**
+         * ServerInfo port.
+         * @member {number} port
+         * @memberof msgProto.ServerInfo
+         * @instance
+         */
+        ServerInfo.prototype.port = 0;
+
+        /**
+         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.ServerInfo
+         * @static
+         * @param {msgProto.IServerInfo} message ServerInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ServerInfo.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.ip != null && message.hasOwnProperty("ip"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.ip);
+            if (message.port != null && message.hasOwnProperty("port"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.port);
+            return writer;
+        };
+
+        /**
+         * Decodes a ServerInfo message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.ServerInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.ServerInfo} ServerInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ServerInfo.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ServerInfo();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.ip = reader.string();
+                    break;
+                case 2:
+                    message.port = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.ServerInfo
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.ServerInfo} ServerInfo
+         */
+        ServerInfo.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.ServerInfo)
+                return object;
+            var message = new $root.msgProto.ServerInfo();
+            if (object.ip != null)
+                message.ip = String(object.ip);
+            if (object.port != null)
+                message.port = object.port | 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.ServerInfo
+         * @static
+         * @param {msgProto.ServerInfo} message ServerInfo
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ServerInfo.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.ip = "";
+                object.port = 0;
+            }
+            if (message.ip != null && message.hasOwnProperty("ip"))
+                object.ip = message.ip;
+            if (message.port != null && message.hasOwnProperty("port"))
+                object.port = message.port;
+            return object;
+        };
+
+        /**
+         * Converts this ServerInfo to JSON.
+         * @function toJSON
+         * @memberof msgProto.ServerInfo
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ServerInfo.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ServerInfo;
+    })();
+
+    msgProto.PingAck = (function() {
+
+        /**
+         * Properties of a PingAck.
+         * @memberof msgProto
+         * @interface IPingAck
+         */
+
+        /**
+         * Constructs a new PingAck.
+         * @memberof msgProto
+         * @classdesc Represents a PingAck.
+         * @implements IPingAck
+         * @constructor
+         * @param {msgProto.IPingAck=} [properties] Properties to set
+         */
+        function PingAck(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.PingAck
+         * @static
+         * @param {msgProto.IPingAck} message PingAck message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PingAck.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            return writer;
+        };
+
+        /**
+         * Decodes a PingAck message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.PingAck
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.PingAck} PingAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PingAck.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PingAck();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.PingAck
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.PingAck} PingAck
+         */
+        PingAck.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.PingAck)
+                return object;
+            return new $root.msgProto.PingAck();
+        };
+
+        /**
+         * Creates a plain object from a PingAck message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.PingAck
+         * @static
+         * @param {msgProto.PingAck} message PingAck
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PingAck.toObject = function toObject() {
+            return {};
+        };
+
+        /**
+         * Converts this PingAck to JSON.
+         * @function toJSON
+         * @memberof msgProto.PingAck
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PingAck.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return PingAck;
+    })();
+
+    msgProto.LoginReq = (function() {
+
+        /**
+         * Properties of a LoginReq.
+         * @memberof msgProto
+         * @interface ILoginReq
+         * @property {string|null} [version] LoginReq version
+         * @property {string|null} [platform] LoginReq platform
+         * @property {string|null} [uid] LoginReq uid
+         */
+
+        /**
+         * Constructs a new LoginReq.
+         * @memberof msgProto
+         * @classdesc Represents a LoginReq.
+         * @implements ILoginReq
+         * @constructor
+         * @param {msgProto.ILoginReq=} [properties] Properties to set
+         */
+        function LoginReq(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LoginReq version.
+         * @member {string} version
+         * @memberof msgProto.LoginReq
+         * @instance
+         */
+        LoginReq.prototype.version = "";
+
+        /**
+         * LoginReq platform.
+         * @member {string} platform
+         * @memberof msgProto.LoginReq
+         * @instance
+         */
+        LoginReq.prototype.platform = "";
+
+        /**
+         * LoginReq uid.
+         * @member {string} uid
+         * @memberof msgProto.LoginReq
+         * @instance
+         */
+        LoginReq.prototype.uid = "";
+
+        /**
+         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.LoginReq
+         * @static
+         * @param {msgProto.ILoginReq} message LoginReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LoginReq.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.version != null && message.hasOwnProperty("version"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.uid);
+            return writer;
+        };
+
+        /**
+         * Decodes a LoginReq message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.LoginReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.LoginReq} LoginReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LoginReq.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginReq();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.version = reader.string();
+                    break;
+                case 2:
+                    message.platform = reader.string();
+                    break;
+                case 3:
+                    message.uid = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.LoginReq
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.LoginReq} LoginReq
+         */
+        LoginReq.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.LoginReq)
+                return object;
+            var message = new $root.msgProto.LoginReq();
+            if (object.version != null)
+                message.version = String(object.version);
+            if (object.platform != null)
+                message.platform = String(object.platform);
+            if (object.uid != null)
+                message.uid = String(object.uid);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.LoginReq
+         * @static
+         * @param {msgProto.LoginReq} message LoginReq
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LoginReq.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.version = "";
+                object.platform = "";
+                object.uid = "";
+            }
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.platform != null && message.hasOwnProperty("platform"))
+                object.platform = message.platform;
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                object.uid = message.uid;
+            return object;
+        };
+
+        /**
+         * Converts this LoginReq to JSON.
+         * @function toJSON
+         * @memberof msgProto.LoginReq
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LoginReq.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LoginReq;
+    })();
+
+    msgProto.LoginAck = (function() {
+
+        /**
+         * Properties of a LoginAck.
+         * @memberof msgProto
+         * @interface ILoginAck
+         * @property {msgProto.ResultCode|null} [result] LoginAck result
+         * @property {msgProto.IServerInfo|null} [server] LoginAck server
+         * @property {string|null} [gameToken] LoginAck gameToken
+         * @property {string|null} [gameSvcId] LoginAck gameSvcId
+         */
+
+        /**
+         * Constructs a new LoginAck.
+         * @memberof msgProto
+         * @classdesc Represents a LoginAck.
+         * @implements ILoginAck
+         * @constructor
+         * @param {msgProto.ILoginAck=} [properties] Properties to set
+         */
+        function LoginAck(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * LoginAck result.
+         * @member {msgProto.ResultCode} result
+         * @memberof msgProto.LoginAck
+         * @instance
+         */
+        LoginAck.prototype.result = 0;
+
+        /**
+         * LoginAck server.
+         * @member {msgProto.IServerInfo|null|undefined} server
+         * @memberof msgProto.LoginAck
+         * @instance
+         */
+        LoginAck.prototype.server = null;
+
+        /**
+         * LoginAck gameToken.
+         * @member {string} gameToken
+         * @memberof msgProto.LoginAck
+         * @instance
+         */
+        LoginAck.prototype.gameToken = "";
+
+        /**
+         * LoginAck gameSvcId.
+         * @member {string} gameSvcId
+         * @memberof msgProto.LoginAck
+         * @instance
+         */
+        LoginAck.prototype.gameSvcId = "";
+
+        /**
+         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.LoginAck
+         * @static
+         * @param {msgProto.ILoginAck} message LoginAck message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LoginAck.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.result != null && message.hasOwnProperty("result"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
+            if (message.server != null && message.hasOwnProperty("server"))
+                $root.msgProto.ServerInfo.encode(message.server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.gameToken);
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.gameSvcId);
+            return writer;
+        };
+
+        /**
+         * Decodes a LoginAck message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.LoginAck
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.LoginAck} LoginAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LoginAck.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginAck();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.result = reader.int32();
+                    break;
+                case 2:
+                    message.server = $root.msgProto.ServerInfo.decode(reader, reader.uint32());
+                    break;
+                case 3:
+                    message.gameToken = reader.string();
+                    break;
+                case 4:
+                    message.gameSvcId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.LoginAck
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.LoginAck} LoginAck
+         */
+        LoginAck.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.LoginAck)
+                return object;
+            var message = new $root.msgProto.LoginAck();
+            switch (object.result) {
+            case "NoError":
+            case 0:
+                message.result = 0;
+                break;
+            case "GateNotFound":
+            case 1:
+                message.result = 1;
+                break;
+            case "GateAddressError":
+            case 2:
+                message.result = 2;
+                break;
+            case "GameNotFound":
+            case 3:
+                message.result = 3;
+                break;
+            }
+            if (object.server != null) {
+                if (typeof object.server !== "object")
+                    throw TypeError(".msgProto.LoginAck.server: object expected");
+                message.server = $root.msgProto.ServerInfo.fromObject(object.server);
+            }
+            if (object.gameToken != null)
+                message.gameToken = String(object.gameToken);
+            if (object.gameSvcId != null)
+                message.gameSvcId = String(object.gameSvcId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.LoginAck
+         * @static
+         * @param {msgProto.LoginAck} message LoginAck
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LoginAck.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.result = options.enums === String ? "NoError" : 0;
+                object.server = null;
+                object.gameToken = "";
+                object.gameSvcId = "";
+            }
+            if (message.result != null && message.hasOwnProperty("result"))
+                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+            if (message.server != null && message.hasOwnProperty("server"))
+                object.server = $root.msgProto.ServerInfo.toObject(message.server, options);
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                object.gameToken = message.gameToken;
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                object.gameSvcId = message.gameSvcId;
+            return object;
+        };
+
+        /**
+         * Converts this LoginAck to JSON.
+         * @function toJSON
+         * @memberof msgProto.LoginAck
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LoginAck.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return LoginAck;
+    })();
+
+    msgProto.VerifyReq = (function() {
+
+        /**
+         * Properties of a VerifyReq.
+         * @memberof msgProto
+         * @interface IVerifyReq
+         * @property {string|null} [gameToken] VerifyReq gameToken
+         * @property {string|null} [gameSvcId] VerifyReq gameSvcId
+         * @property {number|Long|null} [accountId] VerifyReq accountId
+         */
+
+        /**
+         * Constructs a new VerifyReq.
+         * @memberof msgProto
+         * @classdesc Represents a VerifyReq.
+         * @implements IVerifyReq
+         * @constructor
+         * @param {msgProto.IVerifyReq=} [properties] Properties to set
+         */
+        function VerifyReq(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * VerifyReq gameToken.
+         * @member {string} gameToken
+         * @memberof msgProto.VerifyReq
+         * @instance
+         */
+        VerifyReq.prototype.gameToken = "";
+
+        /**
+         * VerifyReq gameSvcId.
+         * @member {string} gameSvcId
+         * @memberof msgProto.VerifyReq
+         * @instance
+         */
+        VerifyReq.prototype.gameSvcId = "";
+
+        /**
+         * VerifyReq accountId.
+         * @member {number|Long} accountId
+         * @memberof msgProto.VerifyReq
+         * @instance
+         */
+        VerifyReq.prototype.accountId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.VerifyReq
+         * @static
+         * @param {msgProto.IVerifyReq} message VerifyReq message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VerifyReq.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.gameToken);
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.gameSvcId);
+            if (message.accountId != null && message.hasOwnProperty("accountId"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.accountId);
+            return writer;
+        };
+
+        /**
+         * Decodes a VerifyReq message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.VerifyReq
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.VerifyReq} VerifyReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VerifyReq.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyReq();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.gameToken = reader.string();
+                    break;
+                case 2:
+                    message.gameSvcId = reader.string();
+                    break;
+                case 3:
+                    message.accountId = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.VerifyReq
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.VerifyReq} VerifyReq
+         */
+        VerifyReq.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.VerifyReq)
+                return object;
+            var message = new $root.msgProto.VerifyReq();
+            if (object.gameToken != null)
+                message.gameToken = String(object.gameToken);
+            if (object.gameSvcId != null)
+                message.gameSvcId = String(object.gameSvcId);
+            if (object.accountId != null)
+                if ($util.Long)
+                    (message.accountId = $util.Long.fromValue(object.accountId)).unsigned = false;
+                else if (typeof object.accountId === "string")
+                    message.accountId = parseInt(object.accountId, 10);
+                else if (typeof object.accountId === "number")
+                    message.accountId = object.accountId;
+                else if (typeof object.accountId === "object")
+                    message.accountId = new $util.LongBits(object.accountId.low >>> 0, object.accountId.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.VerifyReq
+         * @static
+         * @param {msgProto.VerifyReq} message VerifyReq
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VerifyReq.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.gameToken = "";
+                object.gameSvcId = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.accountId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.accountId = options.longs === String ? "0" : 0;
+            }
+            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
+                object.gameToken = message.gameToken;
+            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
+                object.gameSvcId = message.gameSvcId;
+            if (message.accountId != null && message.hasOwnProperty("accountId"))
+                if (typeof message.accountId === "number")
+                    object.accountId = options.longs === String ? String(message.accountId) : message.accountId;
+                else
+                    object.accountId = options.longs === String ? $util.Long.prototype.toString.call(message.accountId) : options.longs === Number ? new $util.LongBits(message.accountId.low >>> 0, message.accountId.high >>> 0).toNumber() : message.accountId;
+            return object;
+        };
+
+        /**
+         * Converts this VerifyReq to JSON.
+         * @function toJSON
+         * @memberof msgProto.VerifyReq
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        VerifyReq.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return VerifyReq;
+    })();
+
+    msgProto.VerifyAck = (function() {
+
+        /**
+         * Properties of a VerifyAck.
+         * @memberof msgProto
+         * @interface IVerifyAck
+         * @property {msgProto.ResultCode|null} [result] VerifyAck result
+         */
+
+        /**
+         * Constructs a new VerifyAck.
+         * @memberof msgProto
+         * @classdesc Represents a VerifyAck.
+         * @implements IVerifyAck
+         * @constructor
+         * @param {msgProto.IVerifyAck=} [properties] Properties to set
+         */
+        function VerifyAck(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * VerifyAck result.
+         * @member {msgProto.ResultCode} result
+         * @memberof msgProto.VerifyAck
+         * @instance
+         */
+        VerifyAck.prototype.result = 0;
+
+        /**
+         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.VerifyAck
+         * @static
+         * @param {msgProto.IVerifyAck} message VerifyAck message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        VerifyAck.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.result != null && message.hasOwnProperty("result"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
+            return writer;
+        };
+
+        /**
+         * Decodes a VerifyAck message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.VerifyAck
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.VerifyAck} VerifyAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        VerifyAck.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyAck();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.result = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.VerifyAck
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.VerifyAck} VerifyAck
+         */
+        VerifyAck.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.VerifyAck)
+                return object;
+            var message = new $root.msgProto.VerifyAck();
+            switch (object.result) {
+            case "NoError":
+            case 0:
+                message.result = 0;
+                break;
+            case "GateNotFound":
+            case 1:
+                message.result = 1;
+                break;
+            case "GateAddressError":
+            case 2:
+                message.result = 2;
+                break;
+            case "GameNotFound":
+            case 3:
+                message.result = 3;
+                break;
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.VerifyAck
+         * @static
+         * @param {msgProto.VerifyAck} message VerifyAck
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        VerifyAck.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.result = options.enums === String ? "NoError" : 0;
+            if (message.result != null && message.hasOwnProperty("result"))
+                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+            return object;
+        };
+
+        /**
+         * Converts this VerifyAck to JSON.
+         * @function toJSON
+         * @memberof msgProto.VerifyAck
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        VerifyAck.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return VerifyAck;
+    })();
+
     msgProto.UserCreate = (function() {
 
         /**
@@ -1208,7 +2225,7 @@ $root.msgProto = (function() {
          * @property {number|Long|null} [userId] GameEnterResponse userId
          * @property {string|null} [nickName] GameEnterResponse nickName
          * @property {number|null} [tempId] GameEnterResponse tempId
-         * @property {number|Long|null} [gold] GameEnterResponse gold
+         * @property {number|Long|null} [coin] GameEnterResponse coin
          * @property {number|Long|null} [diamond] GameEnterResponse diamond
          * @property {number|null} [vip] GameEnterResponse vip
          * @property {number|null} [vipScore] GameEnterResponse vipScore
@@ -1268,12 +2285,12 @@ $root.msgProto = (function() {
         GameEnterResponse.prototype.tempId = 0;
 
         /**
-         * GameEnterResponse gold.
-         * @member {number|Long} gold
+         * GameEnterResponse coin.
+         * @member {number|Long} coin
          * @memberof msgProto.GameEnterResponse
          * @instance
          */
-        GameEnterResponse.prototype.gold = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+        GameEnterResponse.prototype.coin = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * GameEnterResponse diamond.
@@ -1367,8 +2384,8 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.nickName);
             if (message.tempId != null && message.hasOwnProperty("tempId"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.tempId);
-            if (message.gold != null && message.hasOwnProperty("gold"))
-                writer.uint32(/* id 5, wireType 0 =*/40).int64(message.gold);
+            if (message.coin != null && message.hasOwnProperty("coin"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int64(message.coin);
             if (message.diamond != null && message.hasOwnProperty("diamond"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int64(message.diamond);
             if (message.vip != null && message.hasOwnProperty("vip"))
@@ -1421,7 +2438,7 @@ $root.msgProto = (function() {
                     message.tempId = reader.int32();
                     break;
                 case 5:
-                    message.gold = reader.int64();
+                    message.coin = reader.int64();
                     break;
                 case 6:
                     message.diamond = reader.int64();
@@ -1485,15 +2502,15 @@ $root.msgProto = (function() {
                 message.nickName = String(object.nickName);
             if (object.tempId != null)
                 message.tempId = object.tempId | 0;
-            if (object.gold != null)
+            if (object.coin != null)
                 if ($util.Long)
-                    (message.gold = $util.Long.fromValue(object.gold)).unsigned = false;
-                else if (typeof object.gold === "string")
-                    message.gold = parseInt(object.gold, 10);
-                else if (typeof object.gold === "number")
-                    message.gold = object.gold;
-                else if (typeof object.gold === "object")
-                    message.gold = new $util.LongBits(object.gold.low >>> 0, object.gold.high >>> 0).toNumber();
+                    (message.coin = $util.Long.fromValue(object.coin)).unsigned = false;
+                else if (typeof object.coin === "string")
+                    message.coin = parseInt(object.coin, 10);
+                else if (typeof object.coin === "number")
+                    message.coin = object.coin;
+                else if (typeof object.coin === "object")
+                    message.coin = new $util.LongBits(object.coin.low >>> 0, object.coin.high >>> 0).toNumber();
             if (object.diamond != null)
                 if ($util.Long)
                     (message.diamond = $util.Long.fromValue(object.diamond)).unsigned = false;
@@ -1560,9 +2577,9 @@ $root.msgProto = (function() {
                 object.tempId = 0;
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, false);
-                    object.gold = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    object.coin = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
-                    object.gold = options.longs === String ? "0" : 0;
+                    object.coin = options.longs === String ? "0" : 0;
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, false);
                     object.diamond = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -1596,11 +2613,11 @@ $root.msgProto = (function() {
                 object.nickName = message.nickName;
             if (message.tempId != null && message.hasOwnProperty("tempId"))
                 object.tempId = message.tempId;
-            if (message.gold != null && message.hasOwnProperty("gold"))
-                if (typeof message.gold === "number")
-                    object.gold = options.longs === String ? String(message.gold) : message.gold;
+            if (message.coin != null && message.hasOwnProperty("coin"))
+                if (typeof message.coin === "number")
+                    object.coin = options.longs === String ? String(message.coin) : message.coin;
                 else
-                    object.gold = options.longs === String ? $util.Long.prototype.toString.call(message.gold) : options.longs === Number ? new $util.LongBits(message.gold.low >>> 0, message.gold.high >>> 0).toNumber() : message.gold;
+                    object.coin = options.longs === String ? $util.Long.prototype.toString.call(message.coin) : options.longs === Number ? new $util.LongBits(message.coin.low >>> 0, message.coin.high >>> 0).toNumber() : message.coin;
             if (message.diamond != null && message.hasOwnProperty("diamond"))
                 if (typeof message.diamond === "number")
                     object.diamond = options.longs === String ? String(message.diamond) : message.diamond;
@@ -4478,25 +5495,27 @@ $root.msgProto = (function() {
         return HeroInfo;
     })();
 
-    msgProto.ServerInfo = (function() {
+    msgProto.SyncPropData = (function() {
 
         /**
-         * Properties of a ServerInfo.
+         * Properties of a SyncPropData.
          * @memberof msgProto
-         * @interface IServerInfo
-         * @property {string|null} [ip] ServerInfo ip
-         * @property {number|null} [port] ServerInfo port
+         * @interface ISyncPropData
+         * @property {Array.<msgProto.Prop>|null} [type] SyncPropData type
+         * @property {Array.<number|Long>|null} [val] SyncPropData val
          */
 
         /**
-         * Constructs a new ServerInfo.
+         * Constructs a new SyncPropData.
          * @memberof msgProto
-         * @classdesc Represents a ServerInfo.
-         * @implements IServerInfo
+         * @classdesc Represents a SyncPropData.
+         * @implements ISyncPropData
          * @constructor
-         * @param {msgProto.IServerInfo=} [properties] Properties to set
+         * @param {msgProto.ISyncPropData=} [properties] Properties to set
          */
-        function ServerInfo(properties) {
+        function SyncPropData(properties) {
+            this.type = [];
+            this.val = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4504,63 +5523,85 @@ $root.msgProto = (function() {
         }
 
         /**
-         * ServerInfo ip.
-         * @member {string} ip
-         * @memberof msgProto.ServerInfo
+         * SyncPropData type.
+         * @member {Array.<msgProto.Prop>} type
+         * @memberof msgProto.SyncPropData
          * @instance
          */
-        ServerInfo.prototype.ip = "";
+        SyncPropData.prototype.type = $util.emptyArray;
 
         /**
-         * ServerInfo port.
-         * @member {number} port
-         * @memberof msgProto.ServerInfo
+         * SyncPropData val.
+         * @member {Array.<number|Long>} val
+         * @memberof msgProto.SyncPropData
          * @instance
          */
-        ServerInfo.prototype.port = 0;
+        SyncPropData.prototype.val = $util.emptyArray;
 
         /**
-         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
+         * Encodes the specified SyncPropData message. Does not implicitly {@link msgProto.SyncPropData.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ServerInfo
+         * @memberof msgProto.SyncPropData
          * @static
-         * @param {msgProto.IServerInfo} message ServerInfo message or plain object to encode
+         * @param {msgProto.ISyncPropData} message SyncPropData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        ServerInfo.encode = function encode(message, writer) {
+        SyncPropData.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.ip != null && message.hasOwnProperty("ip"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.ip);
-            if (message.port != null && message.hasOwnProperty("port"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.port);
+            if (message.type != null && message.type.length) {
+                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                for (var i = 0; i < message.type.length; ++i)
+                    writer.int32(message.type[i]);
+                writer.ldelim();
+            }
+            if (message.val != null && message.val.length) {
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                for (var i = 0; i < message.val.length; ++i)
+                    writer.int64(message.val[i]);
+                writer.ldelim();
+            }
             return writer;
         };
 
         /**
-         * Decodes a ServerInfo message from the specified reader or buffer.
+         * Decodes a SyncPropData message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ServerInfo
+         * @memberof msgProto.SyncPropData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ServerInfo} ServerInfo
+         * @returns {msgProto.SyncPropData} SyncPropData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        ServerInfo.decode = function decode(reader, length) {
+        SyncPropData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ServerInfo();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncPropData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.ip = reader.string();
+                    if (!(message.type && message.type.length))
+                        message.type = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.type.push(reader.int32());
+                    } else
+                        message.type.push(reader.int32());
                     break;
                 case 2:
-                    message.port = reader.int32();
+                    if (!(message.val && message.val.length))
+                        message.val = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.val.push(reader.int64());
+                    } else
+                        message.val.push(reader.int64());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4571,79 +5612,151 @@ $root.msgProto = (function() {
         };
 
         /**
-         * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncPropData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ServerInfo
+         * @memberof msgProto.SyncPropData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ServerInfo} ServerInfo
+         * @returns {msgProto.SyncPropData} SyncPropData
          */
-        ServerInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ServerInfo)
+        SyncPropData.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.SyncPropData)
                 return object;
-            var message = new $root.msgProto.ServerInfo();
-            if (object.ip != null)
-                message.ip = String(object.ip);
-            if (object.port != null)
-                message.port = object.port | 0;
+            var message = new $root.msgProto.SyncPropData();
+            if (object.type) {
+                if (!Array.isArray(object.type))
+                    throw TypeError(".msgProto.SyncPropData.type: array expected");
+                message.type = [];
+                for (var i = 0; i < object.type.length; ++i)
+                    switch (object.type[i]) {
+                    default:
+                    case "Gold":
+                    case 0:
+                        message.type[i] = 0;
+                        break;
+                    case "Diamond":
+                    case 1:
+                        message.type[i] = 1;
+                        break;
+                    case "Vip":
+                    case 2:
+                        message.type[i] = 2;
+                        break;
+                    case "Level":
+                    case 10:
+                        message.type[i] = 10;
+                        break;
+                    case "Exp":
+                    case 11:
+                        message.type[i] = 11;
+                        break;
+                    case "Atk":
+                    case 12:
+                        message.type[i] = 12;
+                        break;
+                    case "Def":
+                    case 13:
+                        message.type[i] = 13;
+                        break;
+                    case "Hp":
+                    case 14:
+                        message.type[i] = 14;
+                        break;
+                    case "Mp":
+                    case 15:
+                        message.type[i] = 15;
+                        break;
+                    case "Ap":
+                    case 16:
+                        message.type[i] = 16;
+                        break;
+                    }
+            }
+            if (object.val) {
+                if (!Array.isArray(object.val))
+                    throw TypeError(".msgProto.SyncPropData.val: array expected");
+                message.val = [];
+                for (var i = 0; i < object.val.length; ++i)
+                    if ($util.Long)
+                        (message.val[i] = $util.Long.fromValue(object.val[i])).unsigned = false;
+                    else if (typeof object.val[i] === "string")
+                        message.val[i] = parseInt(object.val[i], 10);
+                    else if (typeof object.val[i] === "number")
+                        message.val[i] = object.val[i];
+                    else if (typeof object.val[i] === "object")
+                        message.val[i] = new $util.LongBits(object.val[i].low >>> 0, object.val[i].high >>> 0).toNumber();
+            }
             return message;
         };
 
         /**
-         * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
+         * Creates a plain object from a SyncPropData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ServerInfo
+         * @memberof msgProto.SyncPropData
          * @static
-         * @param {msgProto.ServerInfo} message ServerInfo
+         * @param {msgProto.SyncPropData} message SyncPropData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        ServerInfo.toObject = function toObject(message, options) {
+        SyncPropData.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.ip = "";
-                object.port = 0;
+            if (options.arrays || options.defaults) {
+                object.type = [];
+                object.val = [];
             }
-            if (message.ip != null && message.hasOwnProperty("ip"))
-                object.ip = message.ip;
-            if (message.port != null && message.hasOwnProperty("port"))
-                object.port = message.port;
+            if (message.type && message.type.length) {
+                object.type = [];
+                for (var j = 0; j < message.type.length; ++j)
+                    object.type[j] = options.enums === String ? $root.msgProto.Prop[message.type[j]] : message.type[j];
+            }
+            if (message.val && message.val.length) {
+                object.val = [];
+                for (var j = 0; j < message.val.length; ++j)
+                    if (typeof message.val[j] === "number")
+                        object.val[j] = options.longs === String ? String(message.val[j]) : message.val[j];
+                    else
+                        object.val[j] = options.longs === String ? $util.Long.prototype.toString.call(message.val[j]) : options.longs === Number ? new $util.LongBits(message.val[j].low >>> 0, message.val[j].high >>> 0).toNumber() : message.val[j];
+            }
             return object;
         };
 
         /**
-         * Converts this ServerInfo to JSON.
+         * Converts this SyncPropData to JSON.
          * @function toJSON
-         * @memberof msgProto.ServerInfo
+         * @memberof msgProto.SyncPropData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        ServerInfo.prototype.toJSON = function toJSON() {
+        SyncPropData.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return ServerInfo;
+        return SyncPropData;
     })();
 
-    msgProto.PingAck = (function() {
+    msgProto.SyncPropData2 = (function() {
 
         /**
-         * Properties of a PingAck.
+         * Properties of a SyncPropData2.
          * @memberof msgProto
-         * @interface IPingAck
+         * @interface ISyncPropData2
+         * @property {Array.<msgProto.Prop>|null} [type] SyncPropData2 type
+         * @property {Array.<string>|null} [val] SyncPropData2 val
          */
 
         /**
-         * Constructs a new PingAck.
+         * Constructs a new SyncPropData2.
          * @memberof msgProto
-         * @classdesc Represents a PingAck.
-         * @implements IPingAck
+         * @classdesc Represents a SyncPropData2.
+         * @implements ISyncPropData2
          * @constructor
-         * @param {msgProto.IPingAck=} [properties] Properties to set
+         * @param {msgProto.ISyncPropData2=} [properties] Properties to set
          */
-        function PingAck(properties) {
+        function SyncPropData2(properties) {
+            this.type = [];
+            this.val = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4651,184 +5764,77 @@ $root.msgProto = (function() {
         }
 
         /**
-         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
+         * SyncPropData2 type.
+         * @member {Array.<msgProto.Prop>} type
+         * @memberof msgProto.SyncPropData2
+         * @instance
+         */
+        SyncPropData2.prototype.type = $util.emptyArray;
+
+        /**
+         * SyncPropData2 val.
+         * @member {Array.<string>} val
+         * @memberof msgProto.SyncPropData2
+         * @instance
+         */
+        SyncPropData2.prototype.val = $util.emptyArray;
+
+        /**
+         * Encodes the specified SyncPropData2 message. Does not implicitly {@link msgProto.SyncPropData2.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.PingAck
+         * @memberof msgProto.SyncPropData2
          * @static
-         * @param {msgProto.IPingAck} message PingAck message or plain object to encode
+         * @param {msgProto.ISyncPropData2} message SyncPropData2 message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        PingAck.encode = function encode(message, writer) {
+        SyncPropData2.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            return writer;
-        };
-
-        /**
-         * Decodes a PingAck message from the specified reader or buffer.
-         * @function decode
-         * @memberof msgProto.PingAck
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.PingAck} PingAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        PingAck.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PingAck();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
+            if (message.type != null && message.type.length) {
+                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                for (var i = 0; i < message.type.length; ++i)
+                    writer.int32(message.type[i]);
+                writer.ldelim();
             }
-            return message;
-        };
-
-        /**
-         * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof msgProto.PingAck
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.PingAck} PingAck
-         */
-        PingAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.PingAck)
-                return object;
-            return new $root.msgProto.PingAck();
-        };
-
-        /**
-         * Creates a plain object from a PingAck message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof msgProto.PingAck
-         * @static
-         * @param {msgProto.PingAck} message PingAck
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        PingAck.toObject = function toObject() {
-            return {};
-        };
-
-        /**
-         * Converts this PingAck to JSON.
-         * @function toJSON
-         * @memberof msgProto.PingAck
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        PingAck.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return PingAck;
-    })();
-
-    msgProto.LoginReq = (function() {
-
-        /**
-         * Properties of a LoginReq.
-         * @memberof msgProto
-         * @interface ILoginReq
-         * @property {string|null} [version] LoginReq version
-         * @property {string|null} [platform] LoginReq platform
-         * @property {string|null} [uid] LoginReq uid
-         */
-
-        /**
-         * Constructs a new LoginReq.
-         * @memberof msgProto
-         * @classdesc Represents a LoginReq.
-         * @implements ILoginReq
-         * @constructor
-         * @param {msgProto.ILoginReq=} [properties] Properties to set
-         */
-        function LoginReq(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * LoginReq version.
-         * @member {string} version
-         * @memberof msgProto.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.version = "";
-
-        /**
-         * LoginReq platform.
-         * @member {string} platform
-         * @memberof msgProto.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.platform = "";
-
-        /**
-         * LoginReq uid.
-         * @member {string} uid
-         * @memberof msgProto.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.uid = "";
-
-        /**
-         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
-         * @function encode
-         * @memberof msgProto.LoginReq
-         * @static
-         * @param {msgProto.ILoginReq} message LoginReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        LoginReq.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.version != null && message.hasOwnProperty("version"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
-            if (message.platform != null && message.hasOwnProperty("platform"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
-            if (message.uid != null && message.hasOwnProperty("uid"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.uid);
+            if (message.val != null && message.val.length)
+                for (var i = 0; i < message.val.length; ++i)
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.val[i]);
             return writer;
         };
 
         /**
-         * Decodes a LoginReq message from the specified reader or buffer.
+         * Decodes a SyncPropData2 message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.LoginReq
+         * @memberof msgProto.SyncPropData2
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.LoginReq} LoginReq
+         * @returns {msgProto.SyncPropData2} SyncPropData2
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginReq.decode = function decode(reader, length) {
+        SyncPropData2.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncPropData2();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.version = reader.string();
+                    if (!(message.type && message.type.length))
+                        message.type = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.type.push(reader.int32());
+                    } else
+                        message.type.push(reader.int32());
                     break;
                 case 2:
-                    message.platform = reader.string();
-                    break;
-                case 3:
-                    message.uid = reader.string();
+                    if (!(message.val && message.val.length))
+                        message.val = [];
+                    message.val.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4839,88 +5845,142 @@ $root.msgProto = (function() {
         };
 
         /**
-         * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncPropData2 message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.LoginReq
+         * @memberof msgProto.SyncPropData2
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.LoginReq} LoginReq
+         * @returns {msgProto.SyncPropData2} SyncPropData2
          */
-        LoginReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.LoginReq)
+        SyncPropData2.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.SyncPropData2)
                 return object;
-            var message = new $root.msgProto.LoginReq();
-            if (object.version != null)
-                message.version = String(object.version);
-            if (object.platform != null)
-                message.platform = String(object.platform);
-            if (object.uid != null)
-                message.uid = String(object.uid);
+            var message = new $root.msgProto.SyncPropData2();
+            if (object.type) {
+                if (!Array.isArray(object.type))
+                    throw TypeError(".msgProto.SyncPropData2.type: array expected");
+                message.type = [];
+                for (var i = 0; i < object.type.length; ++i)
+                    switch (object.type[i]) {
+                    default:
+                    case "Gold":
+                    case 0:
+                        message.type[i] = 0;
+                        break;
+                    case "Diamond":
+                    case 1:
+                        message.type[i] = 1;
+                        break;
+                    case "Vip":
+                    case 2:
+                        message.type[i] = 2;
+                        break;
+                    case "Level":
+                    case 10:
+                        message.type[i] = 10;
+                        break;
+                    case "Exp":
+                    case 11:
+                        message.type[i] = 11;
+                        break;
+                    case "Atk":
+                    case 12:
+                        message.type[i] = 12;
+                        break;
+                    case "Def":
+                    case 13:
+                        message.type[i] = 13;
+                        break;
+                    case "Hp":
+                    case 14:
+                        message.type[i] = 14;
+                        break;
+                    case "Mp":
+                    case 15:
+                        message.type[i] = 15;
+                        break;
+                    case "Ap":
+                    case 16:
+                        message.type[i] = 16;
+                        break;
+                    }
+            }
+            if (object.val) {
+                if (!Array.isArray(object.val))
+                    throw TypeError(".msgProto.SyncPropData2.val: array expected");
+                message.val = [];
+                for (var i = 0; i < object.val.length; ++i)
+                    message.val[i] = String(object.val[i]);
+            }
             return message;
         };
 
         /**
-         * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
+         * Creates a plain object from a SyncPropData2 message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.LoginReq
+         * @memberof msgProto.SyncPropData2
          * @static
-         * @param {msgProto.LoginReq} message LoginReq
+         * @param {msgProto.SyncPropData2} message SyncPropData2
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LoginReq.toObject = function toObject(message, options) {
+        SyncPropData2.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.version = "";
-                object.platform = "";
-                object.uid = "";
+            if (options.arrays || options.defaults) {
+                object.type = [];
+                object.val = [];
             }
-            if (message.version != null && message.hasOwnProperty("version"))
-                object.version = message.version;
-            if (message.platform != null && message.hasOwnProperty("platform"))
-                object.platform = message.platform;
-            if (message.uid != null && message.hasOwnProperty("uid"))
-                object.uid = message.uid;
+            if (message.type && message.type.length) {
+                object.type = [];
+                for (var j = 0; j < message.type.length; ++j)
+                    object.type[j] = options.enums === String ? $root.msgProto.Prop[message.type[j]] : message.type[j];
+            }
+            if (message.val && message.val.length) {
+                object.val = [];
+                for (var j = 0; j < message.val.length; ++j)
+                    object.val[j] = message.val[j];
+            }
             return object;
         };
 
         /**
-         * Converts this LoginReq to JSON.
+         * Converts this SyncPropData2 to JSON.
          * @function toJSON
-         * @memberof msgProto.LoginReq
+         * @memberof msgProto.SyncPropData2
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        LoginReq.prototype.toJSON = function toJSON() {
+        SyncPropData2.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return LoginReq;
+        return SyncPropData2;
     })();
 
-    msgProto.LoginAck = (function() {
+    msgProto.SyncOptData = (function() {
 
         /**
-         * Properties of a LoginAck.
+         * Properties of a SyncOptData.
          * @memberof msgProto
-         * @interface ILoginAck
-         * @property {msgProto.ResultCode|null} [result] LoginAck result
-         * @property {msgProto.IServerInfo|null} [server] LoginAck server
-         * @property {string|null} [gameToken] LoginAck gameToken
-         * @property {string|null} [gameSvcId] LoginAck gameSvcId
+         * @interface ISyncOptData
+         * @property {msgProto.Opt|null} [type] SyncOptData type
+         * @property {Array.<number|Long>|null} [iVal] SyncOptData iVal
+         * @property {Array.<string>|null} [strVal] SyncOptData strVal
          */
 
         /**
-         * Constructs a new LoginAck.
+         * Constructs a new SyncOptData.
          * @memberof msgProto
-         * @classdesc Represents a LoginAck.
-         * @implements ILoginAck
+         * @classdesc Represents a SyncOptData.
+         * @implements ISyncOptData
          * @constructor
-         * @param {msgProto.ILoginAck=} [properties] Properties to set
+         * @param {msgProto.ISyncOptData=} [properties] Properties to set
          */
-        function LoginAck(properties) {
+        function SyncOptData(properties) {
+            this.iVal = [];
+            this.strVal = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4928,89 +5988,90 @@ $root.msgProto = (function() {
         }
 
         /**
-         * LoginAck result.
-         * @member {msgProto.ResultCode} result
-         * @memberof msgProto.LoginAck
+         * SyncOptData type.
+         * @member {msgProto.Opt} type
+         * @memberof msgProto.SyncOptData
          * @instance
          */
-        LoginAck.prototype.result = 0;
+        SyncOptData.prototype.type = 0;
 
         /**
-         * LoginAck server.
-         * @member {msgProto.IServerInfo|null|undefined} server
-         * @memberof msgProto.LoginAck
+         * SyncOptData iVal.
+         * @member {Array.<number|Long>} iVal
+         * @memberof msgProto.SyncOptData
          * @instance
          */
-        LoginAck.prototype.server = null;
+        SyncOptData.prototype.iVal = $util.emptyArray;
 
         /**
-         * LoginAck gameToken.
-         * @member {string} gameToken
-         * @memberof msgProto.LoginAck
+         * SyncOptData strVal.
+         * @member {Array.<string>} strVal
+         * @memberof msgProto.SyncOptData
          * @instance
          */
-        LoginAck.prototype.gameToken = "";
+        SyncOptData.prototype.strVal = $util.emptyArray;
 
         /**
-         * LoginAck gameSvcId.
-         * @member {string} gameSvcId
-         * @memberof msgProto.LoginAck
-         * @instance
-         */
-        LoginAck.prototype.gameSvcId = "";
-
-        /**
-         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
+         * Encodes the specified SyncOptData message. Does not implicitly {@link msgProto.SyncOptData.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.LoginAck
+         * @memberof msgProto.SyncOptData
          * @static
-         * @param {msgProto.ILoginAck} message LoginAck message or plain object to encode
+         * @param {msgProto.ISyncOptData} message SyncOptData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LoginAck.encode = function encode(message, writer) {
+        SyncOptData.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.result != null && message.hasOwnProperty("result"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
-            if (message.server != null && message.hasOwnProperty("server"))
-                $root.msgProto.ServerInfo.encode(message.server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.gameToken);
-            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.gameSvcId);
+            if (message.type != null && message.hasOwnProperty("type"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.iVal != null && message.iVal.length) {
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                for (var i = 0; i < message.iVal.length; ++i)
+                    writer.int64(message.iVal[i]);
+                writer.ldelim();
+            }
+            if (message.strVal != null && message.strVal.length)
+                for (var i = 0; i < message.strVal.length; ++i)
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.strVal[i]);
             return writer;
         };
 
         /**
-         * Decodes a LoginAck message from the specified reader or buffer.
+         * Decodes a SyncOptData message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.LoginAck
+         * @memberof msgProto.SyncOptData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.LoginAck} LoginAck
+         * @returns {msgProto.SyncOptData} SyncOptData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginAck.decode = function decode(reader, length) {
+        SyncOptData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncOptData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.result = reader.int32();
+                    message.type = reader.int32();
                     break;
                 case 2:
-                    message.server = $root.msgProto.ServerInfo.decode(reader, reader.uint32());
+                    if (!(message.iVal && message.iVal.length))
+                        message.iVal = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.iVal.push(reader.int64());
+                    } else
+                        message.iVal.push(reader.int64());
                     break;
                 case 3:
-                    message.gameToken = reader.string();
-                    break;
-                case 4:
-                    message.gameSvcId = reader.string();
+                    if (!(message.strVal && message.strVal.length))
+                        message.strVal = [];
+                    message.strVal.push(reader.string());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5021,434 +6082,100 @@ $root.msgProto = (function() {
         };
 
         /**
-         * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
+         * Creates a SyncOptData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.LoginAck
+         * @memberof msgProto.SyncOptData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.LoginAck} LoginAck
+         * @returns {msgProto.SyncOptData} SyncOptData
          */
-        LoginAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.LoginAck)
+        SyncOptData.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.SyncOptData)
                 return object;
-            var message = new $root.msgProto.LoginAck();
-            switch (object.result) {
-            case "noError":
+            var message = new $root.msgProto.SyncOptData();
+            switch (object.type) {
+            case "Buy":
             case 0:
-                message.result = 0;
+                message.type = 0;
                 break;
-            case "gateNotFound":
+            case "Sale":
             case 1:
-                message.result = 1;
-                break;
-            case "gateAddressError":
-            case 2:
-                message.result = 2;
-                break;
-            case "gameNotFound":
-            case 3:
-                message.result = 3;
+                message.type = 1;
                 break;
             }
-            if (object.server != null) {
-                if (typeof object.server !== "object")
-                    throw TypeError(".msgProto.LoginAck.server: object expected");
-                message.server = $root.msgProto.ServerInfo.fromObject(object.server);
+            if (object.iVal) {
+                if (!Array.isArray(object.iVal))
+                    throw TypeError(".msgProto.SyncOptData.iVal: array expected");
+                message.iVal = [];
+                for (var i = 0; i < object.iVal.length; ++i)
+                    if ($util.Long)
+                        (message.iVal[i] = $util.Long.fromValue(object.iVal[i])).unsigned = false;
+                    else if (typeof object.iVal[i] === "string")
+                        message.iVal[i] = parseInt(object.iVal[i], 10);
+                    else if (typeof object.iVal[i] === "number")
+                        message.iVal[i] = object.iVal[i];
+                    else if (typeof object.iVal[i] === "object")
+                        message.iVal[i] = new $util.LongBits(object.iVal[i].low >>> 0, object.iVal[i].high >>> 0).toNumber();
             }
-            if (object.gameToken != null)
-                message.gameToken = String(object.gameToken);
-            if (object.gameSvcId != null)
-                message.gameSvcId = String(object.gameSvcId);
+            if (object.strVal) {
+                if (!Array.isArray(object.strVal))
+                    throw TypeError(".msgProto.SyncOptData.strVal: array expected");
+                message.strVal = [];
+                for (var i = 0; i < object.strVal.length; ++i)
+                    message.strVal[i] = String(object.strVal[i]);
+            }
             return message;
         };
 
         /**
-         * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
+         * Creates a plain object from a SyncOptData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.LoginAck
+         * @memberof msgProto.SyncOptData
          * @static
-         * @param {msgProto.LoginAck} message LoginAck
+         * @param {msgProto.SyncOptData} message SyncOptData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LoginAck.toObject = function toObject(message, options) {
+        SyncOptData.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.result = options.enums === String ? "noError" : 0;
-                object.server = null;
-                object.gameToken = "";
-                object.gameSvcId = "";
+            if (options.arrays || options.defaults) {
+                object.iVal = [];
+                object.strVal = [];
             }
-            if (message.result != null && message.hasOwnProperty("result"))
-                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
-            if (message.server != null && message.hasOwnProperty("server"))
-                object.server = $root.msgProto.ServerInfo.toObject(message.server, options);
-            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
-                object.gameToken = message.gameToken;
-            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
-                object.gameSvcId = message.gameSvcId;
-            return object;
-        };
-
-        /**
-         * Converts this LoginAck to JSON.
-         * @function toJSON
-         * @memberof msgProto.LoginAck
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        LoginAck.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return LoginAck;
-    })();
-
-    msgProto.VerifyReq = (function() {
-
-        /**
-         * Properties of a VerifyReq.
-         * @memberof msgProto
-         * @interface IVerifyReq
-         * @property {string|null} [gameToken] VerifyReq gameToken
-         * @property {string|null} [gameSvcId] VerifyReq gameSvcId
-         * @property {number|Long|null} [accountId] VerifyReq accountId
-         */
-
-        /**
-         * Constructs a new VerifyReq.
-         * @memberof msgProto
-         * @classdesc Represents a VerifyReq.
-         * @implements IVerifyReq
-         * @constructor
-         * @param {msgProto.IVerifyReq=} [properties] Properties to set
-         */
-        function VerifyReq(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * VerifyReq gameToken.
-         * @member {string} gameToken
-         * @memberof msgProto.VerifyReq
-         * @instance
-         */
-        VerifyReq.prototype.gameToken = "";
-
-        /**
-         * VerifyReq gameSvcId.
-         * @member {string} gameSvcId
-         * @memberof msgProto.VerifyReq
-         * @instance
-         */
-        VerifyReq.prototype.gameSvcId = "";
-
-        /**
-         * VerifyReq accountId.
-         * @member {number|Long} accountId
-         * @memberof msgProto.VerifyReq
-         * @instance
-         */
-        VerifyReq.prototype.accountId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-        /**
-         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
-         * @function encode
-         * @memberof msgProto.VerifyReq
-         * @static
-         * @param {msgProto.IVerifyReq} message VerifyReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VerifyReq.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.gameToken);
-            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.gameSvcId);
-            if (message.accountId != null && message.hasOwnProperty("accountId"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.accountId);
-            return writer;
-        };
-
-        /**
-         * Decodes a VerifyReq message from the specified reader or buffer.
-         * @function decode
-         * @memberof msgProto.VerifyReq
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.VerifyReq} VerifyReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VerifyReq.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyReq();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.gameToken = reader.string();
-                    break;
-                case 2:
-                    message.gameSvcId = reader.string();
-                    break;
-                case 3:
-                    message.accountId = reader.int64();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof msgProto.VerifyReq
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.VerifyReq} VerifyReq
-         */
-        VerifyReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.VerifyReq)
-                return object;
-            var message = new $root.msgProto.VerifyReq();
-            if (object.gameToken != null)
-                message.gameToken = String(object.gameToken);
-            if (object.gameSvcId != null)
-                message.gameSvcId = String(object.gameSvcId);
-            if (object.accountId != null)
-                if ($util.Long)
-                    (message.accountId = $util.Long.fromValue(object.accountId)).unsigned = false;
-                else if (typeof object.accountId === "string")
-                    message.accountId = parseInt(object.accountId, 10);
-                else if (typeof object.accountId === "number")
-                    message.accountId = object.accountId;
-                else if (typeof object.accountId === "object")
-                    message.accountId = new $util.LongBits(object.accountId.low >>> 0, object.accountId.high >>> 0).toNumber();
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof msgProto.VerifyReq
-         * @static
-         * @param {msgProto.VerifyReq} message VerifyReq
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        VerifyReq.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.gameToken = "";
-                object.gameSvcId = "";
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.accountId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.accountId = options.longs === String ? "0" : 0;
-            }
-            if (message.gameToken != null && message.hasOwnProperty("gameToken"))
-                object.gameToken = message.gameToken;
-            if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
-                object.gameSvcId = message.gameSvcId;
-            if (message.accountId != null && message.hasOwnProperty("accountId"))
-                if (typeof message.accountId === "number")
-                    object.accountId = options.longs === String ? String(message.accountId) : message.accountId;
-                else
-                    object.accountId = options.longs === String ? $util.Long.prototype.toString.call(message.accountId) : options.longs === Number ? new $util.LongBits(message.accountId.low >>> 0, message.accountId.high >>> 0).toNumber() : message.accountId;
-            return object;
-        };
-
-        /**
-         * Converts this VerifyReq to JSON.
-         * @function toJSON
-         * @memberof msgProto.VerifyReq
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        VerifyReq.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return VerifyReq;
-    })();
-
-    msgProto.VerifyAck = (function() {
-
-        /**
-         * Properties of a VerifyAck.
-         * @memberof msgProto
-         * @interface IVerifyAck
-         * @property {msgProto.ResultCode|null} [result] VerifyAck result
-         */
-
-        /**
-         * Constructs a new VerifyAck.
-         * @memberof msgProto
-         * @classdesc Represents a VerifyAck.
-         * @implements IVerifyAck
-         * @constructor
-         * @param {msgProto.IVerifyAck=} [properties] Properties to set
-         */
-        function VerifyAck(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * VerifyAck result.
-         * @member {msgProto.ResultCode} result
-         * @memberof msgProto.VerifyAck
-         * @instance
-         */
-        VerifyAck.prototype.result = 0;
-
-        /**
-         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
-         * @function encode
-         * @memberof msgProto.VerifyAck
-         * @static
-         * @param {msgProto.IVerifyAck} message VerifyAck message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VerifyAck.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.result != null && message.hasOwnProperty("result"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
-            return writer;
-        };
-
-        /**
-         * Decodes a VerifyAck message from the specified reader or buffer.
-         * @function decode
-         * @memberof msgProto.VerifyAck
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.VerifyAck} VerifyAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VerifyAck.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyAck();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.result = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof msgProto.VerifyAck
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.VerifyAck} VerifyAck
-         */
-        VerifyAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.VerifyAck)
-                return object;
-            var message = new $root.msgProto.VerifyAck();
-            switch (object.result) {
-            case "noError":
-            case 0:
-                message.result = 0;
-                break;
-            case "gateNotFound":
-            case 1:
-                message.result = 1;
-                break;
-            case "gateAddressError":
-            case 2:
-                message.result = 2;
-                break;
-            case "gameNotFound":
-            case 3:
-                message.result = 3;
-                break;
-            }
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof msgProto.VerifyAck
-         * @static
-         * @param {msgProto.VerifyAck} message VerifyAck
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        VerifyAck.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
             if (options.defaults)
-                object.result = options.enums === String ? "noError" : 0;
-            if (message.result != null && message.hasOwnProperty("result"))
-                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+                object.type = options.enums === String ? "Buy" : 0;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.msgProto.Opt[message.type] : message.type;
+            if (message.iVal && message.iVal.length) {
+                object.iVal = [];
+                for (var j = 0; j < message.iVal.length; ++j)
+                    if (typeof message.iVal[j] === "number")
+                        object.iVal[j] = options.longs === String ? String(message.iVal[j]) : message.iVal[j];
+                    else
+                        object.iVal[j] = options.longs === String ? $util.Long.prototype.toString.call(message.iVal[j]) : options.longs === Number ? new $util.LongBits(message.iVal[j].low >>> 0, message.iVal[j].high >>> 0).toNumber() : message.iVal[j];
+            }
+            if (message.strVal && message.strVal.length) {
+                object.strVal = [];
+                for (var j = 0; j < message.strVal.length; ++j)
+                    object.strVal[j] = message.strVal[j];
+            }
             return object;
         };
 
         /**
-         * Converts this VerifyAck to JSON.
+         * Converts this SyncOptData to JSON.
          * @function toJSON
-         * @memberof msgProto.VerifyAck
+         * @memberof msgProto.SyncOptData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        VerifyAck.prototype.toJSON = function toJSON() {
+        SyncOptData.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return VerifyAck;
-    })();
-
-    /**
-     * ResultCode enum.
-     * @name msgProto.ResultCode
-     * @enum {string}
-     * @property {number} noError=0 noError value
-     * @property {number} gateNotFound=1 gateNotFound value
-     * @property {number} gateAddressError=2 gateAddressError value
-     * @property {number} gameNotFound=3 gameNotFound value
-     */
-    msgProto.ResultCode = (function() {
-        var valuesById = {}, values = Object.create(valuesById);
-        values[valuesById[0] = "noError"] = 0;
-        values[valuesById[1] = "gateNotFound"] = 1;
-        values[valuesById[2] = "gateAddressError"] = 2;
-        values[valuesById[3] = "gameNotFound"] = 3;
-        return values;
+        return SyncOptData;
     })();
 
     return msgProto;
