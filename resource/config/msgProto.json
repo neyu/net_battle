@@ -32,6 +32,16 @@
 	"2020": "msgProto.TestNetLatency",
 	"2021": "msgProto.ExchangeOptData",
 
-	"2030": "msgProto.HeroInfo"
+	"2030": "msgProto.HeroInfo",
+
+	"2060": "msgProto.CreateClsRoom",
+	"2061": "msgProto.JoinClsRoom",
+	"2062": "msgProto.EnterClsRoomResponse",
+	"3063": "msgProto.ExitClsRoom",
+
+	"2070": "msgProto.CreateDiceRoom",
+	"2071": "msgProto.JoinDiceRoom",
+	"2072": "msgProto.EnterDiceRoomResponse",
+	"2073": "msgProto.ExitDiceRoom"
 
 }

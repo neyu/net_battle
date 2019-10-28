@@ -5055,6 +5055,1200 @@ $root.msgProto = (function() {
         return ExchangeOptData;
     })();
 
+    msgProto.CreateClsRoom = (function() {
+
+        /**
+         * Properties of a CreateClsRoom.
+         * @memberof msgProto
+         * @interface ICreateClsRoom
+         * @property {string|null} [name] CreateClsRoom name
+         */
+
+        /**
+         * Constructs a new CreateClsRoom.
+         * @memberof msgProto
+         * @classdesc Represents a CreateClsRoom.
+         * @implements ICreateClsRoom
+         * @constructor
+         * @param {msgProto.ICreateClsRoom=} [properties] Properties to set
+         */
+        function CreateClsRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateClsRoom name.
+         * @member {string} name
+         * @memberof msgProto.CreateClsRoom
+         * @instance
+         */
+        CreateClsRoom.prototype.name = "";
+
+        /**
+         * Encodes the specified CreateClsRoom message. Does not implicitly {@link msgProto.CreateClsRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.CreateClsRoom
+         * @static
+         * @param {msgProto.ICreateClsRoom} message CreateClsRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateClsRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && message.hasOwnProperty("name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            return writer;
+        };
+
+        /**
+         * Decodes a CreateClsRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.CreateClsRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.CreateClsRoom} CreateClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateClsRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.CreateClsRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a CreateClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.CreateClsRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.CreateClsRoom} CreateClsRoom
+         */
+        CreateClsRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.CreateClsRoom)
+                return object;
+            var message = new $root.msgProto.CreateClsRoom();
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateClsRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.CreateClsRoom
+         * @static
+         * @param {msgProto.CreateClsRoom} message CreateClsRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateClsRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.name = "";
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            return object;
+        };
+
+        /**
+         * Converts this CreateClsRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.CreateClsRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateClsRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateClsRoom;
+    })();
+
+    msgProto.JoinClsRoom = (function() {
+
+        /**
+         * Properties of a JoinClsRoom.
+         * @memberof msgProto
+         * @interface IJoinClsRoom
+         * @property {string|null} [name] JoinClsRoom name
+         */
+
+        /**
+         * Constructs a new JoinClsRoom.
+         * @memberof msgProto
+         * @classdesc Represents a JoinClsRoom.
+         * @implements IJoinClsRoom
+         * @constructor
+         * @param {msgProto.IJoinClsRoom=} [properties] Properties to set
+         */
+        function JoinClsRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * JoinClsRoom name.
+         * @member {string} name
+         * @memberof msgProto.JoinClsRoom
+         * @instance
+         */
+        JoinClsRoom.prototype.name = "";
+
+        /**
+         * Encodes the specified JoinClsRoom message. Does not implicitly {@link msgProto.JoinClsRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.JoinClsRoom
+         * @static
+         * @param {msgProto.IJoinClsRoom} message JoinClsRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        JoinClsRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && message.hasOwnProperty("name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            return writer;
+        };
+
+        /**
+         * Decodes a JoinClsRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.JoinClsRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.JoinClsRoom} JoinClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        JoinClsRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.JoinClsRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a JoinClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.JoinClsRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.JoinClsRoom} JoinClsRoom
+         */
+        JoinClsRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.JoinClsRoom)
+                return object;
+            var message = new $root.msgProto.JoinClsRoom();
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a JoinClsRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.JoinClsRoom
+         * @static
+         * @param {msgProto.JoinClsRoom} message JoinClsRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        JoinClsRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.name = "";
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            return object;
+        };
+
+        /**
+         * Converts this JoinClsRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.JoinClsRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        JoinClsRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return JoinClsRoom;
+    })();
+
+    msgProto.EnterClsRoomResponse = (function() {
+
+        /**
+         * Properties of an EnterClsRoomResponse.
+         * @memberof msgProto
+         * @interface IEnterClsRoomResponse
+         * @property {number|null} [retCode] EnterClsRoomResponse retCode
+         * @property {number|Long|null} [roomId] EnterClsRoomResponse roomId
+         * @property {number|Long|null} [masterId] EnterClsRoomResponse masterId
+         */
+
+        /**
+         * Constructs a new EnterClsRoomResponse.
+         * @memberof msgProto
+         * @classdesc Represents an EnterClsRoomResponse.
+         * @implements IEnterClsRoomResponse
+         * @constructor
+         * @param {msgProto.IEnterClsRoomResponse=} [properties] Properties to set
+         */
+        function EnterClsRoomResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * EnterClsRoomResponse retCode.
+         * @member {number} retCode
+         * @memberof msgProto.EnterClsRoomResponse
+         * @instance
+         */
+        EnterClsRoomResponse.prototype.retCode = 0;
+
+        /**
+         * EnterClsRoomResponse roomId.
+         * @member {number|Long} roomId
+         * @memberof msgProto.EnterClsRoomResponse
+         * @instance
+         */
+        EnterClsRoomResponse.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * EnterClsRoomResponse masterId.
+         * @member {number|Long} masterId
+         * @memberof msgProto.EnterClsRoomResponse
+         * @instance
+         */
+        EnterClsRoomResponse.prototype.masterId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link msgProto.EnterClsRoomResponse.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.EnterClsRoomResponse
+         * @static
+         * @param {msgProto.IEnterClsRoomResponse} message EnterClsRoomResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnterClsRoomResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.retCode != null && message.hasOwnProperty("retCode"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.retCode);
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int64(message.roomId);
+            if (message.masterId != null && message.hasOwnProperty("masterId"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.masterId);
+            return writer;
+        };
+
+        /**
+         * Decodes an EnterClsRoomResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.EnterClsRoomResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.EnterClsRoomResponse} EnterClsRoomResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnterClsRoomResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.EnterClsRoomResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.retCode = reader.int32();
+                    break;
+                case 2:
+                    message.roomId = reader.int64();
+                    break;
+                case 3:
+                    message.masterId = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an EnterClsRoomResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.EnterClsRoomResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.EnterClsRoomResponse} EnterClsRoomResponse
+         */
+        EnterClsRoomResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.EnterClsRoomResponse)
+                return object;
+            var message = new $root.msgProto.EnterClsRoomResponse();
+            if (object.retCode != null)
+                message.retCode = object.retCode | 0;
+            if (object.roomId != null)
+                if ($util.Long)
+                    (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
+                else if (typeof object.roomId === "string")
+                    message.roomId = parseInt(object.roomId, 10);
+                else if (typeof object.roomId === "number")
+                    message.roomId = object.roomId;
+                else if (typeof object.roomId === "object")
+                    message.roomId = new $util.LongBits(object.roomId.low >>> 0, object.roomId.high >>> 0).toNumber();
+            if (object.masterId != null)
+                if ($util.Long)
+                    (message.masterId = $util.Long.fromValue(object.masterId)).unsigned = false;
+                else if (typeof object.masterId === "string")
+                    message.masterId = parseInt(object.masterId, 10);
+                else if (typeof object.masterId === "number")
+                    message.masterId = object.masterId;
+                else if (typeof object.masterId === "object")
+                    message.masterId = new $util.LongBits(object.masterId.low >>> 0, object.masterId.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an EnterClsRoomResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.EnterClsRoomResponse
+         * @static
+         * @param {msgProto.EnterClsRoomResponse} message EnterClsRoomResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnterClsRoomResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.retCode = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.roomId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.roomId = options.longs === String ? "0" : 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.masterId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.masterId = options.longs === String ? "0" : 0;
+            }
+            if (message.retCode != null && message.hasOwnProperty("retCode"))
+                object.retCode = message.retCode;
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                if (typeof message.roomId === "number")
+                    object.roomId = options.longs === String ? String(message.roomId) : message.roomId;
+                else
+                    object.roomId = options.longs === String ? $util.Long.prototype.toString.call(message.roomId) : options.longs === Number ? new $util.LongBits(message.roomId.low >>> 0, message.roomId.high >>> 0).toNumber() : message.roomId;
+            if (message.masterId != null && message.hasOwnProperty("masterId"))
+                if (typeof message.masterId === "number")
+                    object.masterId = options.longs === String ? String(message.masterId) : message.masterId;
+                else
+                    object.masterId = options.longs === String ? $util.Long.prototype.toString.call(message.masterId) : options.longs === Number ? new $util.LongBits(message.masterId.low >>> 0, message.masterId.high >>> 0).toNumber() : message.masterId;
+            return object;
+        };
+
+        /**
+         * Converts this EnterClsRoomResponse to JSON.
+         * @function toJSON
+         * @memberof msgProto.EnterClsRoomResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnterClsRoomResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return EnterClsRoomResponse;
+    })();
+
+    msgProto.ExitClsRoom = (function() {
+
+        /**
+         * Properties of an ExitClsRoom.
+         * @memberof msgProto
+         * @interface IExitClsRoom
+         * @property {number|Long|null} [roomId] ExitClsRoom roomId
+         */
+
+        /**
+         * Constructs a new ExitClsRoom.
+         * @memberof msgProto
+         * @classdesc Represents an ExitClsRoom.
+         * @implements IExitClsRoom
+         * @constructor
+         * @param {msgProto.IExitClsRoom=} [properties] Properties to set
+         */
+        function ExitClsRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ExitClsRoom roomId.
+         * @member {number|Long} roomId
+         * @memberof msgProto.ExitClsRoom
+         * @instance
+         */
+        ExitClsRoom.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified ExitClsRoom message. Does not implicitly {@link msgProto.ExitClsRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.ExitClsRoom
+         * @static
+         * @param {msgProto.IExitClsRoom} message ExitClsRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExitClsRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.roomId);
+            return writer;
+        };
+
+        /**
+         * Decodes an ExitClsRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.ExitClsRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.ExitClsRoom} ExitClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExitClsRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExitClsRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.roomId = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an ExitClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.ExitClsRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.ExitClsRoom} ExitClsRoom
+         */
+        ExitClsRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.ExitClsRoom)
+                return object;
+            var message = new $root.msgProto.ExitClsRoom();
+            if (object.roomId != null)
+                if ($util.Long)
+                    (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
+                else if (typeof object.roomId === "string")
+                    message.roomId = parseInt(object.roomId, 10);
+                else if (typeof object.roomId === "number")
+                    message.roomId = object.roomId;
+                else if (typeof object.roomId === "object")
+                    message.roomId = new $util.LongBits(object.roomId.low >>> 0, object.roomId.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExitClsRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.ExitClsRoom
+         * @static
+         * @param {msgProto.ExitClsRoom} message ExitClsRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExitClsRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.roomId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.roomId = options.longs === String ? "0" : 0;
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                if (typeof message.roomId === "number")
+                    object.roomId = options.longs === String ? String(message.roomId) : message.roomId;
+                else
+                    object.roomId = options.longs === String ? $util.Long.prototype.toString.call(message.roomId) : options.longs === Number ? new $util.LongBits(message.roomId.low >>> 0, message.roomId.high >>> 0).toNumber() : message.roomId;
+            return object;
+        };
+
+        /**
+         * Converts this ExitClsRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.ExitClsRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExitClsRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ExitClsRoom;
+    })();
+
+    msgProto.CreateDiceRoom = (function() {
+
+        /**
+         * Properties of a CreateDiceRoom.
+         * @memberof msgProto
+         * @interface ICreateDiceRoom
+         * @property {string|null} [name] CreateDiceRoom name
+         */
+
+        /**
+         * Constructs a new CreateDiceRoom.
+         * @memberof msgProto
+         * @classdesc Represents a CreateDiceRoom.
+         * @implements ICreateDiceRoom
+         * @constructor
+         * @param {msgProto.ICreateDiceRoom=} [properties] Properties to set
+         */
+        function CreateDiceRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * CreateDiceRoom name.
+         * @member {string} name
+         * @memberof msgProto.CreateDiceRoom
+         * @instance
+         */
+        CreateDiceRoom.prototype.name = "";
+
+        /**
+         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link msgProto.CreateDiceRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.CreateDiceRoom
+         * @static
+         * @param {msgProto.ICreateDiceRoom} message CreateDiceRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        CreateDiceRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && message.hasOwnProperty("name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            return writer;
+        };
+
+        /**
+         * Decodes a CreateDiceRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.CreateDiceRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.CreateDiceRoom} CreateDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        CreateDiceRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.CreateDiceRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a CreateDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.CreateDiceRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.CreateDiceRoom} CreateDiceRoom
+         */
+        CreateDiceRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.CreateDiceRoom)
+                return object;
+            var message = new $root.msgProto.CreateDiceRoom();
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a CreateDiceRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.CreateDiceRoom
+         * @static
+         * @param {msgProto.CreateDiceRoom} message CreateDiceRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        CreateDiceRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.name = "";
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            return object;
+        };
+
+        /**
+         * Converts this CreateDiceRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.CreateDiceRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        CreateDiceRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return CreateDiceRoom;
+    })();
+
+    msgProto.JoinDiceRoom = (function() {
+
+        /**
+         * Properties of a JoinDiceRoom.
+         * @memberof msgProto
+         * @interface IJoinDiceRoom
+         * @property {string|null} [name] JoinDiceRoom name
+         */
+
+        /**
+         * Constructs a new JoinDiceRoom.
+         * @memberof msgProto
+         * @classdesc Represents a JoinDiceRoom.
+         * @implements IJoinDiceRoom
+         * @constructor
+         * @param {msgProto.IJoinDiceRoom=} [properties] Properties to set
+         */
+        function JoinDiceRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * JoinDiceRoom name.
+         * @member {string} name
+         * @memberof msgProto.JoinDiceRoom
+         * @instance
+         */
+        JoinDiceRoom.prototype.name = "";
+
+        /**
+         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link msgProto.JoinDiceRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.JoinDiceRoom
+         * @static
+         * @param {msgProto.IJoinDiceRoom} message JoinDiceRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        JoinDiceRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && message.hasOwnProperty("name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            return writer;
+        };
+
+        /**
+         * Decodes a JoinDiceRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.JoinDiceRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.JoinDiceRoom} JoinDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        JoinDiceRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.JoinDiceRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a JoinDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.JoinDiceRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.JoinDiceRoom} JoinDiceRoom
+         */
+        JoinDiceRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.JoinDiceRoom)
+                return object;
+            var message = new $root.msgProto.JoinDiceRoom();
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a JoinDiceRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.JoinDiceRoom
+         * @static
+         * @param {msgProto.JoinDiceRoom} message JoinDiceRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        JoinDiceRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.name = "";
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            return object;
+        };
+
+        /**
+         * Converts this JoinDiceRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.JoinDiceRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        JoinDiceRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return JoinDiceRoom;
+    })();
+
+    msgProto.EnterDiceRoomResponse = (function() {
+
+        /**
+         * Properties of an EnterDiceRoomResponse.
+         * @memberof msgProto
+         * @interface IEnterDiceRoomResponse
+         * @property {number|null} [retCode] EnterDiceRoomResponse retCode
+         * @property {number|Long|null} [roomId] EnterDiceRoomResponse roomId
+         * @property {number|Long|null} [masterId] EnterDiceRoomResponse masterId
+         */
+
+        /**
+         * Constructs a new EnterDiceRoomResponse.
+         * @memberof msgProto
+         * @classdesc Represents an EnterDiceRoomResponse.
+         * @implements IEnterDiceRoomResponse
+         * @constructor
+         * @param {msgProto.IEnterDiceRoomResponse=} [properties] Properties to set
+         */
+        function EnterDiceRoomResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * EnterDiceRoomResponse retCode.
+         * @member {number} retCode
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @instance
+         */
+        EnterDiceRoomResponse.prototype.retCode = 0;
+
+        /**
+         * EnterDiceRoomResponse roomId.
+         * @member {number|Long} roomId
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @instance
+         */
+        EnterDiceRoomResponse.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * EnterDiceRoomResponse masterId.
+         * @member {number|Long} masterId
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @instance
+         */
+        EnterDiceRoomResponse.prototype.masterId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link msgProto.EnterDiceRoomResponse.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @static
+         * @param {msgProto.IEnterDiceRoomResponse} message EnterDiceRoomResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnterDiceRoomResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.retCode != null && message.hasOwnProperty("retCode"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.retCode);
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int64(message.roomId);
+            if (message.masterId != null && message.hasOwnProperty("masterId"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int64(message.masterId);
+            return writer;
+        };
+
+        /**
+         * Decodes an EnterDiceRoomResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.EnterDiceRoomResponse} EnterDiceRoomResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnterDiceRoomResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.EnterDiceRoomResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.retCode = reader.int32();
+                    break;
+                case 2:
+                    message.roomId = reader.int64();
+                    break;
+                case 3:
+                    message.masterId = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an EnterDiceRoomResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.EnterDiceRoomResponse} EnterDiceRoomResponse
+         */
+        EnterDiceRoomResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.EnterDiceRoomResponse)
+                return object;
+            var message = new $root.msgProto.EnterDiceRoomResponse();
+            if (object.retCode != null)
+                message.retCode = object.retCode | 0;
+            if (object.roomId != null)
+                if ($util.Long)
+                    (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
+                else if (typeof object.roomId === "string")
+                    message.roomId = parseInt(object.roomId, 10);
+                else if (typeof object.roomId === "number")
+                    message.roomId = object.roomId;
+                else if (typeof object.roomId === "object")
+                    message.roomId = new $util.LongBits(object.roomId.low >>> 0, object.roomId.high >>> 0).toNumber();
+            if (object.masterId != null)
+                if ($util.Long)
+                    (message.masterId = $util.Long.fromValue(object.masterId)).unsigned = false;
+                else if (typeof object.masterId === "string")
+                    message.masterId = parseInt(object.masterId, 10);
+                else if (typeof object.masterId === "number")
+                    message.masterId = object.masterId;
+                else if (typeof object.masterId === "object")
+                    message.masterId = new $util.LongBits(object.masterId.low >>> 0, object.masterId.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an EnterDiceRoomResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @static
+         * @param {msgProto.EnterDiceRoomResponse} message EnterDiceRoomResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnterDiceRoomResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.retCode = 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.roomId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.roomId = options.longs === String ? "0" : 0;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.masterId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.masterId = options.longs === String ? "0" : 0;
+            }
+            if (message.retCode != null && message.hasOwnProperty("retCode"))
+                object.retCode = message.retCode;
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                if (typeof message.roomId === "number")
+                    object.roomId = options.longs === String ? String(message.roomId) : message.roomId;
+                else
+                    object.roomId = options.longs === String ? $util.Long.prototype.toString.call(message.roomId) : options.longs === Number ? new $util.LongBits(message.roomId.low >>> 0, message.roomId.high >>> 0).toNumber() : message.roomId;
+            if (message.masterId != null && message.hasOwnProperty("masterId"))
+                if (typeof message.masterId === "number")
+                    object.masterId = options.longs === String ? String(message.masterId) : message.masterId;
+                else
+                    object.masterId = options.longs === String ? $util.Long.prototype.toString.call(message.masterId) : options.longs === Number ? new $util.LongBits(message.masterId.low >>> 0, message.masterId.high >>> 0).toNumber() : message.masterId;
+            return object;
+        };
+
+        /**
+         * Converts this EnterDiceRoomResponse to JSON.
+         * @function toJSON
+         * @memberof msgProto.EnterDiceRoomResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnterDiceRoomResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return EnterDiceRoomResponse;
+    })();
+
+    msgProto.ExitDiceRoom = (function() {
+
+        /**
+         * Properties of an ExitDiceRoom.
+         * @memberof msgProto
+         * @interface IExitDiceRoom
+         * @property {number|Long|null} [roomId] ExitDiceRoom roomId
+         */
+
+        /**
+         * Constructs a new ExitDiceRoom.
+         * @memberof msgProto
+         * @classdesc Represents an ExitDiceRoom.
+         * @implements IExitDiceRoom
+         * @constructor
+         * @param {msgProto.IExitDiceRoom=} [properties] Properties to set
+         */
+        function ExitDiceRoom(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ExitDiceRoom roomId.
+         * @member {number|Long} roomId
+         * @memberof msgProto.ExitDiceRoom
+         * @instance
+         */
+        ExitDiceRoom.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+        /**
+         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link msgProto.ExitDiceRoom.verify|verify} messages.
+         * @function encode
+         * @memberof msgProto.ExitDiceRoom
+         * @static
+         * @param {msgProto.IExitDiceRoom} message ExitDiceRoom message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExitDiceRoom.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.roomId);
+            return writer;
+        };
+
+        /**
+         * Decodes an ExitDiceRoom message from the specified reader or buffer.
+         * @function decode
+         * @memberof msgProto.ExitDiceRoom
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {msgProto.ExitDiceRoom} ExitDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExitDiceRoom.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExitDiceRoom();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.roomId = reader.int64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an ExitDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof msgProto.ExitDiceRoom
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {msgProto.ExitDiceRoom} ExitDiceRoom
+         */
+        ExitDiceRoom.fromObject = function fromObject(object) {
+            if (object instanceof $root.msgProto.ExitDiceRoom)
+                return object;
+            var message = new $root.msgProto.ExitDiceRoom();
+            if (object.roomId != null)
+                if ($util.Long)
+                    (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
+                else if (typeof object.roomId === "string")
+                    message.roomId = parseInt(object.roomId, 10);
+                else if (typeof object.roomId === "number")
+                    message.roomId = object.roomId;
+                else if (typeof object.roomId === "object")
+                    message.roomId = new $util.LongBits(object.roomId.low >>> 0, object.roomId.high >>> 0).toNumber();
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExitDiceRoom message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof msgProto.ExitDiceRoom
+         * @static
+         * @param {msgProto.ExitDiceRoom} message ExitDiceRoom
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExitDiceRoom.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.roomId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.roomId = options.longs === String ? "0" : 0;
+            if (message.roomId != null && message.hasOwnProperty("roomId"))
+                if (typeof message.roomId === "number")
+                    object.roomId = options.longs === String ? String(message.roomId) : message.roomId;
+                else
+                    object.roomId = options.longs === String ? $util.Long.prototype.toString.call(message.roomId) : options.longs === Number ? new $util.LongBits(message.roomId.low >>> 0, message.roomId.high >>> 0).toNumber() : message.roomId;
+            return object;
+        };
+
+        /**
+         * Converts this ExitDiceRoom to JSON.
+         * @function toJSON
+         * @memberof msgProto.ExitDiceRoom
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExitDiceRoom.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ExitDiceRoom;
+    })();
+
     msgProto.PbHeroInfo = (function() {
 
         /**

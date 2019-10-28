@@ -2072,6 +2072,502 @@ declare namespace msgProto {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of a CreateClsRoom. */
+    interface ICreateClsRoom {
+
+        /** CreateClsRoom name */
+        name?: (string|null);
+    }
+
+    /** Represents a CreateClsRoom. */
+    class CreateClsRoom implements ICreateClsRoom {
+
+        /**
+         * Constructs a new CreateClsRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.ICreateClsRoom);
+
+        /** CreateClsRoom name. */
+        public name: string;
+
+        /**
+         * Encodes the specified CreateClsRoom message. Does not implicitly {@link msgProto.CreateClsRoom.verify|verify} messages.
+         * @param message CreateClsRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.ICreateClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a CreateClsRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.CreateClsRoom;
+
+        /**
+         * Creates a CreateClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateClsRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.CreateClsRoom;
+
+        /**
+         * Creates a plain object from a CreateClsRoom message. Also converts values to other types if specified.
+         * @param message CreateClsRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.CreateClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateClsRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a JoinClsRoom. */
+    interface IJoinClsRoom {
+
+        /** JoinClsRoom name */
+        name?: (string|null);
+    }
+
+    /** Represents a JoinClsRoom. */
+    class JoinClsRoom implements IJoinClsRoom {
+
+        /**
+         * Constructs a new JoinClsRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IJoinClsRoom);
+
+        /** JoinClsRoom name. */
+        public name: string;
+
+        /**
+         * Encodes the specified JoinClsRoom message. Does not implicitly {@link msgProto.JoinClsRoom.verify|verify} messages.
+         * @param message JoinClsRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IJoinClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a JoinClsRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns JoinClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.JoinClsRoom;
+
+        /**
+         * Creates a JoinClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns JoinClsRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.JoinClsRoom;
+
+        /**
+         * Creates a plain object from a JoinClsRoom message. Also converts values to other types if specified.
+         * @param message JoinClsRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.JoinClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this JoinClsRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an EnterClsRoomResponse. */
+    interface IEnterClsRoomResponse {
+
+        /** EnterClsRoomResponse retCode */
+        retCode?: (number|null);
+
+        /** EnterClsRoomResponse roomId */
+        roomId?: (number|Long|null);
+
+        /** EnterClsRoomResponse masterId */
+        masterId?: (number|Long|null);
+    }
+
+    /** Represents an EnterClsRoomResponse. */
+    class EnterClsRoomResponse implements IEnterClsRoomResponse {
+
+        /**
+         * Constructs a new EnterClsRoomResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IEnterClsRoomResponse);
+
+        /** EnterClsRoomResponse retCode. */
+        public retCode: number;
+
+        /** EnterClsRoomResponse roomId. */
+        public roomId: (number|Long);
+
+        /** EnterClsRoomResponse masterId. */
+        public masterId: (number|Long);
+
+        /**
+         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link msgProto.EnterClsRoomResponse.verify|verify} messages.
+         * @param message EnterClsRoomResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IEnterClsRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an EnterClsRoomResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns EnterClsRoomResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.EnterClsRoomResponse;
+
+        /**
+         * Creates an EnterClsRoomResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns EnterClsRoomResponse
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.EnterClsRoomResponse;
+
+        /**
+         * Creates a plain object from an EnterClsRoomResponse message. Also converts values to other types if specified.
+         * @param message EnterClsRoomResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.EnterClsRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this EnterClsRoomResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ExitClsRoom. */
+    interface IExitClsRoom {
+
+        /** ExitClsRoom roomId */
+        roomId?: (number|Long|null);
+    }
+
+    /** Represents an ExitClsRoom. */
+    class ExitClsRoom implements IExitClsRoom {
+
+        /**
+         * Constructs a new ExitClsRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IExitClsRoom);
+
+        /** ExitClsRoom roomId. */
+        public roomId: (number|Long);
+
+        /**
+         * Encodes the specified ExitClsRoom message. Does not implicitly {@link msgProto.ExitClsRoom.verify|verify} messages.
+         * @param message ExitClsRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IExitClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an ExitClsRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ExitClsRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExitClsRoom;
+
+        /**
+         * Creates an ExitClsRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ExitClsRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.ExitClsRoom;
+
+        /**
+         * Creates a plain object from an ExitClsRoom message. Also converts values to other types if specified.
+         * @param message ExitClsRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.ExitClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ExitClsRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDiceRoom. */
+    interface ICreateDiceRoom {
+
+        /** CreateDiceRoom name */
+        name?: (string|null);
+    }
+
+    /** Represents a CreateDiceRoom. */
+    class CreateDiceRoom implements ICreateDiceRoom {
+
+        /**
+         * Constructs a new CreateDiceRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.ICreateDiceRoom);
+
+        /** CreateDiceRoom name. */
+        public name: string;
+
+        /**
+         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link msgProto.CreateDiceRoom.verify|verify} messages.
+         * @param message CreateDiceRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.ICreateDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a CreateDiceRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.CreateDiceRoom;
+
+        /**
+         * Creates a CreateDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDiceRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.CreateDiceRoom;
+
+        /**
+         * Creates a plain object from a CreateDiceRoom message. Also converts values to other types if specified.
+         * @param message CreateDiceRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.CreateDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDiceRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a JoinDiceRoom. */
+    interface IJoinDiceRoom {
+
+        /** JoinDiceRoom name */
+        name?: (string|null);
+    }
+
+    /** Represents a JoinDiceRoom. */
+    class JoinDiceRoom implements IJoinDiceRoom {
+
+        /**
+         * Constructs a new JoinDiceRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IJoinDiceRoom);
+
+        /** JoinDiceRoom name. */
+        public name: string;
+
+        /**
+         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link msgProto.JoinDiceRoom.verify|verify} messages.
+         * @param message JoinDiceRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IJoinDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a JoinDiceRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns JoinDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.JoinDiceRoom;
+
+        /**
+         * Creates a JoinDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns JoinDiceRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.JoinDiceRoom;
+
+        /**
+         * Creates a plain object from a JoinDiceRoom message. Also converts values to other types if specified.
+         * @param message JoinDiceRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.JoinDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this JoinDiceRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an EnterDiceRoomResponse. */
+    interface IEnterDiceRoomResponse {
+
+        /** EnterDiceRoomResponse retCode */
+        retCode?: (number|null);
+
+        /** EnterDiceRoomResponse roomId */
+        roomId?: (number|Long|null);
+
+        /** EnterDiceRoomResponse masterId */
+        masterId?: (number|Long|null);
+    }
+
+    /** Represents an EnterDiceRoomResponse. */
+    class EnterDiceRoomResponse implements IEnterDiceRoomResponse {
+
+        /**
+         * Constructs a new EnterDiceRoomResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IEnterDiceRoomResponse);
+
+        /** EnterDiceRoomResponse retCode. */
+        public retCode: number;
+
+        /** EnterDiceRoomResponse roomId. */
+        public roomId: (number|Long);
+
+        /** EnterDiceRoomResponse masterId. */
+        public masterId: (number|Long);
+
+        /**
+         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link msgProto.EnterDiceRoomResponse.verify|verify} messages.
+         * @param message EnterDiceRoomResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IEnterDiceRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an EnterDiceRoomResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns EnterDiceRoomResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.EnterDiceRoomResponse;
+
+        /**
+         * Creates an EnterDiceRoomResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns EnterDiceRoomResponse
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.EnterDiceRoomResponse;
+
+        /**
+         * Creates a plain object from an EnterDiceRoomResponse message. Also converts values to other types if specified.
+         * @param message EnterDiceRoomResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.EnterDiceRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this EnterDiceRoomResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ExitDiceRoom. */
+    interface IExitDiceRoom {
+
+        /** ExitDiceRoom roomId */
+        roomId?: (number|Long|null);
+    }
+
+    /** Represents an ExitDiceRoom. */
+    class ExitDiceRoom implements IExitDiceRoom {
+
+        /**
+         * Constructs a new ExitDiceRoom.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: msgProto.IExitDiceRoom);
+
+        /** ExitDiceRoom roomId. */
+        public roomId: (number|Long);
+
+        /**
+         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link msgProto.ExitDiceRoom.verify|verify} messages.
+         * @param message ExitDiceRoom message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: msgProto.IExitDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an ExitDiceRoom message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ExitDiceRoom
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExitDiceRoom;
+
+        /**
+         * Creates an ExitDiceRoom message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ExitDiceRoom
+         */
+        public static fromObject(object: { [k: string]: any }): msgProto.ExitDiceRoom;
+
+        /**
+         * Creates a plain object from an ExitDiceRoom message. Also converts values to other types if specified.
+         * @param message ExitDiceRoom
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: msgProto.ExitDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ExitDiceRoom to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a PbHeroInfo. */
     interface IPbHeroInfo {
 

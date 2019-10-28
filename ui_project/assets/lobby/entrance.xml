@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="340,200">
+  <displayList>
+    <graph id="n5_pb7w" name="n5" xy="0,0" size="340,200" type="rect" fillColor="#ff66ccff"/>
+    <graph id="n0_pb7w" name="n0" xy="22,56" size="300,42" type="rect"/>
+    <text id="n1_pb7w" name="n1" xy="28,64" size="286,26" input="true" prompt="[i][color=#999999]输入少于8字符[/color][/i]" maxLength="12" fontSize="18" color="#0000ff" align="center" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n2_pb7w" name="n2" xy="22,36" size="82,19" fontSize="12" color="#ffffcc" vAlign="bottom" autoSize="none" text="输入房间名称:"/>
+    <component id="n3_pb7w" name="n3" src="pb7we" fileName="Button5.xml" xy="54,123">
+      <Button title="创  建" titleColor="#0000ff" titleFontSize="16"/>
+    </component>
+    <component id="n4_pb7w" name="n4" src="pb7we" fileName="Button5.xml" xy="186,123">
+      <Button title="加  入" titleColor="#0000ff" titleFontSize="16"/>
+    </component>
+    <component id="n6_pb7w" name="n6" src="glcc7" fileName="Button2.xml" xy="298,4">
+      <Button title="返回" titleColor="#996600"/>
+    </component>
+    <text id="n8_pb7w" name="n8" xy="103,36" size="72,19" fontSize="12" color="#ff0000" vAlign="bottom" autoSize="none" text="(经典模式)"/>
+  </displayList>
+</component>

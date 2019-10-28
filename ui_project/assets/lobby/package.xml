@@ -12,6 +12,8 @@
     <component id="h36i8" name="chat_room.xml" path="/" exported="true"/>
     <component id="h36i9" name="Button3.xml" path="/"/>
     <component id="h36ic" name="Button4.xml" path="/"/>
+    <component id="pb7wd" name="entrance.xml" path="/" exported="true"/>
+    <component id="pb7we" name="Button5.xml" path="/"/>
   </resources>
   <publish name="lobby"/>
 </packageDescription>

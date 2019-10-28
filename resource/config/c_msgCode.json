@@ -30,5 +30,14 @@
     "roleNameNull" : {"id":27,"code":"roleNameNull","text":"角色名不能为空！","region0":10,"time":2000},
     "roleNameExist" : {"id":28,"code":"roleNameNull","text":"角色名已经被占用！","region0":10,"time":2000},
     "userSvrNull" : {"id":29,"code":"userSvrNull","text":"请选择一个服务器！","region0":10,"time":2000},
-    "svrMiss" : {"id":30,"code":"svrMiss","text":"找不到服务器！","region0":10,"time":2000}
+    "svrMiss" : {"id":30,"code":"svrMiss","text":"找不到服务器！","region0":10,"time":2000},
+    "coinNotEnough" : {"id":31,"code":"coinNotEnough","text":"金币不足","region0":10,"time":2000},
+    "diamondNotEnough" : {"id":32,"code":"diamondNotEnough","text":"钻石不足","region0":10,"time":2000},
+    "hpIsFull" : {"id":33,"code":"hpIsFull","text":"血量已满","region0":10,"time":2000},
+
+    "roomNameNotNull" : {"id":300,"code":"roomNameNotNull","text":"房间名不能为空","region0":10,"time":2000},
+    "roomExist" : {"id":301,"code":"roomExist","text":"房间已存在，可直接加入","region0":10,"time":2000},
+    "roomNotExist" : {"id":302,"code":"roomNotExist","text":"房间不存在","region0":10,"time":2000},
+
+    "fileEOF" : {"id":99999,"code":"fileEOF","text":"本行用作最后一行，作为填充，请在之前新增","region0":10,"time":2000}
 }
