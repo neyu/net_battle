@@ -12,6 +12,8 @@ class Battle {
     private _btScene: BtScene = null;
     private _gameMode: number = 0; // 0:经典模式 1:骰子模式
     public _diceType: number = 0; // 0:随机 1:置换 2:同色
+    private _roomId: number = 0;
+    private _master: number = 0;
 
     public static get inst(): Battle {
         if (Battle._inst == null) {
@@ -31,11 +33,19 @@ class Battle {
         return this._btScene;
     }
     public gotoLobby() {
-        let mainStage = this._btScene.parent
+        if (this.mode == 0) {
+            Net.Send("msgProto.ExitClsRoom", {
+                roomId: this._roomId
+            })
+        } else if (this.mode == 1) {
+            Net.Send("msgProto.ExitDiceRoom", {
+                roomId: this._roomId
+            })
+        }
 
+        let mainStage = this._btScene.parent
         this._btScene.onExit();
         this._btScene = null;
-
         mainStage.addChild(Lobby.inst.createScene())
     }
 
@@ -44,5 +54,9 @@ class Battle {
     }
     public get mode(): number {
         return this._gameMode
+    }
+    public setRoomMaster(roomId:number, master:number) {
+        this._roomId = roomId
+        this._master = master
     }
 }

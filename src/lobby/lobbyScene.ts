@@ -147,6 +147,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
         this.closeEntrancePanel()
 
         Lobby.inst.tryClassicBt();
+        Battle.inst.setRoomMaster(protobuf.util.LongBits.from(msg.roomId).toNumber(), protobuf.util.LongBits.from(msg.masterId).toNumber())
     }
     private enterDiceRoomResponse(msg:msgProto.EnterDiceRoomResponse) {
         Util.log("enterDiceRoomResponse:", msg)
@@ -157,5 +158,6 @@ class LobbyScene extends egret.DisplayObjectContainer {
         this.closeEntrancePanel()
 
         Lobby.inst.tryDiceBt();
+        Battle.inst.setRoomMaster(protobuf.util.LongBits.from(msg.roomId).toNumber(), protobuf.util.LongBits.from(msg.masterId).toNumber())
     }
 }
