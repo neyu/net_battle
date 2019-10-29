@@ -2,8 +2,8 @@
     "is_debug": true,
     "http_serever": "http://www.baidu.com",
     "server_test2": "ws://www.xxh5.net",
-    "server_pub": "ws://192.168.2.74",
-    "server_test": "ws://192.168.1.103",
+    "server_test": "ws://192.168.2.74",
+    "server_pub": "ws://192.168.1.103",
     "port_pub": "18400/ws",
     "port_test": "18400/ws"
 }
