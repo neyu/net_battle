@@ -76,7 +76,9 @@ class LobbyScene extends egret.DisplayObjectContainer {
             lbMode.text = "(骰子模式)"
         }
     }
-
+    private closeEntrancePanel() {
+        fairygui.GRoot.inst.removeChild(this._entryPanel);
+    }
     private __clickClassicBt(evt:Event):void {
         this.openRoomEntrance(0);
     }
@@ -90,7 +92,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
         Chat.inst.showChatView()
     }
     private __clickExitEntry(evt:Event) {
-        fairygui.GRoot.inst.removeChild(this._entryPanel);
+        this.closeEntrancePanel()
     }
     private __clickCreate(evt:Event) {
         let lbRoom = this._entryPanel.getChild("n1").asTextInput
@@ -142,8 +144,9 @@ class LobbyScene extends egret.DisplayObjectContainer {
             TipMgr.showTip(Net.iCode[msg.retCode].text);
             return
         }
-        Lobby.inst.tryClassicBt();
+        this.closeEntrancePanel()
 
+        Lobby.inst.tryClassicBt();
     }
     private enterDiceRoomResponse(msg:msgProto.EnterDiceRoomResponse) {
         Util.log("enterDiceRoomResponse:", msg)
@@ -151,6 +154,8 @@ class LobbyScene extends egret.DisplayObjectContainer {
             TipMgr.showTip(Net.iCode[msg.retCode].text);
             return
         }
+        this.closeEntrancePanel()
+
         Lobby.inst.tryDiceBt();
     }
 }
