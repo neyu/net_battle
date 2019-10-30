@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="480,800">
-  <controller name="func" pages="0,,1,,3," selected="2"/>
+  <controller name="func" pages="0,,1,,3," selected="0"/>
   <displayList>
     <text id="n3_vcob" name="n3" xy="6,24" size="99,34" fontSize="24" color="#ff0000" align="center" autoSize="none" text="对抗席"/>
     <image id="n0_vcob" name="n0" src="vcob1" fileName="avatar_10000.png" xy="19,63" pivot="0.5,0.5" size="40,40"/>
@@ -24,24 +24,23 @@
     <text id="n20_pb7w" name="n20" xy="21,210" size="443,19" fontSize="12" autoSize="none" text="这是一行调试信息"/>
     <text id="n21_98bu" name="n21" xy="113,36" size="153,25" fontSize="16" color="#ffffcc" autoSize="none" text="我的名字"/>
     <text id="n22_98bu" name="n22" xy="195,36" size="50,30" fontSize="18" color="#ff0000" autoSize="none" text="+23"/>
-    <component id="n24_98bu" name="n24" src="98bud" fileName="Button2.xml" xy="63,748">
-      <Button title="抢庄"/>
+    <component id="n26_98bu" name="n26" src="98bud" fileName="Button2.xml" xy="11,628" size="40,25">
+      <Button title="下注"/>
     </component>
-    <component id="n26_98bu" name="n26" src="98bud" fileName="Button2.xml" xy="12,711">
-      <Button title="加注"/>
+    <component id="n29_98bu" name="n29" src="98bud" fileName="Button2.xml" xy="11,659">
+      <Button title="开局"/>
     </component>
-    <component id="n29_98bu" name="n29" src="98bud" fileName="Button2.xml" xy="11,748">
-      <Button title="重开"/>
-    </component>
-    <component id="n32_rrg7" name="n32" src="rrg7v" fileName="radioButton.xml" xy="52,688">
+    <component id="n32_rrg7" name="n32" src="rrg7v" fileName="radioButton.xml" xy="104,666">
       <Button title="置换" titleColor="#ff0000" controller="func" page="1"/>
     </component>
-    <component id="n33_rrg7" name="n33" src="rrg7v" fileName="radioButton.xml" xy="92,688">
-      <Button checked="true" title="同色" titleColor="#00ff00" controller="func" page="3"/>
+    <component id="n33_rrg7" name="n33" src="rrg7v" fileName="radioButton.xml" xy="61,666">
+      <Button title="同色" titleColor="#00ff00" controller="func" page="3"/>
     </component>
-    <component id="n34_rrg7" name="n34" src="rrg7v" fileName="radioButton.xml" xy="11,688">
-      <Button title="随机" titleColor="#0000ff" controller="func" page="0"/>
+    <component id="n34_rrg7" name="n34" src="rrg7v" fileName="radioButton.xml" xy="146,666">
+      <Button checked="true" title="随机" titleColor="#0000ff" controller="func" page="0"/>
     </component>
-    <text id="n35_rrg7" name="n35" xy="59,713" size="48,27" fontSize="18" color="#ff0000" vAlign="bottom" autoSize="none" text="+5&#xA;"/>
+    <component id="n37_q0i0" name="n37" src="q0i0x" fileName="Button3.xml" xy="11,697">
+      <Button title="下一局"/>
+    </component>
   </displayList>
 </component>

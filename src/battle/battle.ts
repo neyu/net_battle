@@ -1,9 +1,11 @@
 interface IOptData {
-    roleId: number,
-    mode: number,
-    ballInfo: IBallInfo,
-    origRad: number,
-    radian: number
+    opt: string,
+    bet?: number,
+    roleId?: number,
+    mode?: number,
+    ballInfo?: IBallInfo,
+    origRad?: number,
+    radian?: number
 }
 
 class Battle {
@@ -14,6 +16,7 @@ class Battle {
     public _diceType: number = 0; // 0:随机 1:置换 2:同色
     private _roomId: number = 0;
     private _master: number = 0;
+    public start: boolean = false;
 
     public static get inst(): Battle {
         if (Battle._inst == null) {
@@ -58,5 +61,11 @@ class Battle {
     public setRoomMaster(roomId:number, master:number) {
         this._roomId = roomId
         this._master = master
+    }
+    public isMaster() {
+        if (this._master == Login.inst._userData.userId) {
+            return true
+        }
+        return false
     }
 }

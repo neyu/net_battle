@@ -1,6 +1,7 @@
 class DiceView extends egret.DisplayObjectContainer {
     private _diceUI: fairygui.GComponent;
- 
+    private _bet: number = 1;
+
     constructor() {
         super()
         Battle.inst.mode = 1;
@@ -18,17 +19,23 @@ class DiceView extends egret.DisplayObjectContainer {
         let lbNick = this._diceUI.getChild("n21").asTextField
         lbNick.text = Login.inst._userData.nickName;
 
-        let btnDealer = this._diceUI.getChild("n24").asButton;
-        btnDealer.addClickListener(this.__clickDealer, this);
+        let btnNext = this._diceUI.getChild("n37").asButton;
+        btnNext.addClickListener(this.__clickNext, this);
         
-        let btnReset = this._diceUI.getChild("n29").asButton;
-        btnReset.addClickListener(this.__clickReset, this);
+        let btnStart = this._diceUI.getChild("n29").asButton;
+        btnStart.addClickListener(this.__clickStart, this);
         
         let btnBet = this._diceUI.getChild("n26").asButton;
         btnBet.addClickListener(this.__clickBet, this);
 
         let ctrlDice = this._diceUI.getController("func")
         ctrlDice.addEventListener(fairygui.StateChangeEvent.CHANGED, this.__clickDiceMode, this)
+
+        if (!Battle.inst.isMaster()) {
+            btnBet.enabled = false;
+            btnStart.enabled = false;
+            btnNext.enabled = false;
+        }
     }
     public destroy() {
         fairygui.GRoot.inst.removeChild(this._diceUI)
@@ -37,15 +44,45 @@ class DiceView extends egret.DisplayObjectContainer {
     private __clickExit(evt:Event): void {
         Battle.inst.gotoLobby()
     }
-    private __clickDealer(evt:Event): void {
+    private __clickNext(evt:Event): void {
         Battle.inst.getScene().resetSandBoxie()
+
+        let data = {
+            opt: "next",
+        }
+        Net.Send("msgProto.ExchangeOptData", {
+            optData: JSON.stringify(data)
+        })
     }
-    private __clickReset(evt:Event): void {
-        Battle.inst.getScene().resetSandBoxie()
+    private __clickStart(evt:Event): void {
+        let data = {
+            opt: "start",
+        }
+        Net.Send("msgProto.ExchangeOptData", {
+            optData: JSON.stringify(data)
+        })
     }
     private __clickBet(evt:Event): void {
-        let lbBet = this._diceUI.getChild("n35").asTextField;
-        lbBet.text = "+1"
+        let bet = 1;
+        if (this._bet < 5) {
+            this._bet += 1;
+            bet = this._bet;
+        } else if (this._bet < 9 ) {
+            this._bet += 1;
+            bet = 10 - this._bet;
+        } else {
+            this._bet = 2;
+            bet = this._bet;
+        }
+        Util.log("bet:", bet);
+
+        let data = {
+            opt: "bet",
+            bet: bet,
+        }
+        Net.Send("msgProto.ExchangeOptData", {
+            optData: JSON.stringify(data)
+        })
     }
     private __clickDiceMode(evt:Event): void {
         let ctrlDice = this._diceUI.getController("func")
@@ -61,5 +98,11 @@ class DiceView extends egret.DisplayObjectContainer {
         let lbDebug = this._diceUI.getChild("n20").asTextField;
         lbDebug.text = debug;
     }
-
+    public start() {
+        if (Battle.inst.isMaster()) {
+            this._diceUI.getChild("n29").asButton.enabled = false;
+            this._diceUI.getChild("n26").asButton.enabled = false;
+            this._diceUI.getChild("n37").asButton.enabled = false;
+        }
+    }
 }

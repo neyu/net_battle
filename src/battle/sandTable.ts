@@ -5,25 +5,28 @@ interface IBallInfo {
     text: string,
     color: number,
     score: number,
-    diceType: number,
+    type: number,
+    userId: number,
 }
 class SandTable extends egret.DisplayObjectContainer {
     private _radius: number = 320
     private _w: number = 0;
     private _h: number = 0;
     private _scale: number = 1.0
-    private _bulletR: number = 10;
     private _origRadian: number = 0;
 
     private _circleTb: egret.Shape;
     private _rectTb: egret.Shape;
 
+    // 预备球队列
+    private _ballR: number = 16;
     private _ballInfos: IBallInfo[];
     private _ballPool: egret.Shape[];
-    private _ballR: number = 16;
+    private _ballPoolEx: egret.Shape[];
 
     // 沙盘中实体球集合
-    private _ballList: Bullet[] = [];
+    private _bulletR: number = 10;
+    private _bulletList: Bullet[] = [];
 
     constructor() {
         super()
@@ -79,78 +82,106 @@ class SandTable extends egret.DisplayObjectContainer {
         this.addChild(this._rectTb)
         this._rectTb.alpha = 0.1
 
+        this.showBallPoolEx()
         this.showBallPool()
+        this.changeBet(1)
     }
+
     private showBallPool() {
         this._ballPool = [];
 
         for (let i=0; i < 5; i++) {
             let ball = new egret.Shape()
-            ball.graphics.lineStyle(1, 0xff0000);
-            ball.graphics.beginFill(this._ballInfos[i].color, 1);
+            ball.graphics.beginFill(0x0000ff, 1);
             ball.graphics.drawCircle(0, 0, this._ballR);
             ball.graphics.endFill();
             ball.anchorOffsetX = 0.5;
             ball.anchorOffsetY = 0.5;
             this.addChild(ball);
+            ball.alpha = 0;
 
-            ball.x = -this._radius * 2/3 + 28 * i
-            ball.y = this._radius + 50
+            ball.x = -240 + 28 * i //this._radius * 2/3
+            ball.y = this._radius + 40
             if (i == 4) {
-                ball.scaleX = 1.2;
-                ball.scaleY = 1.2;
+                ball.scaleX = 1.3;
+                ball.scaleY = 1.3;
             }
 
             this._ballPool.push(ball);
         }
     }
+    private showBallPoolEx() {
+        this._ballPoolEx = [];
+
+        for (let i=0; i < 5; i++) {
+            let ball = new egret.Shape()
+            ball.graphics.lineStyle(2, 0xff00ff);
+            ball.graphics.beginFill(0xffffff, 1);
+            ball.graphics.drawCircle(0, 0, this._ballR+2);
+            ball.graphics.endFill();
+            ball.anchorOffsetX = 0.5;
+            ball.anchorOffsetY = 0.5;
+            this.addChild(ball);
+
+            ball.x = -240  + 28 * i //-this._radius * 2/3
+            ball.y = this._radius + 40
+            if (i == 4) {
+                ball.scaleX = 1.3;
+                ball.scaleY = 1.3;
+            }
+
+            this._ballPoolEx.push(ball);
+        }
+    }
+
     private getRandBall(): IBallInfo {
-        let ballInfo: IBallInfo = {color:0x0, text:"", score:0, diceType:0}
+        let ballInfo: IBallInfo = {text:"", color:0, score:0, type:0, userId:0}
         let rand = Math.random() * 100
+        ballInfo.type = Math.floor(rand)
         if (rand < 30 ) {
-            // 红
-            ballInfo.color = 0xff0000
             ballInfo.text = "核(Ra)"
         } else if (rand > 60) {
-            // 蓝
-            ballInfo.color = 0x0000ff
             ballInfo.text = "水(HO)"
         } else {
-            // 绿
-            ballInfo.color = 0x00ff00
             ballInfo.text = "命(C)"
         }
         return ballInfo;
     }
-    private getRandDice(): IBallInfo {
-        let ballInfo: IBallInfo = {color:0x0, text:"", score:0, diceType:0}
+    private getRandDice(): number {
+        let score: number = 0;
         let rand = Math.random() * 100
         if (rand < 10 ) {
-            // 红
-            ballInfo.color = 0xff0000
-            ballInfo.score = 6;
+            score = 6;
         } else if (rand >= 10 && rand < 20) {
-            // 蓝
-            ballInfo.color = 0x0000ff
-            ballInfo.score = 5;
+            score = 5;
         } else if (rand >= 20 && rand < 40) {
-            // 蓝
-            ballInfo.color = 0x0000ff
-            ballInfo.score = 4;
+            score = 4;
         } else if (rand > 40 && rand < 70) {
-            // 蓝
-            ballInfo.color = 0x0000ff
-            ballInfo.score = 3;
+            score = 3;
         } else if (rand >= 70 && rand < 90) {
-            // 蓝
-            ballInfo.color = 0x0000ff
-            ballInfo.score = 2;
+            score = 2;
         } else {
-            // 绿
-            ballInfo.color = 0x00ff00
-            ballInfo.score = 1;
+            score = 1;
         }
-        return ballInfo;
+        return score;
+    }
+    private getRandColor(type:number): number {
+        if (type <= 30) {
+            return 0xff0000;
+        } else if (type <= 60) {
+            return 0x00ff00
+        } else {
+            return 0x0000ff
+        }
+    }
+    private getDiceColor(type:number): number {
+        if (type == 0) {
+            return 0x0000ff;
+        } else if (type == 1) {
+            return 0xff0000;
+        } else if (type == 2) {
+            return 0x00ff00
+        }
     }
     private initBallInfo() {
         this._ballInfos.push(this.getRandBall())
@@ -167,12 +198,24 @@ class SandTable extends egret.DisplayObjectContainer {
         this._ballInfos[0] = this.getRandBall()
 
         for (let i=0; i < 5; i++) {
-            this._ballPool[i].graphics.beginFill(this._ballInfos[i].color, 1);
+            this._ballPool[i].graphics.beginFill(this.getRandColor(this._ballInfos[i].type), 1);
             this._ballPool[i].graphics.drawCircle(0, 0, this._ballR);
             this._ballPool[i].graphics.endFill();
         }
     }
+    public addBallInfo(color:number) {
+        let ballInfo: IBallInfo = {text:"", color:0x0000ff, score:0, type:0, userId:0}
 
+    }
+    public changeBet(bet:number) {
+        Util.log("add bet:", bet);
+        for (let i=0; i < 5-bet; i++) {
+            this._ballPool[i].alpha = 0
+        }
+        for (let i=5-bet; i < 5; i++) {
+            this._ballPool[i].alpha = 1
+        }
+    }
     public scaleToEdge() {
         // this._circleTb.scaleX = Math.sqrt(2)
         // this._circleTb.scaleY = Math.sqrt(2)
@@ -187,18 +230,18 @@ class SandTable extends egret.DisplayObjectContainer {
     }
 
     public clear() {
-        for (let i=0; i < this._ballList.length; i++) {
-            let bullet = this._ballList[i]
+        for (let i=0; i < this._bulletList.length; i++) {
+            let bullet = this._bulletList[i]
             bullet.destroy()
         }
-        this._ballList = [];
+        this._bulletList = [];
     }
     private doCollisionDetect() {
-        for (let i=0; i < this._ballList.length; i++) {
-            let bA = this._ballList[i];
+        for (let i=0; i < this._bulletList.length; i++) {
+            let bA = this._bulletList[i];
             let diameter = bA._bulletR * 2;
-            for (let j=i+1; j < this._ballList.length; j++) {
-                let bB = this._ballList[j];
+            for (let j=i+1; j < this._bulletList.length; j++) {
+                let bB = this._bulletList[j];
                 let len = Math.sqrt((bA.x - bB.x) * (bA.x - bB.x) + (bA.y - bB.y) * (bA.y - bB.y))
                 if (len <= diameter) {
                     this.bulletCollision(bA, bB);
@@ -206,11 +249,11 @@ class SandTable extends egret.DisplayObjectContainer {
             }
         }
         // clear dead bullet
-        for (let i=this._ballList.length-1; i >=0; i--) {
-            let bullet = this._ballList[i]
+        for (let i=this._bulletList.length-1; i >=0; i--) {
+            let bullet = this._bulletList[i]
             if (bullet._isDead) {
                 bullet.destroy()
-                this._ballList.splice(i, 1);
+                this._bulletList.splice(i, 1);
             }
         }
     }
@@ -218,12 +261,12 @@ class SandTable extends egret.DisplayObjectContainer {
         if (Battle.inst.mode == 1) {
             let scoreA = bA._ballInfo.score
             let scoreB = bB._ballInfo.score
-            if (bA._ballInfo.diceType != 1 && bB._ballInfo.diceType != 1) {
-                if (bA._ballInfo.diceType == 2) {
+            if (bA._ballInfo.type != 1 && bB._ballInfo.type != 1) {
+                if (bA._ballInfo.type == 2) {
                     bA._ballInfo.score = scoreB;
                     bA.changeScore();
                 }
-                if (bB._ballInfo.diceType == 2) {
+                if (bB._ballInfo.type == 2) {
                     bB._ballInfo.score = scoreA;
                     bB.changeScore();
                 }
@@ -249,7 +292,7 @@ class SandTable extends egret.DisplayObjectContainer {
         bullet.x = this._radius * Math.sin(this._origRadian);
         bullet.y = this._radius * Math.cos(this._origRadian);
 
-        this._ballList.push(bullet);
+        this._bulletList.push(bullet);
 
         this.resetBallInfo();
     }
@@ -258,6 +301,7 @@ class SandTable extends egret.DisplayObjectContainer {
         let data:IOptData;
         if (Battle.inst.mode == 0) {
             data = {
+                opt: "shoot",
                 roleId: Login.inst._userData.userId,
                 mode: Battle.inst.mode,
                 ballInfo: this._ballInfos[4],
@@ -265,10 +309,11 @@ class SandTable extends egret.DisplayObjectContainer {
                 radian: radian
             }
         } else if (Battle.inst.mode == 1) {
-            let ballInfo:IBallInfo = this.getRandDice()
-            ballInfo.diceType = Battle.inst._diceType
+            let ballInfo: IBallInfo = {text:"", color:0, score:this.getRandDice(), type:0, userId:0}
+            ballInfo.type = Battle.inst._diceType
             ballInfo.text = Login.inst._userData.nickName;
             data = {
+                opt: "shoot",
                 roleId: Login.inst._userData.userId,
                 mode: Battle.inst.mode,
                 ballInfo: ballInfo,
@@ -294,7 +339,7 @@ class SandTable extends egret.DisplayObjectContainer {
         bullet.x = this._radius * Math.sin(opt.origRad - this._origRadian);
         bullet.y = this._radius * Math.cos(opt.origRad - this._origRadian);
 
-        this._ballList.push(bullet);
+        this._bulletList.push(bullet);
 
         if (Battle.inst.mode == 0) {
             if (Login.inst._userData.userId == opt.roleId) {

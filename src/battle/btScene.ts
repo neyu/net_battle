@@ -84,10 +84,22 @@ class BtScene extends egret.DisplayObjectContainer {
         }
     }
     private syncOptData(msg:msgProto.ExchangeOptData) {
-        let opt:IOptData = JSON.parse(msg.optData)
+        let data:IOptData = JSON.parse(msg.optData)
         // Util.log("sync opt data:", msg.optData, opt) // 
+        if (data.opt == "shoot") {
+            this._sandTable.shoot(data);
+        } else if (data.opt == "bet") {
+            this._sandTable.changeBet(data.bet);
+        } else if (data.opt == "start") {
+            Util.log("battle start 。。。")
+            Battle.inst.start = true;
 
-        this._sandTable.shoot(opt);
+            if (this._clsView) {
+                // 
+            } else if (this._diceView) {
+                this._diceView.start();
+            }
+        }
     }
     public showDebug(debug:string) {
         if (this._clsView) {

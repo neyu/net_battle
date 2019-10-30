@@ -25,6 +25,7 @@
     <component id="rrg7u" name="checkBox.xml" path="/"/>
     <component id="rrg7v" name="radioButton.xml" path="/"/>
     <component id="neszw" name="dice.xml" path="/" exported="true"/>
+    <component id="q0i0x" name="Button3.xml" path="/"/>
   </resources>
   <publish name="battle"/>
 </packageDescription>
