@@ -104,11 +104,11 @@ class LobbyScene extends egret.DisplayObjectContainer {
 
         if (this._entryType == 0) {
             Net.Send("msgProto.CreateClsRoom", {
-                name: name
+                name: "cls." + name
             })
         } else if (this._entryType == 1) {
             Net.Send("msgProto.CreateDiceRoom", {
-                name: name
+                name: "dice." + name
             })
         }
     }
@@ -122,11 +122,11 @@ class LobbyScene extends egret.DisplayObjectContainer {
 
         if (this._entryType == 0) {
             Net.Send("msgProto.JoinClsRoom", {
-                name: name
+                name: "cls." + name
             })
         } else if (this._entryType == 1) {
             Net.Send("msgProto.JoinDiceRoom", {
-                name: name
+                name: "dice." + name
             })
         }
     }
