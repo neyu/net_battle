@@ -14,6 +14,7 @@ class SandTable extends egret.DisplayObjectContainer {
     private _h: number = 0;
     private _scale: number = 1.0
     private _origRadian: number = 0;
+    private _seq: number = 0;
 
     private _circleTb: egret.Shape;
     private _rectTb: egret.Shape;
@@ -23,7 +24,9 @@ class SandTable extends egret.DisplayObjectContainer {
     private _ballInfos: IBallInfo[];
     private _ballPool: egret.Shape[];
     private _ballPoolEx: egret.Shape[];
-    private _bet: number = 0;
+    private _bet: number = 1;
+    public _poolPosX: number;
+    public _poolPosY: number;
 
     // 沙盘中实体球集合
     private _bulletR: number = 10;
@@ -34,6 +37,7 @@ class SandTable extends egret.DisplayObjectContainer {
 
         this._ballPool = [];
         this._ballInfos = [];
+
         this.initBallInfo()
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
@@ -46,8 +50,6 @@ class SandTable extends egret.DisplayObjectContainer {
         this._origRadian = this.getRandRadian();
 
         this.drawSandTable()
-
-        TimerMgr.inst.doTimer(500, 0, this.doCollisionDetect, this);    
     }
 
     private getRandRadian(): number {
@@ -85,7 +87,10 @@ class SandTable extends egret.DisplayObjectContainer {
 
         this.showBallPoolEx()
         this.showBallPool()
-        this.setBet(1)
+        if (Battle.inst.mode == 1) {
+            this.setBet(1)
+            this.changeLastBall(0)
+        }
     }
 
     private showBallPool() {
@@ -129,6 +134,9 @@ class SandTable extends egret.DisplayObjectContainer {
             if (i == 4) {
                 ball.scaleX = 1.3;
                 ball.scaleY = 1.3;
+
+                this._poolPosX = ball.x;
+                this._poolPosY = ball.y;
             }
 
             this._ballPoolEx.push(ball);
@@ -138,7 +146,7 @@ class SandTable extends egret.DisplayObjectContainer {
     private getRandBall(): IBallInfo {
         let ballInfo: IBallInfo = {text:"", color:0, score:0, type:0, userId:0}
         let rand = Math.random() * 100
-        ballInfo.type = Math.floor(rand)
+        ballInfo.score = Math.floor(rand)
         if (rand < 30 ) {
             ballInfo.text = "核(Ra)"
         } else if (rand > 60) {
@@ -166,10 +174,10 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         return score;
     }
-    private getRandColor(type:number): number {
-        if (type <= 30) {
+    private getRandColor(score:number): number {
+        if (score <= 30) {
             return 0xff0000;
-        } else if (type <= 60) {
+        } else if (score <= 60) {
             return 0x00ff00
         } else {
             return 0x0000ff
@@ -199,7 +207,7 @@ class SandTable extends egret.DisplayObjectContainer {
         this._ballInfos[0] = this.getRandBall()
 
         for (let i=0; i < 5; i++) {
-            this._ballPool[i].graphics.beginFill(this.getRandColor(this._ballInfos[i].type), 1);
+            this._ballPool[i].graphics.beginFill(this.getRandColor(this._ballInfos[i].score), 1);
             this._ballPool[i].graphics.drawCircle(0, 0, this._ballR);
             this._ballPool[i].graphics.endFill();
         }
@@ -217,6 +225,7 @@ class SandTable extends egret.DisplayObjectContainer {
         } else if (type == 2) {
             color = 0x00ff00
         }
+        this._ballInfos[4].type = type;
         this._ballInfos[4].color = color;
 
         this._ballPool[4].graphics.beginFill(color, 1);
@@ -253,7 +262,7 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         this._bulletList = [];
     }
-    private doCollisionDetect() {
+    public doCollisionDetect() {
         for (let i=0; i < this._bulletList.length; i++) {
             let bA = this._bulletList[i];
             let diameter = bA._bulletR * 2;
@@ -276,25 +285,51 @@ class SandTable extends egret.DisplayObjectContainer {
     }
     private bulletCollision(bA:Bullet, bB:Bullet) {
         if (Battle.inst.mode == 1) {
+            if (bA._ballInfo.userId == bB._ballInfo.userId) {
+                return
+            }
             let scoreA = bA._ballInfo.score
             let scoreB = bB._ballInfo.score
             if (bA._ballInfo.type != 1 && bB._ballInfo.type != 1) {
                 if (bA._ballInfo.type == 2) {
                     bA._ballInfo.score = scoreB;
+                    bA._ballInfo.type = 0;
+                    bA._ballInfo.color = 0x0000ff;
                     bA.changeScore();
+                    bA.changeColor();
                 }
                 if (bB._ballInfo.type == 2) {
                     bB._ballInfo.score = scoreA;
+                    bB._ballInfo.type = 0;
+                    bB._ballInfo.color = 0x0000ff;
                     bB.changeScore();
+                    bB.changeColor();
                 }
             } else {
                 // 置换
                 bA._ballInfo.score = scoreB;
-                bB._ballInfo.score = scoreA;
+                bA._ballInfo.type = 0;
+                bA._ballInfo.color = 0x0000ff;
                 bA.changeScore();
+                bA.changeColor();
+                bB._ballInfo.score = scoreA;
+                bB._ballInfo.type = 0;
+                bB._ballInfo.color = 0x0000ff;
                 bB.changeScore();
+                bB.changeColor();
             }
         }
+    }
+
+    public calcScore(userId:number) {
+        let score: number = 0;
+        for (let i=0; i < this._bulletList.length; i++) {
+            let bullet = this._bulletList[i];
+            if (bullet._ballInfo.userId == userId) {
+                score += bullet._ballInfo.score
+            }
+        }
+        return score;
     }
     
     public testShoot(radian:number) {
@@ -303,7 +338,8 @@ class SandTable extends egret.DisplayObjectContainer {
         // Util.log("test shoot orig/rad:", this._origRadian, radian);
         let shtRad = radian + this._origRadian;
 
-        let bullet = new Bullet(shtRad, this._ballInfos[4])
+        this._seq += 1;
+        let bullet = new Bullet(this._seq, shtRad, this._ballInfos[4])
         this.addChild(bullet)
         bullet.setBorder(this._radius);
         bullet.x = this._radius * Math.sin(this._origRadian);
@@ -361,7 +397,7 @@ class SandTable extends egret.DisplayObjectContainer {
         if (Login.inst._userData.userId == opt.userId) {
             if (Battle.inst.mode == 0) {
                 this.resetBallInfo();
-            } else if (Battle.inst.mode) {
+            } else if (Battle.inst.mode == 1) {
                 if (this._bet <= 0) {
                     return
                 }
@@ -371,8 +407,9 @@ class SandTable extends egret.DisplayObjectContainer {
         let debug = "orig/rad:" + opt.origRad.toString() + "/" + opt.radian.toString();
         Battle.inst.getScene().showDebug(debug);
 
+        this._seq += 1;
         let shtRad = opt.radian + opt.origRad - this._origRadian;
-        let bullet = new Bullet(shtRad, opt.ballInfo)
+        let bullet = new Bullet(this._seq, shtRad, opt.ballInfo)
         this.addChild(bullet)
         bullet.setBorder(this._radius);
         bullet.x = this._radius * Math.sin(opt.origRad - this._origRadian);

@@ -39,8 +39,9 @@
     <component id="n34_rrg7" name="n34" src="rrg7v" fileName="radioButton.xml" xy="146,666">
       <Button checked="true" title="随机" titleColor="#0000ff" controller="func" page="0"/>
     </component>
-    <component id="n37_q0i0" name="n37" src="q0i0x" fileName="Button3.xml" xy="11,697">
-      <Button title="下一局"/>
-    </component>
+    <text id="n38_q0i0" name="n38" xy="48,601" size="48,25" fontSize="18" color="#ff0000" vAlign="middle" autoSize="none" underline="true" bold="true" italic="true" text="30.0"/>
+    <text id="n40_q0i0" name="n40" xy="11,606" size="39,20" fontSize="14" color="#0000ff" vAlign="middle" bold="true" text="计时:"/>
+    <text id="n41_q0i0" name="n41" xy="11,581" size="39,20" fontSize="14" color="#0000ff" vAlign="middle" bold="true" text="局数:"/>
+    <text id="n42_q0i0" name="n42" xy="51,581" size="21,20" fontSize="14" color="#ff0000" vAlign="middle" autoSize="none" bold="true" text="0"/>
   </displayList>
 </component>

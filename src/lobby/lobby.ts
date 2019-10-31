@@ -26,6 +26,7 @@ class Lobby {
         this._lobbyScene.onExit();
         this._lobbyScene = null;
 
+        Battle.inst.mode = type;
         mainStage.addChild(Battle.inst.createScene(type))
     }
     public gotoLogin() {

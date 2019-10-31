@@ -21,16 +21,15 @@ class BtScene extends egret.DisplayObjectContainer {
         this.addChild(fairygui.GRoot.inst.displayObject);
 
         if (this._btType == 0) {
-            Battle.inst.mode = 0;
             this.openClassicView();
         } else if (this._btType == 1) {
-            Battle.inst.mode = 1;
             this.openDiceView()
         }
     }
     public onExit() {
         Net.delMsgTarget(this);
         this._sandTable.clear();
+        Battle.inst.start = false;
 
         if (this._clsView) {
             this._clsView.destroy()
@@ -88,7 +87,7 @@ class BtScene extends egret.DisplayObjectContainer {
             if (this._clsView) {
                 // 
             } else if (this._diceView) {
-                this._diceView.resetDiceFunc();
+                this._diceView.resetDiceType();
             }
         } else if (data.opt == "bet") {
             this._sandTable.setBet(data.bet);
@@ -101,6 +100,9 @@ class BtScene extends egret.DisplayObjectContainer {
             } else if (this._diceView) {
                 this._diceView.start();
             }
+        } else if (data.opt == "stop") {
+            Util.log("battle stop 。。。")
+            Battle.inst.start = false;
         }
     }
     public showDebug(debug:string) {

@@ -11,10 +11,12 @@ class Bullet extends egret.Sprite {
     private _label2: egret.TextField = null; // 分数，点数
     private _life: number = 30000; // 毫秒
     public _isDead: boolean = false;
+    private _id: number = 0;
 
-    constructor(radian:number, ball:IBallInfo) {
+    constructor(seq:number, radian:number, ball:IBallInfo) {
         super()
 
+        this._id = seq;
         this._radian = radian;
         this._ballInfo = ball;
         // this.width = this._bulletR * 2;
@@ -40,7 +42,7 @@ class Bullet extends egret.Sprite {
         this._label.x = -this._label.width / 2;
         this._label.y = this._bulletR;
         this._label.textColor = 0xffcc00;
-        this._label.text = this._ballInfo.text; //"弹(Ra)";
+        this._label.text = this._id.toString() + ":" + this._ballInfo.text; //"弹(Ra)";
 
         this._label2 = new egret.TextField();
         this.addChild(this._label2);
@@ -68,7 +70,12 @@ class Bullet extends egret.Sprite {
     public changeScore() {
         this._label2.text = this._ballInfo.score.toString() + "点";
     }
-
+    public changeColor() {
+        this.graphics.beginFill(this._ballInfo.color)
+        this.graphics.lineStyle(1, 0x0)
+        this.graphics.drawCircle(0, 0, this._bulletR)
+        this.graphics.endFill()
+    }
     private speed: number = 0.002;
     private time: number = 0;
     private _bornTime: number = 0;
