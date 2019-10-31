@@ -1,7 +1,7 @@
 interface IOptData {
     opt: string,
     bet?: number,
-    roleId?: number,
+    userId?: number,
     mode?: number,
     ballInfo?: IBallInfo,
     origRad?: number,
@@ -13,7 +13,7 @@ class Battle {
 
     private _btScene: BtScene = null;
     private _gameMode: number = 0; // 0:经典模式 1:骰子模式
-    public _diceType: number = 0; // 0:随机 1:置换 2:同色
+
     private _roomId: number = 0;
     private _master: number = 0;
     public start: boolean = false;

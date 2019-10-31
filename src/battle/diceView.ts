@@ -1,10 +1,12 @@
 class DiceView extends egret.DisplayObjectContainer {
+    private _sandTable: SandTable;
     private _diceUI: fairygui.GComponent;
     private _bet: number = 1;
 
-    constructor() {
+    constructor(sandTable:SandTable) {
         super()
         Battle.inst.mode = 1;
+        this._sandTable = sandTable;
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -45,7 +47,7 @@ class DiceView extends egret.DisplayObjectContainer {
         Battle.inst.gotoLobby()
     }
     private __clickNext(evt:Event): void {
-        Battle.inst.getScene().resetSandBoxie()
+        this._sandTable.clear()
 
         let data = {
             opt: "next",
@@ -87,7 +89,8 @@ class DiceView extends egret.DisplayObjectContainer {
     private __clickDiceMode(evt:Event): void {
         let ctrlDice = this._diceUI.getController("func")
         Util.log("dice mode set:", ctrlDice.selectedIndex)
-        Battle.inst._diceType = ctrlDice.selectedIndex;
+
+        this._sandTable.changeLastBall(ctrlDice.selectedIndex);
     }
 
     public showNetLatency(lag:number) {
@@ -104,5 +107,10 @@ class DiceView extends egret.DisplayObjectContainer {
             this._diceUI.getChild("n26").asButton.enabled = false;
             this._diceUI.getChild("n37").asButton.enabled = false;
         }
+    }
+    public resetDiceFunc() {
+        let ctrlDice = this._diceUI.getController("func")
+        ctrlDice.setSelectedIndex(0)
+        this._sandTable.changeLastBall(0);
     }
 }

@@ -63,16 +63,13 @@ class BtScene extends egret.DisplayObjectContainer {
         let ctrlPanel = new CtrlPanel(this._sandTable);
         this.addChild(ctrlPanel)
     }
-    public resetSandBoxie() {
-        this._sandTable.clear()
-    }
 
     private openClassicView() {
-        this._clsView = new ClassicView();
+        this._clsView = new ClassicView(this._sandTable);
         this.addChild(this._clsView);
     }
     private openDiceView() {
-        this._diceView = new DiceView();
+        this._diceView = new DiceView(this._sandTable);
         this.addChild(this._diceView);
     }
     private netLatencyResponse(data:{lag:number}) {
@@ -88,8 +85,13 @@ class BtScene extends egret.DisplayObjectContainer {
         // Util.log("sync opt data:", msg.optData, opt) // 
         if (data.opt == "shoot") {
             this._sandTable.shoot(data);
+            if (this._clsView) {
+                // 
+            } else if (this._diceView) {
+                this._diceView.resetDiceFunc();
+            }
         } else if (data.opt == "bet") {
-            this._sandTable.changeBet(data.bet);
+            this._sandTable.setBet(data.bet);
         } else if (data.opt == "start") {
             Util.log("battle start 。。。")
             Battle.inst.start = true;

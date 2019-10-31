@@ -1,9 +1,10 @@
 class ClassicView extends egret.DisplayObjectContainer {
+    private _sandTable: SandTable;
     private _classicUI: fairygui.GComponent;
 
-    constructor() {
+    constructor(sandTable:SandTable) {
         super()
-
+        this._sandTable = sandTable;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
     private onAddToStage(evt:egret.Event) {
