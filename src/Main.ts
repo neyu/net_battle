@@ -130,7 +130,7 @@ class Main extends egret.Sprite {
     private loadGameScene() {
         // this.testPanel()
         // this.showSandTable()
-
+        
         // 初始化提示
         TipMgr.inst.init(this.stage);
 

@@ -78,6 +78,7 @@ class Login {
             this._logined = false;
 
             if (!Net.isOnConn()) {
+                TipMgr.showTip("未联网。。。");
                 return   
             }
             Net.Send("msgProto.AccountLogin", {

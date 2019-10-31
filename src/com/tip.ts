@@ -2,7 +2,7 @@ class Tip extends egret.DisplayObjectContainer {
     private _bg: egret.Shape = null;
     private _label: egret.TextField = null;
     private _content:string = "";
-    private _w: number = 240;
+    private _w: number = 360;
     private _h: number = 32;
 
     constructor(word:string) {
