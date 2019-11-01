@@ -104,7 +104,7 @@ class Net {
         }, this);
 
         // MsgCenter.inst.addListener("msgProto.error_notice_s2c", errorNotice, this);
-        MsgCenter.inst.addListener("msgProto.VerifyAck", this.verifyAck, this);
+        MsgCenter.inst.addListener("pb.VerifyAck", this.verifyAck, this);
     }
 
     private static errorNotice(msg:any) {
@@ -116,7 +116,7 @@ class Net {
         TimerMgr.inst.doTimer(this.interval, 0, this.pingAck, this);    
     }
     private static pingAck() {
-        let succ = this.Send("msgProto.PingAck", {});
+        let succ = this.Send("pb.PingAck", {});
         if (succ) {
             console.log("心跳一次", this.interval)
         } else {
@@ -125,7 +125,7 @@ class Net {
     }
 
     private static verifyGameToken() {
-        this.Send("msgProto.VerifyReq", {
+        this.Send("pb.VerifyReq", {
             gameToken: this._gameToken,
             gameSvcId: "game_1",
             accountId: this._accountId

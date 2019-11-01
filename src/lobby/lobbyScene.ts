@@ -8,8 +8,8 @@ class LobbyScene extends egret.DisplayObjectContainer {
         super()
 
         Net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
-        Net.regMsgProc("msgProto.EnterClsRoomResponse", this.enterClsRoomResponse, this)
-        Net.regMsgProc("msgProto.EnterDiceRoomResponse", this.enterDiceRoomResponse, this)
+        Net.regMsgProc("pb.EnterClsRoomResponse", this.enterClsRoomResponse, this)
+        Net.regMsgProc("pb.EnterDiceRoomResponse", this.enterDiceRoomResponse, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -103,11 +103,11 @@ class LobbyScene extends egret.DisplayObjectContainer {
         }
 
         if (this._entryType == 0) {
-            Net.Send("msgProto.CreateClsRoom", {
+            Net.Send("pb.CreateClsRoom", {
                 name: "cls." + name
             })
         } else if (this._entryType == 1) {
-            Net.Send("msgProto.CreateDiceRoom", {
+            Net.Send("pb.CreateDiceRoom", {
                 name: "dice." + name
             })
         }
@@ -121,11 +121,11 @@ class LobbyScene extends egret.DisplayObjectContainer {
         }
 
         if (this._entryType == 0) {
-            Net.Send("msgProto.JoinClsRoom", {
+            Net.Send("pb.JoinClsRoom", {
                 name: "cls." + name
             })
         } else if (this._entryType == 1) {
-            Net.Send("msgProto.JoinDiceRoom", {
+            Net.Send("pb.JoinDiceRoom", {
                 name: "dice." + name
             })
         }
@@ -138,7 +138,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
         lbLag.text = data.lag.toString() + "ms";
     }
 
-    private enterClsRoomResponse(msg:msgProto.EnterClsRoomResponse) {
+    private enterClsRoomResponse(msg:pb.EnterClsRoomResponse) {
         Util.log("enterClsRoomResponse:", msg)
         if (msg.retCode != 0) {
             TipMgr.showTip(Net.iCode[msg.retCode].text);
@@ -149,7 +149,7 @@ class LobbyScene extends egret.DisplayObjectContainer {
         Battle.inst.setRoomMaster(protobuf.util.LongBits.from(msg.roomId).toNumber(), protobuf.util.LongBits.from(msg.masterId).toNumber())
         Lobby.inst.tryClassicBt();
     }
-    private enterDiceRoomResponse(msg:msgProto.EnterDiceRoomResponse) {
+    private enterDiceRoomResponse(msg:pb.EnterDiceRoomResponse) {
         Util.log("enterDiceRoomResponse:", msg)
         if (msg.retCode != 0) {
             TipMgr.showTip(Net.iCode[msg.retCode].text);

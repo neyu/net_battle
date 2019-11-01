@@ -1,7 +1,7 @@
 type Long = protobuf.Long;
 
-/** Namespace msgProto. */
-declare namespace msgProto {
+/** Namespace pb. */
+declare namespace pb {
 
     /** ResultCode enum. */
     enum ResultCode {
@@ -45,18 +45,18 @@ declare namespace msgProto {
          * Constructs a new ChatReq.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IChatReq);
+        constructor(properties?: pb.IChatReq);
 
         /** ChatReq content. */
         public content: string;
 
         /**
-         * Encodes the specified ChatReq message. Does not implicitly {@link msgProto.ChatReq.verify|verify} messages.
+         * Encodes the specified ChatReq message. Does not implicitly {@link pb.ChatReq.verify|verify} messages.
          * @param message ChatReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IChatReq, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IChatReq, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a ChatReq message from the specified reader or buffer.
@@ -66,14 +66,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ChatReq;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ChatReq;
 
         /**
          * Creates a ChatReq message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ChatReq
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ChatReq;
+        public static fromObject(object: { [k: string]: any }): pb.ChatReq;
 
         /**
          * Creates a plain object from a ChatReq message. Also converts values to other types if specified.
@@ -81,7 +81,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ChatReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ChatReq, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ChatReq to JSON.
@@ -104,18 +104,18 @@ declare namespace msgProto {
          * Constructs a new ChatAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IChatAck);
+        constructor(properties?: pb.IChatAck);
 
         /** ChatAck content. */
         public content: string;
 
         /**
-         * Encodes the specified ChatAck message. Does not implicitly {@link msgProto.ChatAck.verify|verify} messages.
+         * Encodes the specified ChatAck message. Does not implicitly {@link pb.ChatAck.verify|verify} messages.
          * @param message ChatAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IChatAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IChatAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a ChatAck message from the specified reader or buffer.
@@ -125,14 +125,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ChatAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ChatAck;
 
         /**
          * Creates a ChatAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ChatAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ChatAck;
+        public static fromObject(object: { [k: string]: any }): pb.ChatAck;
 
         /**
          * Creates a plain object from a ChatAck message. Also converts values to other types if specified.
@@ -140,7 +140,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ChatAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ChatAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ChatAck to JSON.
@@ -163,18 +163,18 @@ declare namespace msgProto {
          * Constructs a new TestAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ITestAck);
+        constructor(properties?: pb.ITestAck);
 
         /** TestAck dummy. */
         public dummy: string;
 
         /**
-         * Encodes the specified TestAck message. Does not implicitly {@link msgProto.TestAck.verify|verify} messages.
+         * Encodes the specified TestAck message. Does not implicitly {@link pb.TestAck.verify|verify} messages.
          * @param message TestAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ITestAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ITestAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a TestAck message from the specified reader or buffer.
@@ -184,14 +184,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.TestAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.TestAck;
 
         /**
          * Creates a TestAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns TestAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.TestAck;
+        public static fromObject(object: { [k: string]: any }): pb.TestAck;
 
         /**
          * Creates a plain object from a TestAck message. Also converts values to other types if specified.
@@ -199,7 +199,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.TestAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.TestAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this TestAck to JSON.
@@ -225,7 +225,7 @@ declare namespace msgProto {
          * Constructs a new ContentReq.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IContentReq);
+        constructor(properties?: pb.IContentReq);
 
         /** ContentReq msg. */
         public msg: string;
@@ -234,12 +234,12 @@ declare namespace msgProto {
         public value: number;
 
         /**
-         * Encodes the specified ContentReq message. Does not implicitly {@link msgProto.ContentReq.verify|verify} messages.
+         * Encodes the specified ContentReq message. Does not implicitly {@link pb.ContentReq.verify|verify} messages.
          * @param message ContentReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IContentReq, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IContentReq, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a ContentReq message from the specified reader or buffer.
@@ -249,14 +249,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ContentReq;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ContentReq;
 
         /**
          * Creates a ContentReq message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ContentReq
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ContentReq;
+        public static fromObject(object: { [k: string]: any }): pb.ContentReq;
 
         /**
          * Creates a plain object from a ContentReq message. Also converts values to other types if specified.
@@ -264,7 +264,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ContentReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ContentReq, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ContentReq to JSON.
@@ -290,7 +290,7 @@ declare namespace msgProto {
          * Constructs a new ContentAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IContentAck);
+        constructor(properties?: pb.IContentAck);
 
         /** ContentAck msg. */
         public msg: string;
@@ -299,12 +299,12 @@ declare namespace msgProto {
         public value: number;
 
         /**
-         * Encodes the specified ContentAck message. Does not implicitly {@link msgProto.ContentAck.verify|verify} messages.
+         * Encodes the specified ContentAck message. Does not implicitly {@link pb.ContentAck.verify|verify} messages.
          * @param message ContentAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IContentAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IContentAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a ContentAck message from the specified reader or buffer.
@@ -314,14 +314,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ContentAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ContentAck;
 
         /**
          * Creates a ContentAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ContentAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ContentAck;
+        public static fromObject(object: { [k: string]: any }): pb.ContentAck;
 
         /**
          * Creates a plain object from a ContentAck message. Also converts values to other types if specified.
@@ -329,7 +329,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ContentAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ContentAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ContentAck to JSON.
@@ -355,7 +355,7 @@ declare namespace msgProto {
          * Constructs a new ServerInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IServerInfo);
+        constructor(properties?: pb.IServerInfo);
 
         /** ServerInfo ip. */
         public ip: string;
@@ -364,12 +364,12 @@ declare namespace msgProto {
         public port: number;
 
         /**
-         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
+         * Encodes the specified ServerInfo message. Does not implicitly {@link pb.ServerInfo.verify|verify} messages.
          * @param message ServerInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IServerInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IServerInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a ServerInfo message from the specified reader or buffer.
@@ -379,14 +379,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ServerInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ServerInfo;
 
         /**
          * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ServerInfo
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ServerInfo;
+        public static fromObject(object: { [k: string]: any }): pb.ServerInfo;
 
         /**
          * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
@@ -394,7 +394,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ServerInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ServerInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ServerInfo to JSON.
@@ -414,15 +414,15 @@ declare namespace msgProto {
          * Constructs a new PingAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IPingAck);
+        constructor(properties?: pb.IPingAck);
 
         /**
-         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
+         * Encodes the specified PingAck message. Does not implicitly {@link pb.PingAck.verify|verify} messages.
          * @param message PingAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IPingAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IPingAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a PingAck message from the specified reader or buffer.
@@ -432,14 +432,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PingAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.PingAck;
 
         /**
          * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns PingAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.PingAck;
+        public static fromObject(object: { [k: string]: any }): pb.PingAck;
 
         /**
          * Creates a plain object from a PingAck message. Also converts values to other types if specified.
@@ -447,7 +447,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.PingAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.PingAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this PingAck to JSON.
@@ -476,7 +476,7 @@ declare namespace msgProto {
          * Constructs a new LoginReq.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ILoginReq);
+        constructor(properties?: pb.ILoginReq);
 
         /** LoginReq version. */
         public version: string;
@@ -488,12 +488,12 @@ declare namespace msgProto {
         public uid: string;
 
         /**
-         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
+         * Encodes the specified LoginReq message. Does not implicitly {@link pb.LoginReq.verify|verify} messages.
          * @param message LoginReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ILoginReq, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ILoginReq, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a LoginReq message from the specified reader or buffer.
@@ -503,14 +503,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginReq;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.LoginReq;
 
         /**
          * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns LoginReq
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.LoginReq;
+        public static fromObject(object: { [k: string]: any }): pb.LoginReq;
 
         /**
          * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
@@ -518,7 +518,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.LoginReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.LoginReq, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this LoginReq to JSON.
@@ -531,10 +531,10 @@ declare namespace msgProto {
     interface ILoginAck {
 
         /** LoginAck result */
-        result?: (msgProto.ResultCode|null);
+        result?: (pb.ResultCode|null);
 
         /** LoginAck server */
-        server?: (msgProto.IServerInfo|null);
+        server?: (pb.IServerInfo|null);
 
         /** LoginAck gameToken */
         gameToken?: (string|null);
@@ -550,13 +550,13 @@ declare namespace msgProto {
          * Constructs a new LoginAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ILoginAck);
+        constructor(properties?: pb.ILoginAck);
 
         /** LoginAck result. */
-        public result: msgProto.ResultCode;
+        public result: pb.ResultCode;
 
         /** LoginAck server. */
-        public server?: (msgProto.IServerInfo|null);
+        public server?: (pb.IServerInfo|null);
 
         /** LoginAck gameToken. */
         public gameToken: string;
@@ -565,12 +565,12 @@ declare namespace msgProto {
         public gameSvcId: string;
 
         /**
-         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
+         * Encodes the specified LoginAck message. Does not implicitly {@link pb.LoginAck.verify|verify} messages.
          * @param message LoginAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ILoginAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ILoginAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a LoginAck message from the specified reader or buffer.
@@ -580,14 +580,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.LoginAck;
 
         /**
          * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns LoginAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.LoginAck;
+        public static fromObject(object: { [k: string]: any }): pb.LoginAck;
 
         /**
          * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
@@ -595,7 +595,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.LoginAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.LoginAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this LoginAck to JSON.
@@ -624,7 +624,7 @@ declare namespace msgProto {
          * Constructs a new VerifyReq.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IVerifyReq);
+        constructor(properties?: pb.IVerifyReq);
 
         /** VerifyReq gameToken. */
         public gameToken: string;
@@ -636,12 +636,12 @@ declare namespace msgProto {
         public accountId: (number|Long);
 
         /**
-         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
+         * Encodes the specified VerifyReq message. Does not implicitly {@link pb.VerifyReq.verify|verify} messages.
          * @param message VerifyReq message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IVerifyReq, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IVerifyReq, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a VerifyReq message from the specified reader or buffer.
@@ -651,14 +651,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyReq;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.VerifyReq;
 
         /**
          * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns VerifyReq
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.VerifyReq;
+        public static fromObject(object: { [k: string]: any }): pb.VerifyReq;
 
         /**
          * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
@@ -666,7 +666,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.VerifyReq, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.VerifyReq, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this VerifyReq to JSON.
@@ -679,7 +679,7 @@ declare namespace msgProto {
     interface IVerifyAck {
 
         /** VerifyAck result */
-        result?: (msgProto.ResultCode|null);
+        result?: (pb.ResultCode|null);
     }
 
     /** Represents a VerifyAck. */
@@ -689,18 +689,18 @@ declare namespace msgProto {
          * Constructs a new VerifyAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IVerifyAck);
+        constructor(properties?: pb.IVerifyAck);
 
         /** VerifyAck result. */
-        public result: msgProto.ResultCode;
+        public result: pb.ResultCode;
 
         /**
-         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
+         * Encodes the specified VerifyAck message. Does not implicitly {@link pb.VerifyAck.verify|verify} messages.
          * @param message VerifyAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IVerifyAck, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IVerifyAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a VerifyAck message from the specified reader or buffer.
@@ -710,14 +710,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.VerifyAck;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.VerifyAck;
 
         /**
          * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns VerifyAck
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.VerifyAck;
+        public static fromObject(object: { [k: string]: any }): pb.VerifyAck;
 
         /**
          * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
@@ -725,7 +725,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.VerifyAck, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.VerifyAck, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this VerifyAck to JSON.
@@ -757,7 +757,7 @@ declare namespace msgProto {
          * Constructs a new UserCreate.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IUserCreate);
+        constructor(properties?: pb.IUserCreate);
 
         /** UserCreate name. */
         public name: string;
@@ -772,12 +772,12 @@ declare namespace msgProto {
         public shareKey: string;
 
         /**
-         * Encodes the specified UserCreate message. Does not implicitly {@link msgProto.UserCreate.verify|verify} messages.
+         * Encodes the specified UserCreate message. Does not implicitly {@link pb.UserCreate.verify|verify} messages.
          * @param message UserCreate message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IUserCreate, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IUserCreate, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a UserCreate message from the specified reader or buffer.
@@ -787,14 +787,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.UserCreate;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.UserCreate;
 
         /**
          * Creates a UserCreate message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns UserCreate
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.UserCreate;
+        public static fromObject(object: { [k: string]: any }): pb.UserCreate;
 
         /**
          * Creates a plain object from a UserCreate message. Also converts values to other types if specified.
@@ -802,7 +802,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.UserCreate, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.UserCreate, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this UserCreate to JSON.
@@ -825,18 +825,18 @@ declare namespace msgProto {
          * Constructs a new UserCreateResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IUserCreateResponse);
+        constructor(properties?: pb.IUserCreateResponse);
 
         /** UserCreateResponse retCode. */
         public retCode: number;
 
         /**
-         * Encodes the specified UserCreateResponse message. Does not implicitly {@link msgProto.UserCreateResponse.verify|verify} messages.
+         * Encodes the specified UserCreateResponse message. Does not implicitly {@link pb.UserCreateResponse.verify|verify} messages.
          * @param message UserCreateResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IUserCreateResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IUserCreateResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a UserCreateResponse message from the specified reader or buffer.
@@ -846,14 +846,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.UserCreateResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.UserCreateResponse;
 
         /**
          * Creates a UserCreateResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns UserCreateResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.UserCreateResponse;
+        public static fromObject(object: { [k: string]: any }): pb.UserCreateResponse;
 
         /**
          * Creates a plain object from a UserCreateResponse message. Also converts values to other types if specified.
@@ -861,7 +861,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.UserCreateResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.UserCreateResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this UserCreateResponse to JSON.
@@ -890,7 +890,7 @@ declare namespace msgProto {
          * Constructs a new GameEnter.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IGameEnter);
+        constructor(properties?: pb.IGameEnter);
 
         /** GameEnter accId. */
         public accId: (number|Long);
@@ -902,12 +902,12 @@ declare namespace msgProto {
         public serverId: number;
 
         /**
-         * Encodes the specified GameEnter message. Does not implicitly {@link msgProto.GameEnter.verify|verify} messages.
+         * Encodes the specified GameEnter message. Does not implicitly {@link pb.GameEnter.verify|verify} messages.
          * @param message GameEnter message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IGameEnter, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IGameEnter, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a GameEnter message from the specified reader or buffer.
@@ -917,14 +917,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.GameEnter;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.GameEnter;
 
         /**
          * Creates a GameEnter message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns GameEnter
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.GameEnter;
+        public static fromObject(object: { [k: string]: any }): pb.GameEnter;
 
         /**
          * Creates a plain object from a GameEnter message. Also converts values to other types if specified.
@@ -932,7 +932,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.GameEnter, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.GameEnter, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this GameEnter to JSON.
@@ -994,7 +994,7 @@ declare namespace msgProto {
          * Constructs a new GameEnterResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IGameEnterResponse);
+        constructor(properties?: pb.IGameEnterResponse);
 
         /** GameEnterResponse retCode. */
         public retCode: number;
@@ -1039,12 +1039,12 @@ declare namespace msgProto {
         public lastExitTime: (number|Long);
 
         /**
-         * Encodes the specified GameEnterResponse message. Does not implicitly {@link msgProto.GameEnterResponse.verify|verify} messages.
+         * Encodes the specified GameEnterResponse message. Does not implicitly {@link pb.GameEnterResponse.verify|verify} messages.
          * @param message GameEnterResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IGameEnterResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IGameEnterResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a GameEnterResponse message from the specified reader or buffer.
@@ -1054,14 +1054,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.GameEnterResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.GameEnterResponse;
 
         /**
          * Creates a GameEnterResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns GameEnterResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.GameEnterResponse;
+        public static fromObject(object: { [k: string]: any }): pb.GameEnterResponse;
 
         /**
          * Creates a plain object from a GameEnterResponse message. Also converts values to other types if specified.
@@ -1069,7 +1069,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.GameEnterResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.GameEnterResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this GameEnterResponse to JSON.
@@ -1089,15 +1089,15 @@ declare namespace msgProto {
          * Constructs a new NetGetServerDate.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.INetGetServerDate);
+        constructor(properties?: pb.INetGetServerDate);
 
         /**
-         * Encodes the specified NetGetServerDate message. Does not implicitly {@link msgProto.NetGetServerDate.verify|verify} messages.
+         * Encodes the specified NetGetServerDate message. Does not implicitly {@link pb.NetGetServerDate.verify|verify} messages.
          * @param message NetGetServerDate message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.INetGetServerDate, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.INetGetServerDate, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a NetGetServerDate message from the specified reader or buffer.
@@ -1107,14 +1107,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.NetGetServerDate;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.NetGetServerDate;
 
         /**
          * Creates a NetGetServerDate message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns NetGetServerDate
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.NetGetServerDate;
+        public static fromObject(object: { [k: string]: any }): pb.NetGetServerDate;
 
         /**
          * Creates a plain object from a NetGetServerDate message. Also converts values to other types if specified.
@@ -1122,7 +1122,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.NetGetServerDate, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.NetGetServerDate, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this NetGetServerDate to JSON.
@@ -1151,7 +1151,7 @@ declare namespace msgProto {
          * Constructs a new AccountLogin.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IAccountLogin);
+        constructor(properties?: pb.IAccountLogin);
 
         /** AccountLogin account. */
         public account: string;
@@ -1163,12 +1163,12 @@ declare namespace msgProto {
         public channelId: number;
 
         /**
-         * Encodes the specified AccountLogin message. Does not implicitly {@link msgProto.AccountLogin.verify|verify} messages.
+         * Encodes the specified AccountLogin message. Does not implicitly {@link pb.AccountLogin.verify|verify} messages.
          * @param message AccountLogin message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IAccountLogin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IAccountLogin, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an AccountLogin message from the specified reader or buffer.
@@ -1178,14 +1178,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.AccountLogin;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.AccountLogin;
 
         /**
          * Creates an AccountLogin message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns AccountLogin
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.AccountLogin;
+        public static fromObject(object: { [k: string]: any }): pb.AccountLogin;
 
         /**
          * Creates a plain object from an AccountLogin message. Also converts values to other types if specified.
@@ -1193,7 +1193,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.AccountLogin, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.AccountLogin, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this AccountLogin to JSON.
@@ -1246,7 +1246,7 @@ declare namespace msgProto {
          * Constructs a new LoginResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ILoginResponse);
+        constructor(properties?: pb.ILoginResponse);
 
         /** LoginResponse retCode. */
         public retCode: number;
@@ -1282,12 +1282,12 @@ declare namespace msgProto {
         public icon: string;
 
         /**
-         * Encodes the specified LoginResponse message. Does not implicitly {@link msgProto.LoginResponse.verify|verify} messages.
+         * Encodes the specified LoginResponse message. Does not implicitly {@link pb.LoginResponse.verify|verify} messages.
          * @param message LoginResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ILoginResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ILoginResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a LoginResponse message from the specified reader or buffer.
@@ -1297,14 +1297,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.LoginResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.LoginResponse;
 
         /**
          * Creates a LoginResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns LoginResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.LoginResponse;
+        public static fromObject(object: { [k: string]: any }): pb.LoginResponse;
 
         /**
          * Creates a plain object from a LoginResponse message. Also converts values to other types if specified.
@@ -1312,7 +1312,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.LoginResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.LoginResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this LoginResponse to JSON.
@@ -1341,7 +1341,7 @@ declare namespace msgProto {
          * Constructs a new AccountLoginBySdk.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IAccountLoginBySdk);
+        constructor(properties?: pb.IAccountLoginBySdk);
 
         /** AccountLoginBySdk channelId. */
         public channelId: string;
@@ -1353,12 +1353,12 @@ declare namespace msgProto {
         public deviceId: string;
 
         /**
-         * Encodes the specified AccountLoginBySdk message. Does not implicitly {@link msgProto.AccountLoginBySdk.verify|verify} messages.
+         * Encodes the specified AccountLoginBySdk message. Does not implicitly {@link pb.AccountLoginBySdk.verify|verify} messages.
          * @param message AccountLoginBySdk message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IAccountLoginBySdk, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IAccountLoginBySdk, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an AccountLoginBySdk message from the specified reader or buffer.
@@ -1368,14 +1368,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.AccountLoginBySdk;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.AccountLoginBySdk;
 
         /**
          * Creates an AccountLoginBySdk message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns AccountLoginBySdk
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.AccountLoginBySdk;
+        public static fromObject(object: { [k: string]: any }): pb.AccountLoginBySdk;
 
         /**
          * Creates a plain object from an AccountLoginBySdk message. Also converts values to other types if specified.
@@ -1383,7 +1383,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.AccountLoginBySdk, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.AccountLoginBySdk, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this AccountLoginBySdk to JSON.
@@ -1418,7 +1418,7 @@ declare namespace msgProto {
          * Constructs a new AccountRegister.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IAccountRegister);
+        constructor(properties?: pb.IAccountRegister);
 
         /** AccountRegister account. */
         public account: string;
@@ -1436,12 +1436,12 @@ declare namespace msgProto {
         public platform: string;
 
         /**
-         * Encodes the specified AccountRegister message. Does not implicitly {@link msgProto.AccountRegister.verify|verify} messages.
+         * Encodes the specified AccountRegister message. Does not implicitly {@link pb.AccountRegister.verify|verify} messages.
          * @param message AccountRegister message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IAccountRegister, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IAccountRegister, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an AccountRegister message from the specified reader or buffer.
@@ -1451,14 +1451,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.AccountRegister;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.AccountRegister;
 
         /**
          * Creates an AccountRegister message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns AccountRegister
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.AccountRegister;
+        public static fromObject(object: { [k: string]: any }): pb.AccountRegister;
 
         /**
          * Creates a plain object from an AccountRegister message. Also converts values to other types if specified.
@@ -1466,7 +1466,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.AccountRegister, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.AccountRegister, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this AccountRegister to JSON.
@@ -1489,18 +1489,18 @@ declare namespace msgProto {
          * Constructs a new SvrListGet.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISvrListGet);
+        constructor(properties?: pb.ISvrListGet);
 
         /** SvrListGet isTest. */
         public isTest: boolean;
 
         /**
-         * Encodes the specified SvrListGet message. Does not implicitly {@link msgProto.SvrListGet.verify|verify} messages.
+         * Encodes the specified SvrListGet message. Does not implicitly {@link pb.SvrListGet.verify|verify} messages.
          * @param message SvrListGet message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISvrListGet, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISvrListGet, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SvrListGet message from the specified reader or buffer.
@@ -1510,14 +1510,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SvrListGet;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SvrListGet;
 
         /**
          * Creates a SvrListGet message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SvrListGet
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SvrListGet;
+        public static fromObject(object: { [k: string]: any }): pb.SvrListGet;
 
         /**
          * Creates a plain object from a SvrListGet message. Also converts values to other types if specified.
@@ -1525,7 +1525,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SvrListGet, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SvrListGet, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SvrListGet to JSON.
@@ -1548,18 +1548,18 @@ declare namespace msgProto {
          * Constructs a new SvrInfoGet.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISvrInfoGet);
+        constructor(properties?: pb.ISvrInfoGet);
 
         /** SvrInfoGet svrId. */
         public svrId: number;
 
         /**
-         * Encodes the specified SvrInfoGet message. Does not implicitly {@link msgProto.SvrInfoGet.verify|verify} messages.
+         * Encodes the specified SvrInfoGet message. Does not implicitly {@link pb.SvrInfoGet.verify|verify} messages.
          * @param message SvrInfoGet message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISvrInfoGet, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISvrInfoGet, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SvrInfoGet message from the specified reader or buffer.
@@ -1569,14 +1569,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SvrInfoGet;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SvrInfoGet;
 
         /**
          * Creates a SvrInfoGet message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SvrInfoGet
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SvrInfoGet;
+        public static fromObject(object: { [k: string]: any }): pb.SvrInfoGet;
 
         /**
          * Creates a plain object from a SvrInfoGet message. Also converts values to other types if specified.
@@ -1584,7 +1584,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SvrInfoGet, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SvrInfoGet, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SvrInfoGet to JSON.
@@ -1631,7 +1631,7 @@ declare namespace msgProto {
          * Constructs a new PbSvrInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IPbSvrInfo);
+        constructor(properties?: pb.IPbSvrInfo);
 
         /** PbSvrInfo id. */
         public id: number;
@@ -1661,12 +1661,12 @@ declare namespace msgProto {
         public closeExplain: string;
 
         /**
-         * Encodes the specified PbSvrInfo message. Does not implicitly {@link msgProto.PbSvrInfo.verify|verify} messages.
+         * Encodes the specified PbSvrInfo message. Does not implicitly {@link pb.PbSvrInfo.verify|verify} messages.
          * @param message PbSvrInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IPbSvrInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IPbSvrInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a PbSvrInfo message from the specified reader or buffer.
@@ -1676,14 +1676,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PbSvrInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.PbSvrInfo;
 
         /**
          * Creates a PbSvrInfo message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns PbSvrInfo
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.PbSvrInfo;
+        public static fromObject(object: { [k: string]: any }): pb.PbSvrInfo;
 
         /**
          * Creates a plain object from a PbSvrInfo message. Also converts values to other types if specified.
@@ -1691,7 +1691,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.PbSvrInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.PbSvrInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this PbSvrInfo to JSON.
@@ -1710,7 +1710,7 @@ declare namespace msgProto {
         retType?: (number|null);
 
         /** SvrListResponse infos */
-        infos?: (msgProto.IPbSvrInfo[]|null);
+        infos?: (pb.IPbSvrInfo[]|null);
     }
 
     /** Represents a SvrListResponse. */
@@ -1720,7 +1720,7 @@ declare namespace msgProto {
          * Constructs a new SvrListResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISvrListResponse);
+        constructor(properties?: pb.ISvrListResponse);
 
         /** SvrListResponse retCode. */
         public retCode: number;
@@ -1729,15 +1729,15 @@ declare namespace msgProto {
         public retType: number;
 
         /** SvrListResponse infos. */
-        public infos: msgProto.IPbSvrInfo[];
+        public infos: pb.IPbSvrInfo[];
 
         /**
-         * Encodes the specified SvrListResponse message. Does not implicitly {@link msgProto.SvrListResponse.verify|verify} messages.
+         * Encodes the specified SvrListResponse message. Does not implicitly {@link pb.SvrListResponse.verify|verify} messages.
          * @param message SvrListResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISvrListResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISvrListResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SvrListResponse message from the specified reader or buffer.
@@ -1747,14 +1747,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SvrListResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SvrListResponse;
 
         /**
          * Creates a SvrListResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SvrListResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SvrListResponse;
+        public static fromObject(object: { [k: string]: any }): pb.SvrListResponse;
 
         /**
          * Creates a plain object from a SvrListResponse message. Also converts values to other types if specified.
@@ -1762,7 +1762,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SvrListResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SvrListResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SvrListResponse to JSON.
@@ -1782,15 +1782,15 @@ declare namespace msgProto {
          * Constructs a new SvrDateGet.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISvrDateGet);
+        constructor(properties?: pb.ISvrDateGet);
 
         /**
-         * Encodes the specified SvrDateGet message. Does not implicitly {@link msgProto.SvrDateGet.verify|verify} messages.
+         * Encodes the specified SvrDateGet message. Does not implicitly {@link pb.SvrDateGet.verify|verify} messages.
          * @param message SvrDateGet message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISvrDateGet, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISvrDateGet, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SvrDateGet message from the specified reader or buffer.
@@ -1800,14 +1800,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SvrDateGet;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SvrDateGet;
 
         /**
          * Creates a SvrDateGet message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SvrDateGet
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SvrDateGet;
+        public static fromObject(object: { [k: string]: any }): pb.SvrDateGet;
 
         /**
          * Creates a plain object from a SvrDateGet message. Also converts values to other types if specified.
@@ -1815,7 +1815,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SvrDateGet, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SvrDateGet, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SvrDateGet to JSON.
@@ -1838,18 +1838,18 @@ declare namespace msgProto {
          * Constructs a new UserSvrsGet.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IUserSvrsGet);
+        constructor(properties?: pb.IUserSvrsGet);
 
         /** UserSvrsGet accId. */
         public accId: (number|Long);
 
         /**
-         * Encodes the specified UserSvrsGet message. Does not implicitly {@link msgProto.UserSvrsGet.verify|verify} messages.
+         * Encodes the specified UserSvrsGet message. Does not implicitly {@link pb.UserSvrsGet.verify|verify} messages.
          * @param message UserSvrsGet message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IUserSvrsGet, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IUserSvrsGet, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a UserSvrsGet message from the specified reader or buffer.
@@ -1859,14 +1859,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.UserSvrsGet;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.UserSvrsGet;
 
         /**
          * Creates a UserSvrsGet message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns UserSvrsGet
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.UserSvrsGet;
+        public static fromObject(object: { [k: string]: any }): pb.UserSvrsGet;
 
         /**
          * Creates a plain object from a UserSvrsGet message. Also converts values to other types if specified.
@@ -1874,7 +1874,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.UserSvrsGet, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.UserSvrsGet, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this UserSvrsGet to JSON.
@@ -1903,7 +1903,7 @@ declare namespace msgProto {
          * Constructs a new AccountSvrsGet.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IAccountSvrsGet);
+        constructor(properties?: pb.IAccountSvrsGet);
 
         /** AccountSvrsGet openId. */
         public openId: string;
@@ -1915,12 +1915,12 @@ declare namespace msgProto {
         public isTest: boolean;
 
         /**
-         * Encodes the specified AccountSvrsGet message. Does not implicitly {@link msgProto.AccountSvrsGet.verify|verify} messages.
+         * Encodes the specified AccountSvrsGet message. Does not implicitly {@link pb.AccountSvrsGet.verify|verify} messages.
          * @param message AccountSvrsGet message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IAccountSvrsGet, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IAccountSvrsGet, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an AccountSvrsGet message from the specified reader or buffer.
@@ -1930,14 +1930,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.AccountSvrsGet;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.AccountSvrsGet;
 
         /**
          * Creates an AccountSvrsGet message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns AccountSvrsGet
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.AccountSvrsGet;
+        public static fromObject(object: { [k: string]: any }): pb.AccountSvrsGet;
 
         /**
          * Creates a plain object from an AccountSvrsGet message. Also converts values to other types if specified.
@@ -1945,7 +1945,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.AccountSvrsGet, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.AccountSvrsGet, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this AccountSvrsGet to JSON.
@@ -1968,18 +1968,18 @@ declare namespace msgProto {
          * Constructs a new TestNetLatency.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ITestNetLatency);
+        constructor(properties?: pb.ITestNetLatency);
 
         /** TestNetLatency time. */
         public time: (number|Long);
 
         /**
-         * Encodes the specified TestNetLatency message. Does not implicitly {@link msgProto.TestNetLatency.verify|verify} messages.
+         * Encodes the specified TestNetLatency message. Does not implicitly {@link pb.TestNetLatency.verify|verify} messages.
          * @param message TestNetLatency message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ITestNetLatency, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ITestNetLatency, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a TestNetLatency message from the specified reader or buffer.
@@ -1989,14 +1989,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.TestNetLatency;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.TestNetLatency;
 
         /**
          * Creates a TestNetLatency message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns TestNetLatency
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.TestNetLatency;
+        public static fromObject(object: { [k: string]: any }): pb.TestNetLatency;
 
         /**
          * Creates a plain object from a TestNetLatency message. Also converts values to other types if specified.
@@ -2004,7 +2004,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.TestNetLatency, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.TestNetLatency, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this TestNetLatency to JSON.
@@ -2027,18 +2027,18 @@ declare namespace msgProto {
          * Constructs a new ExchangeOptData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IExchangeOptData);
+        constructor(properties?: pb.IExchangeOptData);
 
         /** ExchangeOptData optData. */
         public optData: string;
 
         /**
-         * Encodes the specified ExchangeOptData message. Does not implicitly {@link msgProto.ExchangeOptData.verify|verify} messages.
+         * Encodes the specified ExchangeOptData message. Does not implicitly {@link pb.ExchangeOptData.verify|verify} messages.
          * @param message ExchangeOptData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IExchangeOptData, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IExchangeOptData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an ExchangeOptData message from the specified reader or buffer.
@@ -2048,14 +2048,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExchangeOptData;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ExchangeOptData;
 
         /**
          * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ExchangeOptData
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ExchangeOptData;
+        public static fromObject(object: { [k: string]: any }): pb.ExchangeOptData;
 
         /**
          * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
@@ -2063,7 +2063,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ExchangeOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ExchangeOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ExchangeOptData to JSON.
@@ -2086,18 +2086,18 @@ declare namespace msgProto {
          * Constructs a new CreateClsRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ICreateClsRoom);
+        constructor(properties?: pb.ICreateClsRoom);
 
         /** CreateClsRoom name. */
         public name: string;
 
         /**
-         * Encodes the specified CreateClsRoom message. Does not implicitly {@link msgProto.CreateClsRoom.verify|verify} messages.
+         * Encodes the specified CreateClsRoom message. Does not implicitly {@link pb.CreateClsRoom.verify|verify} messages.
          * @param message CreateClsRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ICreateClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ICreateClsRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a CreateClsRoom message from the specified reader or buffer.
@@ -2107,14 +2107,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.CreateClsRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.CreateClsRoom;
 
         /**
          * Creates a CreateClsRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns CreateClsRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.CreateClsRoom;
+        public static fromObject(object: { [k: string]: any }): pb.CreateClsRoom;
 
         /**
          * Creates a plain object from a CreateClsRoom message. Also converts values to other types if specified.
@@ -2122,7 +2122,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.CreateClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.CreateClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this CreateClsRoom to JSON.
@@ -2145,18 +2145,18 @@ declare namespace msgProto {
          * Constructs a new JoinClsRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IJoinClsRoom);
+        constructor(properties?: pb.IJoinClsRoom);
 
         /** JoinClsRoom name. */
         public name: string;
 
         /**
-         * Encodes the specified JoinClsRoom message. Does not implicitly {@link msgProto.JoinClsRoom.verify|verify} messages.
+         * Encodes the specified JoinClsRoom message. Does not implicitly {@link pb.JoinClsRoom.verify|verify} messages.
          * @param message JoinClsRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IJoinClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IJoinClsRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a JoinClsRoom message from the specified reader or buffer.
@@ -2166,14 +2166,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.JoinClsRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.JoinClsRoom;
 
         /**
          * Creates a JoinClsRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns JoinClsRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.JoinClsRoom;
+        public static fromObject(object: { [k: string]: any }): pb.JoinClsRoom;
 
         /**
          * Creates a plain object from a JoinClsRoom message. Also converts values to other types if specified.
@@ -2181,7 +2181,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.JoinClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.JoinClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this JoinClsRoom to JSON.
@@ -2210,7 +2210,7 @@ declare namespace msgProto {
          * Constructs a new EnterClsRoomResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IEnterClsRoomResponse);
+        constructor(properties?: pb.IEnterClsRoomResponse);
 
         /** EnterClsRoomResponse retCode. */
         public retCode: number;
@@ -2222,12 +2222,12 @@ declare namespace msgProto {
         public masterId: (number|Long);
 
         /**
-         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link msgProto.EnterClsRoomResponse.verify|verify} messages.
+         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link pb.EnterClsRoomResponse.verify|verify} messages.
          * @param message EnterClsRoomResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IEnterClsRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IEnterClsRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an EnterClsRoomResponse message from the specified reader or buffer.
@@ -2237,14 +2237,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.EnterClsRoomResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.EnterClsRoomResponse;
 
         /**
          * Creates an EnterClsRoomResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns EnterClsRoomResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.EnterClsRoomResponse;
+        public static fromObject(object: { [k: string]: any }): pb.EnterClsRoomResponse;
 
         /**
          * Creates a plain object from an EnterClsRoomResponse message. Also converts values to other types if specified.
@@ -2252,7 +2252,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.EnterClsRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.EnterClsRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this EnterClsRoomResponse to JSON.
@@ -2275,18 +2275,18 @@ declare namespace msgProto {
          * Constructs a new ExitClsRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IExitClsRoom);
+        constructor(properties?: pb.IExitClsRoom);
 
         /** ExitClsRoom roomId. */
         public roomId: (number|Long);
 
         /**
-         * Encodes the specified ExitClsRoom message. Does not implicitly {@link msgProto.ExitClsRoom.verify|verify} messages.
+         * Encodes the specified ExitClsRoom message. Does not implicitly {@link pb.ExitClsRoom.verify|verify} messages.
          * @param message ExitClsRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IExitClsRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IExitClsRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an ExitClsRoom message from the specified reader or buffer.
@@ -2296,14 +2296,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExitClsRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ExitClsRoom;
 
         /**
          * Creates an ExitClsRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ExitClsRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ExitClsRoom;
+        public static fromObject(object: { [k: string]: any }): pb.ExitClsRoom;
 
         /**
          * Creates a plain object from an ExitClsRoom message. Also converts values to other types if specified.
@@ -2311,7 +2311,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ExitClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ExitClsRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ExitClsRoom to JSON.
@@ -2334,18 +2334,18 @@ declare namespace msgProto {
          * Constructs a new CreateDiceRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ICreateDiceRoom);
+        constructor(properties?: pb.ICreateDiceRoom);
 
         /** CreateDiceRoom name. */
         public name: string;
 
         /**
-         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link msgProto.CreateDiceRoom.verify|verify} messages.
+         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link pb.CreateDiceRoom.verify|verify} messages.
          * @param message CreateDiceRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ICreateDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ICreateDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a CreateDiceRoom message from the specified reader or buffer.
@@ -2355,14 +2355,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.CreateDiceRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.CreateDiceRoom;
 
         /**
          * Creates a CreateDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns CreateDiceRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.CreateDiceRoom;
+        public static fromObject(object: { [k: string]: any }): pb.CreateDiceRoom;
 
         /**
          * Creates a plain object from a CreateDiceRoom message. Also converts values to other types if specified.
@@ -2370,7 +2370,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.CreateDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.CreateDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this CreateDiceRoom to JSON.
@@ -2393,18 +2393,18 @@ declare namespace msgProto {
          * Constructs a new JoinDiceRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IJoinDiceRoom);
+        constructor(properties?: pb.IJoinDiceRoom);
 
         /** JoinDiceRoom name. */
         public name: string;
 
         /**
-         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link msgProto.JoinDiceRoom.verify|verify} messages.
+         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link pb.JoinDiceRoom.verify|verify} messages.
          * @param message JoinDiceRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IJoinDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IJoinDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a JoinDiceRoom message from the specified reader or buffer.
@@ -2414,14 +2414,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.JoinDiceRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.JoinDiceRoom;
 
         /**
          * Creates a JoinDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns JoinDiceRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.JoinDiceRoom;
+        public static fromObject(object: { [k: string]: any }): pb.JoinDiceRoom;
 
         /**
          * Creates a plain object from a JoinDiceRoom message. Also converts values to other types if specified.
@@ -2429,7 +2429,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.JoinDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.JoinDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this JoinDiceRoom to JSON.
@@ -2458,7 +2458,7 @@ declare namespace msgProto {
          * Constructs a new EnterDiceRoomResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IEnterDiceRoomResponse);
+        constructor(properties?: pb.IEnterDiceRoomResponse);
 
         /** EnterDiceRoomResponse retCode. */
         public retCode: number;
@@ -2470,12 +2470,12 @@ declare namespace msgProto {
         public masterId: (number|Long);
 
         /**
-         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link msgProto.EnterDiceRoomResponse.verify|verify} messages.
+         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link pb.EnterDiceRoomResponse.verify|verify} messages.
          * @param message EnterDiceRoomResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IEnterDiceRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IEnterDiceRoomResponse, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an EnterDiceRoomResponse message from the specified reader or buffer.
@@ -2485,14 +2485,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.EnterDiceRoomResponse;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.EnterDiceRoomResponse;
 
         /**
          * Creates an EnterDiceRoomResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns EnterDiceRoomResponse
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.EnterDiceRoomResponse;
+        public static fromObject(object: { [k: string]: any }): pb.EnterDiceRoomResponse;
 
         /**
          * Creates a plain object from an EnterDiceRoomResponse message. Also converts values to other types if specified.
@@ -2500,7 +2500,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.EnterDiceRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.EnterDiceRoomResponse, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this EnterDiceRoomResponse to JSON.
@@ -2523,18 +2523,18 @@ declare namespace msgProto {
          * Constructs a new ExitDiceRoom.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IExitDiceRoom);
+        constructor(properties?: pb.IExitDiceRoom);
 
         /** ExitDiceRoom roomId. */
         public roomId: (number|Long);
 
         /**
-         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link msgProto.ExitDiceRoom.verify|verify} messages.
+         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link pb.ExitDiceRoom.verify|verify} messages.
          * @param message ExitDiceRoom message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IExitDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IExitDiceRoom, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an ExitDiceRoom message from the specified reader or buffer.
@@ -2544,14 +2544,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.ExitDiceRoom;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ExitDiceRoom;
 
         /**
          * Creates an ExitDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns ExitDiceRoom
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.ExitDiceRoom;
+        public static fromObject(object: { [k: string]: any }): pb.ExitDiceRoom;
 
         /**
          * Creates a plain object from an ExitDiceRoom message. Also converts values to other types if specified.
@@ -2559,7 +2559,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.ExitDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.ExitDiceRoom, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ExitDiceRoom to JSON.
@@ -2606,7 +2606,7 @@ declare namespace msgProto {
          * Constructs a new PbHeroInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IPbHeroInfo);
+        constructor(properties?: pb.IPbHeroInfo);
 
         /** PbHeroInfo id. */
         public id: (number|Long);
@@ -2636,12 +2636,12 @@ declare namespace msgProto {
         public ap: number;
 
         /**
-         * Encodes the specified PbHeroInfo message. Does not implicitly {@link msgProto.PbHeroInfo.verify|verify} messages.
+         * Encodes the specified PbHeroInfo message. Does not implicitly {@link pb.PbHeroInfo.verify|verify} messages.
          * @param message PbHeroInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IPbHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IPbHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a PbHeroInfo message from the specified reader or buffer.
@@ -2651,14 +2651,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.PbHeroInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.PbHeroInfo;
 
         /**
          * Creates a PbHeroInfo message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns PbHeroInfo
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.PbHeroInfo;
+        public static fromObject(object: { [k: string]: any }): pb.PbHeroInfo;
 
         /**
          * Creates a plain object from a PbHeroInfo message. Also converts values to other types if specified.
@@ -2666,7 +2666,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.PbHeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.PbHeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this PbHeroInfo to JSON.
@@ -2679,7 +2679,7 @@ declare namespace msgProto {
     interface IHeroInfo {
 
         /** HeroInfo infos */
-        infos?: (msgProto.IPbHeroInfo[]|null);
+        infos?: (pb.IPbHeroInfo[]|null);
     }
 
     /** Represents a HeroInfo. */
@@ -2689,18 +2689,18 @@ declare namespace msgProto {
          * Constructs a new HeroInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.IHeroInfo);
+        constructor(properties?: pb.IHeroInfo);
 
         /** HeroInfo infos. */
-        public infos: msgProto.IPbHeroInfo[];
+        public infos: pb.IPbHeroInfo[];
 
         /**
-         * Encodes the specified HeroInfo message. Does not implicitly {@link msgProto.HeroInfo.verify|verify} messages.
+         * Encodes the specified HeroInfo message. Does not implicitly {@link pb.HeroInfo.verify|verify} messages.
          * @param message HeroInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.IHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.IHeroInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a HeroInfo message from the specified reader or buffer.
@@ -2710,14 +2710,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.HeroInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.HeroInfo;
 
         /**
          * Creates a HeroInfo message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns HeroInfo
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.HeroInfo;
+        public static fromObject(object: { [k: string]: any }): pb.HeroInfo;
 
         /**
          * Creates a plain object from a HeroInfo message. Also converts values to other types if specified.
@@ -2725,7 +2725,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.HeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.HeroInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this HeroInfo to JSON.
@@ -2738,7 +2738,7 @@ declare namespace msgProto {
     interface ISyncPropData {
 
         /** SyncPropData type */
-        type?: (msgProto.Prop[]|null);
+        type?: (pb.Prop[]|null);
 
         /** SyncPropData val */
         val?: ((number|Long)[]|null);
@@ -2751,21 +2751,21 @@ declare namespace msgProto {
          * Constructs a new SyncPropData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISyncPropData);
+        constructor(properties?: pb.ISyncPropData);
 
         /** SyncPropData type. */
-        public type: msgProto.Prop[];
+        public type: pb.Prop[];
 
         /** SyncPropData val. */
         public val: (number|Long)[];
 
         /**
-         * Encodes the specified SyncPropData message. Does not implicitly {@link msgProto.SyncPropData.verify|verify} messages.
+         * Encodes the specified SyncPropData message. Does not implicitly {@link pb.SyncPropData.verify|verify} messages.
          * @param message SyncPropData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISyncPropData, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISyncPropData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SyncPropData message from the specified reader or buffer.
@@ -2775,14 +2775,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncPropData;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SyncPropData;
 
         /**
          * Creates a SyncPropData message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SyncPropData
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SyncPropData;
+        public static fromObject(object: { [k: string]: any }): pb.SyncPropData;
 
         /**
          * Creates a plain object from a SyncPropData message. Also converts values to other types if specified.
@@ -2790,7 +2790,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SyncPropData, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SyncPropData, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SyncPropData to JSON.
@@ -2803,7 +2803,7 @@ declare namespace msgProto {
     interface ISyncPropData2 {
 
         /** SyncPropData2 type */
-        type?: (msgProto.Prop[]|null);
+        type?: (pb.Prop[]|null);
 
         /** SyncPropData2 val */
         val?: (string[]|null);
@@ -2816,21 +2816,21 @@ declare namespace msgProto {
          * Constructs a new SyncPropData2.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISyncPropData2);
+        constructor(properties?: pb.ISyncPropData2);
 
         /** SyncPropData2 type. */
-        public type: msgProto.Prop[];
+        public type: pb.Prop[];
 
         /** SyncPropData2 val. */
         public val: string[];
 
         /**
-         * Encodes the specified SyncPropData2 message. Does not implicitly {@link msgProto.SyncPropData2.verify|verify} messages.
+         * Encodes the specified SyncPropData2 message. Does not implicitly {@link pb.SyncPropData2.verify|verify} messages.
          * @param message SyncPropData2 message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISyncPropData2, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISyncPropData2, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SyncPropData2 message from the specified reader or buffer.
@@ -2840,14 +2840,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncPropData2;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SyncPropData2;
 
         /**
          * Creates a SyncPropData2 message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SyncPropData2
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SyncPropData2;
+        public static fromObject(object: { [k: string]: any }): pb.SyncPropData2;
 
         /**
          * Creates a plain object from a SyncPropData2 message. Also converts values to other types if specified.
@@ -2855,7 +2855,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SyncPropData2, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SyncPropData2, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SyncPropData2 to JSON.
@@ -2868,7 +2868,7 @@ declare namespace msgProto {
     interface ISyncOptData {
 
         /** SyncOptData type */
-        type?: (msgProto.Opt|null);
+        type?: (pb.Opt|null);
 
         /** SyncOptData iVal */
         iVal?: ((number|Long)[]|null);
@@ -2884,10 +2884,10 @@ declare namespace msgProto {
          * Constructs a new SyncOptData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: msgProto.ISyncOptData);
+        constructor(properties?: pb.ISyncOptData);
 
         /** SyncOptData type. */
-        public type: msgProto.Opt;
+        public type: pb.Opt;
 
         /** SyncOptData iVal. */
         public iVal: (number|Long)[];
@@ -2896,12 +2896,12 @@ declare namespace msgProto {
         public strVal: string[];
 
         /**
-         * Encodes the specified SyncOptData message. Does not implicitly {@link msgProto.SyncOptData.verify|verify} messages.
+         * Encodes the specified SyncOptData message. Does not implicitly {@link pb.SyncOptData.verify|verify} messages.
          * @param message SyncOptData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: msgProto.ISyncOptData, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: pb.ISyncOptData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a SyncOptData message from the specified reader or buffer.
@@ -2911,14 +2911,14 @@ declare namespace msgProto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): msgProto.SyncOptData;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SyncOptData;
 
         /**
          * Creates a SyncOptData message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
          * @returns SyncOptData
          */
-        public static fromObject(object: { [k: string]: any }): msgProto.SyncOptData;
+        public static fromObject(object: { [k: string]: any }): pb.SyncOptData;
 
         /**
          * Creates a plain object from a SyncOptData message. Also converts values to other types if specified.
@@ -2926,7 +2926,7 @@ declare namespace msgProto {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: msgProto.SyncOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: pb.SyncOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this SyncOptData to JSON.

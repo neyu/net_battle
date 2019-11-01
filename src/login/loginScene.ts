@@ -11,11 +11,11 @@ class LoginScene extends egret.DisplayObjectContainer {
     constructor() {
         super()
 
-        Net.regMsgProc("msgProto.LoginResponse", this.loginResponse, this)
-        Net.regMsgProc("msgProto.SvrListResponse", this.svrListGetResponse, this)
+        Net.regMsgProc("pb.LoginResponse", this.loginResponse, this)
+        Net.regMsgProc("pb.SvrListResponse", this.svrListGetResponse, this)
 
-        Net.regMsgProc("msgProto.GameEnterResponse", this.gameEnterResponse, this)
-        Net.regMsgProc("msgProto.UserCreateResponse", this.userCreateResponse, this)
+        Net.regMsgProc("pb.GameEnterResponse", this.gameEnterResponse, this)
+        Net.regMsgProc("pb.UserCreateResponse", this.userCreateResponse, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -163,7 +163,7 @@ class LoginScene extends egret.DisplayObjectContainer {
             TipMgr.showTip(Net.strCode["pwdNotSame"].text)
             return
         } else {
-            Net.Send("msgProto.AccountRegister", {
+            Net.Send("pb.AccountRegister", {
                 account: acc,
                 pwd: pwd1,
                 deviceId: "device" + new Date().getTime().toString(),
@@ -180,7 +180,7 @@ class LoginScene extends egret.DisplayObjectContainer {
             return
         }
 
-        let testSvr: msgProto.PbSvrInfo = null;
+        let testSvr: pb.PbSvrInfo = null;
         if (this._userSvrs.length > 0) {
             testSvr = this._userSvrs[0];
         } else if (this._svrList.length > 0) {

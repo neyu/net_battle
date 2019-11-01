@@ -81,7 +81,7 @@ class Login {
                 TipMgr.showTip("未联网。。。");
                 return   
             }
-            Net.Send("msgProto.AccountLogin", {
+            Net.Send("pb.AccountLogin", {
                 account: this._account,
                 pwd: this._password,
                 channelId: 99999
@@ -129,13 +129,13 @@ class Login {
     }
 
     public getServerInfo() {
-        Net.Send("msgProto.SvrListGet", {
+        Net.Send("pb.SvrListGet", {
             isTest: 1
         })
     }
 
     public getUserServers() {
-        Net.Send("msgProto.UserSvrsGet", {
+        Net.Send("pb.UserSvrsGet", {
             accId: this._accountId
         })
     }
@@ -149,7 +149,7 @@ class Login {
     }
 
     public enterGame() {
-        Net.Send("msgProto.GameEnter", {
+        Net.Send("pb.GameEnter", {
             accId: this._accountId,
             loginKey: this._loginKey,
             serverId: 1
@@ -157,7 +157,7 @@ class Login {
     }
 
     public createRole(idx:number, name:string) {
-        Net.Send("msgProto.UserCreate", {
+        Net.Send("pb.UserCreate", {
             name: name, //"测试" + Math.round(Math.random() * 100).toString(),
             tempId: idx,
             serverId: 1,

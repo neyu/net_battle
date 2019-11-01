@@ -37,11 +37,11 @@ class Battle {
     }
     public gotoLobby() {
         if (this.mode == 0) {
-            Net.Send("msgProto.ExitClsRoom", {
+            Net.Send("pb.ExitClsRoom", {
                 roomId: this._roomId
             })
         } else if (this.mode == 1) {
-            Net.Send("msgProto.ExitDiceRoom", {
+            Net.Send("pb.ExitDiceRoom", {
                 roomId: this._roomId
             })
         }

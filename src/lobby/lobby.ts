@@ -11,7 +11,7 @@ class Lobby {
         return Lobby._inst;
     }
     private init() {
-        Net.regMsgProc("msgProto.TestNetLatency", this.testLatencyResponse, this)
+        Net.regMsgProc("pb.TestNetLatency", this.testLatencyResponse, this)
     }
     public createScene() {
         this._lobbyScene = new LobbyScene()
@@ -58,7 +58,7 @@ class Lobby {
         TimerMgr.inst.doTimer(this._interval, 0, this.doTest, this);    
     }
     private doTest() {
-        Net.Send("msgProto.TestNetLatency", {
+        Net.Send("pb.TestNetLatency", {
             time: new Date().getTime()
         });
     }

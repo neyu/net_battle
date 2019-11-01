@@ -9,7 +9,7 @@ class BtScene extends egret.DisplayObjectContainer {
         this._btType = type;
 
         Net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
-        Net.regMsgProc("msgProto.ExchangeOptData", this.syncOptData, this)
+        Net.regMsgProc("pb.ExchangeOptData", this.syncOptData, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -79,7 +79,7 @@ class BtScene extends egret.DisplayObjectContainer {
             this._diceView.showNetLatency(data.lag);
         }
     }
-    private syncOptData(msg:msgProto.ExchangeOptData) {
+    private syncOptData(msg:pb.ExchangeOptData) {
         let data:IOptData = JSON.parse(msg.optData)
         // Util.log("sync opt data:", msg.optData, opt) // 
         if (data.opt == "shoot") {

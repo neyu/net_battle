@@ -6,25 +6,25 @@ var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.ut
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
-$root.msgProto = (function() {
+$root.pb = (function() {
 
     /**
-     * Namespace msgProto.
-     * @exports msgProto
+     * Namespace pb.
+     * @exports pb
      * @namespace
      */
-    var msgProto = {};
+    var pb = {};
 
     /**
      * ResultCode enum.
-     * @name msgProto.ResultCode
+     * @name pb.ResultCode
      * @enum {string}
      * @property {number} NoError=0 NoError value
      * @property {number} GateNotFound=1 GateNotFound value
      * @property {number} GateAddressError=2 GateAddressError value
      * @property {number} GameNotFound=3 GameNotFound value
      */
-    msgProto.ResultCode = (function() {
+    pb.ResultCode = (function() {
         var valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "NoError"] = 0;
         values[valuesById[1] = "GateNotFound"] = 1;
@@ -35,7 +35,7 @@ $root.msgProto = (function() {
 
     /**
      * Prop enum.
-     * @name msgProto.Prop
+     * @name pb.Prop
      * @enum {string}
      * @property {number} Gold=0 Gold value
      * @property {number} Diamond=1 Diamond value
@@ -48,7 +48,7 @@ $root.msgProto = (function() {
      * @property {number} Mp=15 Mp value
      * @property {number} Ap=16 Ap value
      */
-    msgProto.Prop = (function() {
+    pb.Prop = (function() {
         var valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "Gold"] = 0;
         values[valuesById[1] = "Diamond"] = 1;
@@ -65,34 +65,34 @@ $root.msgProto = (function() {
 
     /**
      * Opt enum.
-     * @name msgProto.Opt
+     * @name pb.Opt
      * @enum {string}
      * @property {number} Buy=0 Buy value
      * @property {number} Sale=1 Sale value
      */
-    msgProto.Opt = (function() {
+    pb.Opt = (function() {
         var valuesById = {}, values = Object.create(valuesById);
         values[valuesById[0] = "Buy"] = 0;
         values[valuesById[1] = "Sale"] = 1;
         return values;
     })();
 
-    msgProto.ChatReq = (function() {
+    pb.ChatReq = (function() {
 
         /**
          * Properties of a ChatReq.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IChatReq
          * @property {string|null} [content] ChatReq content
          */
 
         /**
          * Constructs a new ChatReq.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a ChatReq.
          * @implements IChatReq
          * @constructor
-         * @param {msgProto.IChatReq=} [properties] Properties to set
+         * @param {pb.IChatReq=} [properties] Properties to set
          */
         function ChatReq(properties) {
             if (properties)
@@ -104,17 +104,17 @@ $root.msgProto = (function() {
         /**
          * ChatReq content.
          * @member {string} content
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @instance
          */
         ChatReq.prototype.content = "";
 
         /**
-         * Encodes the specified ChatReq message. Does not implicitly {@link msgProto.ChatReq.verify|verify} messages.
+         * Encodes the specified ChatReq message. Does not implicitly {@link pb.ChatReq.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @static
-         * @param {msgProto.IChatReq} message ChatReq message or plain object to encode
+         * @param {pb.IChatReq} message ChatReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -129,18 +129,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a ChatReq message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ChatReq} ChatReq
+         * @returns {pb.ChatReq} ChatReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ChatReq.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ChatReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ChatReq();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -158,15 +158,15 @@ $root.msgProto = (function() {
         /**
          * Creates a ChatReq message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ChatReq} ChatReq
+         * @returns {pb.ChatReq} ChatReq
          */
         ChatReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ChatReq)
+            if (object instanceof $root.pb.ChatReq)
                 return object;
-            var message = new $root.msgProto.ChatReq();
+            var message = new $root.pb.ChatReq();
             if (object.content != null)
                 message.content = String(object.content);
             return message;
@@ -175,9 +175,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a ChatReq message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @static
-         * @param {msgProto.ChatReq} message ChatReq
+         * @param {pb.ChatReq} message ChatReq
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -195,7 +195,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ChatReq to JSON.
          * @function toJSON
-         * @memberof msgProto.ChatReq
+         * @memberof pb.ChatReq
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -206,22 +206,22 @@ $root.msgProto = (function() {
         return ChatReq;
     })();
 
-    msgProto.ChatAck = (function() {
+    pb.ChatAck = (function() {
 
         /**
          * Properties of a ChatAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IChatAck
          * @property {string|null} [content] ChatAck content
          */
 
         /**
          * Constructs a new ChatAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a ChatAck.
          * @implements IChatAck
          * @constructor
-         * @param {msgProto.IChatAck=} [properties] Properties to set
+         * @param {pb.IChatAck=} [properties] Properties to set
          */
         function ChatAck(properties) {
             if (properties)
@@ -233,17 +233,17 @@ $root.msgProto = (function() {
         /**
          * ChatAck content.
          * @member {string} content
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @instance
          */
         ChatAck.prototype.content = "";
 
         /**
-         * Encodes the specified ChatAck message. Does not implicitly {@link msgProto.ChatAck.verify|verify} messages.
+         * Encodes the specified ChatAck message. Does not implicitly {@link pb.ChatAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @static
-         * @param {msgProto.IChatAck} message ChatAck message or plain object to encode
+         * @param {pb.IChatAck} message ChatAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -258,18 +258,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a ChatAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ChatAck} ChatAck
+         * @returns {pb.ChatAck} ChatAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ChatAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ChatAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ChatAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -287,15 +287,15 @@ $root.msgProto = (function() {
         /**
          * Creates a ChatAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ChatAck} ChatAck
+         * @returns {pb.ChatAck} ChatAck
          */
         ChatAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ChatAck)
+            if (object instanceof $root.pb.ChatAck)
                 return object;
-            var message = new $root.msgProto.ChatAck();
+            var message = new $root.pb.ChatAck();
             if (object.content != null)
                 message.content = String(object.content);
             return message;
@@ -304,9 +304,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a ChatAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @static
-         * @param {msgProto.ChatAck} message ChatAck
+         * @param {pb.ChatAck} message ChatAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -324,7 +324,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ChatAck to JSON.
          * @function toJSON
-         * @memberof msgProto.ChatAck
+         * @memberof pb.ChatAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -335,22 +335,22 @@ $root.msgProto = (function() {
         return ChatAck;
     })();
 
-    msgProto.TestAck = (function() {
+    pb.TestAck = (function() {
 
         /**
          * Properties of a TestAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ITestAck
          * @property {string|null} [dummy] TestAck dummy
          */
 
         /**
          * Constructs a new TestAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a TestAck.
          * @implements ITestAck
          * @constructor
-         * @param {msgProto.ITestAck=} [properties] Properties to set
+         * @param {pb.ITestAck=} [properties] Properties to set
          */
         function TestAck(properties) {
             if (properties)
@@ -362,17 +362,17 @@ $root.msgProto = (function() {
         /**
          * TestAck dummy.
          * @member {string} dummy
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @instance
          */
         TestAck.prototype.dummy = "";
 
         /**
-         * Encodes the specified TestAck message. Does not implicitly {@link msgProto.TestAck.verify|verify} messages.
+         * Encodes the specified TestAck message. Does not implicitly {@link pb.TestAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @static
-         * @param {msgProto.ITestAck} message TestAck message or plain object to encode
+         * @param {pb.ITestAck} message TestAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -387,18 +387,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a TestAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.TestAck} TestAck
+         * @returns {pb.TestAck} TestAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         TestAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.TestAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.TestAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -416,15 +416,15 @@ $root.msgProto = (function() {
         /**
          * Creates a TestAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.TestAck} TestAck
+         * @returns {pb.TestAck} TestAck
          */
         TestAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.TestAck)
+            if (object instanceof $root.pb.TestAck)
                 return object;
-            var message = new $root.msgProto.TestAck();
+            var message = new $root.pb.TestAck();
             if (object.dummy != null)
                 message.dummy = String(object.dummy);
             return message;
@@ -433,9 +433,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a TestAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @static
-         * @param {msgProto.TestAck} message TestAck
+         * @param {pb.TestAck} message TestAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -453,7 +453,7 @@ $root.msgProto = (function() {
         /**
          * Converts this TestAck to JSON.
          * @function toJSON
-         * @memberof msgProto.TestAck
+         * @memberof pb.TestAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -464,11 +464,11 @@ $root.msgProto = (function() {
         return TestAck;
     })();
 
-    msgProto.ContentReq = (function() {
+    pb.ContentReq = (function() {
 
         /**
          * Properties of a ContentReq.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IContentReq
          * @property {string|null} [msg] ContentReq msg
          * @property {number|null} [value] ContentReq value
@@ -476,11 +476,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new ContentReq.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a ContentReq.
          * @implements IContentReq
          * @constructor
-         * @param {msgProto.IContentReq=} [properties] Properties to set
+         * @param {pb.IContentReq=} [properties] Properties to set
          */
         function ContentReq(properties) {
             if (properties)
@@ -492,7 +492,7 @@ $root.msgProto = (function() {
         /**
          * ContentReq msg.
          * @member {string} msg
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @instance
          */
         ContentReq.prototype.msg = "";
@@ -500,17 +500,17 @@ $root.msgProto = (function() {
         /**
          * ContentReq value.
          * @member {number} value
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @instance
          */
         ContentReq.prototype.value = 0;
 
         /**
-         * Encodes the specified ContentReq message. Does not implicitly {@link msgProto.ContentReq.verify|verify} messages.
+         * Encodes the specified ContentReq message. Does not implicitly {@link pb.ContentReq.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @static
-         * @param {msgProto.IContentReq} message ContentReq message or plain object to encode
+         * @param {pb.IContentReq} message ContentReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -527,18 +527,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a ContentReq message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ContentReq} ContentReq
+         * @returns {pb.ContentReq} ContentReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ContentReq.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ContentReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ContentReq();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -559,15 +559,15 @@ $root.msgProto = (function() {
         /**
          * Creates a ContentReq message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ContentReq} ContentReq
+         * @returns {pb.ContentReq} ContentReq
          */
         ContentReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ContentReq)
+            if (object instanceof $root.pb.ContentReq)
                 return object;
-            var message = new $root.msgProto.ContentReq();
+            var message = new $root.pb.ContentReq();
             if (object.msg != null)
                 message.msg = String(object.msg);
             if (object.value != null)
@@ -578,9 +578,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a ContentReq message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @static
-         * @param {msgProto.ContentReq} message ContentReq
+         * @param {pb.ContentReq} message ContentReq
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -602,7 +602,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ContentReq to JSON.
          * @function toJSON
-         * @memberof msgProto.ContentReq
+         * @memberof pb.ContentReq
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -613,11 +613,11 @@ $root.msgProto = (function() {
         return ContentReq;
     })();
 
-    msgProto.ContentAck = (function() {
+    pb.ContentAck = (function() {
 
         /**
          * Properties of a ContentAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IContentAck
          * @property {string|null} [msg] ContentAck msg
          * @property {number|null} [value] ContentAck value
@@ -625,11 +625,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new ContentAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a ContentAck.
          * @implements IContentAck
          * @constructor
-         * @param {msgProto.IContentAck=} [properties] Properties to set
+         * @param {pb.IContentAck=} [properties] Properties to set
          */
         function ContentAck(properties) {
             if (properties)
@@ -641,7 +641,7 @@ $root.msgProto = (function() {
         /**
          * ContentAck msg.
          * @member {string} msg
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @instance
          */
         ContentAck.prototype.msg = "";
@@ -649,17 +649,17 @@ $root.msgProto = (function() {
         /**
          * ContentAck value.
          * @member {number} value
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @instance
          */
         ContentAck.prototype.value = 0;
 
         /**
-         * Encodes the specified ContentAck message. Does not implicitly {@link msgProto.ContentAck.verify|verify} messages.
+         * Encodes the specified ContentAck message. Does not implicitly {@link pb.ContentAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @static
-         * @param {msgProto.IContentAck} message ContentAck message or plain object to encode
+         * @param {pb.IContentAck} message ContentAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -676,18 +676,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a ContentAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ContentAck} ContentAck
+         * @returns {pb.ContentAck} ContentAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ContentAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ContentAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ContentAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -708,15 +708,15 @@ $root.msgProto = (function() {
         /**
          * Creates a ContentAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ContentAck} ContentAck
+         * @returns {pb.ContentAck} ContentAck
          */
         ContentAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ContentAck)
+            if (object instanceof $root.pb.ContentAck)
                 return object;
-            var message = new $root.msgProto.ContentAck();
+            var message = new $root.pb.ContentAck();
             if (object.msg != null)
                 message.msg = String(object.msg);
             if (object.value != null)
@@ -727,9 +727,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a ContentAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @static
-         * @param {msgProto.ContentAck} message ContentAck
+         * @param {pb.ContentAck} message ContentAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -751,7 +751,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ContentAck to JSON.
          * @function toJSON
-         * @memberof msgProto.ContentAck
+         * @memberof pb.ContentAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -762,11 +762,11 @@ $root.msgProto = (function() {
         return ContentAck;
     })();
 
-    msgProto.ServerInfo = (function() {
+    pb.ServerInfo = (function() {
 
         /**
          * Properties of a ServerInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IServerInfo
          * @property {string|null} [ip] ServerInfo ip
          * @property {number|null} [port] ServerInfo port
@@ -774,11 +774,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new ServerInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a ServerInfo.
          * @implements IServerInfo
          * @constructor
-         * @param {msgProto.IServerInfo=} [properties] Properties to set
+         * @param {pb.IServerInfo=} [properties] Properties to set
          */
         function ServerInfo(properties) {
             if (properties)
@@ -790,7 +790,7 @@ $root.msgProto = (function() {
         /**
          * ServerInfo ip.
          * @member {string} ip
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @instance
          */
         ServerInfo.prototype.ip = "";
@@ -798,17 +798,17 @@ $root.msgProto = (function() {
         /**
          * ServerInfo port.
          * @member {number} port
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @instance
          */
         ServerInfo.prototype.port = 0;
 
         /**
-         * Encodes the specified ServerInfo message. Does not implicitly {@link msgProto.ServerInfo.verify|verify} messages.
+         * Encodes the specified ServerInfo message. Does not implicitly {@link pb.ServerInfo.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @static
-         * @param {msgProto.IServerInfo} message ServerInfo message or plain object to encode
+         * @param {pb.IServerInfo} message ServerInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -825,18 +825,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a ServerInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ServerInfo} ServerInfo
+         * @returns {pb.ServerInfo} ServerInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ServerInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ServerInfo();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ServerInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -857,15 +857,15 @@ $root.msgProto = (function() {
         /**
          * Creates a ServerInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ServerInfo} ServerInfo
+         * @returns {pb.ServerInfo} ServerInfo
          */
         ServerInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ServerInfo)
+            if (object instanceof $root.pb.ServerInfo)
                 return object;
-            var message = new $root.msgProto.ServerInfo();
+            var message = new $root.pb.ServerInfo();
             if (object.ip != null)
                 message.ip = String(object.ip);
             if (object.port != null)
@@ -876,9 +876,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a ServerInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @static
-         * @param {msgProto.ServerInfo} message ServerInfo
+         * @param {pb.ServerInfo} message ServerInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -900,7 +900,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ServerInfo to JSON.
          * @function toJSON
-         * @memberof msgProto.ServerInfo
+         * @memberof pb.ServerInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -911,21 +911,21 @@ $root.msgProto = (function() {
         return ServerInfo;
     })();
 
-    msgProto.PingAck = (function() {
+    pb.PingAck = (function() {
 
         /**
          * Properties of a PingAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IPingAck
          */
 
         /**
          * Constructs a new PingAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a PingAck.
          * @implements IPingAck
          * @constructor
-         * @param {msgProto.IPingAck=} [properties] Properties to set
+         * @param {pb.IPingAck=} [properties] Properties to set
          */
         function PingAck(properties) {
             if (properties)
@@ -935,11 +935,11 @@ $root.msgProto = (function() {
         }
 
         /**
-         * Encodes the specified PingAck message. Does not implicitly {@link msgProto.PingAck.verify|verify} messages.
+         * Encodes the specified PingAck message. Does not implicitly {@link pb.PingAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.PingAck
+         * @memberof pb.PingAck
          * @static
-         * @param {msgProto.IPingAck} message PingAck message or plain object to encode
+         * @param {pb.IPingAck} message PingAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -952,18 +952,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a PingAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.PingAck
+         * @memberof pb.PingAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.PingAck} PingAck
+         * @returns {pb.PingAck} PingAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         PingAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PingAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.PingAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -978,23 +978,23 @@ $root.msgProto = (function() {
         /**
          * Creates a PingAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.PingAck
+         * @memberof pb.PingAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.PingAck} PingAck
+         * @returns {pb.PingAck} PingAck
          */
         PingAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.PingAck)
+            if (object instanceof $root.pb.PingAck)
                 return object;
-            return new $root.msgProto.PingAck();
+            return new $root.pb.PingAck();
         };
 
         /**
          * Creates a plain object from a PingAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.PingAck
+         * @memberof pb.PingAck
          * @static
-         * @param {msgProto.PingAck} message PingAck
+         * @param {pb.PingAck} message PingAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1005,7 +1005,7 @@ $root.msgProto = (function() {
         /**
          * Converts this PingAck to JSON.
          * @function toJSON
-         * @memberof msgProto.PingAck
+         * @memberof pb.PingAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1016,11 +1016,11 @@ $root.msgProto = (function() {
         return PingAck;
     })();
 
-    msgProto.LoginReq = (function() {
+    pb.LoginReq = (function() {
 
         /**
          * Properties of a LoginReq.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ILoginReq
          * @property {string|null} [version] LoginReq version
          * @property {string|null} [platform] LoginReq platform
@@ -1029,11 +1029,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new LoginReq.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a LoginReq.
          * @implements ILoginReq
          * @constructor
-         * @param {msgProto.ILoginReq=} [properties] Properties to set
+         * @param {pb.ILoginReq=} [properties] Properties to set
          */
         function LoginReq(properties) {
             if (properties)
@@ -1045,7 +1045,7 @@ $root.msgProto = (function() {
         /**
          * LoginReq version.
          * @member {string} version
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @instance
          */
         LoginReq.prototype.version = "";
@@ -1053,7 +1053,7 @@ $root.msgProto = (function() {
         /**
          * LoginReq platform.
          * @member {string} platform
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @instance
          */
         LoginReq.prototype.platform = "";
@@ -1061,17 +1061,17 @@ $root.msgProto = (function() {
         /**
          * LoginReq uid.
          * @member {string} uid
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @instance
          */
         LoginReq.prototype.uid = "";
 
         /**
-         * Encodes the specified LoginReq message. Does not implicitly {@link msgProto.LoginReq.verify|verify} messages.
+         * Encodes the specified LoginReq message. Does not implicitly {@link pb.LoginReq.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @static
-         * @param {msgProto.ILoginReq} message LoginReq message or plain object to encode
+         * @param {pb.ILoginReq} message LoginReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1090,18 +1090,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a LoginReq message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.LoginReq} LoginReq
+         * @returns {pb.LoginReq} LoginReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         LoginReq.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.LoginReq();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1125,15 +1125,15 @@ $root.msgProto = (function() {
         /**
          * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.LoginReq} LoginReq
+         * @returns {pb.LoginReq} LoginReq
          */
         LoginReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.LoginReq)
+            if (object instanceof $root.pb.LoginReq)
                 return object;
-            var message = new $root.msgProto.LoginReq();
+            var message = new $root.pb.LoginReq();
             if (object.version != null)
                 message.version = String(object.version);
             if (object.platform != null)
@@ -1146,9 +1146,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @static
-         * @param {msgProto.LoginReq} message LoginReq
+         * @param {pb.LoginReq} message LoginReq
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1173,7 +1173,7 @@ $root.msgProto = (function() {
         /**
          * Converts this LoginReq to JSON.
          * @function toJSON
-         * @memberof msgProto.LoginReq
+         * @memberof pb.LoginReq
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1184,25 +1184,25 @@ $root.msgProto = (function() {
         return LoginReq;
     })();
 
-    msgProto.LoginAck = (function() {
+    pb.LoginAck = (function() {
 
         /**
          * Properties of a LoginAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ILoginAck
-         * @property {msgProto.ResultCode|null} [result] LoginAck result
-         * @property {msgProto.IServerInfo|null} [server] LoginAck server
+         * @property {pb.ResultCode|null} [result] LoginAck result
+         * @property {pb.IServerInfo|null} [server] LoginAck server
          * @property {string|null} [gameToken] LoginAck gameToken
          * @property {string|null} [gameSvcId] LoginAck gameSvcId
          */
 
         /**
          * Constructs a new LoginAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a LoginAck.
          * @implements ILoginAck
          * @constructor
-         * @param {msgProto.ILoginAck=} [properties] Properties to set
+         * @param {pb.ILoginAck=} [properties] Properties to set
          */
         function LoginAck(properties) {
             if (properties)
@@ -1213,16 +1213,16 @@ $root.msgProto = (function() {
 
         /**
          * LoginAck result.
-         * @member {msgProto.ResultCode} result
-         * @memberof msgProto.LoginAck
+         * @member {pb.ResultCode} result
+         * @memberof pb.LoginAck
          * @instance
          */
         LoginAck.prototype.result = 0;
 
         /**
          * LoginAck server.
-         * @member {msgProto.IServerInfo|null|undefined} server
-         * @memberof msgProto.LoginAck
+         * @member {pb.IServerInfo|null|undefined} server
+         * @memberof pb.LoginAck
          * @instance
          */
         LoginAck.prototype.server = null;
@@ -1230,7 +1230,7 @@ $root.msgProto = (function() {
         /**
          * LoginAck gameToken.
          * @member {string} gameToken
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @instance
          */
         LoginAck.prototype.gameToken = "";
@@ -1238,17 +1238,17 @@ $root.msgProto = (function() {
         /**
          * LoginAck gameSvcId.
          * @member {string} gameSvcId
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @instance
          */
         LoginAck.prototype.gameSvcId = "";
 
         /**
-         * Encodes the specified LoginAck message. Does not implicitly {@link msgProto.LoginAck.verify|verify} messages.
+         * Encodes the specified LoginAck message. Does not implicitly {@link pb.LoginAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @static
-         * @param {msgProto.ILoginAck} message LoginAck message or plain object to encode
+         * @param {pb.ILoginAck} message LoginAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1258,7 +1258,7 @@ $root.msgProto = (function() {
             if (message.result != null && message.hasOwnProperty("result"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             if (message.server != null && message.hasOwnProperty("server"))
-                $root.msgProto.ServerInfo.encode(message.server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                $root.pb.ServerInfo.encode(message.server, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.gameToken != null && message.hasOwnProperty("gameToken"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.gameToken);
             if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
@@ -1269,18 +1269,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a LoginAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.LoginAck} LoginAck
+         * @returns {pb.LoginAck} LoginAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         LoginAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.LoginAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1288,7 +1288,7 @@ $root.msgProto = (function() {
                     message.result = reader.int32();
                     break;
                 case 2:
-                    message.server = $root.msgProto.ServerInfo.decode(reader, reader.uint32());
+                    message.server = $root.pb.ServerInfo.decode(reader, reader.uint32());
                     break;
                 case 3:
                     message.gameToken = reader.string();
@@ -1307,15 +1307,15 @@ $root.msgProto = (function() {
         /**
          * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.LoginAck} LoginAck
+         * @returns {pb.LoginAck} LoginAck
          */
         LoginAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.LoginAck)
+            if (object instanceof $root.pb.LoginAck)
                 return object;
-            var message = new $root.msgProto.LoginAck();
+            var message = new $root.pb.LoginAck();
             switch (object.result) {
             case "NoError":
             case 0:
@@ -1336,8 +1336,8 @@ $root.msgProto = (function() {
             }
             if (object.server != null) {
                 if (typeof object.server !== "object")
-                    throw TypeError(".msgProto.LoginAck.server: object expected");
-                message.server = $root.msgProto.ServerInfo.fromObject(object.server);
+                    throw TypeError(".pb.LoginAck.server: object expected");
+                message.server = $root.pb.ServerInfo.fromObject(object.server);
             }
             if (object.gameToken != null)
                 message.gameToken = String(object.gameToken);
@@ -1349,9 +1349,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @static
-         * @param {msgProto.LoginAck} message LoginAck
+         * @param {pb.LoginAck} message LoginAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1366,9 +1366,9 @@ $root.msgProto = (function() {
                 object.gameSvcId = "";
             }
             if (message.result != null && message.hasOwnProperty("result"))
-                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+                object.result = options.enums === String ? $root.pb.ResultCode[message.result] : message.result;
             if (message.server != null && message.hasOwnProperty("server"))
-                object.server = $root.msgProto.ServerInfo.toObject(message.server, options);
+                object.server = $root.pb.ServerInfo.toObject(message.server, options);
             if (message.gameToken != null && message.hasOwnProperty("gameToken"))
                 object.gameToken = message.gameToken;
             if (message.gameSvcId != null && message.hasOwnProperty("gameSvcId"))
@@ -1379,7 +1379,7 @@ $root.msgProto = (function() {
         /**
          * Converts this LoginAck to JSON.
          * @function toJSON
-         * @memberof msgProto.LoginAck
+         * @memberof pb.LoginAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1390,11 +1390,11 @@ $root.msgProto = (function() {
         return LoginAck;
     })();
 
-    msgProto.VerifyReq = (function() {
+    pb.VerifyReq = (function() {
 
         /**
          * Properties of a VerifyReq.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IVerifyReq
          * @property {string|null} [gameToken] VerifyReq gameToken
          * @property {string|null} [gameSvcId] VerifyReq gameSvcId
@@ -1403,11 +1403,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new VerifyReq.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a VerifyReq.
          * @implements IVerifyReq
          * @constructor
-         * @param {msgProto.IVerifyReq=} [properties] Properties to set
+         * @param {pb.IVerifyReq=} [properties] Properties to set
          */
         function VerifyReq(properties) {
             if (properties)
@@ -1419,7 +1419,7 @@ $root.msgProto = (function() {
         /**
          * VerifyReq gameToken.
          * @member {string} gameToken
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @instance
          */
         VerifyReq.prototype.gameToken = "";
@@ -1427,7 +1427,7 @@ $root.msgProto = (function() {
         /**
          * VerifyReq gameSvcId.
          * @member {string} gameSvcId
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @instance
          */
         VerifyReq.prototype.gameSvcId = "";
@@ -1435,17 +1435,17 @@ $root.msgProto = (function() {
         /**
          * VerifyReq accountId.
          * @member {number|Long} accountId
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @instance
          */
         VerifyReq.prototype.accountId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified VerifyReq message. Does not implicitly {@link msgProto.VerifyReq.verify|verify} messages.
+         * Encodes the specified VerifyReq message. Does not implicitly {@link pb.VerifyReq.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @static
-         * @param {msgProto.IVerifyReq} message VerifyReq message or plain object to encode
+         * @param {pb.IVerifyReq} message VerifyReq message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1464,18 +1464,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a VerifyReq message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.VerifyReq} VerifyReq
+         * @returns {pb.VerifyReq} VerifyReq
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         VerifyReq.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyReq();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.VerifyReq();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1499,15 +1499,15 @@ $root.msgProto = (function() {
         /**
          * Creates a VerifyReq message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.VerifyReq} VerifyReq
+         * @returns {pb.VerifyReq} VerifyReq
          */
         VerifyReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.VerifyReq)
+            if (object instanceof $root.pb.VerifyReq)
                 return object;
-            var message = new $root.msgProto.VerifyReq();
+            var message = new $root.pb.VerifyReq();
             if (object.gameToken != null)
                 message.gameToken = String(object.gameToken);
             if (object.gameSvcId != null)
@@ -1527,9 +1527,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a VerifyReq message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @static
-         * @param {msgProto.VerifyReq} message VerifyReq
+         * @param {pb.VerifyReq} message VerifyReq
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1561,7 +1561,7 @@ $root.msgProto = (function() {
         /**
          * Converts this VerifyReq to JSON.
          * @function toJSON
-         * @memberof msgProto.VerifyReq
+         * @memberof pb.VerifyReq
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1572,22 +1572,22 @@ $root.msgProto = (function() {
         return VerifyReq;
     })();
 
-    msgProto.VerifyAck = (function() {
+    pb.VerifyAck = (function() {
 
         /**
          * Properties of a VerifyAck.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IVerifyAck
-         * @property {msgProto.ResultCode|null} [result] VerifyAck result
+         * @property {pb.ResultCode|null} [result] VerifyAck result
          */
 
         /**
          * Constructs a new VerifyAck.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a VerifyAck.
          * @implements IVerifyAck
          * @constructor
-         * @param {msgProto.IVerifyAck=} [properties] Properties to set
+         * @param {pb.IVerifyAck=} [properties] Properties to set
          */
         function VerifyAck(properties) {
             if (properties)
@@ -1598,18 +1598,18 @@ $root.msgProto = (function() {
 
         /**
          * VerifyAck result.
-         * @member {msgProto.ResultCode} result
-         * @memberof msgProto.VerifyAck
+         * @member {pb.ResultCode} result
+         * @memberof pb.VerifyAck
          * @instance
          */
         VerifyAck.prototype.result = 0;
 
         /**
-         * Encodes the specified VerifyAck message. Does not implicitly {@link msgProto.VerifyAck.verify|verify} messages.
+         * Encodes the specified VerifyAck message. Does not implicitly {@link pb.VerifyAck.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.VerifyAck
+         * @memberof pb.VerifyAck
          * @static
-         * @param {msgProto.IVerifyAck} message VerifyAck message or plain object to encode
+         * @param {pb.IVerifyAck} message VerifyAck message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1624,18 +1624,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a VerifyAck message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.VerifyAck
+         * @memberof pb.VerifyAck
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.VerifyAck} VerifyAck
+         * @returns {pb.VerifyAck} VerifyAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         VerifyAck.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.VerifyAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.VerifyAck();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1653,15 +1653,15 @@ $root.msgProto = (function() {
         /**
          * Creates a VerifyAck message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.VerifyAck
+         * @memberof pb.VerifyAck
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.VerifyAck} VerifyAck
+         * @returns {pb.VerifyAck} VerifyAck
          */
         VerifyAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.VerifyAck)
+            if (object instanceof $root.pb.VerifyAck)
                 return object;
-            var message = new $root.msgProto.VerifyAck();
+            var message = new $root.pb.VerifyAck();
             switch (object.result) {
             case "NoError":
             case 0:
@@ -1686,9 +1686,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a VerifyAck message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.VerifyAck
+         * @memberof pb.VerifyAck
          * @static
-         * @param {msgProto.VerifyAck} message VerifyAck
+         * @param {pb.VerifyAck} message VerifyAck
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1699,14 +1699,14 @@ $root.msgProto = (function() {
             if (options.defaults)
                 object.result = options.enums === String ? "NoError" : 0;
             if (message.result != null && message.hasOwnProperty("result"))
-                object.result = options.enums === String ? $root.msgProto.ResultCode[message.result] : message.result;
+                object.result = options.enums === String ? $root.pb.ResultCode[message.result] : message.result;
             return object;
         };
 
         /**
          * Converts this VerifyAck to JSON.
          * @function toJSON
-         * @memberof msgProto.VerifyAck
+         * @memberof pb.VerifyAck
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1717,11 +1717,11 @@ $root.msgProto = (function() {
         return VerifyAck;
     })();
 
-    msgProto.UserCreate = (function() {
+    pb.UserCreate = (function() {
 
         /**
          * Properties of a UserCreate.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IUserCreate
          * @property {string|null} [name] UserCreate name
          * @property {number|null} [tempId] UserCreate tempId
@@ -1731,11 +1731,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new UserCreate.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a UserCreate.
          * @implements IUserCreate
          * @constructor
-         * @param {msgProto.IUserCreate=} [properties] Properties to set
+         * @param {pb.IUserCreate=} [properties] Properties to set
          */
         function UserCreate(properties) {
             if (properties)
@@ -1747,7 +1747,7 @@ $root.msgProto = (function() {
         /**
          * UserCreate name.
          * @member {string} name
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @instance
          */
         UserCreate.prototype.name = "";
@@ -1755,7 +1755,7 @@ $root.msgProto = (function() {
         /**
          * UserCreate tempId.
          * @member {number} tempId
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @instance
          */
         UserCreate.prototype.tempId = 0;
@@ -1763,7 +1763,7 @@ $root.msgProto = (function() {
         /**
          * UserCreate serverId.
          * @member {number} serverId
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @instance
          */
         UserCreate.prototype.serverId = 0;
@@ -1771,17 +1771,17 @@ $root.msgProto = (function() {
         /**
          * UserCreate shareKey.
          * @member {string} shareKey
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @instance
          */
         UserCreate.prototype.shareKey = "";
 
         /**
-         * Encodes the specified UserCreate message. Does not implicitly {@link msgProto.UserCreate.verify|verify} messages.
+         * Encodes the specified UserCreate message. Does not implicitly {@link pb.UserCreate.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @static
-         * @param {msgProto.IUserCreate} message UserCreate message or plain object to encode
+         * @param {pb.IUserCreate} message UserCreate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1802,18 +1802,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a UserCreate message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.UserCreate} UserCreate
+         * @returns {pb.UserCreate} UserCreate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         UserCreate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.UserCreate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.UserCreate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1840,15 +1840,15 @@ $root.msgProto = (function() {
         /**
          * Creates a UserCreate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.UserCreate} UserCreate
+         * @returns {pb.UserCreate} UserCreate
          */
         UserCreate.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.UserCreate)
+            if (object instanceof $root.pb.UserCreate)
                 return object;
-            var message = new $root.msgProto.UserCreate();
+            var message = new $root.pb.UserCreate();
             if (object.name != null)
                 message.name = String(object.name);
             if (object.tempId != null)
@@ -1863,9 +1863,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a UserCreate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @static
-         * @param {msgProto.UserCreate} message UserCreate
+         * @param {pb.UserCreate} message UserCreate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -1893,7 +1893,7 @@ $root.msgProto = (function() {
         /**
          * Converts this UserCreate to JSON.
          * @function toJSON
-         * @memberof msgProto.UserCreate
+         * @memberof pb.UserCreate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -1904,22 +1904,22 @@ $root.msgProto = (function() {
         return UserCreate;
     })();
 
-    msgProto.UserCreateResponse = (function() {
+    pb.UserCreateResponse = (function() {
 
         /**
          * Properties of a UserCreateResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IUserCreateResponse
          * @property {number|null} [retCode] UserCreateResponse retCode
          */
 
         /**
          * Constructs a new UserCreateResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a UserCreateResponse.
          * @implements IUserCreateResponse
          * @constructor
-         * @param {msgProto.IUserCreateResponse=} [properties] Properties to set
+         * @param {pb.IUserCreateResponse=} [properties] Properties to set
          */
         function UserCreateResponse(properties) {
             if (properties)
@@ -1931,17 +1931,17 @@ $root.msgProto = (function() {
         /**
          * UserCreateResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @instance
          */
         UserCreateResponse.prototype.retCode = 0;
 
         /**
-         * Encodes the specified UserCreateResponse message. Does not implicitly {@link msgProto.UserCreateResponse.verify|verify} messages.
+         * Encodes the specified UserCreateResponse message. Does not implicitly {@link pb.UserCreateResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @static
-         * @param {msgProto.IUserCreateResponse} message UserCreateResponse message or plain object to encode
+         * @param {pb.IUserCreateResponse} message UserCreateResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -1956,18 +1956,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a UserCreateResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.UserCreateResponse} UserCreateResponse
+         * @returns {pb.UserCreateResponse} UserCreateResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         UserCreateResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.UserCreateResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.UserCreateResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1985,15 +1985,15 @@ $root.msgProto = (function() {
         /**
          * Creates a UserCreateResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.UserCreateResponse} UserCreateResponse
+         * @returns {pb.UserCreateResponse} UserCreateResponse
          */
         UserCreateResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.UserCreateResponse)
+            if (object instanceof $root.pb.UserCreateResponse)
                 return object;
-            var message = new $root.msgProto.UserCreateResponse();
+            var message = new $root.pb.UserCreateResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             return message;
@@ -2002,9 +2002,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a UserCreateResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @static
-         * @param {msgProto.UserCreateResponse} message UserCreateResponse
+         * @param {pb.UserCreateResponse} message UserCreateResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2022,7 +2022,7 @@ $root.msgProto = (function() {
         /**
          * Converts this UserCreateResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.UserCreateResponse
+         * @memberof pb.UserCreateResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2033,11 +2033,11 @@ $root.msgProto = (function() {
         return UserCreateResponse;
     })();
 
-    msgProto.GameEnter = (function() {
+    pb.GameEnter = (function() {
 
         /**
          * Properties of a GameEnter.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IGameEnter
          * @property {number|Long|null} [accId] GameEnter accId
          * @property {string|null} [loginKey] GameEnter loginKey
@@ -2046,11 +2046,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new GameEnter.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a GameEnter.
          * @implements IGameEnter
          * @constructor
-         * @param {msgProto.IGameEnter=} [properties] Properties to set
+         * @param {pb.IGameEnter=} [properties] Properties to set
          */
         function GameEnter(properties) {
             if (properties)
@@ -2062,7 +2062,7 @@ $root.msgProto = (function() {
         /**
          * GameEnter accId.
          * @member {number|Long} accId
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @instance
          */
         GameEnter.prototype.accId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2070,7 +2070,7 @@ $root.msgProto = (function() {
         /**
          * GameEnter loginKey.
          * @member {string} loginKey
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @instance
          */
         GameEnter.prototype.loginKey = "";
@@ -2078,17 +2078,17 @@ $root.msgProto = (function() {
         /**
          * GameEnter serverId.
          * @member {number} serverId
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @instance
          */
         GameEnter.prototype.serverId = 0;
 
         /**
-         * Encodes the specified GameEnter message. Does not implicitly {@link msgProto.GameEnter.verify|verify} messages.
+         * Encodes the specified GameEnter message. Does not implicitly {@link pb.GameEnter.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @static
-         * @param {msgProto.IGameEnter} message GameEnter message or plain object to encode
+         * @param {pb.IGameEnter} message GameEnter message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2107,18 +2107,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a GameEnter message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.GameEnter} GameEnter
+         * @returns {pb.GameEnter} GameEnter
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         GameEnter.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.GameEnter();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.GameEnter();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2142,15 +2142,15 @@ $root.msgProto = (function() {
         /**
          * Creates a GameEnter message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.GameEnter} GameEnter
+         * @returns {pb.GameEnter} GameEnter
          */
         GameEnter.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.GameEnter)
+            if (object instanceof $root.pb.GameEnter)
                 return object;
-            var message = new $root.msgProto.GameEnter();
+            var message = new $root.pb.GameEnter();
             if (object.accId != null)
                 if ($util.Long)
                     (message.accId = $util.Long.fromValue(object.accId)).unsigned = false;
@@ -2170,9 +2170,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a GameEnter message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @static
-         * @param {msgProto.GameEnter} message GameEnter
+         * @param {pb.GameEnter} message GameEnter
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2204,7 +2204,7 @@ $root.msgProto = (function() {
         /**
          * Converts this GameEnter to JSON.
          * @function toJSON
-         * @memberof msgProto.GameEnter
+         * @memberof pb.GameEnter
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2215,11 +2215,11 @@ $root.msgProto = (function() {
         return GameEnter;
     })();
 
-    msgProto.GameEnterResponse = (function() {
+    pb.GameEnterResponse = (function() {
 
         /**
          * Properties of a GameEnterResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IGameEnterResponse
          * @property {number|null} [retCode] GameEnterResponse retCode
          * @property {number|Long|null} [userId] GameEnterResponse userId
@@ -2239,11 +2239,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new GameEnterResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a GameEnterResponse.
          * @implements IGameEnterResponse
          * @constructor
-         * @param {msgProto.IGameEnterResponse=} [properties] Properties to set
+         * @param {pb.IGameEnterResponse=} [properties] Properties to set
          */
         function GameEnterResponse(properties) {
             if (properties)
@@ -2255,7 +2255,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.retCode = 0;
@@ -2263,7 +2263,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse userId.
          * @member {number|Long} userId
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.userId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2271,7 +2271,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse nickName.
          * @member {string} nickName
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.nickName = "";
@@ -2279,7 +2279,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse tempId.
          * @member {number} tempId
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.tempId = 0;
@@ -2287,7 +2287,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse coin.
          * @member {number|Long} coin
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.coin = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2295,7 +2295,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse diamond.
          * @member {number|Long} diamond
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.diamond = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2303,7 +2303,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse vip.
          * @member {number} vip
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.vip = 0;
@@ -2311,7 +2311,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse vipScore.
          * @member {number} vipScore
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.vipScore = 0;
@@ -2319,7 +2319,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse ticket.
          * @member {number} ticket
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.ticket = 0;
@@ -2327,7 +2327,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse ticketReTime.
          * @member {number|Long} ticketReTime
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.ticketReTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2335,7 +2335,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse signName.
          * @member {string} signName
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.signName = "";
@@ -2343,7 +2343,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse honor.
          * @member {number} honor
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.honor = 0;
@@ -2351,7 +2351,7 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse sign.
          * @member {string} sign
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.sign = "";
@@ -2359,17 +2359,17 @@ $root.msgProto = (function() {
         /**
          * GameEnterResponse lastExitTime.
          * @member {number|Long} lastExitTime
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          */
         GameEnterResponse.prototype.lastExitTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified GameEnterResponse message. Does not implicitly {@link msgProto.GameEnterResponse.verify|verify} messages.
+         * Encodes the specified GameEnterResponse message. Does not implicitly {@link pb.GameEnterResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @static
-         * @param {msgProto.IGameEnterResponse} message GameEnterResponse message or plain object to encode
+         * @param {pb.IGameEnterResponse} message GameEnterResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2410,18 +2410,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a GameEnterResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.GameEnterResponse} GameEnterResponse
+         * @returns {pb.GameEnterResponse} GameEnterResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         GameEnterResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.GameEnterResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.GameEnterResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2478,15 +2478,15 @@ $root.msgProto = (function() {
         /**
          * Creates a GameEnterResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.GameEnterResponse} GameEnterResponse
+         * @returns {pb.GameEnterResponse} GameEnterResponse
          */
         GameEnterResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.GameEnterResponse)
+            if (object instanceof $root.pb.GameEnterResponse)
                 return object;
-            var message = new $root.msgProto.GameEnterResponse();
+            var message = new $root.pb.GameEnterResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             if (object.userId != null)
@@ -2556,9 +2556,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a GameEnterResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @static
-         * @param {msgProto.GameEnterResponse} message GameEnterResponse
+         * @param {pb.GameEnterResponse} message GameEnterResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2651,7 +2651,7 @@ $root.msgProto = (function() {
         /**
          * Converts this GameEnterResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.GameEnterResponse
+         * @memberof pb.GameEnterResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2662,21 +2662,21 @@ $root.msgProto = (function() {
         return GameEnterResponse;
     })();
 
-    msgProto.NetGetServerDate = (function() {
+    pb.NetGetServerDate = (function() {
 
         /**
          * Properties of a NetGetServerDate.
-         * @memberof msgProto
+         * @memberof pb
          * @interface INetGetServerDate
          */
 
         /**
          * Constructs a new NetGetServerDate.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a NetGetServerDate.
          * @implements INetGetServerDate
          * @constructor
-         * @param {msgProto.INetGetServerDate=} [properties] Properties to set
+         * @param {pb.INetGetServerDate=} [properties] Properties to set
          */
         function NetGetServerDate(properties) {
             if (properties)
@@ -2686,11 +2686,11 @@ $root.msgProto = (function() {
         }
 
         /**
-         * Encodes the specified NetGetServerDate message. Does not implicitly {@link msgProto.NetGetServerDate.verify|verify} messages.
+         * Encodes the specified NetGetServerDate message. Does not implicitly {@link pb.NetGetServerDate.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.NetGetServerDate
+         * @memberof pb.NetGetServerDate
          * @static
-         * @param {msgProto.INetGetServerDate} message NetGetServerDate message or plain object to encode
+         * @param {pb.INetGetServerDate} message NetGetServerDate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2703,18 +2703,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a NetGetServerDate message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.NetGetServerDate
+         * @memberof pb.NetGetServerDate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.NetGetServerDate} NetGetServerDate
+         * @returns {pb.NetGetServerDate} NetGetServerDate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         NetGetServerDate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.NetGetServerDate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.NetGetServerDate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2729,23 +2729,23 @@ $root.msgProto = (function() {
         /**
          * Creates a NetGetServerDate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.NetGetServerDate
+         * @memberof pb.NetGetServerDate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.NetGetServerDate} NetGetServerDate
+         * @returns {pb.NetGetServerDate} NetGetServerDate
          */
         NetGetServerDate.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.NetGetServerDate)
+            if (object instanceof $root.pb.NetGetServerDate)
                 return object;
-            return new $root.msgProto.NetGetServerDate();
+            return new $root.pb.NetGetServerDate();
         };
 
         /**
          * Creates a plain object from a NetGetServerDate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.NetGetServerDate
+         * @memberof pb.NetGetServerDate
          * @static
-         * @param {msgProto.NetGetServerDate} message NetGetServerDate
+         * @param {pb.NetGetServerDate} message NetGetServerDate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2756,7 +2756,7 @@ $root.msgProto = (function() {
         /**
          * Converts this NetGetServerDate to JSON.
          * @function toJSON
-         * @memberof msgProto.NetGetServerDate
+         * @memberof pb.NetGetServerDate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2767,11 +2767,11 @@ $root.msgProto = (function() {
         return NetGetServerDate;
     })();
 
-    msgProto.AccountLogin = (function() {
+    pb.AccountLogin = (function() {
 
         /**
          * Properties of an AccountLogin.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IAccountLogin
          * @property {string|null} [account] AccountLogin account
          * @property {string|null} [pwd] AccountLogin pwd
@@ -2780,11 +2780,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new AccountLogin.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an AccountLogin.
          * @implements IAccountLogin
          * @constructor
-         * @param {msgProto.IAccountLogin=} [properties] Properties to set
+         * @param {pb.IAccountLogin=} [properties] Properties to set
          */
         function AccountLogin(properties) {
             if (properties)
@@ -2796,7 +2796,7 @@ $root.msgProto = (function() {
         /**
          * AccountLogin account.
          * @member {string} account
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @instance
          */
         AccountLogin.prototype.account = "";
@@ -2804,7 +2804,7 @@ $root.msgProto = (function() {
         /**
          * AccountLogin pwd.
          * @member {string} pwd
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @instance
          */
         AccountLogin.prototype.pwd = "";
@@ -2812,17 +2812,17 @@ $root.msgProto = (function() {
         /**
          * AccountLogin channelId.
          * @member {number} channelId
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @instance
          */
         AccountLogin.prototype.channelId = 0;
 
         /**
-         * Encodes the specified AccountLogin message. Does not implicitly {@link msgProto.AccountLogin.verify|verify} messages.
+         * Encodes the specified AccountLogin message. Does not implicitly {@link pb.AccountLogin.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @static
-         * @param {msgProto.IAccountLogin} message AccountLogin message or plain object to encode
+         * @param {pb.IAccountLogin} message AccountLogin message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -2841,18 +2841,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an AccountLogin message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.AccountLogin} AccountLogin
+         * @returns {pb.AccountLogin} AccountLogin
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         AccountLogin.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.AccountLogin();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.AccountLogin();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2876,15 +2876,15 @@ $root.msgProto = (function() {
         /**
          * Creates an AccountLogin message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.AccountLogin} AccountLogin
+         * @returns {pb.AccountLogin} AccountLogin
          */
         AccountLogin.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.AccountLogin)
+            if (object instanceof $root.pb.AccountLogin)
                 return object;
-            var message = new $root.msgProto.AccountLogin();
+            var message = new $root.pb.AccountLogin();
             if (object.account != null)
                 message.account = String(object.account);
             if (object.pwd != null)
@@ -2897,9 +2897,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an AccountLogin message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @static
-         * @param {msgProto.AccountLogin} message AccountLogin
+         * @param {pb.AccountLogin} message AccountLogin
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -2924,7 +2924,7 @@ $root.msgProto = (function() {
         /**
          * Converts this AccountLogin to JSON.
          * @function toJSON
-         * @memberof msgProto.AccountLogin
+         * @memberof pb.AccountLogin
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -2935,11 +2935,11 @@ $root.msgProto = (function() {
         return AccountLogin;
     })();
 
-    msgProto.LoginResponse = (function() {
+    pb.LoginResponse = (function() {
 
         /**
          * Properties of a LoginResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ILoginResponse
          * @property {number|null} [retCode] LoginResponse retCode
          * @property {number|Long|null} [accId] LoginResponse accId
@@ -2956,11 +2956,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new LoginResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a LoginResponse.
          * @implements ILoginResponse
          * @constructor
-         * @param {msgProto.ILoginResponse=} [properties] Properties to set
+         * @param {pb.ILoginResponse=} [properties] Properties to set
          */
         function LoginResponse(properties) {
             if (properties)
@@ -2972,7 +2972,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.retCode = 0;
@@ -2980,7 +2980,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse accId.
          * @member {number|Long} accId
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.accId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -2988,7 +2988,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse account.
          * @member {string} account
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.account = "";
@@ -2996,7 +2996,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse deviceId.
          * @member {string} deviceId
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.deviceId = "";
@@ -3004,7 +3004,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse loginTimes.
          * @member {number} loginTimes
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.loginTimes = 0;
@@ -3012,7 +3012,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse loginKey.
          * @member {string} loginKey
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.loginKey = "";
@@ -3020,7 +3020,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse userServers.
          * @member {string} userServers
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.userServers = "";
@@ -3028,7 +3028,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse sdkData.
          * @member {string} sdkData
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.sdkData = "";
@@ -3036,7 +3036,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse exData.
          * @member {string} exData
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.exData = "";
@@ -3044,7 +3044,7 @@ $root.msgProto = (function() {
         /**
          * LoginResponse nickName.
          * @member {string} nickName
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.nickName = "";
@@ -3052,17 +3052,17 @@ $root.msgProto = (function() {
         /**
          * LoginResponse icon.
          * @member {string} icon
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          */
         LoginResponse.prototype.icon = "";
 
         /**
-         * Encodes the specified LoginResponse message. Does not implicitly {@link msgProto.LoginResponse.verify|verify} messages.
+         * Encodes the specified LoginResponse message. Does not implicitly {@link pb.LoginResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @static
-         * @param {msgProto.ILoginResponse} message LoginResponse message or plain object to encode
+         * @param {pb.ILoginResponse} message LoginResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3097,18 +3097,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a LoginResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.LoginResponse} LoginResponse
+         * @returns {pb.LoginResponse} LoginResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         LoginResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.LoginResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.LoginResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3156,15 +3156,15 @@ $root.msgProto = (function() {
         /**
          * Creates a LoginResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.LoginResponse} LoginResponse
+         * @returns {pb.LoginResponse} LoginResponse
          */
         LoginResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.LoginResponse)
+            if (object instanceof $root.pb.LoginResponse)
                 return object;
-            var message = new $root.msgProto.LoginResponse();
+            var message = new $root.pb.LoginResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             if (object.accId != null)
@@ -3200,9 +3200,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a LoginResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @static
-         * @param {msgProto.LoginResponse} message LoginResponse
+         * @param {pb.LoginResponse} message LoginResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3258,7 +3258,7 @@ $root.msgProto = (function() {
         /**
          * Converts this LoginResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.LoginResponse
+         * @memberof pb.LoginResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3269,11 +3269,11 @@ $root.msgProto = (function() {
         return LoginResponse;
     })();
 
-    msgProto.AccountLoginBySdk = (function() {
+    pb.AccountLoginBySdk = (function() {
 
         /**
          * Properties of an AccountLoginBySdk.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IAccountLoginBySdk
          * @property {string|null} [channelId] AccountLoginBySdk channelId
          * @property {string|null} [sdkData] AccountLoginBySdk sdkData
@@ -3282,11 +3282,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new AccountLoginBySdk.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an AccountLoginBySdk.
          * @implements IAccountLoginBySdk
          * @constructor
-         * @param {msgProto.IAccountLoginBySdk=} [properties] Properties to set
+         * @param {pb.IAccountLoginBySdk=} [properties] Properties to set
          */
         function AccountLoginBySdk(properties) {
             if (properties)
@@ -3298,7 +3298,7 @@ $root.msgProto = (function() {
         /**
          * AccountLoginBySdk channelId.
          * @member {string} channelId
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @instance
          */
         AccountLoginBySdk.prototype.channelId = "";
@@ -3306,7 +3306,7 @@ $root.msgProto = (function() {
         /**
          * AccountLoginBySdk sdkData.
          * @member {string} sdkData
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @instance
          */
         AccountLoginBySdk.prototype.sdkData = "";
@@ -3314,17 +3314,17 @@ $root.msgProto = (function() {
         /**
          * AccountLoginBySdk deviceId.
          * @member {string} deviceId
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @instance
          */
         AccountLoginBySdk.prototype.deviceId = "";
 
         /**
-         * Encodes the specified AccountLoginBySdk message. Does not implicitly {@link msgProto.AccountLoginBySdk.verify|verify} messages.
+         * Encodes the specified AccountLoginBySdk message. Does not implicitly {@link pb.AccountLoginBySdk.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @static
-         * @param {msgProto.IAccountLoginBySdk} message AccountLoginBySdk message or plain object to encode
+         * @param {pb.IAccountLoginBySdk} message AccountLoginBySdk message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3343,18 +3343,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an AccountLoginBySdk message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.AccountLoginBySdk} AccountLoginBySdk
+         * @returns {pb.AccountLoginBySdk} AccountLoginBySdk
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         AccountLoginBySdk.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.AccountLoginBySdk();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.AccountLoginBySdk();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3378,15 +3378,15 @@ $root.msgProto = (function() {
         /**
          * Creates an AccountLoginBySdk message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.AccountLoginBySdk} AccountLoginBySdk
+         * @returns {pb.AccountLoginBySdk} AccountLoginBySdk
          */
         AccountLoginBySdk.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.AccountLoginBySdk)
+            if (object instanceof $root.pb.AccountLoginBySdk)
                 return object;
-            var message = new $root.msgProto.AccountLoginBySdk();
+            var message = new $root.pb.AccountLoginBySdk();
             if (object.channelId != null)
                 message.channelId = String(object.channelId);
             if (object.sdkData != null)
@@ -3399,9 +3399,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an AccountLoginBySdk message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @static
-         * @param {msgProto.AccountLoginBySdk} message AccountLoginBySdk
+         * @param {pb.AccountLoginBySdk} message AccountLoginBySdk
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3426,7 +3426,7 @@ $root.msgProto = (function() {
         /**
          * Converts this AccountLoginBySdk to JSON.
          * @function toJSON
-         * @memberof msgProto.AccountLoginBySdk
+         * @memberof pb.AccountLoginBySdk
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3437,11 +3437,11 @@ $root.msgProto = (function() {
         return AccountLoginBySdk;
     })();
 
-    msgProto.AccountRegister = (function() {
+    pb.AccountRegister = (function() {
 
         /**
          * Properties of an AccountRegister.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IAccountRegister
          * @property {string|null} [account] AccountRegister account
          * @property {string|null} [pwd] AccountRegister pwd
@@ -3452,11 +3452,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new AccountRegister.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an AccountRegister.
          * @implements IAccountRegister
          * @constructor
-         * @param {msgProto.IAccountRegister=} [properties] Properties to set
+         * @param {pb.IAccountRegister=} [properties] Properties to set
          */
         function AccountRegister(properties) {
             if (properties)
@@ -3468,7 +3468,7 @@ $root.msgProto = (function() {
         /**
          * AccountRegister account.
          * @member {string} account
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          */
         AccountRegister.prototype.account = "";
@@ -3476,7 +3476,7 @@ $root.msgProto = (function() {
         /**
          * AccountRegister pwd.
          * @member {string} pwd
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          */
         AccountRegister.prototype.pwd = "";
@@ -3484,7 +3484,7 @@ $root.msgProto = (function() {
         /**
          * AccountRegister deviceId.
          * @member {string} deviceId
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          */
         AccountRegister.prototype.deviceId = "";
@@ -3492,7 +3492,7 @@ $root.msgProto = (function() {
         /**
          * AccountRegister channelId.
          * @member {number} channelId
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          */
         AccountRegister.prototype.channelId = 0;
@@ -3500,17 +3500,17 @@ $root.msgProto = (function() {
         /**
          * AccountRegister platform.
          * @member {string} platform
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          */
         AccountRegister.prototype.platform = "";
 
         /**
-         * Encodes the specified AccountRegister message. Does not implicitly {@link msgProto.AccountRegister.verify|verify} messages.
+         * Encodes the specified AccountRegister message. Does not implicitly {@link pb.AccountRegister.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @static
-         * @param {msgProto.IAccountRegister} message AccountRegister message or plain object to encode
+         * @param {pb.IAccountRegister} message AccountRegister message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3533,18 +3533,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an AccountRegister message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.AccountRegister} AccountRegister
+         * @returns {pb.AccountRegister} AccountRegister
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         AccountRegister.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.AccountRegister();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.AccountRegister();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3574,15 +3574,15 @@ $root.msgProto = (function() {
         /**
          * Creates an AccountRegister message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.AccountRegister} AccountRegister
+         * @returns {pb.AccountRegister} AccountRegister
          */
         AccountRegister.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.AccountRegister)
+            if (object instanceof $root.pb.AccountRegister)
                 return object;
-            var message = new $root.msgProto.AccountRegister();
+            var message = new $root.pb.AccountRegister();
             if (object.account != null)
                 message.account = String(object.account);
             if (object.pwd != null)
@@ -3599,9 +3599,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an AccountRegister message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @static
-         * @param {msgProto.AccountRegister} message AccountRegister
+         * @param {pb.AccountRegister} message AccountRegister
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3632,7 +3632,7 @@ $root.msgProto = (function() {
         /**
          * Converts this AccountRegister to JSON.
          * @function toJSON
-         * @memberof msgProto.AccountRegister
+         * @memberof pb.AccountRegister
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3643,22 +3643,22 @@ $root.msgProto = (function() {
         return AccountRegister;
     })();
 
-    msgProto.SvrListGet = (function() {
+    pb.SvrListGet = (function() {
 
         /**
          * Properties of a SvrListGet.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISvrListGet
          * @property {boolean|null} [isTest] SvrListGet isTest
          */
 
         /**
          * Constructs a new SvrListGet.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SvrListGet.
          * @implements ISvrListGet
          * @constructor
-         * @param {msgProto.ISvrListGet=} [properties] Properties to set
+         * @param {pb.ISvrListGet=} [properties] Properties to set
          */
         function SvrListGet(properties) {
             if (properties)
@@ -3670,17 +3670,17 @@ $root.msgProto = (function() {
         /**
          * SvrListGet isTest.
          * @member {boolean} isTest
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @instance
          */
         SvrListGet.prototype.isTest = false;
 
         /**
-         * Encodes the specified SvrListGet message. Does not implicitly {@link msgProto.SvrListGet.verify|verify} messages.
+         * Encodes the specified SvrListGet message. Does not implicitly {@link pb.SvrListGet.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @static
-         * @param {msgProto.ISvrListGet} message SvrListGet message or plain object to encode
+         * @param {pb.ISvrListGet} message SvrListGet message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3695,18 +3695,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SvrListGet message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SvrListGet} SvrListGet
+         * @returns {pb.SvrListGet} SvrListGet
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SvrListGet.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SvrListGet();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SvrListGet();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3724,15 +3724,15 @@ $root.msgProto = (function() {
         /**
          * Creates a SvrListGet message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SvrListGet} SvrListGet
+         * @returns {pb.SvrListGet} SvrListGet
          */
         SvrListGet.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SvrListGet)
+            if (object instanceof $root.pb.SvrListGet)
                 return object;
-            var message = new $root.msgProto.SvrListGet();
+            var message = new $root.pb.SvrListGet();
             if (object.isTest != null)
                 message.isTest = Boolean(object.isTest);
             return message;
@@ -3741,9 +3741,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SvrListGet message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @static
-         * @param {msgProto.SvrListGet} message SvrListGet
+         * @param {pb.SvrListGet} message SvrListGet
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3761,7 +3761,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SvrListGet to JSON.
          * @function toJSON
-         * @memberof msgProto.SvrListGet
+         * @memberof pb.SvrListGet
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3772,22 +3772,22 @@ $root.msgProto = (function() {
         return SvrListGet;
     })();
 
-    msgProto.SvrInfoGet = (function() {
+    pb.SvrInfoGet = (function() {
 
         /**
          * Properties of a SvrInfoGet.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISvrInfoGet
          * @property {number|null} [svrId] SvrInfoGet svrId
          */
 
         /**
          * Constructs a new SvrInfoGet.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SvrInfoGet.
          * @implements ISvrInfoGet
          * @constructor
-         * @param {msgProto.ISvrInfoGet=} [properties] Properties to set
+         * @param {pb.ISvrInfoGet=} [properties] Properties to set
          */
         function SvrInfoGet(properties) {
             if (properties)
@@ -3799,17 +3799,17 @@ $root.msgProto = (function() {
         /**
          * SvrInfoGet svrId.
          * @member {number} svrId
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @instance
          */
         SvrInfoGet.prototype.svrId = 0;
 
         /**
-         * Encodes the specified SvrInfoGet message. Does not implicitly {@link msgProto.SvrInfoGet.verify|verify} messages.
+         * Encodes the specified SvrInfoGet message. Does not implicitly {@link pb.SvrInfoGet.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @static
-         * @param {msgProto.ISvrInfoGet} message SvrInfoGet message or plain object to encode
+         * @param {pb.ISvrInfoGet} message SvrInfoGet message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -3824,18 +3824,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SvrInfoGet message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SvrInfoGet} SvrInfoGet
+         * @returns {pb.SvrInfoGet} SvrInfoGet
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SvrInfoGet.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SvrInfoGet();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SvrInfoGet();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3853,15 +3853,15 @@ $root.msgProto = (function() {
         /**
          * Creates a SvrInfoGet message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SvrInfoGet} SvrInfoGet
+         * @returns {pb.SvrInfoGet} SvrInfoGet
          */
         SvrInfoGet.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SvrInfoGet)
+            if (object instanceof $root.pb.SvrInfoGet)
                 return object;
-            var message = new $root.msgProto.SvrInfoGet();
+            var message = new $root.pb.SvrInfoGet();
             if (object.svrId != null)
                 message.svrId = object.svrId | 0;
             return message;
@@ -3870,9 +3870,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SvrInfoGet message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @static
-         * @param {msgProto.SvrInfoGet} message SvrInfoGet
+         * @param {pb.SvrInfoGet} message SvrInfoGet
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -3890,7 +3890,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SvrInfoGet to JSON.
          * @function toJSON
-         * @memberof msgProto.SvrInfoGet
+         * @memberof pb.SvrInfoGet
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -3901,11 +3901,11 @@ $root.msgProto = (function() {
         return SvrInfoGet;
     })();
 
-    msgProto.PbSvrInfo = (function() {
+    pb.PbSvrInfo = (function() {
 
         /**
          * Properties of a PbSvrInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IPbSvrInfo
          * @property {number|null} [id] PbSvrInfo id
          * @property {string|null} [name] PbSvrInfo name
@@ -3920,11 +3920,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new PbSvrInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a PbSvrInfo.
          * @implements IPbSvrInfo
          * @constructor
-         * @param {msgProto.IPbSvrInfo=} [properties] Properties to set
+         * @param {pb.IPbSvrInfo=} [properties] Properties to set
          */
         function PbSvrInfo(properties) {
             if (properties)
@@ -3936,7 +3936,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo id.
          * @member {number} id
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.id = 0;
@@ -3944,7 +3944,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo name.
          * @member {string} name
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.name = "";
@@ -3952,7 +3952,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo area.
          * @member {string} area
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.area = "";
@@ -3960,7 +3960,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo host.
          * @member {string} host
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.host = "";
@@ -3968,7 +3968,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo port.
          * @member {string} port
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.port = "";
@@ -3976,7 +3976,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo isNew.
          * @member {number} isNew
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.isNew = 0;
@@ -3984,7 +3984,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo status.
          * @member {number} status
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.status = 0;
@@ -3992,7 +3992,7 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo isClose.
          * @member {number} isClose
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.isClose = 0;
@@ -4000,17 +4000,17 @@ $root.msgProto = (function() {
         /**
          * PbSvrInfo closeExplain.
          * @member {string} closeExplain
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          */
         PbSvrInfo.prototype.closeExplain = "";
 
         /**
-         * Encodes the specified PbSvrInfo message. Does not implicitly {@link msgProto.PbSvrInfo.verify|verify} messages.
+         * Encodes the specified PbSvrInfo message. Does not implicitly {@link pb.PbSvrInfo.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @static
-         * @param {msgProto.IPbSvrInfo} message PbSvrInfo message or plain object to encode
+         * @param {pb.IPbSvrInfo} message PbSvrInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4041,18 +4041,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a PbSvrInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.PbSvrInfo} PbSvrInfo
+         * @returns {pb.PbSvrInfo} PbSvrInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         PbSvrInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PbSvrInfo();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.PbSvrInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4094,15 +4094,15 @@ $root.msgProto = (function() {
         /**
          * Creates a PbSvrInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.PbSvrInfo} PbSvrInfo
+         * @returns {pb.PbSvrInfo} PbSvrInfo
          */
         PbSvrInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.PbSvrInfo)
+            if (object instanceof $root.pb.PbSvrInfo)
                 return object;
-            var message = new $root.msgProto.PbSvrInfo();
+            var message = new $root.pb.PbSvrInfo();
             if (object.id != null)
                 message.id = object.id | 0;
             if (object.name != null)
@@ -4127,9 +4127,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a PbSvrInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @static
-         * @param {msgProto.PbSvrInfo} message PbSvrInfo
+         * @param {pb.PbSvrInfo} message PbSvrInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4172,7 +4172,7 @@ $root.msgProto = (function() {
         /**
          * Converts this PbSvrInfo to JSON.
          * @function toJSON
-         * @memberof msgProto.PbSvrInfo
+         * @memberof pb.PbSvrInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4183,24 +4183,24 @@ $root.msgProto = (function() {
         return PbSvrInfo;
     })();
 
-    msgProto.SvrListResponse = (function() {
+    pb.SvrListResponse = (function() {
 
         /**
          * Properties of a SvrListResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISvrListResponse
          * @property {number|null} [retCode] SvrListResponse retCode
          * @property {number|null} [retType] SvrListResponse retType
-         * @property {Array.<msgProto.IPbSvrInfo>|null} [infos] SvrListResponse infos
+         * @property {Array.<pb.IPbSvrInfo>|null} [infos] SvrListResponse infos
          */
 
         /**
          * Constructs a new SvrListResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SvrListResponse.
          * @implements ISvrListResponse
          * @constructor
-         * @param {msgProto.ISvrListResponse=} [properties] Properties to set
+         * @param {pb.ISvrListResponse=} [properties] Properties to set
          */
         function SvrListResponse(properties) {
             this.infos = [];
@@ -4213,7 +4213,7 @@ $root.msgProto = (function() {
         /**
          * SvrListResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @instance
          */
         SvrListResponse.prototype.retCode = 0;
@@ -4221,25 +4221,25 @@ $root.msgProto = (function() {
         /**
          * SvrListResponse retType.
          * @member {number} retType
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @instance
          */
         SvrListResponse.prototype.retType = 0;
 
         /**
          * SvrListResponse infos.
-         * @member {Array.<msgProto.IPbSvrInfo>} infos
-         * @memberof msgProto.SvrListResponse
+         * @member {Array.<pb.IPbSvrInfo>} infos
+         * @memberof pb.SvrListResponse
          * @instance
          */
         SvrListResponse.prototype.infos = $util.emptyArray;
 
         /**
-         * Encodes the specified SvrListResponse message. Does not implicitly {@link msgProto.SvrListResponse.verify|verify} messages.
+         * Encodes the specified SvrListResponse message. Does not implicitly {@link pb.SvrListResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @static
-         * @param {msgProto.ISvrListResponse} message SvrListResponse message or plain object to encode
+         * @param {pb.ISvrListResponse} message SvrListResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4252,25 +4252,25 @@ $root.msgProto = (function() {
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.retType);
             if (message.infos != null && message.infos.length)
                 for (var i = 0; i < message.infos.length; ++i)
-                    $root.msgProto.PbSvrInfo.encode(message.infos[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                    $root.pb.PbSvrInfo.encode(message.infos[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
 
         /**
          * Decodes a SvrListResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SvrListResponse} SvrListResponse
+         * @returns {pb.SvrListResponse} SvrListResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SvrListResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SvrListResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SvrListResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4283,7 +4283,7 @@ $root.msgProto = (function() {
                 case 3:
                     if (!(message.infos && message.infos.length))
                         message.infos = [];
-                    message.infos.push($root.msgProto.PbSvrInfo.decode(reader, reader.uint32()));
+                    message.infos.push($root.pb.PbSvrInfo.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4296,27 +4296,27 @@ $root.msgProto = (function() {
         /**
          * Creates a SvrListResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SvrListResponse} SvrListResponse
+         * @returns {pb.SvrListResponse} SvrListResponse
          */
         SvrListResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SvrListResponse)
+            if (object instanceof $root.pb.SvrListResponse)
                 return object;
-            var message = new $root.msgProto.SvrListResponse();
+            var message = new $root.pb.SvrListResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             if (object.retType != null)
                 message.retType = object.retType | 0;
             if (object.infos) {
                 if (!Array.isArray(object.infos))
-                    throw TypeError(".msgProto.SvrListResponse.infos: array expected");
+                    throw TypeError(".pb.SvrListResponse.infos: array expected");
                 message.infos = [];
                 for (var i = 0; i < object.infos.length; ++i) {
                     if (typeof object.infos[i] !== "object")
-                        throw TypeError(".msgProto.SvrListResponse.infos: object expected");
-                    message.infos[i] = $root.msgProto.PbSvrInfo.fromObject(object.infos[i]);
+                        throw TypeError(".pb.SvrListResponse.infos: object expected");
+                    message.infos[i] = $root.pb.PbSvrInfo.fromObject(object.infos[i]);
                 }
             }
             return message;
@@ -4325,9 +4325,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SvrListResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @static
-         * @param {msgProto.SvrListResponse} message SvrListResponse
+         * @param {pb.SvrListResponse} message SvrListResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4348,7 +4348,7 @@ $root.msgProto = (function() {
             if (message.infos && message.infos.length) {
                 object.infos = [];
                 for (var j = 0; j < message.infos.length; ++j)
-                    object.infos[j] = $root.msgProto.PbSvrInfo.toObject(message.infos[j], options);
+                    object.infos[j] = $root.pb.PbSvrInfo.toObject(message.infos[j], options);
             }
             return object;
         };
@@ -4356,7 +4356,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SvrListResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.SvrListResponse
+         * @memberof pb.SvrListResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4367,21 +4367,21 @@ $root.msgProto = (function() {
         return SvrListResponse;
     })();
 
-    msgProto.SvrDateGet = (function() {
+    pb.SvrDateGet = (function() {
 
         /**
          * Properties of a SvrDateGet.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISvrDateGet
          */
 
         /**
          * Constructs a new SvrDateGet.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SvrDateGet.
          * @implements ISvrDateGet
          * @constructor
-         * @param {msgProto.ISvrDateGet=} [properties] Properties to set
+         * @param {pb.ISvrDateGet=} [properties] Properties to set
          */
         function SvrDateGet(properties) {
             if (properties)
@@ -4391,11 +4391,11 @@ $root.msgProto = (function() {
         }
 
         /**
-         * Encodes the specified SvrDateGet message. Does not implicitly {@link msgProto.SvrDateGet.verify|verify} messages.
+         * Encodes the specified SvrDateGet message. Does not implicitly {@link pb.SvrDateGet.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SvrDateGet
+         * @memberof pb.SvrDateGet
          * @static
-         * @param {msgProto.ISvrDateGet} message SvrDateGet message or plain object to encode
+         * @param {pb.ISvrDateGet} message SvrDateGet message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4408,18 +4408,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SvrDateGet message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SvrDateGet
+         * @memberof pb.SvrDateGet
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SvrDateGet} SvrDateGet
+         * @returns {pb.SvrDateGet} SvrDateGet
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SvrDateGet.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SvrDateGet();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SvrDateGet();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4434,23 +4434,23 @@ $root.msgProto = (function() {
         /**
          * Creates a SvrDateGet message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SvrDateGet
+         * @memberof pb.SvrDateGet
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SvrDateGet} SvrDateGet
+         * @returns {pb.SvrDateGet} SvrDateGet
          */
         SvrDateGet.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SvrDateGet)
+            if (object instanceof $root.pb.SvrDateGet)
                 return object;
-            return new $root.msgProto.SvrDateGet();
+            return new $root.pb.SvrDateGet();
         };
 
         /**
          * Creates a plain object from a SvrDateGet message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SvrDateGet
+         * @memberof pb.SvrDateGet
          * @static
-         * @param {msgProto.SvrDateGet} message SvrDateGet
+         * @param {pb.SvrDateGet} message SvrDateGet
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4461,7 +4461,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SvrDateGet to JSON.
          * @function toJSON
-         * @memberof msgProto.SvrDateGet
+         * @memberof pb.SvrDateGet
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4472,22 +4472,22 @@ $root.msgProto = (function() {
         return SvrDateGet;
     })();
 
-    msgProto.UserSvrsGet = (function() {
+    pb.UserSvrsGet = (function() {
 
         /**
          * Properties of a UserSvrsGet.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IUserSvrsGet
          * @property {number|Long|null} [accId] UserSvrsGet accId
          */
 
         /**
          * Constructs a new UserSvrsGet.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a UserSvrsGet.
          * @implements IUserSvrsGet
          * @constructor
-         * @param {msgProto.IUserSvrsGet=} [properties] Properties to set
+         * @param {pb.IUserSvrsGet=} [properties] Properties to set
          */
         function UserSvrsGet(properties) {
             if (properties)
@@ -4499,17 +4499,17 @@ $root.msgProto = (function() {
         /**
          * UserSvrsGet accId.
          * @member {number|Long} accId
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @instance
          */
         UserSvrsGet.prototype.accId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified UserSvrsGet message. Does not implicitly {@link msgProto.UserSvrsGet.verify|verify} messages.
+         * Encodes the specified UserSvrsGet message. Does not implicitly {@link pb.UserSvrsGet.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @static
-         * @param {msgProto.IUserSvrsGet} message UserSvrsGet message or plain object to encode
+         * @param {pb.IUserSvrsGet} message UserSvrsGet message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4524,18 +4524,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a UserSvrsGet message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.UserSvrsGet} UserSvrsGet
+         * @returns {pb.UserSvrsGet} UserSvrsGet
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         UserSvrsGet.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.UserSvrsGet();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.UserSvrsGet();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4553,15 +4553,15 @@ $root.msgProto = (function() {
         /**
          * Creates a UserSvrsGet message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.UserSvrsGet} UserSvrsGet
+         * @returns {pb.UserSvrsGet} UserSvrsGet
          */
         UserSvrsGet.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.UserSvrsGet)
+            if (object instanceof $root.pb.UserSvrsGet)
                 return object;
-            var message = new $root.msgProto.UserSvrsGet();
+            var message = new $root.pb.UserSvrsGet();
             if (object.accId != null)
                 if ($util.Long)
                     (message.accId = $util.Long.fromValue(object.accId)).unsigned = false;
@@ -4577,9 +4577,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a UserSvrsGet message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @static
-         * @param {msgProto.UserSvrsGet} message UserSvrsGet
+         * @param {pb.UserSvrsGet} message UserSvrsGet
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4604,7 +4604,7 @@ $root.msgProto = (function() {
         /**
          * Converts this UserSvrsGet to JSON.
          * @function toJSON
-         * @memberof msgProto.UserSvrsGet
+         * @memberof pb.UserSvrsGet
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4615,11 +4615,11 @@ $root.msgProto = (function() {
         return UserSvrsGet;
     })();
 
-    msgProto.AccountSvrsGet = (function() {
+    pb.AccountSvrsGet = (function() {
 
         /**
          * Properties of an AccountSvrsGet.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IAccountSvrsGet
          * @property {string|null} [openId] AccountSvrsGet openId
          * @property {string|null} [appId] AccountSvrsGet appId
@@ -4628,11 +4628,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new AccountSvrsGet.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an AccountSvrsGet.
          * @implements IAccountSvrsGet
          * @constructor
-         * @param {msgProto.IAccountSvrsGet=} [properties] Properties to set
+         * @param {pb.IAccountSvrsGet=} [properties] Properties to set
          */
         function AccountSvrsGet(properties) {
             if (properties)
@@ -4644,7 +4644,7 @@ $root.msgProto = (function() {
         /**
          * AccountSvrsGet openId.
          * @member {string} openId
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @instance
          */
         AccountSvrsGet.prototype.openId = "";
@@ -4652,7 +4652,7 @@ $root.msgProto = (function() {
         /**
          * AccountSvrsGet appId.
          * @member {string} appId
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @instance
          */
         AccountSvrsGet.prototype.appId = "";
@@ -4660,17 +4660,17 @@ $root.msgProto = (function() {
         /**
          * AccountSvrsGet isTest.
          * @member {boolean} isTest
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @instance
          */
         AccountSvrsGet.prototype.isTest = false;
 
         /**
-         * Encodes the specified AccountSvrsGet message. Does not implicitly {@link msgProto.AccountSvrsGet.verify|verify} messages.
+         * Encodes the specified AccountSvrsGet message. Does not implicitly {@link pb.AccountSvrsGet.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @static
-         * @param {msgProto.IAccountSvrsGet} message AccountSvrsGet message or plain object to encode
+         * @param {pb.IAccountSvrsGet} message AccountSvrsGet message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4689,18 +4689,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an AccountSvrsGet message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.AccountSvrsGet} AccountSvrsGet
+         * @returns {pb.AccountSvrsGet} AccountSvrsGet
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         AccountSvrsGet.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.AccountSvrsGet();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.AccountSvrsGet();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4724,15 +4724,15 @@ $root.msgProto = (function() {
         /**
          * Creates an AccountSvrsGet message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.AccountSvrsGet} AccountSvrsGet
+         * @returns {pb.AccountSvrsGet} AccountSvrsGet
          */
         AccountSvrsGet.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.AccountSvrsGet)
+            if (object instanceof $root.pb.AccountSvrsGet)
                 return object;
-            var message = new $root.msgProto.AccountSvrsGet();
+            var message = new $root.pb.AccountSvrsGet();
             if (object.openId != null)
                 message.openId = String(object.openId);
             if (object.appId != null)
@@ -4745,9 +4745,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an AccountSvrsGet message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @static
-         * @param {msgProto.AccountSvrsGet} message AccountSvrsGet
+         * @param {pb.AccountSvrsGet} message AccountSvrsGet
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4772,7 +4772,7 @@ $root.msgProto = (function() {
         /**
          * Converts this AccountSvrsGet to JSON.
          * @function toJSON
-         * @memberof msgProto.AccountSvrsGet
+         * @memberof pb.AccountSvrsGet
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4783,22 +4783,22 @@ $root.msgProto = (function() {
         return AccountSvrsGet;
     })();
 
-    msgProto.TestNetLatency = (function() {
+    pb.TestNetLatency = (function() {
 
         /**
          * Properties of a TestNetLatency.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ITestNetLatency
          * @property {number|Long|null} [time] TestNetLatency time
          */
 
         /**
          * Constructs a new TestNetLatency.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a TestNetLatency.
          * @implements ITestNetLatency
          * @constructor
-         * @param {msgProto.ITestNetLatency=} [properties] Properties to set
+         * @param {pb.ITestNetLatency=} [properties] Properties to set
          */
         function TestNetLatency(properties) {
             if (properties)
@@ -4810,17 +4810,17 @@ $root.msgProto = (function() {
         /**
          * TestNetLatency time.
          * @member {number|Long} time
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @instance
          */
         TestNetLatency.prototype.time = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified TestNetLatency message. Does not implicitly {@link msgProto.TestNetLatency.verify|verify} messages.
+         * Encodes the specified TestNetLatency message. Does not implicitly {@link pb.TestNetLatency.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @static
-         * @param {msgProto.ITestNetLatency} message TestNetLatency message or plain object to encode
+         * @param {pb.ITestNetLatency} message TestNetLatency message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4835,18 +4835,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a TestNetLatency message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.TestNetLatency} TestNetLatency
+         * @returns {pb.TestNetLatency} TestNetLatency
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         TestNetLatency.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.TestNetLatency();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.TestNetLatency();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4864,15 +4864,15 @@ $root.msgProto = (function() {
         /**
          * Creates a TestNetLatency message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.TestNetLatency} TestNetLatency
+         * @returns {pb.TestNetLatency} TestNetLatency
          */
         TestNetLatency.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.TestNetLatency)
+            if (object instanceof $root.pb.TestNetLatency)
                 return object;
-            var message = new $root.msgProto.TestNetLatency();
+            var message = new $root.pb.TestNetLatency();
             if (object.time != null)
                 if ($util.Long)
                     (message.time = $util.Long.fromValue(object.time)).unsigned = false;
@@ -4888,9 +4888,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a TestNetLatency message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @static
-         * @param {msgProto.TestNetLatency} message TestNetLatency
+         * @param {pb.TestNetLatency} message TestNetLatency
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -4915,7 +4915,7 @@ $root.msgProto = (function() {
         /**
          * Converts this TestNetLatency to JSON.
          * @function toJSON
-         * @memberof msgProto.TestNetLatency
+         * @memberof pb.TestNetLatency
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -4926,22 +4926,22 @@ $root.msgProto = (function() {
         return TestNetLatency;
     })();
 
-    msgProto.ExchangeOptData = (function() {
+    pb.ExchangeOptData = (function() {
 
         /**
          * Properties of an ExchangeOptData.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IExchangeOptData
          * @property {string|null} [optData] ExchangeOptData optData
          */
 
         /**
          * Constructs a new ExchangeOptData.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an ExchangeOptData.
          * @implements IExchangeOptData
          * @constructor
-         * @param {msgProto.IExchangeOptData=} [properties] Properties to set
+         * @param {pb.IExchangeOptData=} [properties] Properties to set
          */
         function ExchangeOptData(properties) {
             if (properties)
@@ -4953,17 +4953,17 @@ $root.msgProto = (function() {
         /**
          * ExchangeOptData optData.
          * @member {string} optData
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @instance
          */
         ExchangeOptData.prototype.optData = "";
 
         /**
-         * Encodes the specified ExchangeOptData message. Does not implicitly {@link msgProto.ExchangeOptData.verify|verify} messages.
+         * Encodes the specified ExchangeOptData message. Does not implicitly {@link pb.ExchangeOptData.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @static
-         * @param {msgProto.IExchangeOptData} message ExchangeOptData message or plain object to encode
+         * @param {pb.IExchangeOptData} message ExchangeOptData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -4978,18 +4978,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an ExchangeOptData message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ExchangeOptData} ExchangeOptData
+         * @returns {pb.ExchangeOptData} ExchangeOptData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ExchangeOptData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExchangeOptData();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ExchangeOptData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5007,15 +5007,15 @@ $root.msgProto = (function() {
         /**
          * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ExchangeOptData} ExchangeOptData
+         * @returns {pb.ExchangeOptData} ExchangeOptData
          */
         ExchangeOptData.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ExchangeOptData)
+            if (object instanceof $root.pb.ExchangeOptData)
                 return object;
-            var message = new $root.msgProto.ExchangeOptData();
+            var message = new $root.pb.ExchangeOptData();
             if (object.optData != null)
                 message.optData = String(object.optData);
             return message;
@@ -5024,9 +5024,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @static
-         * @param {msgProto.ExchangeOptData} message ExchangeOptData
+         * @param {pb.ExchangeOptData} message ExchangeOptData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5044,7 +5044,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ExchangeOptData to JSON.
          * @function toJSON
-         * @memberof msgProto.ExchangeOptData
+         * @memberof pb.ExchangeOptData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5055,22 +5055,22 @@ $root.msgProto = (function() {
         return ExchangeOptData;
     })();
 
-    msgProto.CreateClsRoom = (function() {
+    pb.CreateClsRoom = (function() {
 
         /**
          * Properties of a CreateClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ICreateClsRoom
          * @property {string|null} [name] CreateClsRoom name
          */
 
         /**
          * Constructs a new CreateClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a CreateClsRoom.
          * @implements ICreateClsRoom
          * @constructor
-         * @param {msgProto.ICreateClsRoom=} [properties] Properties to set
+         * @param {pb.ICreateClsRoom=} [properties] Properties to set
          */
         function CreateClsRoom(properties) {
             if (properties)
@@ -5082,17 +5082,17 @@ $root.msgProto = (function() {
         /**
          * CreateClsRoom name.
          * @member {string} name
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @instance
          */
         CreateClsRoom.prototype.name = "";
 
         /**
-         * Encodes the specified CreateClsRoom message. Does not implicitly {@link msgProto.CreateClsRoom.verify|verify} messages.
+         * Encodes the specified CreateClsRoom message. Does not implicitly {@link pb.CreateClsRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @static
-         * @param {msgProto.ICreateClsRoom} message CreateClsRoom message or plain object to encode
+         * @param {pb.ICreateClsRoom} message CreateClsRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5107,18 +5107,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a CreateClsRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.CreateClsRoom} CreateClsRoom
+         * @returns {pb.CreateClsRoom} CreateClsRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         CreateClsRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.CreateClsRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.CreateClsRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5136,15 +5136,15 @@ $root.msgProto = (function() {
         /**
          * Creates a CreateClsRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.CreateClsRoom} CreateClsRoom
+         * @returns {pb.CreateClsRoom} CreateClsRoom
          */
         CreateClsRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.CreateClsRoom)
+            if (object instanceof $root.pb.CreateClsRoom)
                 return object;
-            var message = new $root.msgProto.CreateClsRoom();
+            var message = new $root.pb.CreateClsRoom();
             if (object.name != null)
                 message.name = String(object.name);
             return message;
@@ -5153,9 +5153,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a CreateClsRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @static
-         * @param {msgProto.CreateClsRoom} message CreateClsRoom
+         * @param {pb.CreateClsRoom} message CreateClsRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5173,7 +5173,7 @@ $root.msgProto = (function() {
         /**
          * Converts this CreateClsRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.CreateClsRoom
+         * @memberof pb.CreateClsRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5184,22 +5184,22 @@ $root.msgProto = (function() {
         return CreateClsRoom;
     })();
 
-    msgProto.JoinClsRoom = (function() {
+    pb.JoinClsRoom = (function() {
 
         /**
          * Properties of a JoinClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IJoinClsRoom
          * @property {string|null} [name] JoinClsRoom name
          */
 
         /**
          * Constructs a new JoinClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a JoinClsRoom.
          * @implements IJoinClsRoom
          * @constructor
-         * @param {msgProto.IJoinClsRoom=} [properties] Properties to set
+         * @param {pb.IJoinClsRoom=} [properties] Properties to set
          */
         function JoinClsRoom(properties) {
             if (properties)
@@ -5211,17 +5211,17 @@ $root.msgProto = (function() {
         /**
          * JoinClsRoom name.
          * @member {string} name
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @instance
          */
         JoinClsRoom.prototype.name = "";
 
         /**
-         * Encodes the specified JoinClsRoom message. Does not implicitly {@link msgProto.JoinClsRoom.verify|verify} messages.
+         * Encodes the specified JoinClsRoom message. Does not implicitly {@link pb.JoinClsRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @static
-         * @param {msgProto.IJoinClsRoom} message JoinClsRoom message or plain object to encode
+         * @param {pb.IJoinClsRoom} message JoinClsRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5236,18 +5236,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a JoinClsRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.JoinClsRoom} JoinClsRoom
+         * @returns {pb.JoinClsRoom} JoinClsRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         JoinClsRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.JoinClsRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.JoinClsRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5265,15 +5265,15 @@ $root.msgProto = (function() {
         /**
          * Creates a JoinClsRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.JoinClsRoom} JoinClsRoom
+         * @returns {pb.JoinClsRoom} JoinClsRoom
          */
         JoinClsRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.JoinClsRoom)
+            if (object instanceof $root.pb.JoinClsRoom)
                 return object;
-            var message = new $root.msgProto.JoinClsRoom();
+            var message = new $root.pb.JoinClsRoom();
             if (object.name != null)
                 message.name = String(object.name);
             return message;
@@ -5282,9 +5282,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a JoinClsRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @static
-         * @param {msgProto.JoinClsRoom} message JoinClsRoom
+         * @param {pb.JoinClsRoom} message JoinClsRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5302,7 +5302,7 @@ $root.msgProto = (function() {
         /**
          * Converts this JoinClsRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.JoinClsRoom
+         * @memberof pb.JoinClsRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5313,11 +5313,11 @@ $root.msgProto = (function() {
         return JoinClsRoom;
     })();
 
-    msgProto.EnterClsRoomResponse = (function() {
+    pb.EnterClsRoomResponse = (function() {
 
         /**
          * Properties of an EnterClsRoomResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IEnterClsRoomResponse
          * @property {number|null} [retCode] EnterClsRoomResponse retCode
          * @property {number|Long|null} [roomId] EnterClsRoomResponse roomId
@@ -5326,11 +5326,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new EnterClsRoomResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an EnterClsRoomResponse.
          * @implements IEnterClsRoomResponse
          * @constructor
-         * @param {msgProto.IEnterClsRoomResponse=} [properties] Properties to set
+         * @param {pb.IEnterClsRoomResponse=} [properties] Properties to set
          */
         function EnterClsRoomResponse(properties) {
             if (properties)
@@ -5342,7 +5342,7 @@ $root.msgProto = (function() {
         /**
          * EnterClsRoomResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @instance
          */
         EnterClsRoomResponse.prototype.retCode = 0;
@@ -5350,7 +5350,7 @@ $root.msgProto = (function() {
         /**
          * EnterClsRoomResponse roomId.
          * @member {number|Long} roomId
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @instance
          */
         EnterClsRoomResponse.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -5358,17 +5358,17 @@ $root.msgProto = (function() {
         /**
          * EnterClsRoomResponse masterId.
          * @member {number|Long} masterId
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @instance
          */
         EnterClsRoomResponse.prototype.masterId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link msgProto.EnterClsRoomResponse.verify|verify} messages.
+         * Encodes the specified EnterClsRoomResponse message. Does not implicitly {@link pb.EnterClsRoomResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @static
-         * @param {msgProto.IEnterClsRoomResponse} message EnterClsRoomResponse message or plain object to encode
+         * @param {pb.IEnterClsRoomResponse} message EnterClsRoomResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5387,18 +5387,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an EnterClsRoomResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.EnterClsRoomResponse} EnterClsRoomResponse
+         * @returns {pb.EnterClsRoomResponse} EnterClsRoomResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         EnterClsRoomResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.EnterClsRoomResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.EnterClsRoomResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5422,15 +5422,15 @@ $root.msgProto = (function() {
         /**
          * Creates an EnterClsRoomResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.EnterClsRoomResponse} EnterClsRoomResponse
+         * @returns {pb.EnterClsRoomResponse} EnterClsRoomResponse
          */
         EnterClsRoomResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.EnterClsRoomResponse)
+            if (object instanceof $root.pb.EnterClsRoomResponse)
                 return object;
-            var message = new $root.msgProto.EnterClsRoomResponse();
+            var message = new $root.pb.EnterClsRoomResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             if (object.roomId != null)
@@ -5457,9 +5457,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an EnterClsRoomResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @static
-         * @param {msgProto.EnterClsRoomResponse} message EnterClsRoomResponse
+         * @param {pb.EnterClsRoomResponse} message EnterClsRoomResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5498,7 +5498,7 @@ $root.msgProto = (function() {
         /**
          * Converts this EnterClsRoomResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.EnterClsRoomResponse
+         * @memberof pb.EnterClsRoomResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5509,22 +5509,22 @@ $root.msgProto = (function() {
         return EnterClsRoomResponse;
     })();
 
-    msgProto.ExitClsRoom = (function() {
+    pb.ExitClsRoom = (function() {
 
         /**
          * Properties of an ExitClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IExitClsRoom
          * @property {number|Long|null} [roomId] ExitClsRoom roomId
          */
 
         /**
          * Constructs a new ExitClsRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an ExitClsRoom.
          * @implements IExitClsRoom
          * @constructor
-         * @param {msgProto.IExitClsRoom=} [properties] Properties to set
+         * @param {pb.IExitClsRoom=} [properties] Properties to set
          */
         function ExitClsRoom(properties) {
             if (properties)
@@ -5536,17 +5536,17 @@ $root.msgProto = (function() {
         /**
          * ExitClsRoom roomId.
          * @member {number|Long} roomId
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @instance
          */
         ExitClsRoom.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified ExitClsRoom message. Does not implicitly {@link msgProto.ExitClsRoom.verify|verify} messages.
+         * Encodes the specified ExitClsRoom message. Does not implicitly {@link pb.ExitClsRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @static
-         * @param {msgProto.IExitClsRoom} message ExitClsRoom message or plain object to encode
+         * @param {pb.IExitClsRoom} message ExitClsRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5561,18 +5561,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an ExitClsRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ExitClsRoom} ExitClsRoom
+         * @returns {pb.ExitClsRoom} ExitClsRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ExitClsRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExitClsRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ExitClsRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5590,15 +5590,15 @@ $root.msgProto = (function() {
         /**
          * Creates an ExitClsRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ExitClsRoom} ExitClsRoom
+         * @returns {pb.ExitClsRoom} ExitClsRoom
          */
         ExitClsRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ExitClsRoom)
+            if (object instanceof $root.pb.ExitClsRoom)
                 return object;
-            var message = new $root.msgProto.ExitClsRoom();
+            var message = new $root.pb.ExitClsRoom();
             if (object.roomId != null)
                 if ($util.Long)
                     (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
@@ -5614,9 +5614,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an ExitClsRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @static
-         * @param {msgProto.ExitClsRoom} message ExitClsRoom
+         * @param {pb.ExitClsRoom} message ExitClsRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5641,7 +5641,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ExitClsRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.ExitClsRoom
+         * @memberof pb.ExitClsRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5652,22 +5652,22 @@ $root.msgProto = (function() {
         return ExitClsRoom;
     })();
 
-    msgProto.CreateDiceRoom = (function() {
+    pb.CreateDiceRoom = (function() {
 
         /**
          * Properties of a CreateDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ICreateDiceRoom
          * @property {string|null} [name] CreateDiceRoom name
          */
 
         /**
          * Constructs a new CreateDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a CreateDiceRoom.
          * @implements ICreateDiceRoom
          * @constructor
-         * @param {msgProto.ICreateDiceRoom=} [properties] Properties to set
+         * @param {pb.ICreateDiceRoom=} [properties] Properties to set
          */
         function CreateDiceRoom(properties) {
             if (properties)
@@ -5679,17 +5679,17 @@ $root.msgProto = (function() {
         /**
          * CreateDiceRoom name.
          * @member {string} name
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @instance
          */
         CreateDiceRoom.prototype.name = "";
 
         /**
-         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link msgProto.CreateDiceRoom.verify|verify} messages.
+         * Encodes the specified CreateDiceRoom message. Does not implicitly {@link pb.CreateDiceRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @static
-         * @param {msgProto.ICreateDiceRoom} message CreateDiceRoom message or plain object to encode
+         * @param {pb.ICreateDiceRoom} message CreateDiceRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5704,18 +5704,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a CreateDiceRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.CreateDiceRoom} CreateDiceRoom
+         * @returns {pb.CreateDiceRoom} CreateDiceRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         CreateDiceRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.CreateDiceRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.CreateDiceRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5733,15 +5733,15 @@ $root.msgProto = (function() {
         /**
          * Creates a CreateDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.CreateDiceRoom} CreateDiceRoom
+         * @returns {pb.CreateDiceRoom} CreateDiceRoom
          */
         CreateDiceRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.CreateDiceRoom)
+            if (object instanceof $root.pb.CreateDiceRoom)
                 return object;
-            var message = new $root.msgProto.CreateDiceRoom();
+            var message = new $root.pb.CreateDiceRoom();
             if (object.name != null)
                 message.name = String(object.name);
             return message;
@@ -5750,9 +5750,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a CreateDiceRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @static
-         * @param {msgProto.CreateDiceRoom} message CreateDiceRoom
+         * @param {pb.CreateDiceRoom} message CreateDiceRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5770,7 +5770,7 @@ $root.msgProto = (function() {
         /**
          * Converts this CreateDiceRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.CreateDiceRoom
+         * @memberof pb.CreateDiceRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5781,22 +5781,22 @@ $root.msgProto = (function() {
         return CreateDiceRoom;
     })();
 
-    msgProto.JoinDiceRoom = (function() {
+    pb.JoinDiceRoom = (function() {
 
         /**
          * Properties of a JoinDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IJoinDiceRoom
          * @property {string|null} [name] JoinDiceRoom name
          */
 
         /**
          * Constructs a new JoinDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a JoinDiceRoom.
          * @implements IJoinDiceRoom
          * @constructor
-         * @param {msgProto.IJoinDiceRoom=} [properties] Properties to set
+         * @param {pb.IJoinDiceRoom=} [properties] Properties to set
          */
         function JoinDiceRoom(properties) {
             if (properties)
@@ -5808,17 +5808,17 @@ $root.msgProto = (function() {
         /**
          * JoinDiceRoom name.
          * @member {string} name
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @instance
          */
         JoinDiceRoom.prototype.name = "";
 
         /**
-         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link msgProto.JoinDiceRoom.verify|verify} messages.
+         * Encodes the specified JoinDiceRoom message. Does not implicitly {@link pb.JoinDiceRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @static
-         * @param {msgProto.IJoinDiceRoom} message JoinDiceRoom message or plain object to encode
+         * @param {pb.IJoinDiceRoom} message JoinDiceRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5833,18 +5833,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a JoinDiceRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.JoinDiceRoom} JoinDiceRoom
+         * @returns {pb.JoinDiceRoom} JoinDiceRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         JoinDiceRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.JoinDiceRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.JoinDiceRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5862,15 +5862,15 @@ $root.msgProto = (function() {
         /**
          * Creates a JoinDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.JoinDiceRoom} JoinDiceRoom
+         * @returns {pb.JoinDiceRoom} JoinDiceRoom
          */
         JoinDiceRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.JoinDiceRoom)
+            if (object instanceof $root.pb.JoinDiceRoom)
                 return object;
-            var message = new $root.msgProto.JoinDiceRoom();
+            var message = new $root.pb.JoinDiceRoom();
             if (object.name != null)
                 message.name = String(object.name);
             return message;
@@ -5879,9 +5879,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a JoinDiceRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @static
-         * @param {msgProto.JoinDiceRoom} message JoinDiceRoom
+         * @param {pb.JoinDiceRoom} message JoinDiceRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -5899,7 +5899,7 @@ $root.msgProto = (function() {
         /**
          * Converts this JoinDiceRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.JoinDiceRoom
+         * @memberof pb.JoinDiceRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -5910,11 +5910,11 @@ $root.msgProto = (function() {
         return JoinDiceRoom;
     })();
 
-    msgProto.EnterDiceRoomResponse = (function() {
+    pb.EnterDiceRoomResponse = (function() {
 
         /**
          * Properties of an EnterDiceRoomResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IEnterDiceRoomResponse
          * @property {number|null} [retCode] EnterDiceRoomResponse retCode
          * @property {number|Long|null} [roomId] EnterDiceRoomResponse roomId
@@ -5923,11 +5923,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new EnterDiceRoomResponse.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an EnterDiceRoomResponse.
          * @implements IEnterDiceRoomResponse
          * @constructor
-         * @param {msgProto.IEnterDiceRoomResponse=} [properties] Properties to set
+         * @param {pb.IEnterDiceRoomResponse=} [properties] Properties to set
          */
         function EnterDiceRoomResponse(properties) {
             if (properties)
@@ -5939,7 +5939,7 @@ $root.msgProto = (function() {
         /**
          * EnterDiceRoomResponse retCode.
          * @member {number} retCode
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @instance
          */
         EnterDiceRoomResponse.prototype.retCode = 0;
@@ -5947,7 +5947,7 @@ $root.msgProto = (function() {
         /**
          * EnterDiceRoomResponse roomId.
          * @member {number|Long} roomId
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @instance
          */
         EnterDiceRoomResponse.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -5955,17 +5955,17 @@ $root.msgProto = (function() {
         /**
          * EnterDiceRoomResponse masterId.
          * @member {number|Long} masterId
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @instance
          */
         EnterDiceRoomResponse.prototype.masterId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link msgProto.EnterDiceRoomResponse.verify|verify} messages.
+         * Encodes the specified EnterDiceRoomResponse message. Does not implicitly {@link pb.EnterDiceRoomResponse.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @static
-         * @param {msgProto.IEnterDiceRoomResponse} message EnterDiceRoomResponse message or plain object to encode
+         * @param {pb.IEnterDiceRoomResponse} message EnterDiceRoomResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -5984,18 +5984,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an EnterDiceRoomResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.EnterDiceRoomResponse} EnterDiceRoomResponse
+         * @returns {pb.EnterDiceRoomResponse} EnterDiceRoomResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         EnterDiceRoomResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.EnterDiceRoomResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.EnterDiceRoomResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -6019,15 +6019,15 @@ $root.msgProto = (function() {
         /**
          * Creates an EnterDiceRoomResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.EnterDiceRoomResponse} EnterDiceRoomResponse
+         * @returns {pb.EnterDiceRoomResponse} EnterDiceRoomResponse
          */
         EnterDiceRoomResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.EnterDiceRoomResponse)
+            if (object instanceof $root.pb.EnterDiceRoomResponse)
                 return object;
-            var message = new $root.msgProto.EnterDiceRoomResponse();
+            var message = new $root.pb.EnterDiceRoomResponse();
             if (object.retCode != null)
                 message.retCode = object.retCode | 0;
             if (object.roomId != null)
@@ -6054,9 +6054,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an EnterDiceRoomResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @static
-         * @param {msgProto.EnterDiceRoomResponse} message EnterDiceRoomResponse
+         * @param {pb.EnterDiceRoomResponse} message EnterDiceRoomResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6095,7 +6095,7 @@ $root.msgProto = (function() {
         /**
          * Converts this EnterDiceRoomResponse to JSON.
          * @function toJSON
-         * @memberof msgProto.EnterDiceRoomResponse
+         * @memberof pb.EnterDiceRoomResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6106,22 +6106,22 @@ $root.msgProto = (function() {
         return EnterDiceRoomResponse;
     })();
 
-    msgProto.ExitDiceRoom = (function() {
+    pb.ExitDiceRoom = (function() {
 
         /**
          * Properties of an ExitDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IExitDiceRoom
          * @property {number|Long|null} [roomId] ExitDiceRoom roomId
          */
 
         /**
          * Constructs a new ExitDiceRoom.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents an ExitDiceRoom.
          * @implements IExitDiceRoom
          * @constructor
-         * @param {msgProto.IExitDiceRoom=} [properties] Properties to set
+         * @param {pb.IExitDiceRoom=} [properties] Properties to set
          */
         function ExitDiceRoom(properties) {
             if (properties)
@@ -6133,17 +6133,17 @@ $root.msgProto = (function() {
         /**
          * ExitDiceRoom roomId.
          * @member {number|Long} roomId
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @instance
          */
         ExitDiceRoom.prototype.roomId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
-         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link msgProto.ExitDiceRoom.verify|verify} messages.
+         * Encodes the specified ExitDiceRoom message. Does not implicitly {@link pb.ExitDiceRoom.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @static
-         * @param {msgProto.IExitDiceRoom} message ExitDiceRoom message or plain object to encode
+         * @param {pb.IExitDiceRoom} message ExitDiceRoom message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6158,18 +6158,18 @@ $root.msgProto = (function() {
         /**
          * Decodes an ExitDiceRoom message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.ExitDiceRoom} ExitDiceRoom
+         * @returns {pb.ExitDiceRoom} ExitDiceRoom
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         ExitDiceRoom.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.ExitDiceRoom();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ExitDiceRoom();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -6187,15 +6187,15 @@ $root.msgProto = (function() {
         /**
          * Creates an ExitDiceRoom message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.ExitDiceRoom} ExitDiceRoom
+         * @returns {pb.ExitDiceRoom} ExitDiceRoom
          */
         ExitDiceRoom.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.ExitDiceRoom)
+            if (object instanceof $root.pb.ExitDiceRoom)
                 return object;
-            var message = new $root.msgProto.ExitDiceRoom();
+            var message = new $root.pb.ExitDiceRoom();
             if (object.roomId != null)
                 if ($util.Long)
                     (message.roomId = $util.Long.fromValue(object.roomId)).unsigned = false;
@@ -6211,9 +6211,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from an ExitDiceRoom message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @static
-         * @param {msgProto.ExitDiceRoom} message ExitDiceRoom
+         * @param {pb.ExitDiceRoom} message ExitDiceRoom
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6238,7 +6238,7 @@ $root.msgProto = (function() {
         /**
          * Converts this ExitDiceRoom to JSON.
          * @function toJSON
-         * @memberof msgProto.ExitDiceRoom
+         * @memberof pb.ExitDiceRoom
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6249,11 +6249,11 @@ $root.msgProto = (function() {
         return ExitDiceRoom;
     })();
 
-    msgProto.PbHeroInfo = (function() {
+    pb.PbHeroInfo = (function() {
 
         /**
          * Properties of a PbHeroInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IPbHeroInfo
          * @property {number|Long|null} [id] PbHeroInfo id
          * @property {number|null} [tempId] PbHeroInfo tempId
@@ -6268,11 +6268,11 @@ $root.msgProto = (function() {
 
         /**
          * Constructs a new PbHeroInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a PbHeroInfo.
          * @implements IPbHeroInfo
          * @constructor
-         * @param {msgProto.IPbHeroInfo=} [properties] Properties to set
+         * @param {pb.IPbHeroInfo=} [properties] Properties to set
          */
         function PbHeroInfo(properties) {
             if (properties)
@@ -6284,7 +6284,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo id.
          * @member {number|Long} id
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.id = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
@@ -6292,7 +6292,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo tempId.
          * @member {number} tempId
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.tempId = 0;
@@ -6300,7 +6300,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo level.
          * @member {number} level
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.level = 0;
@@ -6308,7 +6308,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo exp.
          * @member {number} exp
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.exp = 0;
@@ -6316,7 +6316,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo atk.
          * @member {number} atk
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.atk = 0;
@@ -6324,7 +6324,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo def.
          * @member {number} def
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.def = 0;
@@ -6332,7 +6332,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo hp.
          * @member {number} hp
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.hp = 0;
@@ -6340,7 +6340,7 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo mp.
          * @member {number} mp
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.mp = 0;
@@ -6348,17 +6348,17 @@ $root.msgProto = (function() {
         /**
          * PbHeroInfo ap.
          * @member {number} ap
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          */
         PbHeroInfo.prototype.ap = 0;
 
         /**
-         * Encodes the specified PbHeroInfo message. Does not implicitly {@link msgProto.PbHeroInfo.verify|verify} messages.
+         * Encodes the specified PbHeroInfo message. Does not implicitly {@link pb.PbHeroInfo.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @static
-         * @param {msgProto.IPbHeroInfo} message PbHeroInfo message or plain object to encode
+         * @param {pb.IPbHeroInfo} message PbHeroInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6389,18 +6389,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a PbHeroInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.PbHeroInfo} PbHeroInfo
+         * @returns {pb.PbHeroInfo} PbHeroInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         PbHeroInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.PbHeroInfo();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.PbHeroInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -6442,15 +6442,15 @@ $root.msgProto = (function() {
         /**
          * Creates a PbHeroInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.PbHeroInfo} PbHeroInfo
+         * @returns {pb.PbHeroInfo} PbHeroInfo
          */
         PbHeroInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.PbHeroInfo)
+            if (object instanceof $root.pb.PbHeroInfo)
                 return object;
-            var message = new $root.msgProto.PbHeroInfo();
+            var message = new $root.pb.PbHeroInfo();
             if (object.id != null)
                 if ($util.Long)
                     (message.id = $util.Long.fromValue(object.id)).unsigned = false;
@@ -6482,9 +6482,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a PbHeroInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @static
-         * @param {msgProto.PbHeroInfo} message PbHeroInfo
+         * @param {pb.PbHeroInfo} message PbHeroInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6534,7 +6534,7 @@ $root.msgProto = (function() {
         /**
          * Converts this PbHeroInfo to JSON.
          * @function toJSON
-         * @memberof msgProto.PbHeroInfo
+         * @memberof pb.PbHeroInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6545,22 +6545,22 @@ $root.msgProto = (function() {
         return PbHeroInfo;
     })();
 
-    msgProto.HeroInfo = (function() {
+    pb.HeroInfo = (function() {
 
         /**
          * Properties of a HeroInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @interface IHeroInfo
-         * @property {Array.<msgProto.IPbHeroInfo>|null} [infos] HeroInfo infos
+         * @property {Array.<pb.IPbHeroInfo>|null} [infos] HeroInfo infos
          */
 
         /**
          * Constructs a new HeroInfo.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a HeroInfo.
          * @implements IHeroInfo
          * @constructor
-         * @param {msgProto.IHeroInfo=} [properties] Properties to set
+         * @param {pb.IHeroInfo=} [properties] Properties to set
          */
         function HeroInfo(properties) {
             this.infos = [];
@@ -6572,18 +6572,18 @@ $root.msgProto = (function() {
 
         /**
          * HeroInfo infos.
-         * @member {Array.<msgProto.IPbHeroInfo>} infos
-         * @memberof msgProto.HeroInfo
+         * @member {Array.<pb.IPbHeroInfo>} infos
+         * @memberof pb.HeroInfo
          * @instance
          */
         HeroInfo.prototype.infos = $util.emptyArray;
 
         /**
-         * Encodes the specified HeroInfo message. Does not implicitly {@link msgProto.HeroInfo.verify|verify} messages.
+         * Encodes the specified HeroInfo message. Does not implicitly {@link pb.HeroInfo.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.HeroInfo
+         * @memberof pb.HeroInfo
          * @static
-         * @param {msgProto.IHeroInfo} message HeroInfo message or plain object to encode
+         * @param {pb.IHeroInfo} message HeroInfo message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6592,32 +6592,32 @@ $root.msgProto = (function() {
                 writer = $Writer.create();
             if (message.infos != null && message.infos.length)
                 for (var i = 0; i < message.infos.length; ++i)
-                    $root.msgProto.PbHeroInfo.encode(message.infos[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    $root.pb.PbHeroInfo.encode(message.infos[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             return writer;
         };
 
         /**
          * Decodes a HeroInfo message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.HeroInfo
+         * @memberof pb.HeroInfo
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.HeroInfo} HeroInfo
+         * @returns {pb.HeroInfo} HeroInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         HeroInfo.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.HeroInfo();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.HeroInfo();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     if (!(message.infos && message.infos.length))
                         message.infos = [];
-                    message.infos.push($root.msgProto.PbHeroInfo.decode(reader, reader.uint32()));
+                    message.infos.push($root.pb.PbHeroInfo.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6630,23 +6630,23 @@ $root.msgProto = (function() {
         /**
          * Creates a HeroInfo message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.HeroInfo
+         * @memberof pb.HeroInfo
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.HeroInfo} HeroInfo
+         * @returns {pb.HeroInfo} HeroInfo
          */
         HeroInfo.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.HeroInfo)
+            if (object instanceof $root.pb.HeroInfo)
                 return object;
-            var message = new $root.msgProto.HeroInfo();
+            var message = new $root.pb.HeroInfo();
             if (object.infos) {
                 if (!Array.isArray(object.infos))
-                    throw TypeError(".msgProto.HeroInfo.infos: array expected");
+                    throw TypeError(".pb.HeroInfo.infos: array expected");
                 message.infos = [];
                 for (var i = 0; i < object.infos.length; ++i) {
                     if (typeof object.infos[i] !== "object")
-                        throw TypeError(".msgProto.HeroInfo.infos: object expected");
-                    message.infos[i] = $root.msgProto.PbHeroInfo.fromObject(object.infos[i]);
+                        throw TypeError(".pb.HeroInfo.infos: object expected");
+                    message.infos[i] = $root.pb.PbHeroInfo.fromObject(object.infos[i]);
                 }
             }
             return message;
@@ -6655,9 +6655,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a HeroInfo message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.HeroInfo
+         * @memberof pb.HeroInfo
          * @static
-         * @param {msgProto.HeroInfo} message HeroInfo
+         * @param {pb.HeroInfo} message HeroInfo
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6670,7 +6670,7 @@ $root.msgProto = (function() {
             if (message.infos && message.infos.length) {
                 object.infos = [];
                 for (var j = 0; j < message.infos.length; ++j)
-                    object.infos[j] = $root.msgProto.PbHeroInfo.toObject(message.infos[j], options);
+                    object.infos[j] = $root.pb.PbHeroInfo.toObject(message.infos[j], options);
             }
             return object;
         };
@@ -6678,7 +6678,7 @@ $root.msgProto = (function() {
         /**
          * Converts this HeroInfo to JSON.
          * @function toJSON
-         * @memberof msgProto.HeroInfo
+         * @memberof pb.HeroInfo
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6689,23 +6689,23 @@ $root.msgProto = (function() {
         return HeroInfo;
     })();
 
-    msgProto.SyncPropData = (function() {
+    pb.SyncPropData = (function() {
 
         /**
          * Properties of a SyncPropData.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISyncPropData
-         * @property {Array.<msgProto.Prop>|null} [type] SyncPropData type
+         * @property {Array.<pb.Prop>|null} [type] SyncPropData type
          * @property {Array.<number|Long>|null} [val] SyncPropData val
          */
 
         /**
          * Constructs a new SyncPropData.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SyncPropData.
          * @implements ISyncPropData
          * @constructor
-         * @param {msgProto.ISyncPropData=} [properties] Properties to set
+         * @param {pb.ISyncPropData=} [properties] Properties to set
          */
         function SyncPropData(properties) {
             this.type = [];
@@ -6718,8 +6718,8 @@ $root.msgProto = (function() {
 
         /**
          * SyncPropData type.
-         * @member {Array.<msgProto.Prop>} type
-         * @memberof msgProto.SyncPropData
+         * @member {Array.<pb.Prop>} type
+         * @memberof pb.SyncPropData
          * @instance
          */
         SyncPropData.prototype.type = $util.emptyArray;
@@ -6727,17 +6727,17 @@ $root.msgProto = (function() {
         /**
          * SyncPropData val.
          * @member {Array.<number|Long>} val
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @instance
          */
         SyncPropData.prototype.val = $util.emptyArray;
 
         /**
-         * Encodes the specified SyncPropData message. Does not implicitly {@link msgProto.SyncPropData.verify|verify} messages.
+         * Encodes the specified SyncPropData message. Does not implicitly {@link pb.SyncPropData.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @static
-         * @param {msgProto.ISyncPropData} message SyncPropData message or plain object to encode
+         * @param {pb.ISyncPropData} message SyncPropData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -6762,18 +6762,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SyncPropData message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SyncPropData} SyncPropData
+         * @returns {pb.SyncPropData} SyncPropData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SyncPropData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncPropData();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SyncPropData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -6808,18 +6808,18 @@ $root.msgProto = (function() {
         /**
          * Creates a SyncPropData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SyncPropData} SyncPropData
+         * @returns {pb.SyncPropData} SyncPropData
          */
         SyncPropData.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SyncPropData)
+            if (object instanceof $root.pb.SyncPropData)
                 return object;
-            var message = new $root.msgProto.SyncPropData();
+            var message = new $root.pb.SyncPropData();
             if (object.type) {
                 if (!Array.isArray(object.type))
-                    throw TypeError(".msgProto.SyncPropData.type: array expected");
+                    throw TypeError(".pb.SyncPropData.type: array expected");
                 message.type = [];
                 for (var i = 0; i < object.type.length; ++i)
                     switch (object.type[i]) {
@@ -6868,7 +6868,7 @@ $root.msgProto = (function() {
             }
             if (object.val) {
                 if (!Array.isArray(object.val))
-                    throw TypeError(".msgProto.SyncPropData.val: array expected");
+                    throw TypeError(".pb.SyncPropData.val: array expected");
                 message.val = [];
                 for (var i = 0; i < object.val.length; ++i)
                     if ($util.Long)
@@ -6886,9 +6886,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SyncPropData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @static
-         * @param {msgProto.SyncPropData} message SyncPropData
+         * @param {pb.SyncPropData} message SyncPropData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -6903,7 +6903,7 @@ $root.msgProto = (function() {
             if (message.type && message.type.length) {
                 object.type = [];
                 for (var j = 0; j < message.type.length; ++j)
-                    object.type[j] = options.enums === String ? $root.msgProto.Prop[message.type[j]] : message.type[j];
+                    object.type[j] = options.enums === String ? $root.pb.Prop[message.type[j]] : message.type[j];
             }
             if (message.val && message.val.length) {
                 object.val = [];
@@ -6919,7 +6919,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SyncPropData to JSON.
          * @function toJSON
-         * @memberof msgProto.SyncPropData
+         * @memberof pb.SyncPropData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -6930,23 +6930,23 @@ $root.msgProto = (function() {
         return SyncPropData;
     })();
 
-    msgProto.SyncPropData2 = (function() {
+    pb.SyncPropData2 = (function() {
 
         /**
          * Properties of a SyncPropData2.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISyncPropData2
-         * @property {Array.<msgProto.Prop>|null} [type] SyncPropData2 type
+         * @property {Array.<pb.Prop>|null} [type] SyncPropData2 type
          * @property {Array.<string>|null} [val] SyncPropData2 val
          */
 
         /**
          * Constructs a new SyncPropData2.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SyncPropData2.
          * @implements ISyncPropData2
          * @constructor
-         * @param {msgProto.ISyncPropData2=} [properties] Properties to set
+         * @param {pb.ISyncPropData2=} [properties] Properties to set
          */
         function SyncPropData2(properties) {
             this.type = [];
@@ -6959,8 +6959,8 @@ $root.msgProto = (function() {
 
         /**
          * SyncPropData2 type.
-         * @member {Array.<msgProto.Prop>} type
-         * @memberof msgProto.SyncPropData2
+         * @member {Array.<pb.Prop>} type
+         * @memberof pb.SyncPropData2
          * @instance
          */
         SyncPropData2.prototype.type = $util.emptyArray;
@@ -6968,17 +6968,17 @@ $root.msgProto = (function() {
         /**
          * SyncPropData2 val.
          * @member {Array.<string>} val
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @instance
          */
         SyncPropData2.prototype.val = $util.emptyArray;
 
         /**
-         * Encodes the specified SyncPropData2 message. Does not implicitly {@link msgProto.SyncPropData2.verify|verify} messages.
+         * Encodes the specified SyncPropData2 message. Does not implicitly {@link pb.SyncPropData2.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @static
-         * @param {msgProto.ISyncPropData2} message SyncPropData2 message or plain object to encode
+         * @param {pb.ISyncPropData2} message SyncPropData2 message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7000,18 +7000,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SyncPropData2 message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SyncPropData2} SyncPropData2
+         * @returns {pb.SyncPropData2} SyncPropData2
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SyncPropData2.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncPropData2();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SyncPropData2();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -7041,18 +7041,18 @@ $root.msgProto = (function() {
         /**
          * Creates a SyncPropData2 message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SyncPropData2} SyncPropData2
+         * @returns {pb.SyncPropData2} SyncPropData2
          */
         SyncPropData2.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SyncPropData2)
+            if (object instanceof $root.pb.SyncPropData2)
                 return object;
-            var message = new $root.msgProto.SyncPropData2();
+            var message = new $root.pb.SyncPropData2();
             if (object.type) {
                 if (!Array.isArray(object.type))
-                    throw TypeError(".msgProto.SyncPropData2.type: array expected");
+                    throw TypeError(".pb.SyncPropData2.type: array expected");
                 message.type = [];
                 for (var i = 0; i < object.type.length; ++i)
                     switch (object.type[i]) {
@@ -7101,7 +7101,7 @@ $root.msgProto = (function() {
             }
             if (object.val) {
                 if (!Array.isArray(object.val))
-                    throw TypeError(".msgProto.SyncPropData2.val: array expected");
+                    throw TypeError(".pb.SyncPropData2.val: array expected");
                 message.val = [];
                 for (var i = 0; i < object.val.length; ++i)
                     message.val[i] = String(object.val[i]);
@@ -7112,9 +7112,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SyncPropData2 message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @static
-         * @param {msgProto.SyncPropData2} message SyncPropData2
+         * @param {pb.SyncPropData2} message SyncPropData2
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -7129,7 +7129,7 @@ $root.msgProto = (function() {
             if (message.type && message.type.length) {
                 object.type = [];
                 for (var j = 0; j < message.type.length; ++j)
-                    object.type[j] = options.enums === String ? $root.msgProto.Prop[message.type[j]] : message.type[j];
+                    object.type[j] = options.enums === String ? $root.pb.Prop[message.type[j]] : message.type[j];
             }
             if (message.val && message.val.length) {
                 object.val = [];
@@ -7142,7 +7142,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SyncPropData2 to JSON.
          * @function toJSON
-         * @memberof msgProto.SyncPropData2
+         * @memberof pb.SyncPropData2
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -7153,24 +7153,24 @@ $root.msgProto = (function() {
         return SyncPropData2;
     })();
 
-    msgProto.SyncOptData = (function() {
+    pb.SyncOptData = (function() {
 
         /**
          * Properties of a SyncOptData.
-         * @memberof msgProto
+         * @memberof pb
          * @interface ISyncOptData
-         * @property {msgProto.Opt|null} [type] SyncOptData type
+         * @property {pb.Opt|null} [type] SyncOptData type
          * @property {Array.<number|Long>|null} [iVal] SyncOptData iVal
          * @property {Array.<string>|null} [strVal] SyncOptData strVal
          */
 
         /**
          * Constructs a new SyncOptData.
-         * @memberof msgProto
+         * @memberof pb
          * @classdesc Represents a SyncOptData.
          * @implements ISyncOptData
          * @constructor
-         * @param {msgProto.ISyncOptData=} [properties] Properties to set
+         * @param {pb.ISyncOptData=} [properties] Properties to set
          */
         function SyncOptData(properties) {
             this.iVal = [];
@@ -7183,8 +7183,8 @@ $root.msgProto = (function() {
 
         /**
          * SyncOptData type.
-         * @member {msgProto.Opt} type
-         * @memberof msgProto.SyncOptData
+         * @member {pb.Opt} type
+         * @memberof pb.SyncOptData
          * @instance
          */
         SyncOptData.prototype.type = 0;
@@ -7192,7 +7192,7 @@ $root.msgProto = (function() {
         /**
          * SyncOptData iVal.
          * @member {Array.<number|Long>} iVal
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @instance
          */
         SyncOptData.prototype.iVal = $util.emptyArray;
@@ -7200,17 +7200,17 @@ $root.msgProto = (function() {
         /**
          * SyncOptData strVal.
          * @member {Array.<string>} strVal
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @instance
          */
         SyncOptData.prototype.strVal = $util.emptyArray;
 
         /**
-         * Encodes the specified SyncOptData message. Does not implicitly {@link msgProto.SyncOptData.verify|verify} messages.
+         * Encodes the specified SyncOptData message. Does not implicitly {@link pb.SyncOptData.verify|verify} messages.
          * @function encode
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @static
-         * @param {msgProto.ISyncOptData} message SyncOptData message or plain object to encode
+         * @param {pb.ISyncOptData} message SyncOptData message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
@@ -7234,18 +7234,18 @@ $root.msgProto = (function() {
         /**
          * Decodes a SyncOptData message from the specified reader or buffer.
          * @function decode
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {msgProto.SyncOptData} SyncOptData
+         * @returns {pb.SyncOptData} SyncOptData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
         SyncOptData.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.msgProto.SyncOptData();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SyncOptData();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -7278,15 +7278,15 @@ $root.msgProto = (function() {
         /**
          * Creates a SyncOptData message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {msgProto.SyncOptData} SyncOptData
+         * @returns {pb.SyncOptData} SyncOptData
          */
         SyncOptData.fromObject = function fromObject(object) {
-            if (object instanceof $root.msgProto.SyncOptData)
+            if (object instanceof $root.pb.SyncOptData)
                 return object;
-            var message = new $root.msgProto.SyncOptData();
+            var message = new $root.pb.SyncOptData();
             switch (object.type) {
             case "Buy":
             case 0:
@@ -7299,7 +7299,7 @@ $root.msgProto = (function() {
             }
             if (object.iVal) {
                 if (!Array.isArray(object.iVal))
-                    throw TypeError(".msgProto.SyncOptData.iVal: array expected");
+                    throw TypeError(".pb.SyncOptData.iVal: array expected");
                 message.iVal = [];
                 for (var i = 0; i < object.iVal.length; ++i)
                     if ($util.Long)
@@ -7313,7 +7313,7 @@ $root.msgProto = (function() {
             }
             if (object.strVal) {
                 if (!Array.isArray(object.strVal))
-                    throw TypeError(".msgProto.SyncOptData.strVal: array expected");
+                    throw TypeError(".pb.SyncOptData.strVal: array expected");
                 message.strVal = [];
                 for (var i = 0; i < object.strVal.length; ++i)
                     message.strVal[i] = String(object.strVal[i]);
@@ -7324,9 +7324,9 @@ $root.msgProto = (function() {
         /**
          * Creates a plain object from a SyncOptData message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @static
-         * @param {msgProto.SyncOptData} message SyncOptData
+         * @param {pb.SyncOptData} message SyncOptData
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
@@ -7341,7 +7341,7 @@ $root.msgProto = (function() {
             if (options.defaults)
                 object.type = options.enums === String ? "Buy" : 0;
             if (message.type != null && message.hasOwnProperty("type"))
-                object.type = options.enums === String ? $root.msgProto.Opt[message.type] : message.type;
+                object.type = options.enums === String ? $root.pb.Opt[message.type] : message.type;
             if (message.iVal && message.iVal.length) {
                 object.iVal = [];
                 for (var j = 0; j < message.iVal.length; ++j)
@@ -7361,7 +7361,7 @@ $root.msgProto = (function() {
         /**
          * Converts this SyncOptData to JSON.
          * @function toJSON
-         * @memberof msgProto.SyncOptData
+         * @memberof pb.SyncOptData
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
@@ -7372,5 +7372,5 @@ $root.msgProto = (function() {
         return SyncOptData;
     })();
 
-    return msgProto;
+    return pb;
 })();

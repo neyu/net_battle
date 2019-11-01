@@ -12,7 +12,7 @@ class Chat {
         return Chat._inst;
     }
     private init() {
-        Net.regMsgProc("msgProto.ChatAck", this.chatMessage, this)
+        Net.regMsgProc("pb.ChatAck", this.chatMessage, this)
     }
     public showChatView() {
         this._chatView = new ChatView()

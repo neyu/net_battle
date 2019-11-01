@@ -388,7 +388,7 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         // Util.log("try shoot orig/rad:", this._origRadian, radian);
 
-        Net.Send("msgProto.ExchangeOptData", {
+        Net.Send("pb.ExchangeOptData", {
             optData: JSON.stringify(data)
         })
     }
