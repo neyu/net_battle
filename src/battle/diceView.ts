@@ -63,7 +63,7 @@ class DiceView extends egret.DisplayObjectContainer {
         let data = {
             opt: "start",
         }
-        Net.Send("pb.ExchangeOptData", {
+        Net.Send("pb.ExchangeRoomOpt", {
             optData: JSON.stringify(data)
         })
     }
@@ -85,7 +85,7 @@ class DiceView extends egret.DisplayObjectContainer {
             opt: "bet",
             bet: bet,
         }
-        Net.Send("pb.ExchangeOptData", {
+        Net.Send("pb.ExchangeRoomOpt", {
             optData: JSON.stringify(data)
         })
     }
@@ -132,7 +132,7 @@ class DiceView extends egret.DisplayObjectContainer {
             let data = {
                 opt: "stop",
             }
-            Net.Send("pb.ExchangeOptData", {
+            Net.Send("pb.ExchangeRoomOpt", {
                 optData: JSON.stringify(data)
             })
         }

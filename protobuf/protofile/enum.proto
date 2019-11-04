@@ -11,7 +11,7 @@ enum ResultCode
 }
 
 enum Prop {
-	Gold = 0;
+	Coin = 0;
 	Diamond = 1;
 	Vip = 2;
 	

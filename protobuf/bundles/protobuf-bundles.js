@@ -37,7 +37,7 @@ $root.pb = (function() {
      * Prop enum.
      * @name pb.Prop
      * @enum {string}
-     * @property {number} Gold=0 Gold value
+     * @property {number} Coin=0 Coin value
      * @property {number} Diamond=1 Diamond value
      * @property {number} Vip=2 Vip value
      * @property {number} Level=10 Level value
@@ -50,7 +50,7 @@ $root.pb = (function() {
      */
     pb.Prop = (function() {
         var valuesById = {}, values = Object.create(valuesById);
-        values[valuesById[0] = "Gold"] = 0;
+        values[valuesById[0] = "Coin"] = 0;
         values[valuesById[1] = "Diamond"] = 1;
         values[valuesById[2] = "Vip"] = 2;
         values[valuesById[10] = "Level"] = 10;
@@ -4926,135 +4926,6 @@ $root.pb = (function() {
         return TestNetLatency;
     })();
 
-    pb.ExchangeOptData = (function() {
-
-        /**
-         * Properties of an ExchangeOptData.
-         * @memberof pb
-         * @interface IExchangeOptData
-         * @property {string|null} [optData] ExchangeOptData optData
-         */
-
-        /**
-         * Constructs a new ExchangeOptData.
-         * @memberof pb
-         * @classdesc Represents an ExchangeOptData.
-         * @implements IExchangeOptData
-         * @constructor
-         * @param {pb.IExchangeOptData=} [properties] Properties to set
-         */
-        function ExchangeOptData(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * ExchangeOptData optData.
-         * @member {string} optData
-         * @memberof pb.ExchangeOptData
-         * @instance
-         */
-        ExchangeOptData.prototype.optData = "";
-
-        /**
-         * Encodes the specified ExchangeOptData message. Does not implicitly {@link pb.ExchangeOptData.verify|verify} messages.
-         * @function encode
-         * @memberof pb.ExchangeOptData
-         * @static
-         * @param {pb.IExchangeOptData} message ExchangeOptData message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ExchangeOptData.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.optData != null && message.hasOwnProperty("optData"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.optData);
-            return writer;
-        };
-
-        /**
-         * Decodes an ExchangeOptData message from the specified reader or buffer.
-         * @function decode
-         * @memberof pb.ExchangeOptData
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {pb.ExchangeOptData} ExchangeOptData
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ExchangeOptData.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ExchangeOptData();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.optData = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof pb.ExchangeOptData
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {pb.ExchangeOptData} ExchangeOptData
-         */
-        ExchangeOptData.fromObject = function fromObject(object) {
-            if (object instanceof $root.pb.ExchangeOptData)
-                return object;
-            var message = new $root.pb.ExchangeOptData();
-            if (object.optData != null)
-                message.optData = String(object.optData);
-            return message;
-        };
-
-        /**
-         * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof pb.ExchangeOptData
-         * @static
-         * @param {pb.ExchangeOptData} message ExchangeOptData
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        ExchangeOptData.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults)
-                object.optData = "";
-            if (message.optData != null && message.hasOwnProperty("optData"))
-                object.optData = message.optData;
-            return object;
-        };
-
-        /**
-         * Converts this ExchangeOptData to JSON.
-         * @function toJSON
-         * @memberof pb.ExchangeOptData
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        ExchangeOptData.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return ExchangeOptData;
-    })();
-
     pb.CreateClsRoom = (function() {
 
         /**
@@ -6249,6 +6120,498 @@ $root.pb = (function() {
         return ExitDiceRoom;
     })();
 
+    pb.ExchangeRoomOpt = (function() {
+
+        /**
+         * Properties of an ExchangeRoomOpt.
+         * @memberof pb
+         * @interface IExchangeRoomOpt
+         * @property {number|null} [svrFrame] ExchangeRoomOpt svrFrame
+         * @property {string|null} [optData] ExchangeRoomOpt optData
+         */
+
+        /**
+         * Constructs a new ExchangeRoomOpt.
+         * @memberof pb
+         * @classdesc Represents an ExchangeRoomOpt.
+         * @implements IExchangeRoomOpt
+         * @constructor
+         * @param {pb.IExchangeRoomOpt=} [properties] Properties to set
+         */
+        function ExchangeRoomOpt(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ExchangeRoomOpt svrFrame.
+         * @member {number} svrFrame
+         * @memberof pb.ExchangeRoomOpt
+         * @instance
+         */
+        ExchangeRoomOpt.prototype.svrFrame = 0;
+
+        /**
+         * ExchangeRoomOpt optData.
+         * @member {string} optData
+         * @memberof pb.ExchangeRoomOpt
+         * @instance
+         */
+        ExchangeRoomOpt.prototype.optData = "";
+
+        /**
+         * Encodes the specified ExchangeRoomOpt message. Does not implicitly {@link pb.ExchangeRoomOpt.verify|verify} messages.
+         * @function encode
+         * @memberof pb.ExchangeRoomOpt
+         * @static
+         * @param {pb.IExchangeRoomOpt} message ExchangeRoomOpt message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExchangeRoomOpt.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.svrFrame != null && message.hasOwnProperty("svrFrame"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.svrFrame);
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.optData);
+            return writer;
+        };
+
+        /**
+         * Decodes an ExchangeRoomOpt message from the specified reader or buffer.
+         * @function decode
+         * @memberof pb.ExchangeRoomOpt
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {pb.ExchangeRoomOpt} ExchangeRoomOpt
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExchangeRoomOpt.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.ExchangeRoomOpt();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.svrFrame = reader.int32();
+                    break;
+                case 2:
+                    message.optData = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates an ExchangeRoomOpt message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof pb.ExchangeRoomOpt
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {pb.ExchangeRoomOpt} ExchangeRoomOpt
+         */
+        ExchangeRoomOpt.fromObject = function fromObject(object) {
+            if (object instanceof $root.pb.ExchangeRoomOpt)
+                return object;
+            var message = new $root.pb.ExchangeRoomOpt();
+            if (object.svrFrame != null)
+                message.svrFrame = object.svrFrame | 0;
+            if (object.optData != null)
+                message.optData = String(object.optData);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExchangeRoomOpt message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof pb.ExchangeRoomOpt
+         * @static
+         * @param {pb.ExchangeRoomOpt} message ExchangeRoomOpt
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExchangeRoomOpt.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.svrFrame = 0;
+                object.optData = "";
+            }
+            if (message.svrFrame != null && message.hasOwnProperty("svrFrame"))
+                object.svrFrame = message.svrFrame;
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                object.optData = message.optData;
+            return object;
+        };
+
+        /**
+         * Converts this ExchangeRoomOpt to JSON.
+         * @function toJSON
+         * @memberof pb.ExchangeRoomOpt
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExchangeRoomOpt.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ExchangeRoomOpt;
+    })();
+
+    pb.PbOptInfo = (function() {
+
+        /**
+         * Properties of a PbOptInfo.
+         * @memberof pb
+         * @interface IPbOptInfo
+         * @property {number|null} [frame] PbOptInfo frame
+         * @property {string|null} [optData] PbOptInfo optData
+         */
+
+        /**
+         * Constructs a new PbOptInfo.
+         * @memberof pb
+         * @classdesc Represents a PbOptInfo.
+         * @implements IPbOptInfo
+         * @constructor
+         * @param {pb.IPbOptInfo=} [properties] Properties to set
+         */
+        function PbOptInfo(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * PbOptInfo frame.
+         * @member {number} frame
+         * @memberof pb.PbOptInfo
+         * @instance
+         */
+        PbOptInfo.prototype.frame = 0;
+
+        /**
+         * PbOptInfo optData.
+         * @member {string} optData
+         * @memberof pb.PbOptInfo
+         * @instance
+         */
+        PbOptInfo.prototype.optData = "";
+
+        /**
+         * Encodes the specified PbOptInfo message. Does not implicitly {@link pb.PbOptInfo.verify|verify} messages.
+         * @function encode
+         * @memberof pb.PbOptInfo
+         * @static
+         * @param {pb.IPbOptInfo} message PbOptInfo message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PbOptInfo.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.frame);
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.optData);
+            return writer;
+        };
+
+        /**
+         * Decodes a PbOptInfo message from the specified reader or buffer.
+         * @function decode
+         * @memberof pb.PbOptInfo
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {pb.PbOptInfo} PbOptInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PbOptInfo.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.PbOptInfo();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.frame = reader.int32();
+                    break;
+                case 2:
+                    message.optData = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a PbOptInfo message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof pb.PbOptInfo
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {pb.PbOptInfo} PbOptInfo
+         */
+        PbOptInfo.fromObject = function fromObject(object) {
+            if (object instanceof $root.pb.PbOptInfo)
+                return object;
+            var message = new $root.pb.PbOptInfo();
+            if (object.frame != null)
+                message.frame = object.frame | 0;
+            if (object.optData != null)
+                message.optData = String(object.optData);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a PbOptInfo message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof pb.PbOptInfo
+         * @static
+         * @param {pb.PbOptInfo} message PbOptInfo
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PbOptInfo.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.frame = 0;
+                object.optData = "";
+            }
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                object.frame = message.frame;
+            if (message.optData != null && message.hasOwnProperty("optData"))
+                object.optData = message.optData;
+            return object;
+        };
+
+        /**
+         * Converts this PbOptInfo to JSON.
+         * @function toJSON
+         * @memberof pb.PbOptInfo
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PbOptInfo.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return PbOptInfo;
+    })();
+
+    pb.SyncRoomState = (function() {
+
+        /**
+         * Properties of a SyncRoomState.
+         * @memberof pb
+         * @interface ISyncRoomState
+         * @property {Array.<number|Long>|null} [userList] SyncRoomState userList
+         * @property {Array.<pb.IPbOptInfo>|null} [optRecord] SyncRoomState optRecord
+         */
+
+        /**
+         * Constructs a new SyncRoomState.
+         * @memberof pb
+         * @classdesc Represents a SyncRoomState.
+         * @implements ISyncRoomState
+         * @constructor
+         * @param {pb.ISyncRoomState=} [properties] Properties to set
+         */
+        function SyncRoomState(properties) {
+            this.userList = [];
+            this.optRecord = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SyncRoomState userList.
+         * @member {Array.<number|Long>} userList
+         * @memberof pb.SyncRoomState
+         * @instance
+         */
+        SyncRoomState.prototype.userList = $util.emptyArray;
+
+        /**
+         * SyncRoomState optRecord.
+         * @member {Array.<pb.IPbOptInfo>} optRecord
+         * @memberof pb.SyncRoomState
+         * @instance
+         */
+        SyncRoomState.prototype.optRecord = $util.emptyArray;
+
+        /**
+         * Encodes the specified SyncRoomState message. Does not implicitly {@link pb.SyncRoomState.verify|verify} messages.
+         * @function encode
+         * @memberof pb.SyncRoomState
+         * @static
+         * @param {pb.ISyncRoomState} message SyncRoomState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncRoomState.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.userList != null && message.userList.length) {
+                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                for (var i = 0; i < message.userList.length; ++i)
+                    writer.int64(message.userList[i]);
+                writer.ldelim();
+            }
+            if (message.optRecord != null && message.optRecord.length)
+                for (var i = 0; i < message.optRecord.length; ++i)
+                    $root.pb.PbOptInfo.encode(message.optRecord[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Decodes a SyncRoomState message from the specified reader or buffer.
+         * @function decode
+         * @memberof pb.SyncRoomState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {pb.SyncRoomState} SyncRoomState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncRoomState.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SyncRoomState();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.userList && message.userList.length))
+                        message.userList = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.userList.push(reader.int64());
+                    } else
+                        message.userList.push(reader.int64());
+                    break;
+                case 2:
+                    if (!(message.optRecord && message.optRecord.length))
+                        message.optRecord = [];
+                    message.optRecord.push($root.pb.PbOptInfo.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a SyncRoomState message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof pb.SyncRoomState
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {pb.SyncRoomState} SyncRoomState
+         */
+        SyncRoomState.fromObject = function fromObject(object) {
+            if (object instanceof $root.pb.SyncRoomState)
+                return object;
+            var message = new $root.pb.SyncRoomState();
+            if (object.userList) {
+                if (!Array.isArray(object.userList))
+                    throw TypeError(".pb.SyncRoomState.userList: array expected");
+                message.userList = [];
+                for (var i = 0; i < object.userList.length; ++i)
+                    if ($util.Long)
+                        (message.userList[i] = $util.Long.fromValue(object.userList[i])).unsigned = false;
+                    else if (typeof object.userList[i] === "string")
+                        message.userList[i] = parseInt(object.userList[i], 10);
+                    else if (typeof object.userList[i] === "number")
+                        message.userList[i] = object.userList[i];
+                    else if (typeof object.userList[i] === "object")
+                        message.userList[i] = new $util.LongBits(object.userList[i].low >>> 0, object.userList[i].high >>> 0).toNumber();
+            }
+            if (object.optRecord) {
+                if (!Array.isArray(object.optRecord))
+                    throw TypeError(".pb.SyncRoomState.optRecord: array expected");
+                message.optRecord = [];
+                for (var i = 0; i < object.optRecord.length; ++i) {
+                    if (typeof object.optRecord[i] !== "object")
+                        throw TypeError(".pb.SyncRoomState.optRecord: object expected");
+                    message.optRecord[i] = $root.pb.PbOptInfo.fromObject(object.optRecord[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncRoomState message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof pb.SyncRoomState
+         * @static
+         * @param {pb.SyncRoomState} message SyncRoomState
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncRoomState.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.userList = [];
+                object.optRecord = [];
+            }
+            if (message.userList && message.userList.length) {
+                object.userList = [];
+                for (var j = 0; j < message.userList.length; ++j)
+                    if (typeof message.userList[j] === "number")
+                        object.userList[j] = options.longs === String ? String(message.userList[j]) : message.userList[j];
+                    else
+                        object.userList[j] = options.longs === String ? $util.Long.prototype.toString.call(message.userList[j]) : options.longs === Number ? new $util.LongBits(message.userList[j].low >>> 0, message.userList[j].high >>> 0).toNumber() : message.userList[j];
+            }
+            if (message.optRecord && message.optRecord.length) {
+                object.optRecord = [];
+                for (var j = 0; j < message.optRecord.length; ++j)
+                    object.optRecord[j] = $root.pb.PbOptInfo.toObject(message.optRecord[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this SyncRoomState to JSON.
+         * @function toJSON
+         * @memberof pb.SyncRoomState
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncRoomState.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return SyncRoomState;
+    })();
+
     pb.PbHeroInfo = (function() {
 
         /**
@@ -6695,6 +7058,7 @@ $root.pb = (function() {
          * Properties of a SyncPropData.
          * @memberof pb
          * @interface ISyncPropData
+         * @property {number|Long|null} [heroId] SyncPropData heroId
          * @property {Array.<pb.Prop>|null} [type] SyncPropData type
          * @property {Array.<number|Long>|null} [val] SyncPropData val
          */
@@ -6715,6 +7079,14 @@ $root.pb = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+
+        /**
+         * SyncPropData heroId.
+         * @member {number|Long} heroId
+         * @memberof pb.SyncPropData
+         * @instance
+         */
+        SyncPropData.prototype.heroId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * SyncPropData type.
@@ -6744,14 +7116,16 @@ $root.pb = (function() {
         SyncPropData.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.heroId != null && message.hasOwnProperty("heroId"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.heroId);
             if (message.type != null && message.type.length) {
-                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
                 for (var i = 0; i < message.type.length; ++i)
                     writer.int32(message.type[i]);
                 writer.ldelim();
             }
             if (message.val != null && message.val.length) {
-                writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                writer.uint32(/* id 3, wireType 2 =*/26).fork();
                 for (var i = 0; i < message.val.length; ++i)
                     writer.int64(message.val[i]);
                 writer.ldelim();
@@ -6778,6 +7152,9 @@ $root.pb = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
+                    message.heroId = reader.int64();
+                    break;
+                case 2:
                     if (!(message.type && message.type.length))
                         message.type = [];
                     if ((tag & 7) === 2) {
@@ -6787,7 +7164,7 @@ $root.pb = (function() {
                     } else
                         message.type.push(reader.int32());
                     break;
-                case 2:
+                case 3:
                     if (!(message.val && message.val.length))
                         message.val = [];
                     if ((tag & 7) === 2) {
@@ -6817,6 +7194,15 @@ $root.pb = (function() {
             if (object instanceof $root.pb.SyncPropData)
                 return object;
             var message = new $root.pb.SyncPropData();
+            if (object.heroId != null)
+                if ($util.Long)
+                    (message.heroId = $util.Long.fromValue(object.heroId)).unsigned = false;
+                else if (typeof object.heroId === "string")
+                    message.heroId = parseInt(object.heroId, 10);
+                else if (typeof object.heroId === "number")
+                    message.heroId = object.heroId;
+                else if (typeof object.heroId === "object")
+                    message.heroId = new $util.LongBits(object.heroId.low >>> 0, object.heroId.high >>> 0).toNumber();
             if (object.type) {
                 if (!Array.isArray(object.type))
                     throw TypeError(".pb.SyncPropData.type: array expected");
@@ -6824,7 +7210,7 @@ $root.pb = (function() {
                 for (var i = 0; i < object.type.length; ++i)
                     switch (object.type[i]) {
                     default:
-                    case "Gold":
+                    case "Coin":
                     case 0:
                         message.type[i] = 0;
                         break;
@@ -6900,6 +7286,17 @@ $root.pb = (function() {
                 object.type = [];
                 object.val = [];
             }
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.heroId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.heroId = options.longs === String ? "0" : 0;
+            if (message.heroId != null && message.hasOwnProperty("heroId"))
+                if (typeof message.heroId === "number")
+                    object.heroId = options.longs === String ? String(message.heroId) : message.heroId;
+                else
+                    object.heroId = options.longs === String ? $util.Long.prototype.toString.call(message.heroId) : options.longs === Number ? new $util.LongBits(message.heroId.low >>> 0, message.heroId.high >>> 0).toNumber() : message.heroId;
             if (message.type && message.type.length) {
                 object.type = [];
                 for (var j = 0; j < message.type.length; ++j)
@@ -6936,6 +7333,7 @@ $root.pb = (function() {
          * Properties of a SyncPropData2.
          * @memberof pb
          * @interface ISyncPropData2
+         * @property {number|Long|null} [heroId] SyncPropData2 heroId
          * @property {Array.<pb.Prop>|null} [type] SyncPropData2 type
          * @property {Array.<string>|null} [val] SyncPropData2 val
          */
@@ -6956,6 +7354,14 @@ $root.pb = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+
+        /**
+         * SyncPropData2 heroId.
+         * @member {number|Long} heroId
+         * @memberof pb.SyncPropData2
+         * @instance
+         */
+        SyncPropData2.prototype.heroId = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
          * SyncPropData2 type.
@@ -6985,15 +7391,17 @@ $root.pb = (function() {
         SyncPropData2.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.heroId != null && message.hasOwnProperty("heroId"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int64(message.heroId);
             if (message.type != null && message.type.length) {
-                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
                 for (var i = 0; i < message.type.length; ++i)
                     writer.int32(message.type[i]);
                 writer.ldelim();
             }
             if (message.val != null && message.val.length)
                 for (var i = 0; i < message.val.length; ++i)
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.val[i]);
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.val[i]);
             return writer;
         };
 
@@ -7016,6 +7424,9 @@ $root.pb = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
+                    message.heroId = reader.int64();
+                    break;
+                case 2:
                     if (!(message.type && message.type.length))
                         message.type = [];
                     if ((tag & 7) === 2) {
@@ -7025,7 +7436,7 @@ $root.pb = (function() {
                     } else
                         message.type.push(reader.int32());
                     break;
-                case 2:
+                case 3:
                     if (!(message.val && message.val.length))
                         message.val = [];
                     message.val.push(reader.string());
@@ -7050,6 +7461,15 @@ $root.pb = (function() {
             if (object instanceof $root.pb.SyncPropData2)
                 return object;
             var message = new $root.pb.SyncPropData2();
+            if (object.heroId != null)
+                if ($util.Long)
+                    (message.heroId = $util.Long.fromValue(object.heroId)).unsigned = false;
+                else if (typeof object.heroId === "string")
+                    message.heroId = parseInt(object.heroId, 10);
+                else if (typeof object.heroId === "number")
+                    message.heroId = object.heroId;
+                else if (typeof object.heroId === "object")
+                    message.heroId = new $util.LongBits(object.heroId.low >>> 0, object.heroId.high >>> 0).toNumber();
             if (object.type) {
                 if (!Array.isArray(object.type))
                     throw TypeError(".pb.SyncPropData2.type: array expected");
@@ -7057,7 +7477,7 @@ $root.pb = (function() {
                 for (var i = 0; i < object.type.length; ++i)
                     switch (object.type[i]) {
                     default:
-                    case "Gold":
+                    case "Coin":
                     case 0:
                         message.type[i] = 0;
                         break;
@@ -7126,6 +7546,17 @@ $root.pb = (function() {
                 object.type = [];
                 object.val = [];
             }
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, false);
+                    object.heroId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.heroId = options.longs === String ? "0" : 0;
+            if (message.heroId != null && message.hasOwnProperty("heroId"))
+                if (typeof message.heroId === "number")
+                    object.heroId = options.longs === String ? String(message.heroId) : message.heroId;
+                else
+                    object.heroId = options.longs === String ? $util.Long.prototype.toString.call(message.heroId) : options.longs === Number ? new $util.LongBits(message.heroId.low >>> 0, message.heroId.high >>> 0).toNumber() : message.heroId;
             if (message.type && message.type.length) {
                 object.type = [];
                 for (var j = 0; j < message.type.length; ++j)

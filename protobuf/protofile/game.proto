@@ -201,19 +201,17 @@ message AccountSvrsGet {
 message TestNetLatency {
 	int64 time = 1; // 标记时间
 }
-// 同步操作信息
-message ExchangeOptData {
-	string optData = 1; // json data
-}
 
 // 创建经典模式房间
 message CreateClsRoom {
 	string name = 1;
 }
+
 // 请求进入经典模式房间
 message JoinClsRoom {
 	string name = 1;
 }
+
 // 进入经典房间
 message EnterClsRoomResponse {
 	int32 retCode = 1;
@@ -221,18 +219,22 @@ message EnterClsRoomResponse {
 	int64 roomId = 2;
 	int64 masterId = 3;
 }
+
 // 退出经典房间
 message ExitClsRoom{
 	int64 roomId = 1;
 }
+
 // 创建骰子模式房间
 message CreateDiceRoom {
 	string name = 1;
 }
+
 // 进入骰子模式房间 
 message JoinDiceRoom {
 	string name = 1;
 }
+
 // 进入骰子房间
 message EnterDiceRoomResponse {
 	int32 retCode = 1;
@@ -240,9 +242,27 @@ message EnterDiceRoomResponse {
 	int64 roomId = 2;
 	int64 masterId = 3;
 }
+
 // 退出骰子房间
 message ExitDiceRoom {
 	int64 roomId = 1;
+}
+
+// 同步操作信息
+message ExchangeRoomOpt {
+	int32 svrFrame = 1;
+	string optData = 2; // json data
+}
+
+// 历史操作缓存
+message PbOptInfo {
+	int32 frame = 1;
+	string optData = 2;
+}
+// 同步房间状态信息 
+message SyncRoomState {
+	repeated int64 userList = 1;
+	repeated PbOptInfo optRecord = 2;
 }
 
 
@@ -264,16 +284,18 @@ message HeroInfo {
 	repeated PbHeroInfo infos = 1; 
 }
 
-// 角色属性变更(number)
+// 角色属性变更(number)(C <=> S)
 message SyncPropData {
-	repeated Prop type = 1;
-	repeated int64 val = 2; 
+	int64 heroId = 1;
+	repeated Prop type = 2;
+	repeated int64 val = 3; 
 }
 
-// 角色属性变更(string)
+// 角色属性变更(string)(C <=> S)
 message SyncPropData2 {
-	repeated Prop type = 1;
-	repeated string val = 2; 
+	int64 heroId = 1;
+	repeated Prop type = 2;
+	repeated string val = 3; 
 }
 
 // 角色操作 

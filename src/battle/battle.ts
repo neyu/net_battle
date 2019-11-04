@@ -18,6 +18,9 @@ class Battle {
     private _master: number = 0;
     public start: boolean = false;
 
+    public curFrame: number = 0; // 当前正播放的帧数
+    public optData: IOptData[] = []; // 同步数据缓存
+
     public static get inst(): Battle {
         if (Battle._inst == null) {
             Battle._inst = new Battle();
@@ -26,7 +29,7 @@ class Battle {
         return Battle._inst;
     }
     private init() {
-        //
+        Net.regMsgProc("pb.SyncRoomState", this.syncRoomState, this)
     }
     public createScene(type:number) {
         this._btScene = new BtScene(type)
@@ -67,5 +70,8 @@ class Battle {
             return true
         }
         return false
+    }
+    private syncRoomState(msg:pb.SyncRoomState) {
+        Util.log("syncRoomState:", msg.userList, msg.optRecord)
     }
 }

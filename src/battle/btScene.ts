@@ -9,7 +9,7 @@ class BtScene extends egret.DisplayObjectContainer {
         this._btType = type;
 
         Net.regMsgProc("net_latency_res", this.netLatencyResponse, this)
-        Net.regMsgProc("pb.ExchangeOptData", this.syncOptData, this)
+        Net.regMsgProc("pb.ExchangeRoomOpt", this.exchangeRoomOpt, this)
 
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
@@ -25,6 +25,8 @@ class BtScene extends egret.DisplayObjectContainer {
         } else if (this._btType == 1) {
             this.openDiceView()
         }
+
+        this._sandTable.startTick()
     }
     public onExit() {
         Net.delMsgTarget(this);
@@ -79,11 +81,12 @@ class BtScene extends egret.DisplayObjectContainer {
             this._diceView.showNetLatency(data.lag);
         }
     }
-    private syncOptData(msg:pb.ExchangeOptData) {
+    private exchangeRoomOpt(msg:pb.ExchangeRoomOpt) {
         let data:IOptData = JSON.parse(msg.optData)
         // Util.log("sync opt data:", msg.optData, opt) // 
         if (data.opt == "shoot") {
-            this._sandTable.shoot(data);
+            let frame = msg.svrFrame;
+            this._sandTable.shoot(frame, data);
             if (this._clsView) {
                 // 
             } else if (this._diceView) {

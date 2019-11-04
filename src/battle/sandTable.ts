@@ -8,6 +8,12 @@ interface IBallInfo {
     type: number,
     userId: number,
 }
+
+interface IOptInfo {
+    frame: number,
+    optData: IOptData,
+}
+
 class SandTable extends egret.DisplayObjectContainer {
     private _radius: number = 320
     private _w: number = 0;
@@ -21,9 +27,9 @@ class SandTable extends egret.DisplayObjectContainer {
 
     // 预备球队列
     private _ballR: number = 16;
-    private _ballInfos: IBallInfo[];
-    private _ballPool: egret.Shape[];
-    private _ballPoolEx: egret.Shape[];
+    private _ballInfos: IBallInfo[] = [];
+    private _ballPool: egret.Shape[] = [];
+    private _ballPoolEx: egret.Shape[] = [];
     private _bet: number = 1;
     public _poolPosX: number;
     public _poolPosY: number;
@@ -31,6 +37,12 @@ class SandTable extends egret.DisplayObjectContainer {
     // 沙盘中实体球集合
     private _bulletR: number = 10;
     private _bulletList: Bullet[] = [];
+
+    private _interval: number = 33; // ms
+    private _lastTick: number = 0;
+    private _startTick: number = 0;
+    private _curFrame: number = 0;
+    private _record: IOptInfo[] = [];
 
     constructor() {
         super()
@@ -50,6 +62,9 @@ class SandTable extends egret.DisplayObjectContainer {
         this._origRadian = this.getRandRadian();
 
         this.drawSandTable()
+
+        this._lastTick = egret.getTimer()
+        TimerMgr.inst.doTimer(this._interval, 0, this.update, this);    
     }
 
     private getRandRadian(): number {
@@ -388,11 +403,11 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         // Util.log("try shoot orig/rad:", this._origRadian, radian);
 
-        Net.Send("pb.ExchangeOptData", {
+        Net.Send("pb.ExchangeRoomOpt", {
             optData: JSON.stringify(data)
         })
     }
-    public shoot(opt:IOptData) {
+    public shoot(frame:number, opt:IOptData) {
         // Util.log("shoot orig/rad:", opt.origRad, opt.radian);
         if (Login.inst._userData.userId == opt.userId) {
             if (Battle.inst.mode == 0) {
@@ -406,6 +421,7 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         let debug = "orig/rad:" + opt.origRad.toString() + "/" + opt.radian.toString();
         Battle.inst.getScene().showDebug(debug);
+        this.cacheOptData(frame, opt)
 
         this._seq += 1;
         let shtRad = opt.radian + opt.origRad - this._origRadian;
@@ -417,5 +433,50 @@ class SandTable extends egret.DisplayObjectContainer {
 
         this._bulletList.push(bullet);
     }
+    private cacheOptData(frame:number, opt:IOptData) {
+        this._record.push({
+            frame: frame,
+            optData: opt
+        })
+    }
 
+    public startTick() {
+        this._startTick = egret.getTimer()
+        this._curFrame = 0;
+    }
+    private _ttTick: number = 0;
+    private _tkTimes: number = 0;
+    public updateTest() {
+        let now = egret.getTimer()
+        let elapse = now - this._lastTick
+        this._ttTick += elapse
+        this._tkTimes += 1
+        Util.log("tick:", elapse, this._tkTimes, this._ttTick)
+        if (this._ttTick > 1 * 1000) {
+            TimerMgr.inst.remove(this.updateBullet, this)
+
+            Util.log("10s elapsed......", this._ttTick, this._tkTimes)
+            return
+        }
+
+        this._lastTick = now;
+    }
+    public update() {
+        let now = egret.getTimer()
+        let frames = Math.round((now - this._startTick) / 30)
+        let frameDiff = frames - this._curFrame
+        if (frameDiff >= 1) {
+            for (let i=0; i < frameDiff; i++) {
+                this.updateBullet()
+            }
+            this._curFrame = frames
+        }
+    }
+
+    private updateBullet() {
+        for (let i=0; i < this._bulletList.length; i++) {
+            let bullet = this._bulletList[i]
+            bullet.update()
+        }
+    }
 }

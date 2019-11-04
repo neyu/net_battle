@@ -13,7 +13,7 @@ declare namespace pb {
 
     /** Prop enum. */
     enum Prop {
-        Gold = 0,
+        Coin = 0,
         Diamond = 1,
         Vip = 2,
         Level = 10,
@@ -2013,65 +2013,6 @@ declare namespace pb {
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of an ExchangeOptData. */
-    interface IExchangeOptData {
-
-        /** ExchangeOptData optData */
-        optData?: (string|null);
-    }
-
-    /** Represents an ExchangeOptData. */
-    class ExchangeOptData implements IExchangeOptData {
-
-        /**
-         * Constructs a new ExchangeOptData.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: pb.IExchangeOptData);
-
-        /** ExchangeOptData optData. */
-        public optData: string;
-
-        /**
-         * Encodes the specified ExchangeOptData message. Does not implicitly {@link pb.ExchangeOptData.verify|verify} messages.
-         * @param message ExchangeOptData message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: pb.IExchangeOptData, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an ExchangeOptData message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ExchangeOptData
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ExchangeOptData;
-
-        /**
-         * Creates an ExchangeOptData message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns ExchangeOptData
-         */
-        public static fromObject(object: { [k: string]: any }): pb.ExchangeOptData;
-
-        /**
-         * Creates a plain object from an ExchangeOptData message. Also converts values to other types if specified.
-         * @param message ExchangeOptData
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: pb.ExchangeOptData, options?: protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this ExchangeOptData to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-
     /** Properties of a CreateClsRoom. */
     interface ICreateClsRoom {
 
@@ -2568,6 +2509,201 @@ declare namespace pb {
         public toJSON(): { [k: string]: any };
     }
 
+    /** Properties of an ExchangeRoomOpt. */
+    interface IExchangeRoomOpt {
+
+        /** ExchangeRoomOpt svrFrame */
+        svrFrame?: (number|null);
+
+        /** ExchangeRoomOpt optData */
+        optData?: (string|null);
+    }
+
+    /** Represents an ExchangeRoomOpt. */
+    class ExchangeRoomOpt implements IExchangeRoomOpt {
+
+        /**
+         * Constructs a new ExchangeRoomOpt.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: pb.IExchangeRoomOpt);
+
+        /** ExchangeRoomOpt svrFrame. */
+        public svrFrame: number;
+
+        /** ExchangeRoomOpt optData. */
+        public optData: string;
+
+        /**
+         * Encodes the specified ExchangeRoomOpt message. Does not implicitly {@link pb.ExchangeRoomOpt.verify|verify} messages.
+         * @param message ExchangeRoomOpt message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: pb.IExchangeRoomOpt, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an ExchangeRoomOpt message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ExchangeRoomOpt
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.ExchangeRoomOpt;
+
+        /**
+         * Creates an ExchangeRoomOpt message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ExchangeRoomOpt
+         */
+        public static fromObject(object: { [k: string]: any }): pb.ExchangeRoomOpt;
+
+        /**
+         * Creates a plain object from an ExchangeRoomOpt message. Also converts values to other types if specified.
+         * @param message ExchangeRoomOpt
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: pb.ExchangeRoomOpt, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ExchangeRoomOpt to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PbOptInfo. */
+    interface IPbOptInfo {
+
+        /** PbOptInfo frame */
+        frame?: (number|null);
+
+        /** PbOptInfo optData */
+        optData?: (string|null);
+    }
+
+    /** Represents a PbOptInfo. */
+    class PbOptInfo implements IPbOptInfo {
+
+        /**
+         * Constructs a new PbOptInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: pb.IPbOptInfo);
+
+        /** PbOptInfo frame. */
+        public frame: number;
+
+        /** PbOptInfo optData. */
+        public optData: string;
+
+        /**
+         * Encodes the specified PbOptInfo message. Does not implicitly {@link pb.PbOptInfo.verify|verify} messages.
+         * @param message PbOptInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: pb.IPbOptInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a PbOptInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PbOptInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.PbOptInfo;
+
+        /**
+         * Creates a PbOptInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PbOptInfo
+         */
+        public static fromObject(object: { [k: string]: any }): pb.PbOptInfo;
+
+        /**
+         * Creates a plain object from a PbOptInfo message. Also converts values to other types if specified.
+         * @param message PbOptInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: pb.PbOptInfo, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PbOptInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SyncRoomState. */
+    interface ISyncRoomState {
+
+        /** SyncRoomState userList */
+        userList?: ((number|Long)[]|null);
+
+        /** SyncRoomState optRecord */
+        optRecord?: (pb.IPbOptInfo[]|null);
+    }
+
+    /** Represents a SyncRoomState. */
+    class SyncRoomState implements ISyncRoomState {
+
+        /**
+         * Constructs a new SyncRoomState.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: pb.ISyncRoomState);
+
+        /** SyncRoomState userList. */
+        public userList: (number|Long)[];
+
+        /** SyncRoomState optRecord. */
+        public optRecord: pb.IPbOptInfo[];
+
+        /**
+         * Encodes the specified SyncRoomState message. Does not implicitly {@link pb.SyncRoomState.verify|verify} messages.
+         * @param message SyncRoomState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: pb.ISyncRoomState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a SyncRoomState message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SyncRoomState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SyncRoomState;
+
+        /**
+         * Creates a SyncRoomState message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SyncRoomState
+         */
+        public static fromObject(object: { [k: string]: any }): pb.SyncRoomState;
+
+        /**
+         * Creates a plain object from a SyncRoomState message. Also converts values to other types if specified.
+         * @param message SyncRoomState
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: pb.SyncRoomState, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SyncRoomState to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a PbHeroInfo. */
     interface IPbHeroInfo {
 
@@ -2737,6 +2873,9 @@ declare namespace pb {
     /** Properties of a SyncPropData. */
     interface ISyncPropData {
 
+        /** SyncPropData heroId */
+        heroId?: (number|Long|null);
+
         /** SyncPropData type */
         type?: (pb.Prop[]|null);
 
@@ -2752,6 +2891,9 @@ declare namespace pb {
          * @param [properties] Properties to set
          */
         constructor(properties?: pb.ISyncPropData);
+
+        /** SyncPropData heroId. */
+        public heroId: (number|Long);
 
         /** SyncPropData type. */
         public type: pb.Prop[];
@@ -2802,6 +2944,9 @@ declare namespace pb {
     /** Properties of a SyncPropData2. */
     interface ISyncPropData2 {
 
+        /** SyncPropData2 heroId */
+        heroId?: (number|Long|null);
+
         /** SyncPropData2 type */
         type?: (pb.Prop[]|null);
 
@@ -2817,6 +2962,9 @@ declare namespace pb {
          * @param [properties] Properties to set
          */
         constructor(properties?: pb.ISyncPropData2);
+
+        /** SyncPropData2 heroId. */
+        public heroId: (number|Long);
 
         /** SyncPropData2 type. */
         public type: pb.Prop[];

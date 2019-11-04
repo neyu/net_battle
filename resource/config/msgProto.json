@@ -30,7 +30,6 @@
 
 	"//iface20": "同步操作数据",
 	"2020": "pb.TestNetLatency",
-	"2021": "pb.ExchangeOptData",
 
 	"2030": "pb.HeroInfo",
 
@@ -42,6 +41,8 @@
 	"2070": "pb.CreateDiceRoom",
 	"2071": "pb.JoinDiceRoom",
 	"2072": "pb.EnterDiceRoomResponse",
-	"2073": "pb.ExitDiceRoom"
+	"2073": "pb.ExitDiceRoom",
 
+	"2080": "pb.ExchangeRoomOpt",
+	"2081": "pb.SyncRoomState"
 }

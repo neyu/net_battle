@@ -39,6 +39,7 @@ class Main extends egret.Sprite {
     }
 
     private onAddToStage(event: egret.Event) {
+        // this.stage.frameRate = 30;
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin

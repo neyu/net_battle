@@ -62,7 +62,7 @@ class Bullet extends egret.Sprite {
             this._life = 99999 * 1000
         }
 
-        this.startMove()
+        // this.startMove()
     }
     public setBorder(radius:number) {
         this._borderR = radius;
@@ -83,6 +83,28 @@ class Bullet extends egret.Sprite {
         this.time = egret.getTimer();
         this._bornTime = this.time
         egret.startTick(this.move, this);
+    }
+
+    private _step: number = 2.0
+    public update() {
+        this.x += this._step * Math.cos(this._radian);
+        this.y += -this._step * Math.sin(this._radian);
+
+        let moveOffset = Math.sqrt(this.x * this.x + this.y * this.y)
+        if (moveOffset >= this._borderR) {
+            // 修正小数计算带来的越界
+            let ratio = this._borderR / moveOffset;
+            this.x = this.x * ratio;
+            this.y = this.y * ratio;
+
+            if (this._radian <= Math.PI * 2 / 3) {
+                this._radian = this._radian * 3;
+            } else if (this._radian > Math.PI * 2 / 3 && this._radian <= Math.PI * 4 / 3) {
+                this._radian = this._radian * 3 - Math.PI * 2;
+            } else if (this._radian > Math.PI * 4 / 3) {
+                this._radian = this._radian * 3 - Math.PI * 4;
+            }
+        }
     }
     private move(timeStamp: number): boolean {
         var now = timeStamp;
