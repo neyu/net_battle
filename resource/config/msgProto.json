@@ -44,5 +44,8 @@
 	"2073": "pb.ExitDiceRoom",
 
 	"2080": "pb.ExchangeRoomOpt",
-	"2081": "pb.SyncRoomState"
+	"2081": "pb.SyncRoomState",
+	"2082": "pb.SyncFrameState",
+
+	"99999": "endEOF"
 }

@@ -62,6 +62,8 @@ class SandTable extends egret.DisplayObjectContainer {
         this._origRadian = 0; // this.getRandRadian();
 
         this.drawSandTable()
+
+        Net.regMsgProc("pb.SyncFrameState", this.syncFrameState, this); 
     }
 
     private getRandRadian(): number {
@@ -440,7 +442,7 @@ class SandTable extends egret.DisplayObjectContainer {
     }
 
     public stopTick() {
-        TimerMgr.inst.remove(this.update, this);
+        // TimerMgr.inst.remove(this.update, this);
 
         Net.delMsgProc("pb.SyncFrameState", this.syncFrameState, this); 
     }
@@ -453,9 +455,8 @@ class SandTable extends egret.DisplayObjectContainer {
         this.retoreRecord()
 
         this._lastTick = egret.getTimer()
-        TimerMgr.inst.doTimer(this._interval, 0, this.update, this);
+        // TimerMgr.inst.doTimer(this._interval, 0, this.update, this);
 
-        Net.regMsgProc("pb.SyncFrameState", this.syncFrameState, this); 
     }
 
     private _ttTick: number = 0;
@@ -504,7 +505,13 @@ class SandTable extends egret.DisplayObjectContainer {
     }
 
     private syncFrameState(msg:pb.SyncFrameState) {
-        // 
+        let frame = msg.frame;
+        for (let i=0; i < msg.optData.length; i++) {
+            let data = JSON.parse(msg.optData[i])
+            this.executeOptData(frame, data)
+        }
+        this.updateBullet(frame)
+        Util.log("syncFrameState:", frame, msg.optData)
     }
 
     public retoreRecord() {
