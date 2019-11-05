@@ -6424,6 +6424,7 @@ $root.pb = (function() {
          * Properties of a SyncRoomState.
          * @memberof pb
          * @interface ISyncRoomState
+         * @property {number|null} [frame] SyncRoomState frame
          * @property {Array.<number|Long>|null} [userList] SyncRoomState userList
          * @property {Array.<pb.IPbOptInfo>|null} [optRecord] SyncRoomState optRecord
          */
@@ -6444,6 +6445,14 @@ $root.pb = (function() {
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+
+        /**
+         * SyncRoomState frame.
+         * @member {number} frame
+         * @memberof pb.SyncRoomState
+         * @instance
+         */
+        SyncRoomState.prototype.frame = 0;
 
         /**
          * SyncRoomState userList.
@@ -6473,15 +6482,17 @@ $root.pb = (function() {
         SyncRoomState.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.frame);
             if (message.userList != null && message.userList.length) {
-                writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                writer.uint32(/* id 2, wireType 2 =*/18).fork();
                 for (var i = 0; i < message.userList.length; ++i)
                     writer.int64(message.userList[i]);
                 writer.ldelim();
             }
             if (message.optRecord != null && message.optRecord.length)
                 for (var i = 0; i < message.optRecord.length; ++i)
-                    $root.pb.PbOptInfo.encode(message.optRecord[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                    $root.pb.PbOptInfo.encode(message.optRecord[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
 
@@ -6504,6 +6515,9 @@ $root.pb = (function() {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
+                    message.frame = reader.int32();
+                    break;
+                case 2:
                     if (!(message.userList && message.userList.length))
                         message.userList = [];
                     if ((tag & 7) === 2) {
@@ -6513,7 +6527,7 @@ $root.pb = (function() {
                     } else
                         message.userList.push(reader.int64());
                     break;
-                case 2:
+                case 3:
                     if (!(message.optRecord && message.optRecord.length))
                         message.optRecord = [];
                     message.optRecord.push($root.pb.PbOptInfo.decode(reader, reader.uint32()));
@@ -6538,6 +6552,8 @@ $root.pb = (function() {
             if (object instanceof $root.pb.SyncRoomState)
                 return object;
             var message = new $root.pb.SyncRoomState();
+            if (object.frame != null)
+                message.frame = object.frame | 0;
             if (object.userList) {
                 if (!Array.isArray(object.userList))
                     throw TypeError(".pb.SyncRoomState.userList: array expected");
@@ -6582,6 +6598,10 @@ $root.pb = (function() {
                 object.userList = [];
                 object.optRecord = [];
             }
+            if (options.defaults)
+                object.frame = 0;
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                object.frame = message.frame;
             if (message.userList && message.userList.length) {
                 object.userList = [];
                 for (var j = 0; j < message.userList.length; ++j)
@@ -6610,6 +6630,167 @@ $root.pb = (function() {
         };
 
         return SyncRoomState;
+    })();
+
+    pb.SyncFrameState = (function() {
+
+        /**
+         * Properties of a SyncFrameState.
+         * @memberof pb
+         * @interface ISyncFrameState
+         * @property {number|null} [frame] SyncFrameState frame
+         * @property {Array.<string>|null} [optData] SyncFrameState optData
+         */
+
+        /**
+         * Constructs a new SyncFrameState.
+         * @memberof pb
+         * @classdesc Represents a SyncFrameState.
+         * @implements ISyncFrameState
+         * @constructor
+         * @param {pb.ISyncFrameState=} [properties] Properties to set
+         */
+        function SyncFrameState(properties) {
+            this.optData = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SyncFrameState frame.
+         * @member {number} frame
+         * @memberof pb.SyncFrameState
+         * @instance
+         */
+        SyncFrameState.prototype.frame = 0;
+
+        /**
+         * SyncFrameState optData.
+         * @member {Array.<string>} optData
+         * @memberof pb.SyncFrameState
+         * @instance
+         */
+        SyncFrameState.prototype.optData = $util.emptyArray;
+
+        /**
+         * Encodes the specified SyncFrameState message. Does not implicitly {@link pb.SyncFrameState.verify|verify} messages.
+         * @function encode
+         * @memberof pb.SyncFrameState
+         * @static
+         * @param {pb.ISyncFrameState} message SyncFrameState message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SyncFrameState.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.frame);
+            if (message.optData != null && message.optData.length)
+                for (var i = 0; i < message.optData.length; ++i)
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.optData[i]);
+            return writer;
+        };
+
+        /**
+         * Decodes a SyncFrameState message from the specified reader or buffer.
+         * @function decode
+         * @memberof pb.SyncFrameState
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {pb.SyncFrameState} SyncFrameState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SyncFrameState.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.pb.SyncFrameState();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.frame = reader.int32();
+                    break;
+                case 2:
+                    if (!(message.optData && message.optData.length))
+                        message.optData = [];
+                    message.optData.push(reader.string());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a SyncFrameState message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof pb.SyncFrameState
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {pb.SyncFrameState} SyncFrameState
+         */
+        SyncFrameState.fromObject = function fromObject(object) {
+            if (object instanceof $root.pb.SyncFrameState)
+                return object;
+            var message = new $root.pb.SyncFrameState();
+            if (object.frame != null)
+                message.frame = object.frame | 0;
+            if (object.optData) {
+                if (!Array.isArray(object.optData))
+                    throw TypeError(".pb.SyncFrameState.optData: array expected");
+                message.optData = [];
+                for (var i = 0; i < object.optData.length; ++i)
+                    message.optData[i] = String(object.optData[i]);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SyncFrameState message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof pb.SyncFrameState
+         * @static
+         * @param {pb.SyncFrameState} message SyncFrameState
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SyncFrameState.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.optData = [];
+            if (options.defaults)
+                object.frame = 0;
+            if (message.frame != null && message.hasOwnProperty("frame"))
+                object.frame = message.frame;
+            if (message.optData && message.optData.length) {
+                object.optData = [];
+                for (var j = 0; j < message.optData.length; ++j)
+                    object.optData[j] = message.optData[j];
+            }
+            return object;
+        };
+
+        /**
+         * Converts this SyncFrameState to JSON.
+         * @function toJSON
+         * @memberof pb.SyncFrameState
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SyncFrameState.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return SyncFrameState;
     })();
 
     pb.PbHeroInfo = (function() {

@@ -86,7 +86,7 @@ class Bullet extends egret.Sprite {
     }
 
     private _step: number = 2.0
-    public update() {
+    public update(frame:number) {
         this.x += this._step * Math.cos(this._radian);
         this.y += -this._step * Math.sin(this._radian);
 
@@ -104,6 +104,11 @@ class Bullet extends egret.Sprite {
             } else if (this._radian > Math.PI * 4 / 3) {
                 this._radian = this._radian * 3 - Math.PI * 4;
             }
+        }
+        if (this._id == 1) {
+            let info = "bullet_1 frame:" + frame + "  x:" + this.x.toFixed(5) + "  y:" + this.y.toFixed(5);
+            Battle.inst.getScene().showDebug(info);
+            Util.log(info);
         }
     }
     private move(timeStamp: number): boolean {

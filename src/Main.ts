@@ -271,9 +271,18 @@ class Main extends egret.Sprite {
         let b = this.getFixedNumber(a);
         console.log("a:", a);
         console.log("b:", b);
+
+        // TimerMgr.inst.doFrame(0, 0, this.doFrame, this)
+        // TimerMgr.inst.doTimer(0, 0, this.doTimer, this)
     }
     private getFixedNumber(a:number): number {
         let b = parseFloat(a.toFixed(5))
         return b;
+    }
+    private doFrame(elapse:number) {
+        Util.log("test do frame elapse:", elapse)
+    }
+    private doTimer(elapse:number) {
+        Util.log("test do timer elapse:", elapse)
     }
 }

@@ -2642,6 +2642,9 @@ declare namespace pb {
     /** Properties of a SyncRoomState. */
     interface ISyncRoomState {
 
+        /** SyncRoomState frame */
+        frame?: (number|null);
+
         /** SyncRoomState userList */
         userList?: ((number|Long)[]|null);
 
@@ -2657,6 +2660,9 @@ declare namespace pb {
          * @param [properties] Properties to set
          */
         constructor(properties?: pb.ISyncRoomState);
+
+        /** SyncRoomState frame. */
+        public frame: number;
 
         /** SyncRoomState userList. */
         public userList: (number|Long)[];
@@ -2699,6 +2705,71 @@ declare namespace pb {
 
         /**
          * Converts this SyncRoomState to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SyncFrameState. */
+    interface ISyncFrameState {
+
+        /** SyncFrameState frame */
+        frame?: (number|null);
+
+        /** SyncFrameState optData */
+        optData?: (string[]|null);
+    }
+
+    /** Represents a SyncFrameState. */
+    class SyncFrameState implements ISyncFrameState {
+
+        /**
+         * Constructs a new SyncFrameState.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: pb.ISyncFrameState);
+
+        /** SyncFrameState frame. */
+        public frame: number;
+
+        /** SyncFrameState optData. */
+        public optData: string[];
+
+        /**
+         * Encodes the specified SyncFrameState message. Does not implicitly {@link pb.SyncFrameState.verify|verify} messages.
+         * @param message SyncFrameState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: pb.ISyncFrameState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a SyncFrameState message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SyncFrameState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): pb.SyncFrameState;
+
+        /**
+         * Creates a SyncFrameState message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SyncFrameState
+         */
+        public static fromObject(object: { [k: string]: any }): pb.SyncFrameState;
+
+        /**
+         * Creates a plain object from a SyncFrameState message. Also converts values to other types if specified.
+         * @param message SyncFrameState
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: pb.SyncFrameState, options?: protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SyncFrameState to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

@@ -261,8 +261,14 @@ message PbOptInfo {
 }
 // 同步房间状态信息 
 message SyncRoomState {
-	repeated int64 userList = 1;
-	repeated PbOptInfo optRecord = 2;
+	int32 frame = 1;
+	repeated int64 userList = 2;
+	repeated PbOptInfo optRecord = 3;
+}
+// 由服务端来同步帧
+message SyncFrameState {
+	int32 frame = 1;
+	repeated string optData = 2;
 }
 
 

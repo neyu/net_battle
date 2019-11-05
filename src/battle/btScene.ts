@@ -1,8 +1,8 @@
 class BtScene extends egret.DisplayObjectContainer {
     private _sandTable: SandTable;
     private _btType: number = 0; // 0经典模式,1骰子模式
-    private _clsView: ClassicView = null
-    private _diceView: DiceView = null
+    public _clsView: ClassicView = null
+    public _diceView: DiceView = null
 
     constructor(type:number) {
         super()
@@ -26,7 +26,13 @@ class BtScene extends egret.DisplayObjectContainer {
             this.openDiceView()
         }
 
-        this._sandTable.startTick()
+        let data = {
+            opt: "loadOver",
+            userId: Login.inst._userData.userId
+        }
+        Net.Send("pb.ExchangeRoomOpt", {
+            optData: JSON.stringify(data),
+        })
     }
     public onExit() {
         Net.delMsgTarget(this);
@@ -84,30 +90,14 @@ class BtScene extends egret.DisplayObjectContainer {
     private exchangeRoomOpt(msg:pb.ExchangeRoomOpt) {
         let data:IOptData = JSON.parse(msg.optData)
         // Util.log("sync opt data:", msg.optData, opt) // 
-        if (data.opt == "shoot") {
-            let frame = msg.svrFrame;
-            this._sandTable.shoot(frame, data);
-            if (this._clsView) {
-                // 
-            } else if (this._diceView) {
-                this._diceView.resetDiceType();
+        this._sandTable.cacheOptData(msg.svrFrame, data)
+        if (data.opt == "loadOver") {
+            if (data.userId == Login.inst._userData.userId) {
+                this._sandTable.startTick();
             }
-        } else if (data.opt == "bet") {
-            this._sandTable.setBet(data.bet);
-        } else if (data.opt == "start") {
-            Util.log("battle start 。。。")
-            Battle.inst.start = true;
-
-            if (this._clsView) {
-                // 
-            } else if (this._diceView) {
-                this._diceView.start();
-            }
-        } else if (data.opt == "stop") {
-            Util.log("battle stop 。。。")
-            Battle.inst.start = false;
         }
     }
+    
     public showDebug(debug:string) {
         if (this._clsView) {
             this._clsView.showDebug(debug);

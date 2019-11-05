@@ -38,7 +38,7 @@ class SandTable extends egret.DisplayObjectContainer {
     private _bulletR: number = 10;
     private _bulletList: Bullet[] = [];
 
-    private _interval: number = 33; // ms
+    private _interval: number = 33 //33; // ms
     private _lastTick: number = 0;
     private _startTick: number = 0;
     private _curFrame: number = 0;
@@ -59,12 +59,9 @@ class SandTable extends egret.DisplayObjectContainer {
         this._h = this._w;
 
         // let angleList = [0, 90, 180, 270];
-        this._origRadian = this.getRandRadian();
+        this._origRadian = 0; // this.getRandRadian();
 
         this.drawSandTable()
-
-        this._lastTick = egret.getTimer()
-        TimerMgr.inst.doTimer(this._interval, 0, this.update, this);    
     }
 
     private getRandRadian(): number {
@@ -271,11 +268,14 @@ class SandTable extends egret.DisplayObjectContainer {
     }
 
     public clear() {
+        this.stopTick()
+
         for (let i=0; i < this._bulletList.length; i++) {
             let bullet = this._bulletList[i]
             bullet.destroy()
         }
         this._bulletList = [];
+        this._record = [];
     }
     public doCollisionDetect() {
         for (let i=0; i < this._bulletList.length; i++) {
@@ -408,7 +408,7 @@ class SandTable extends egret.DisplayObjectContainer {
         })
     }
     public shoot(frame:number, opt:IOptData) {
-        // Util.log("shoot orig/rad:", opt.origRad, opt.radian);
+        Util.log("shoot frame/orig/rad:", frame, opt.origRad, opt.radian);
         if (Login.inst._userData.userId == opt.userId) {
             if (Battle.inst.mode == 0) {
                 this.resetBallInfo();
@@ -421,7 +421,6 @@ class SandTable extends egret.DisplayObjectContainer {
         }
         let debug = "orig/rad:" + opt.origRad.toString() + "/" + opt.radian.toString();
         Battle.inst.getScene().showDebug(debug);
-        this.cacheOptData(frame, opt)
 
         this._seq += 1;
         let shtRad = opt.radian + opt.origRad - this._origRadian;
@@ -433,17 +432,32 @@ class SandTable extends egret.DisplayObjectContainer {
 
         this._bulletList.push(bullet);
     }
-    private cacheOptData(frame:number, opt:IOptData) {
+    public cacheOptData(frame:number, opt:IOptData) {
         this._record.push({
             frame: frame,
             optData: opt
         })
     }
 
+    public stopTick() {
+        TimerMgr.inst.remove(this.update, this);
+
+        Net.delMsgProc("pb.SyncFrameState", this.syncFrameState, this); 
+    }
+
     public startTick() {
         this._startTick = egret.getTimer()
         this._curFrame = 0;
+
+        // 恢复历史记录
+        this.retoreRecord()
+
+        this._lastTick = egret.getTimer()
+        TimerMgr.inst.doTimer(this._interval, 0, this.update, this);
+
+        Net.regMsgProc("pb.SyncFrameState", this.syncFrameState, this); 
     }
+
     private _ttTick: number = 0;
     private _tkTimes: number = 0;
     public updateTest() {
@@ -464,18 +478,76 @@ class SandTable extends egret.DisplayObjectContainer {
     private _step: number = 3; // 追赶步速 > 1,不然追不上的。
     public update() {
         let now = egret.getTimer()
-        let frames = Math.round((now - this._startTick) / 30)
+        let frames = Math.round((now - this._startTick) / this._interval) // test:500ms/帧
         let frameDiff = frames - this._curFrame
         for (let i=0; i < frameDiff && i < this._step; i++) {
-            this.updateBullet()
             this._curFrame += 1
+
+            for (let j=0; j < this._record.length; j++) {
+                let rec = this._record[j]
+                if (rec.frame == this._curFrame) {
+                    this.executeOptData(rec.frame, rec.optData)
+                } else if (rec.frame > this._curFrame) {
+                    break
+                }
+            }
+
+            this.updateBullet(this._curFrame)
         }
     }
 
-    private updateBullet() {
+    private updateBullet(frame:number) {
         for (let i=0; i < this._bulletList.length; i++) {
             let bullet = this._bulletList[i]
-            bullet.update()
+            bullet.update(frame)
+        }
+    }
+
+    private syncFrameState(msg:pb.SyncFrameState) {
+        // 
+    }
+
+    public retoreRecord() {
+        let tmpRecord = Battle.inst._tmpRecord
+        let svrFrame = Battle.inst._tmpFrame; 
+
+        let idx = 0;
+        for (let tk=0; tk < svrFrame; tk++) {
+            for (; idx < tmpRecord.length; idx++) {
+                if (tmpRecord[idx].frame <= tk+1) {
+                    this.executeOptData(tmpRecord[idx].frame, tmpRecord[idx].optData);
+                } else {
+                    break;
+                }
+            }
+            this.updateBullet(tk+1);
+        }
+        this._startTick = egret.getTimer() - svrFrame * this._interval;
+        this._curFrame = svrFrame
+
+        Battle.inst._tmpFrame = 0;
+        Battle.inst._tmpRecord = [];
+    }
+
+    public executeOptData(frame:number, data:IOptData) {
+        if (data.opt == "shoot") {
+            this.shoot(frame, data);
+
+            if (Battle.inst.mode == 1) {
+                Battle.inst.getScene()._diceView.resetDiceType()
+            }
+        } else if (data.opt == "bet") {
+            this.setBet(data.bet);
+        } else if (data.opt == "start") {
+            Util.log("battle start 。。。")
+            Battle.inst.start = true;
+
+            if (Battle.inst.mode == 1) {
+                Battle.inst.getScene()._diceView.start()
+            }
+        } else if (data.opt == "stop") {
+            Util.log("battle stop 。。。")
+            Battle.inst.start = false;
         }
     }
 }

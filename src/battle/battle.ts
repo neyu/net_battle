@@ -18,6 +18,7 @@ class Battle {
     private _master: number = 0;
     public start: boolean = false;
 
+    public _tmpFrame: number = 0;
     public _tmpRecord: IOptInfo[] = []; // 同步数据缓存
 
     public static get inst(): Battle {
@@ -70,16 +71,16 @@ class Battle {
         return false
     }
     private syncRoomState(msg:pb.SyncRoomState) {
-        Util.log("syncRoomState:", msg.userList, msg.optRecord)
+        Util.log("syncRoomState:", msg.frame, msg.userList, msg.optRecord)
+        this._tmpFrame = msg.frame;
+
         for (let i=0; i < msg.optRecord.length; i++) {
             let optInfo = msg.optRecord[i];
-            let opt = JSON.parse(optInfo.optData)
-            if (opt.opt == "shoot") {
-                this._tmpRecord.push({
-                    frame: optInfo.frame,
-                    optData: opt
-                })
-            }
+            let data = JSON.parse(optInfo.optData)
+            this._tmpRecord.push({
+                frame: optInfo.frame,
+                optData: data
+            })
         }
     }
 }
