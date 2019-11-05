@@ -18,17 +18,15 @@ class Battle {
     private _master: number = 0;
     public start: boolean = false;
 
-    public curFrame: number = 0; // 当前正播放的帧数
-    public optData: IOptData[] = []; // 同步数据缓存
+    public _tmpRecord: IOptInfo[] = []; // 同步数据缓存
 
     public static get inst(): Battle {
         if (Battle._inst == null) {
             Battle._inst = new Battle();
-            Battle._inst.init();
         }
         return Battle._inst;
     }
-    private init() {
+    public init() {
         Net.regMsgProc("pb.SyncRoomState", this.syncRoomState, this)
     }
     public createScene(type:number) {
@@ -73,5 +71,15 @@ class Battle {
     }
     private syncRoomState(msg:pb.SyncRoomState) {
         Util.log("syncRoomState:", msg.userList, msg.optRecord)
+        for (let i=0; i < msg.optRecord.length; i++) {
+            let optInfo = msg.optRecord[i];
+            let opt = JSON.parse(optInfo.optData)
+            if (opt.opt == "shoot") {
+                this._tmpRecord.push({
+                    frame: optInfo.frame,
+                    optData: opt
+                })
+            }
+        }
     }
 }

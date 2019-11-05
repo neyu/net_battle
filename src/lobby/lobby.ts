@@ -12,6 +12,8 @@ class Lobby {
     }
     private init() {
         Net.regMsgProc("pb.TestNetLatency", this.testLatencyResponse, this)
+        // 提前开启监听
+        Battle.inst.init()
     }
     public createScene() {
         this._lobbyScene = new LobbyScene()

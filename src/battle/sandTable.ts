@@ -461,15 +461,14 @@ class SandTable extends egret.DisplayObjectContainer {
 
         this._lastTick = now;
     }
+    private _step: number = 3; // 追赶步速 > 1,不然追不上的。
     public update() {
         let now = egret.getTimer()
         let frames = Math.round((now - this._startTick) / 30)
         let frameDiff = frames - this._curFrame
-        if (frameDiff >= 1) {
-            for (let i=0; i < frameDiff; i++) {
-                this.updateBullet()
-            }
-            this._curFrame = frames
+        for (let i=0; i < frameDiff && i < this._step; i++) {
+            this.updateBullet()
+            this._curFrame += 1
         }
     }
 
