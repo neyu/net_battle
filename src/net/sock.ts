@@ -33,6 +33,7 @@ class Socket {
      * 添加事件监听
      */
     private addEvents() {
+        TimerMgr.inst.doTimer(30*1000, 0, this.dumpNetInfo, this)
         this._socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
         this._socket.addEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
         this._socket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
@@ -43,6 +44,7 @@ class Socket {
      * 移除事件监听
      */
     private removeEvents(): void {
+        TimerMgr.inst.remove(this.dumpNetInfo, this)
         this._socket.removeEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
         this._socket.removeEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
         this._socket.removeEventListener(egret.Event.CLOSE, this.onSocketClose, this);
@@ -229,5 +231,10 @@ class Socket {
     private debugInfo(str: String): void {
         // MessageCenter.inst.dispatch(SocketConst.SOCKET_DEBUG_INFO, str);
     }
-
+    private dumpNetInfo(elapse:number) {
+        if (this._msg && this._msg instanceof MsgProto) {
+            let msgInst = this._msg as MsgProto
+            Util.log("totalSend/totalRecv bytes:", msgInst.totalSend, msgInst.totalRecv)
+        }
+    }
 }

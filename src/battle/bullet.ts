@@ -108,7 +108,7 @@ class Bullet extends egret.Sprite {
         if (this._id == 1) {
             let info = "bullet_1 frame:" + frame + "  x:" + this.x.toFixed(5) + "  y:" + this.y.toFixed(5);
             Battle.inst.getScene().showDebug(info);
-            Util.log(info);
+            // Util.log(info);
         }
     }
     private move(timeStamp: number): boolean {

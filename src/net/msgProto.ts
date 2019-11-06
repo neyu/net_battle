@@ -8,8 +8,8 @@ class MsgProto implements MsgBase {
     private msgIdSize: number = 2;
     private msgHeadSize: number = 4;  // size + id
 
-    private totalSend: number = 0;
-    private totalRecv: number = 0;
+    public totalSend: number = 0;
+    public totalRecv: number = 0;
 
     /**
      * 构造函数

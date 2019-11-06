@@ -511,7 +511,10 @@ class SandTable extends egret.DisplayObjectContainer {
             this.executeOptData(frame, data)
         }
         this.updateBullet(frame)
-        Util.log("syncFrameState:", frame, msg.optData)
+        
+        if (frame % 1000 == 0) {
+            Util.log("syncFrameState:", frame, msg.optData)
+        }
     }
 
     public retoreRecord() {
