@@ -3,7 +3,7 @@
   "compilerVersion": "5.2.22",
   "template": {},
   "target": {
-    "current": "web"
+    "current": "wxgame"
   },
   "modules": [
     {
@@ -35,6 +35,10 @@
     {
       "name": "protobuf-bundles",
       "path": "protobuf/bundles"
+    },
+    {
+      "name": "three",
+      "path": "./libs/three"
     }
   ]
 }

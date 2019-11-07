@@ -274,6 +274,9 @@ class Main extends egret.Sprite {
 
         // TimerMgr.inst.doFrame(0, 0, this.doFrame, this)
         // TimerMgr.inst.doTimer(0, 0, this.doTimer, this)
+
+        let scene = new THREE.Scene();
+        Util.log("what is three scene:", scene);
     }
     private getFixedNumber(a:number): number {
         let b = parseFloat(a.toFixed(5))

@@ -7,6 +7,11 @@ wx.setEnableDebug({
   enableDebug: true
 })
 
+
+require('./js/three.js')
+// window["THREE"] = THREE;
+console.log(THREE)
+
 class WxgamePlatform {
 
     name = 'wxgame'

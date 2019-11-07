@@ -9,7 +9,8 @@
 		"libs/modules/promise/promise.js",
 		"libs/fairygui/fairygui.js",
 		"protobuf/library/protobuf-library.js",
-		"protobuf/bundles/protobuf-bundles.js"
+		"protobuf/bundles/protobuf-bundles.js",
+		"libs/three/three.js"
 	],
 	"game": [
 		"bin-debug/lobby/lobby.js",
